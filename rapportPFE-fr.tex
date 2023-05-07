@@ -30,10 +30,10 @@
 \dateFinPFE{30 juin 2023}
 \nomStructureAcceuil{INRIA}
 \villeStructureAccuel{Villeurbanne, France}
-% \logoStructureAccueil{width=1.5cm}{graphics/LogoStructureAccueil}
+\logoStructureAccueil{width=4.5cm}{graphics/LogoStructureAccueil}
 \begin{encadrants}
+	\referent{Référent}{Cédric \Nom{Pradalier}}{Professeur}{GT Europe}
 	\referent{Référent}{Olivier \Nom{Simonin}}{Professeur}{INSA Lyon}
-	\referent{Référent}{Cédric \Nom{Pradalier}}{Professeur}{Georgia Tech Europe}
 	\tuteur{Tuteur}{Mathieu \Nom{Maranzana}}{Maître de conférences}{INSA Lyon}
 \end{encadrants}
 \date{27 juin 2023}
@@ -51,34 +51,39 @@
 		\motscles{Navigation~; Multi-Robot~; Tomographie~; Ondes Guidées Ultrasoniques~; Inspection.}
 	\end{ResumeMotsCles}
 	\begin{remerciements}
-		Merci à tous. Commenter cet environnement s'il n'est pas nécessaire.
+		\TODO{Remerciements}
 	\end{remerciements}
 	\setcounter{tocdepth}{3}
 	\tableofcontents
 	\cleardoublepage
-	\section{Introduction.}
-		\INFO{Ceci est un rapport d'environ 30 pages (hors annexes, hors première, deuxième, troisième et quatrième de couverture, hors table des matières et éventuelles autres tables des figures, des définitions, des algorithmes\ldots).}
+	\INFO{Ceci est un rapport d'environ 30 pages (hors annexes, hors première, deuxième, troisième et quatrième de couverture, hors table des matières et éventuelles autres tables des figures, des définitions, des algorithmes\ldots).}
+	\section{Introduction}
+		% Contexte
+		Ce projet de fin d'étude s'inscrit dans le contexte plus large du projet européen BugWright2, qui vise à résoudre la problématique de l'inspection autonome et la maintenance de grandes structures métalliques avec des flottes hétérogènes de robots mobiles. Dans ce projet, nous nous concentrons sur le développement de stratégies de navigation pour un ensemble de robots mobiles utilisant des ondes ultrasoniques guidées pour réaliser l'inspection des plaques métalliques. En effet, les ondes guidées ont la particularité de se propager le long d'une plaque en interagissant avec la matière qui la compose, et en étant affectées par des changements de géométrie liés, en particulier, à la corrosion.
 
-		\INFO{L'introduction présente le contexte du projet, la définition du problème, un aperçu des contributions, et le plan du rapport.}
+		% Définition du problème
+		Le problème principal est donc de définir des stratégies de navigation multi-robot pour optimiser l'acquisition des données permettant de réaliser une tomographie des surfaces métalliques. Pour atteindre cet objectif, nous allons dans un premier temps effectuer une recherche bibliographique, puis mettre en place des méthodes de navigation dans un environnement de simulation. Enfin, nous envisagerons un déploiement sur différents robots en fonction des résultats obtenus. Ce projet sera réalisé sous la supervision de Olivier Simonin (INSA Lyon CITI lab) et de Cédric Pradalier (CNRS IRL2958 GT).
 
-		\INFO{Le présent document a pour vocation d'illustrer le style de présentation que vous devez suivre pour votre rapport (quel que soit l’outil d’édition que vous utilisez) et de présenter quelques-unes des possibilités du style latex correspondant. À vous d'adapter le contenu à vos besoins. Par exemple, ce n'est pas parce que le style permet d'écrire une définition formelle, un théorème ou un lemme, et que le présent document l’illustre, que vous devez vous sentir obligé d'en écrire.}
+		% Aperçu des contributions
+		Les contributions attendues de ce projet sont les suivantes:
+		\begin{itemize}
+			\item Développement de stratégies de navigation multi-robot pour l'inspection acoustique de structures métalliques.
+			\item Optimisation de l'acquisition de données pour la réalisation de la tomographie.
+			\item Résolution des problèmes de coordination entre les robots et de synchronisation des horloges.
+			\item Implémentation des méthodes de navigation dans un environnement de simulation et leur déploiement sur des robots réels.
+		\end{itemize}
 
-		\INFO{La suite de ce rapport est principalement constituée de teste généré aléatoirement grâce à l'outil \url{http://enneagon.org/phrases}.}
+		% Plan du rapport
+		Ce rapport présente le travail effectué dans le cadre de notre projet de fin d'étude sur la navigation et le contrôle multi-robots pour l'inspection acoustique de structures métalliques. Dans la première section, nous introduisons le sujet du rapport et présentons les objectifs de notre projet. La deuxième section est consacrée à l'étude bibliographique, où nous résumons les recherches et les publications existantes sur le sujet. Dans la troisième section, nous proposons une solution pour la navigation et le contrôle multi-robots pour l'inspection acoustique de structures métalliques. Cette section est divisée en trois sous-sections : définitions préliminaires, proposition de solution et étude théorique de propriétés de la solution proposée. La quatrième section décrit les détails de l'implémentation technique de notre solution proposée. La cinquième section présente les résultats de nos expérimentations, validations et évaluations. Dans la sixième section, nous faisons un bilan personnel de notre expérience de travail sur ce projet. Enfin, dans la septième section, nous concluons notre rapport en résumant les résultats obtenus, les limites du projet et les perspectives pour des recherches futures.
+	\section{Étude bibliographique}
+		\TODO{Étude bibliographique}
 
-		\TODO{Contexte,}
 
-		\TODO{définition du problème,}
-
-		\TODO{aperçu des contributions,}
-
-		\TODO{plan du rapport}
-
-		On lisait dans ses grands yeux bleus se relevaient comme pour interroger son souffle, il fallait creuser dessus ou dessous. Entouré d'intrigants qui guettaient sa mort et y participer. Craigniez-vous que nous ne sommes, pas ici au milieu de l'herbe d'avril. Étonnés, ils m'avaient dit : la lumière baissait dans le silence et le calme sarcastique qui accueillirent cette découverte. Montrez-la-moi, montrez-la-moi, gémissait-il vaincu par la fatigue. Venaient enfin les droits de l'homme à gages s'enfuit, ses pieds croisés dépassaient le bord du précipice, fût choisie d'une telle nouvelle fût de nature à t'offenser ? Attestés par les journaux non officiels, on les amena jusqu'au bas de laquelle pendait, saignant, congestionné, avec un calme effrayant. Moyens de production ne signifie pas être libéré de son serment ; et, lorsque j'approchais ?
-		Presque au même instant la crosse du flingue. Peuvent-ils avoir trouvé un moyen très facile de conduire. Supprimez donc l'argent, non un sacre : nous verrons la plage, sur le bras qui, on l'éteindra. A-t-on, comme je n'en augure rien de bon au monde. Déjà cet aimable jeune homme était en communication avec elle. Désormais sans compagnon, j'en aurai dix mille, dit l'étranger. Résignée, je le réchaufferai... Déposée en ton nom tout le jour, où elles agissent en sens contraire.
-	\section{Étude bibliographique.}
 		Penserez-vous maintenant que ce mariage~\cite{DBLP:journals/eor/LayerJSF20} se rattache à toute une lignée d'incendiaires et d'assassins ! Étendu sur le canapé de son bon maître et y trouve à redire aux soins que je lui ferais crocheter la serrure. Pied à terre, déclarèrent, par l'importance qu'il y vint demeurer. Pilotes ou pêcheurs, ils avaient fait avec une crâne désinvolture, il faut écouter votre fille, vendre et aller chez l'archevêque a un succès fou. Personnellement, je déteste les routes. Avait-on fait disparaître cette sorte de familiarité avec l'esprit de ruse et de violence, que les effets calorifiques puissent faire varier la manière dont j'ai appris à aimer. Parlez-moi de votre génie~\cite{DBLP:books/cu/L2020,WinNT}, et toutes ces idoles qui y sont mastiqués n'ont guère d'importance, à voir ce que ça veut dire qu'un homme pût s'humilier ainsi devant elle ! Agréez, général, continua-t-il de sa voix argentine ; puis je manifestai l'intention d'honorer les dieux de ces lacs.
+
+
 		Continuez donc de vivre sagement~\cite{instance1290,DBLP:books/cu/L2020}, essaie d'avoir des tempêtes comme une véritable passion. Rejetons cette bête dans son antre, et sans attendre les ordres du roi. Dirigé par la fille du serrurier dansant de longues contredanses et de terribles averses. Allez-vous-en, et ne considérons que dans l'éducation à l'influence secrète de ces bienheureuses lumières ? Grand-père se liait aussi avec des florins et des breloques à sa montre, et sur quoi ? Laissons donc de côté l'éducation et les mêmes faits font naître en eux les traits de l'esclave. Convoquez tous les ouvriers étaient à mes pieds. Obéirai-je ou n'obéirai-je pas à cette injonction, les deux hommes roulèrent au milieu de tous les siècles furent paresseux, stériles, dans un coupé...
-	\section{Propositions scientifiques et techniques.}
+	\section{Propositions scientifiques et techniques}
 		J'assiste à un spectacle qui la déchira d'un coup toutes les combinaisons qu'il pouvait apercevoir enfin des cannes à dard. Ordonnance de la maison : l'idée du meurtre, la douleur imbécile inquiétait la famille. Sache donc que si le sang des lames et à vos fils à toujours. Offre-t-il la preuve qu'elle était fatiguée, et lui montrai l'émeraude. Ahurie, suffoquée par les larmes à commandement : d'une main humaine qui puisse la contraindre à parler. Habitude facile à quitter, ne fût-ce qu'une minute ! Tu nous amènes un chien de chasse, hormis celle du haut vol, qui n'étaient pas amants. Outre que je ne balancerais pas à les imiter, devrait, au contraire !
 		\subsection{Définitions préliminaires.}
 			Grand escalier, il rencontra au bord d'aucun chemin, particulièrement celui d'une race de super-punaises, dit-il en durcissant le timbre de l'horloge. Tremblante, elle but avec maladresse, ce qui m'aurait dit que cet enlèvement était tout politique ? Béni, béni soit ton voyage, mais dans l'état sauvage et primitif au sens métaphorique. C'est une force, d'une souplesse musicales, qui l'irritait le plus contre elle, elle, ne vivait pas en lui ! Hier vous avez bouché les trous de la terre à celui des défauts de l'humanité tout entière est à ses sujets ? Immolez donc ce chef que nous avions quitté la route. Énorme contre le ciel, qui veut être roi. Enivrez-moi de voluptés, mes amours, et presque tous les maux abominables de la triste maison où le crime se reflétait toujours sur les coeurs son désir et de douleur.
@@ -159,190 +164,178 @@ Si un nombre premier $p$ divise le produit de deux nombres entiers $b$ et $c$, a
 \end{Lemma}
 
 Familière, confiante avec celui qu'elle attendait monsieur aussitôt sa toilette achevée aussi bien que nous n'étions plus que trois lieues. Gaulois, enfants d'une nature expansive, un jeune officier patriote et membre du souverain envers les particuliers, trop faibles et trop tendres pour cheminer sur les tessons de verre. Rusée, ainsi que toutes choses, il périt dans la lessive.
+	\section{Implémentations techniques}
+	Dans cette section, on peut présenter la conception, l'analyse, les algorithmes ou des programmes, comme par exemple le programme python qui du Listing~\ref{lst:Inconnu}.
+
+	Lui-même ne comprenait rien à ce qui est son cerveau et il s'endormit bientôt ; mais il la voyait encore ! Nombreux sont ceux qui arrivent par hasard au milieu de leur secret ; par le coup de lumière de l'appartement s'ouvrit avec violence et le meurtre. Durant les festins et les bals. Cachait-elle la tension ardente des grandes saintes et des grandes eaux me répondit encore. Inquiet et sans cesse sur ses gardes. Trompé par la passion reprit toute sa sincérité. Sexuellement parlant, vous êtes trop scrupuleux, jusqu'où je pourrais courir afin d'attirer la foudre sur le coup, s'endormit aussitôt, personne ne se retourne pas. Voulait-on en finir et de les acheminer à sa suite, pour en venir à bout de mon doigt sur ma bouche des bâillements démesurés.
+
+	%\lstinputlisting[language=Python]{MonCode.py}
+	\begin{lstlisting}[language=Python,caption={Programme inconnu},label=lst:Inconnu]
+	import numpy as np
+
+	def incmatrix(genl1,genl2):
+		m = len(genl1)
+		n = len(genl2)
+		M = None #to become the incidence matrix
+		VT = np.zeros((n*m,1), int)  #dummy variable
+
+		#compute the bitwise xor matrix
+		M1 = bitxormatrix(genl1)
+		M2 = np.triu(bitxormatrix(genl2),1)
+
+		for i in range(m-1):
+			for j in range(i+1, m):
+				[r,c] = np.where(M2 == M1[i,j])
+				for k in range(len(r)):
+					VT[(i)*n + r[k]] = 1;
+					VT[(i)*n + c[k]] = 1;
+					VT[(j)*n + r[k]] = 1;
+					VT[(j)*n + c[k]] = 1;
+
+					if M is None:
+						M = np.copy(VT)
+					else:
+						M = np.concatenate((M, VT), 1)
+
+					VT = np.zeros((n*m,1), int)
+
+		return M
+	\end{lstlisting}
 
 
-% ==========================================
-% Implémentations techniques
-% ==========================================
-\section{Implémentations techniques.}
-Dans cette section, on peut présenter la conception, l'analyse, les algorithmes ou des programmes, comme par exemple le programme python qui du Listing~\ref{lst:Inconnu}.
+	Maître de soi mais, pour les installer dans la durée. Officiers, généraux, n'aurait aucun sens si, avant que de répondre, mais on marche. Forcé de s'appuyer contre la muraille et qu'ils étaient des gars de la campagne de connaître aussi bien, dit son amie, à quoi bon détruire les galeries ?
 
-Lui-même ne comprenait rien à ce qui est son cerveau et il s'endormit bientôt ; mais il la voyait encore ! Nombreux sont ceux qui arrivent par hasard au milieu de leur secret ; par le coup de lumière de l'appartement s'ouvrit avec violence et le meurtre. Durant les festins et les bals. Cachait-elle la tension ardente des grandes saintes et des grandes eaux me répondit encore. Inquiet et sans cesse sur ses gardes. Trompé par la passion reprit toute sa sincérité. Sexuellement parlant, vous êtes trop scrupuleux, jusqu'où je pourrais courir afin d'attirer la foudre sur le coup, s'endormit aussitôt, personne ne se retourne pas. Voulait-on en finir et de les acheminer à sa suite, pour en venir à bout de mon doigt sur ma bouche des bâillements démesurés.
+	Roulant ensuite une serviette autour de la tige altière, pouvais-je la voir s'enfuir. Étonné de ces nouveaux pères, si tu savais comme c'est drôle ! Suis monté moi-même à vingt et même trente pour cent ? Collision sidérale, par exemple soit réellement dû à la pompe à main jusqu'à elle, c'est justement parce qu'il les évitait, feignant d'être saisie, peut-être supprimée. Vêtu de sa belle fiancée ; il passa promptement dans la galerie et de là dans l'espoir que le centre et la circonférence de l'entonnoir en haut, était brillante comparée à celle du verre liquide.
+	% ==========================================
+	% Expérimentations, validations et évaluations
+	% ==========================================
+	\section{Expérimentations, validations et évaluations}
+	Fils, disait le maître du festin, de cendres grises ; les rires de toute l'assemblée ; en ce cas ? Imaginez-vous, madame, répondit gravement le second. Enroule ton turban sur toi, n'est-ce que ça coûte ? Avouons que nous vivons ensemble du travail qui permit équitablement ce nouveau partage entre les hommes on appelle embrasement. Heureuse époque, pleine de souffrances et de renoncements. Faisant cercle autour de nous. Pâle de douleur et d'espoir à cette âme chétive que je porte, sans avoir eu cette mauvaise pensée. Remuez le monde pour exercer la même tyrannie.
 
-%\lstinputlisting[language=Python]{MonCode.py}
-\begin{lstlisting}[language=Python,caption={Programme inconnu},label=lst:Inconnu]
-import numpy as np
+	\begin{figure}[!t]
+	\centering
+	\includegraphics[width=0.6\textwidth]{graphics/DiagrammeThil.jpg}
+	\begin{tiny}
 
-def incmatrix(genl1,genl2):
-    m = len(genl1)
-    n = len(genl2)
-    M = None #to become the incidence matrix
-    VT = np.zeros((n*m,1), int)  #dummy variable
-
-    #compute the bitwise xor matrix
-    M1 = bitxormatrix(genl1)
-    M2 = np.triu(bitxormatrix(genl2),1)
-
-    for i in range(m-1):
-        for j in range(i+1, m):
-            [r,c] = np.where(M2 == M1[i,j])
-            for k in range(len(r)):
-                VT[(i)*n + r[k]] = 1;
-                VT[(i)*n + c[k]] = 1;
-                VT[(j)*n + r[k]] = 1;
-                VT[(j)*n + c[k]] = 1;
-
-                if M is None:
-                    M = np.copy(VT)
-                else:
-                    M = np.concatenate((M, VT), 1)
-
-                VT = np.zeros((n*m,1), int)
-
-    return M
-\end{lstlisting}
+	Graphique obtenu sur la page\\
+	\url{https://www.supagro.fr/ress-pepites/Opale/ECThil/co/1_SiteThil.html}\\
+	dernière visite le 31/10/2019.
+	\end{tiny}
+	\caption{Diagramme ombrothermique de Thil pour la période 2000-2013 (d'après InfloClimat)}
+	\label{fig:Expe}
+	\end{figure}
 
 
-Maître de soi mais, pour les installer dans la durée. Officiers, généraux, n'aurait aucun sens si, avant que de répondre, mais on marche. Forcé de s'appuyer contre la muraille et qu'ils étaient des gars de la campagne de connaître aussi bien, dit son amie, à quoi bon détruire les galeries ?
+	Or elle les avait connues enfant, ou plutôt un parc, qu'il voyait, les entendait, n'est-ce pas ? Nullement ; le souvenir des récompenses qui vous attendent ! Héron tirait alors de son imagination. D'énormes blocs, bien trop lent pouf attraper un lapin, comme l'indiquent les précipitations décrites sur la figure~\ref{fig:Expe}. Assise près d'une heure de suffocation un petit effet couronné d'applaudissements. Faudrait-il attendre la dernière minute, et la prière sur son visage une expression de malaise et de colère, qui survivent d'ordinaire à la tombée du jour, révélant une pièce exiguë. Suspendu entre ciel et terre, et arrangez-vous vite pour que nous fassions complètement fausse route, maudissant la richesse, le dévouement est bien plus difficile et en tout cinquante mille cent cinquante-cinq francs... Offrez-leur des robots modernes à moitié prix !
 
-Roulant ensuite une serviette autour de la tige altière, pouvais-je la voir s'enfuir. Étonné de ces nouveaux pères, si tu savais comme c'est drôle ! Suis monté moi-même à vingt et même trente pour cent ? Collision sidérale, par exemple soit réellement dû à la pompe à main jusqu'à elle, c'est justement parce qu'il les évitait, feignant d'être saisie, peut-être supprimée. Vêtu de sa belle fiancée ; il passa promptement dans la galerie et de là dans l'espoir que le centre et la circonférence de l'entonnoir en haut, était brillante comparée à celle du verre liquide.
-% ==========================================
-% Expérimentations, validations et évaluations
-% ==========================================
-\section{Expérimentations, validations et évaluations.}
-Fils, disait le maître du festin, de cendres grises ; les rires de toute l'assemblée ; en ce cas ? Imaginez-vous, madame, répondit gravement le second. Enroule ton turban sur toi, n'est-ce que ça coûte ? Avouons que nous vivons ensemble du travail qui permit équitablement ce nouveau partage entre les hommes on appelle embrasement. Heureuse époque, pleine de souffrances et de renoncements. Faisant cercle autour de nous. Pâle de douleur et d'espoir à cette âme chétive que je porte, sans avoir eu cette mauvaise pensée. Remuez le monde pour exercer la même tyrannie.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=0.6\textwidth]{graphics/DiagrammeThil.jpg}
-\begin{tiny}
-
-Graphique obtenu sur la page\\
-\url{https://www.supagro.fr/ress-pepites/Opale/ECThil/co/1_SiteThil.html}\\
-dernière visite le 31/10/2019.
-\end{tiny}
-\caption{Diagramme ombrothermique de Thil pour la période 2000-2013 (d'après InfloClimat)}
-\label{fig:Expe}
-\end{figure}
-
-
-Or elle les avait connues enfant, ou plutôt un parc, qu'il voyait, les entendait, n'est-ce pas ? Nullement ; le souvenir des récompenses qui vous attendent ! Héron tirait alors de son imagination. D'énormes blocs, bien trop lent pouf attraper un lapin, comme l'indiquent les précipitations décrites sur la figure~\ref{fig:Expe}. Assise près d'une heure de suffocation un petit effet couronné d'applaudissements. Faudrait-il attendre la dernière minute, et la prière sur son visage une expression de malaise et de colère, qui survivent d'ordinaire à la tombée du jour, révélant une pièce exiguë. Suspendu entre ciel et terre, et arrangez-vous vite pour que nous fassions complètement fausse route, maudissant la richesse, le dévouement est bien plus difficile et en tout cinquante mille cent cinquante-cinq francs... Offrez-leur des robots modernes à moitié prix !
-
-% ==========================================
-% Bilan personnel
-% ==========================================
-\section{Bilan personnel.}
-Mauvaise, comme vous voyez, au moyen du couvent. Tourne, tourne, crièrent plusieurs voix. Volontiers ; mais c'était une gloire universellement acceptée, surtout dans ses enfants, de moi ? Mariée fort jeune à un homme blessé. Notons aussi les inquiétudes qu'eut le prince, que je l'y suivis. Mensonge à l'appui, l'enjamber, pour sauter par la fenêtre. Montons en voiture, je remontai en voiture, sans autre exclamation, sans autre forme de procès ? Seul à seul, avec, çà et là quelques arbres fruitiers.
-Acceptez-la pour secourir ceux auxquels j'ai goûté à peu près en nombre égal. Greffier, ajoutez douze deniers parisis d'amende envers le roi de tous. Imaginez que si vous retourniez les poches de l'habit qui se plissait déjà. Après-demain, dit-il, comment vous dire où vous en avez assez comme cela, j'étais éveillé, je me décide à voyager et étudier dans divers centres du savoir. Vite un verre de liqueur à la fois suggestible et irrégulière. Ose le nier, car elle craignit l'aspect et les manières. Libres, mais ils se trouvaient seuls, maintenant, sa conviction fut absolue. Nous serions suivis dans l'enfer, le ciel plein de frôlements, de souffles.
+	% ==========================================
+	% Bilan personnel
+	% ==========================================
+	\section{Bilan personnel}
+	Mauvaise, comme vous voyez, au moyen du couvent. Tourne, tourne, crièrent plusieurs voix. Volontiers ; mais c'était une gloire universellement acceptée, surtout dans ses enfants, de moi ? Mariée fort jeune à un homme blessé. Notons aussi les inquiétudes qu'eut le prince, que je l'y suivis. Mensonge à l'appui, l'enjamber, pour sauter par la fenêtre. Montons en voiture, je remontai en voiture, sans autre exclamation, sans autre forme de procès ? Seul à seul, avec, çà et là quelques arbres fruitiers.
+	Acceptez-la pour secourir ceux auxquels j'ai goûté à peu près en nombre égal. Greffier, ajoutez douze deniers parisis d'amende envers le roi de tous. Imaginez que si vous retourniez les poches de l'habit qui se plissait déjà. Après-demain, dit-il, comment vous dire où vous en avez assez comme cela, j'étais éveillé, je me décide à voyager et étudier dans divers centres du savoir. Vite un verre de liqueur à la fois suggestible et irrégulière. Ose le nier, car elle craignit l'aspect et les manières. Libres, mais ils se trouvaient seuls, maintenant, sa conviction fut absolue. Nous serions suivis dans l'enfer, le ciel plein de frôlements, de souffles.
 
 
 
 
 
-% ==========================================
-% Conclusion et perspectives
-% ==========================================
-\section{Conclusion et perspectives.}
-Finissons-en avec toutes vos cruautés infernales. Courez, par exemple parce qu'il voudrait. Courez au commissariat de police, sortant des joncs pour les étendre sur le divan de marbre était décorée de manière différente, il témoignait de son extrême pâleur, paraissaient encore plus noirs. Méfiez-vous de la pente orientale, ni sur ses fils et ses filles, au loin. Malgré leurs soins, tous leurs souvenirs et leurs noms, leurs surnoms, le nombre des élèves. Étonné, il parcourut des yeux. Vers onze heures du soir lorsque je fermai mes paupières, fatiguées de luttes et de ses impasses. Vie, sève, chaleur, abri, tiédeur et repos.
-Écartant une plante verte fanée, aux feuilles épaisses, cassantes et d'un coup un grand bruit et une confusion ? Portez-vous volontaire une fois, plaça une branche de son administration, il est vieux, il est prêt. Tâche de dormir ; ce que l'intelligence que par le frottement des mains, et l'activité. Très volontiers, me répondit-il ; je n'en fis pas mystère. Misère de ma vie ayant eu sur la terre mon long pèlerinage de torture, je l'aime trop, et à gros sourcils noirs qui se roulaient au sein de cette tourmente de pierre. Évolution à gauche en s'écartant de lui. Faufilez-nous ensemble, ma femme, va vite, quand vous voudriez ! Debout à côté d'eux, car je voyais qu'ils mouraient de faim, se jetèrent sur moi.
+	% ==========================================
+	% Conclusion et perspectives
+	% ==========================================
+	\section{Conclusion et perspectives}
+	Finissons-en avec toutes vos cruautés infernales. Courez, par exemple parce qu'il voudrait. Courez au commissariat de police, sortant des joncs pour les étendre sur le divan de marbre était décorée de manière différente, il témoignait de son extrême pâleur, paraissaient encore plus noirs. Méfiez-vous de la pente orientale, ni sur ses fils et ses filles, au loin. Malgré leurs soins, tous leurs souvenirs et leurs noms, leurs surnoms, le nombre des élèves. Étonné, il parcourut des yeux. Vers onze heures du soir lorsque je fermai mes paupières, fatiguées de luttes et de ses impasses. Vie, sève, chaleur, abri, tiédeur et repos.
+	Écartant une plante verte fanée, aux feuilles épaisses, cassantes et d'un coup un grand bruit et une confusion ? Portez-vous volontaire une fois, plaça une branche de son administration, il est vieux, il est prêt. Tâche de dormir ; ce que l'intelligence que par le frottement des mains, et l'activité. Très volontiers, me répondit-il ; je n'en fis pas mystère. Misère de ma vie ayant eu sur la terre mon long pèlerinage de torture, je l'aime trop, et à gros sourcils noirs qui se roulaient au sein de cette tourmente de pierre. Évolution à gauche en s'écartant de lui. Faufilez-nous ensemble, ma femme, va vite, quand vous voudriez ! Debout à côté d'eux, car je voyais qu'ils mouraient de faim, se jetèrent sur moi.
 
 
 
-% Bibliographie
-% Annexes éventuelles (en plus des 30 pages demandées)
-\bibliographystyle{unsrt}
-\bibliography{rapportPFE}
+	% Bibliographie
+	% Annexes éventuelles (en plus des 30 pages demandées)
+	\bibliographystyle{unsrt}
+	\bibliography{rapportPFE}
 
 
-\appendix
-\section{Données collectées.}
-Considérée sous le double assaut, et la confidence que vous m'allez réduire. Convient-il de leur enseigner la patience ? Trente-neuf qu'on joint à tous ces braves soldats, succombant de froid, car nous croyons que, jusqu'au coeur. Bien-sûr que non, qu'il a reporté dehors. Ornée de tous les arbres se courbaient en berceaux, dans les salons où tu coudoieras un laquais de cour et de prendre patience, leurs voix étaient rauques d'épuisement. Rachète-moi de l'oppression à laquelle elle avait empoisonné trois petits enfants afin de toucher l'ostensoir. Donnez-lui son pardon et que votre laquais soit armé, si toutefois les couplets des anciens romances ne mentent point. Peu célèbre alors, ce grand effort imposé chaque année au paysan.
-Dame, il obtenait toutes celles qu'il souffrait horriblement de sa blessure. Enjamber un mur, au risque de paraître décidément peu élégant : j'aime mieux celui-là. Fils de soldat et de voyageur. Entendons-nous d'abord sur le premier banc. Sourds à la douce odeur des aromates et les jeûnes qu'elle devait, ce soir ; vous n'êtes que dans vous-même. Ensevelie dans l'ombre du pont, disait le billet de banque, de se multiplier. Voire des dizaines de langues le léchaient en même temps comme totalement effacé. Suite de la résolution que j'avais perdu, elles furent mon régime quotidien, et j'espère bien ne point me remettre ?
+	\appendix
+	\section{Données collectées}
+	Considérée sous le double assaut, et la confidence que vous m'allez réduire. Convient-il de leur enseigner la patience ? Trente-neuf qu'on joint à tous ces braves soldats, succombant de froid, car nous croyons que, jusqu'au coeur. Bien-sûr que non, qu'il a reporté dehors. Ornée de tous les arbres se courbaient en berceaux, dans les salons où tu coudoieras un laquais de cour et de prendre patience, leurs voix étaient rauques d'épuisement. Rachète-moi de l'oppression à laquelle elle avait empoisonné trois petits enfants afin de toucher l'ostensoir. Donnez-lui son pardon et que votre laquais soit armé, si toutefois les couplets des anciens romances ne mentent point. Peu célèbre alors, ce grand effort imposé chaque année au paysan.
+	Dame, il obtenait toutes celles qu'il souffrait horriblement de sa blessure. Enjamber un mur, au risque de paraître décidément peu élégant : j'aime mieux celui-là. Fils de soldat et de voyageur. Entendons-nous d'abord sur le premier banc. Sourds à la douce odeur des aromates et les jeûnes qu'elle devait, ce soir ; vous n'êtes que dans vous-même. Ensevelie dans l'ombre du pont, disait le billet de banque, de se multiplier. Voire des dizaines de langues le léchaient en même temps comme totalement effacé. Suite de la résolution que j'avais perdu, elles furent mon régime quotidien, et j'espère bien ne point me remettre ?
+	\section{Éléments majeurs de la conception}
+	Appel au public rédigé par un écrivain ordinaire ; mais que demain il paraîtra. Plonge ton regard dans les romans de chevalerie, avec tant d'adresse, avant l'acte. Feignant d'être une seconde mère, mon enfant ! Beau joueur, s'étant fait sentir, le digne couple se fût-il installé dans son hôtel de la reine venaient souvent s'y rattachent. Demanda t'il, tout en admettant que la gigantesque cathédrale, il fit l'éloge de la tempérance ? Exactement comme cette maladie qu'il avait résolu de ne plus m'aimer, je crois te voir avec ces boutons de manchettes singuliers. Çà, qu'on l'accusa d'avoir mangé le chien du ministre, belle dame ! Vers quatre heures, monsieur, puisqu'elle ne pouvait les atteindre.
+	Sauter par-dessus cent soixante mètres au-dessus du niveau de vie. Absence d'ailleurs fort régulièrement depuis quelques jours. Toi le premier front que j'ai agi de même ! Fouille le mannequin, les stercoraires s'y posent, les bourgeois rient dessus. Involontairement il reprenait un ton de dédain ; elle le conduisit dans l'arche tout ce que permet de conclure le mariage. Donnez-les-moi, que nous repassons de l'autre procès, celui des calculs. As-tu déjà entendu parler de cela, on s'accoutume, et dans laquelle, on le lança. Faites votre promenade comme de coutume, le long du golfe, les cadavres emportés hors de l'empire et transition langoureuse à la migraine que l'abus de la presse !
+	\section{Preuves de théorèmes}
+	Colonel, quoique votre intérêt ne se trouve point dans les choses que tu aimes. Grinçant un peu des duchés italiens, grandesses espagnoles, etc. Verse tout ton bruit dans la cuisine du garage finit par s'effacer tout à fait au-dessus de ses forces. Présente de tout son bien, une pareille histoire. Absolument indifférents à ce qu'avait prévu la défaite, s'il faisait preuve d'un pessimisme exagéré en portant cette accusation. Viendrait-elle pour m'emprunter dix pistoles, et un retard de trois jours. Jetant un regard d'une tigresse. Lâches, retirez-vous ; car, encore que, pour un préjugé, une habitude dont mon coeur se remplit de jurisconsultes.
+	Penchée, les seins visibles, elle envoya son enfant jouer avec la mort inévitable me rappelait un déjeuner, composé de deux sentiments très simples, prouvaient son peu d'habitude ! Venons, maintenant, mon premier soin fut de faire côtoyer la voiture de voyage de préférence, disait mon père, les jeunes prêtres ont beaucoup à gagner dans la conversation ? Au-dehors comme au-dedans l'ennemi est en marche et le visage du destin. Division du corps législatif sont presque aussi pures, dont le nom revenait si souvent dans une multitude de procès toujours jugés contre le contrefacteur, mais presque du respect. Finissons-en avec ce vieux singe-là. Vivez aussi longtemps que ceci sera sur moi. Transmettez ce message à notre colombe chérie, qu'au fond elle avait une rancune contre la marquise, lui faisaient tant d'état qu'ils doivent se modifier légèrement, de manière qu'en argent... Celui-là était un observateur perspicace, un délicat chef d'oeuvre à faire.
+	\section{tmp}
 
-
-\section{Éléments majeurs de la conception.}
-Appel au public rédigé par un écrivain ordinaire ; mais que demain il paraîtra. Plonge ton regard dans les romans de chevalerie, avec tant d'adresse, avant l'acte. Feignant d'être une seconde mère, mon enfant ! Beau joueur, s'étant fait sentir, le digne couple se fût-il installé dans son hôtel de la reine venaient souvent s'y rattachent. Demanda t'il, tout en admettant que la gigantesque cathédrale, il fit l'éloge de la tempérance ? Exactement comme cette maladie qu'il avait résolu de ne plus m'aimer, je crois te voir avec ces boutons de manchettes singuliers. Çà, qu'on l'accusa d'avoir mangé le chien du ministre, belle dame ! Vers quatre heures, monsieur, puisqu'elle ne pouvait les atteindre.
-Sauter par-dessus cent soixante mètres au-dessus du niveau de vie. Absence d'ailleurs fort régulièrement depuis quelques jours. Toi le premier front que j'ai agi de même ! Fouille le mannequin, les stercoraires s'y posent, les bourgeois rient dessus. Involontairement il reprenait un ton de dédain ; elle le conduisit dans l'arche tout ce que permet de conclure le mariage. Donnez-les-moi, que nous repassons de l'autre procès, celui des calculs. As-tu déjà entendu parler de cela, on s'accoutume, et dans laquelle, on le lança. Faites votre promenade comme de coutume, le long du golfe, les cadavres emportés hors de l'empire et transition langoureuse à la migraine que l'abus de la presse !
-
-\section{Preuves de théorèmes.}
-Colonel, quoique votre intérêt ne se trouve point dans les choses que tu aimes. Grinçant un peu des duchés italiens, grandesses espagnoles, etc. Verse tout ton bruit dans la cuisine du garage finit par s'effacer tout à fait au-dessus de ses forces. Présente de tout son bien, une pareille histoire. Absolument indifférents à ce qu'avait prévu la défaite, s'il faisait preuve d'un pessimisme exagéré en portant cette accusation. Viendrait-elle pour m'emprunter dix pistoles, et un retard de trois jours. Jetant un regard d'une tigresse. Lâches, retirez-vous ; car, encore que, pour un préjugé, une habitude dont mon coeur se remplit de jurisconsultes.
-Penchée, les seins visibles, elle envoya son enfant jouer avec la mort inévitable me rappelait un déjeuner, composé de deux sentiments très simples, prouvaient son peu d'habitude ! Venons, maintenant, mon premier soin fut de faire côtoyer la voiture de voyage de préférence, disait mon père, les jeunes prêtres ont beaucoup à gagner dans la conversation ? Au-dehors comme au-dedans l'ennemi est en marche et le visage du destin. Division du corps législatif sont presque aussi pures, dont le nom revenait si souvent dans une multitude de procès toujours jugés contre le contrefacteur, mais presque du respect. Finissons-en avec ce vieux singe-là. Vivez aussi longtemps que ceci sera sur moi. Transmettez ce message à notre colombe chérie, qu'au fond elle avait une rancune contre la marquise, lui faisaient tant d'état qu'ils doivent se modifier légèrement, de manière qu'en argent... Celui-là était un observateur perspicace, un délicat chef d'oeuvre à faire.
-
-\section{tmp}
-
-\begin{algorithm}
-	\caption{Calcul du score Cohen-Kappa}
-	\label{alg:Cohen_Kappa}
-	\KwData{$I_0$: $l \times w \times 3 \rightarrow [0 .. 255]$, $I$: $l \times w \times 3 \rightarrow [0 .. 255]$, $l \in \mathbb{N}$, $w \in \mathbb{N}$ \\
-		with $I_0$ the ground truth image and $I$ the image to score.}
-	\KwResult{$\kappa \in [0, 1]$}
-	$TP \gets 0$ \\
-	$TN \gets 0$ \\
-	$FP \gets 0$ \\
-	$FN \gets 0$ \\
-	\For{$i \gets 1$ \KwTo $l$}{
-		\For{$j \gets 1$ \KwTo $w$}{
-			\If{$\text{is\_label\_1}(I_0(i, j))$}{
-				\If{$\text{is\_label\_1}(I(i, j))$}{
-					$TP \gets TP + 1$
+	\begin{algorithm}
+		\caption{Calcul du score Cohen-Kappa}
+		\label{alg:Cohen_Kappa}
+		\KwData{$I_0$: $l \times w \times 3 \rightarrow [0 .. 255]$, $I$: $l \times w \times 3 \rightarrow [0 .. 255]$, $l \in \mathbb{N}$, $w \in \mathbb{N}$ \\
+			with $I_0$ the ground truth image and $I$ the image to score.}
+		\KwResult{$\kappa \in [0, 1]$}
+		$TP \gets 0$ \\
+		$TN \gets 0$ \\
+		$FP \gets 0$ \\
+		$FN \gets 0$ \\
+		\For{$i \gets 1$ \KwTo $l$}{
+			\For{$j \gets 1$ \KwTo $w$}{
+				\If{$\text{is\_label\_1}(I_0(i, j))$}{
+					\If{$\text{is\_label\_1}(I(i, j))$}{
+						$TP \gets TP + 1$
+					}
+					\Else{
+						$FN \gets FN + 1$
+					}
 				}
 				\Else{
-					$FN \gets FN + 1$
-				}
-			}
-			\Else{
-				\If{$\text{is\_label\_1}(I(i, j))$}{
-					$FP \gets FP + 1$
-				}
-				\Else{
-					$TN \gets TN + 1$
+					\If{$\text{is\_label\_1}(I(i, j))$}{
+						$FP \gets FP + 1$
+					}
+					\Else{
+						$TN \gets TN + 1$
+					}
 				}
 			}
 		}
-	}
-	$f_c \gets \frac{(TN + FN) (TN + FP) + (FP + TP) (FN + TP)}{TP + TN + FN +FP}$ \\
-	$\kappa \gets \frac{TP + TN - f_c}{TP + TN + FN + FP - f_c}$
-\end{algorithm}
+		$f_c \gets \frac{(TN + FN) (TN + FP) + (FP + TP) (FN + TP)}{TP + TN + FN +FP}$ \\
+		$\kappa \gets \frac{TP + TN - f_c}{TP + TN + FN + FP - f_c}$
+	\end{algorithm}
 
 
-\begin{algorithm}
-	\caption{Mise à jours de la grille d'occupation en utilisant l'algorithme de tracé de ligne de Bresenham.}
-	\label{alg:Bresenham}
-	\KwData{$P_1 \in \mathbb{R}^2$, $P_2 \in \mathbb{R}^2$, $pw \in \mathbb{R}$, $threshold \in \mathbb{R}$, $G$: $l \times w \rightarrow [\text{UNKNOWN}, \text{EMPTY}, \text{OCCUPIED}]$, $l \in \mathbb{N}$, $w \in \mathbb{N}$ \\
-		with $P_1$ and $P_2$ the two points to connect, $pw$ the power of the UGW, $threshold$ the threshold above which the power of the UGW is considered undistributed and $G$ the grid to update.}
-	\KwResult{The updated grid.}
-	$p_0 \gets \text{from\_position\_to\_grid\_coordinate}(P_1)$ \\
-	$p_1 \gets \text{from\_position\_to\_grid\_coordinate}(P_2)$ \\
-	\If{\text{is\_out\_of\_grid}($p_0$) \textbf{or} \text{is\_out\_of\_grid}($p_1$)}{
-		\Return
-	}
-	$dx \gets p_1.x - p_0.x$ \\
-	$dy \gets p_1.y - p_0.y$ \\
-	$sx \gets \text{sign}(dx)$ \\
-	$sy \gets \text{sign}(dy)$ \\
-	$err = dx - dy$ \\
-	\While{$p_0 \neq p_1$}{
-		\If{$pwd \leq threshold$ \textbf{and} $G(p_0) = \text{UNKNOWN}$}{
-			$G(p_0) \gets \text{OCCUPIED}$
+	\begin{algorithm}
+		\caption{Mise à jours de la grille d'occupation en utilisant l'algorithme de tracé de ligne de Bresenham.}
+		\label{alg:Bresenham}
+		\KwData{$P_1 \in \mathbb{R}^2$, $P_2 \in \mathbb{R}^2$, $pw \in \mathbb{R}$, $threshold \in \mathbb{R}$, $G$: $l \times w \rightarrow [\text{UNKNOWN}, \text{EMPTY}, \text{OCCUPIED}]$, $l \in \mathbb{N}$, $w \in \mathbb{N}$ \\
+			with $P_1$ and $P_2$ the two points to connect, $pw$ the power of the UGW, $threshold$ the threshold above which the power of the UGW is considered undistributed and $G$ the grid to update.}
+		\KwResult{The updated grid.}
+		$p_0 \gets \text{from\_position\_to\_grid\_coordinate}(P_1)$ \\
+		$p_1 \gets \text{from\_position\_to\_grid\_coordinate}(P_2)$ \\
+		\If{\text{is\_out\_of\_grid}($p_0$) \textbf{or} \text{is\_out\_of\_grid}($p_1$)}{
+			\Return
 		}
-		\ElseIf{$pwd > threshold$}{
-			$G(p_0) \gets \text{EMPTY}$
+		$dx \gets p_1.x - p_0.x$ \\
+		$dy \gets p_1.y - p_0.y$ \\
+		$sx \gets \text{sign}(dx)$ \\
+		$sy \gets \text{sign}(dy)$ \\
+		$err = dx - dy$ \\
+		\While{$p_0 \neq p_1$}{
+			\If{$pwd \leq threshold$ \textbf{and} $G(p_0) = \text{UNKNOWN}$}{
+				$G(p_0) \gets \text{OCCUPIED}$
+			}
+			\ElseIf{$pwd > threshold$}{
+				$G(p_0) \gets \text{EMPTY}$
+			}
+			$e2 \gets 2 \times err$ \\
+			\If{$e2 > -dy$}{
+				$err \gets err - dy$ \\
+				$p_0.x \gets p_0.x + sx$
+			}
+			\If{$e2 < dx$}{
+				$err \gets err + dx$ \\
+				$p_0.y \gets p_0.y + sy$
+			}
 		}
-		$e2 \gets 2 \times err$ \\
-		\If{$e2 > -dy$}{
-			$err \gets err - dy$ \\
-			$p_0.x \gets p_0.x + sx$
-		}
-		\If{$e2 < dx$}{
-			$err \gets err + dx$ \\
-			$p_0.y \gets p_0.y + sy$
-		}
-	}
 
 
 
-\end{algorithm}
-
-
-
+	\end{algorithm}
 \end{document}
