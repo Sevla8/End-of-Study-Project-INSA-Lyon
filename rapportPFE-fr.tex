@@ -297,7 +297,7 @@
 
 				Cette stratégie nécéssite deux étapes préalables à son exécution :
 				\begin{enumerate}
-					\item l'extraction des zones de corrosion détectées par une des stratégie de navigation précédentes.
+					\item l'extraction des zones de corrosion détectées par une des stratégies de navigation précédentes.
 					\item la détermination de l'ordre d'investigation des zones de corrosion.
 				\end{enumerate}
 
@@ -314,8 +314,8 @@
 
 				La seconde étape peut être résolue en utilisant un algorithme de TSP (\textit{Travelling Salesman Problem}) dans le cas où le nombre d'équipe $k = 1$ et un algorithme de mTSP (\textit{(multiple depot) multiple Travelling Salesman Problem}) dans le cas où le nombre d'équipe $k > 1$.
 				Il existe plusieurs paradigmes de résolution pour résoudre ce genre de problème.
-				Le premier est de trouver une solution exacte en utilisant un algorithme de programmation linéaire en nombres entiers.
-				Le second est de trouver une solution approchée en utilisant une méta-heuristique.
+				Un premier est de trouver une solution exacte en utilisant un algorithme de programmation linéaire en nombres entiers.
+				Un second est de trouver une solution approchée en utilisant une méta-heuristique.
 
 				\begin{Definition}[Problème du voyageur de commerce (TSP)]
 					\label{def:tsp}
@@ -376,17 +376,20 @@
 					Démontrons la proposition~\ref{prop:cotes_poly}.
 					\begin{itemize}
 						\item On a, pour chaque sommet du polygone, il existe deux droites passant par ce point et touchant la zone de corrosion sans la traverser.
-						\item Alors, pour ce même sommet, pour une de ces deux droites, elle est soit tangente à la zone de corrosion, soit elle est parallèle à une arête de la zone de corrosion.
+						\item On a donc pour un sommet du polygone, au plus deux droites qui participent à la construction de l'enveloppe convexe et donc, dont un segement de ces droites est une arête de l'enveloppe convexe.
+						\item On a donc pour un sommet du polygone, au plus deux arêtes de l'enveloppe convexe.
+						\item On a donc pour un polygone à $p$ sommets, au plus $2p$ arêtes de l'enveloppe convexe.
+						\item On a donc pour un polygone à $p$ sommets, au plus $2p$ sommets de l'enveloppe convexe.
 					\end{itemize}
-					\TODO{}
 				\end{proof}
 
 				\begin{Proposition}
+					\TODO{Qu'est ce que je souhaite démontrer ?}
 					\label{prop:}
 				\end{Proposition}
 				\begin{proof}
 					Démontrons la proposition~\ref{prop:}.
-					\TODO{}
+					\TODO{Faire la preuve.}
 				\end{proof}
 	\section{Implémentations techniques}
 		Dans cette section, nous mettons en évidence certaines des différentes implémentations techniques que nous avons développées pour soutenir nos solutions de navigation et de contrôle multi-robots dans le contexte de l'inspection acoustique de structures métalliques.
@@ -588,6 +591,9 @@
 		Pour ces deux statégies, nous avons également fait varier la distance $d$ entre les robots.
 		Pour la stratégie \textit{ski nordique}, nous avons également fait varier le pas $s$ entre les robots.
 		Pour la stratégie \textit{investigation polygonale}, nous faisons varier le nombre de robots $n$, le nombre d'équipes $k$ et le nombre de côtés $p$ des polygones utilisés.
+		Nous utilisons le résultat de la stratégie de navigation \textit{peinture au rouleau} comme point de départ.
+		Nous justifions ce choix par le fait que cette stratégie est la rapide et la moins précise et donc la plus susceptible de bénéficier d'une amélioration de la part de la stratégie \textit{investigation polygonale} sans atteindre des temps d'inspection trop longs.
+		Nous faisons donc varier le paramètre $d$ de cette stratégie.
 		Nous résumons les paramètres expérimentaux utilisés pour chaque stratégie dans le tableau~\ref{tab:exp_params}.
 
 		\begin{table}[h!]
@@ -603,7 +609,9 @@
 				& $d$ & 1, 2, 3, 6 (mètres) \\
 				& $s$ & 1, 2, 3, 6 (mètres) \\
 				\hline
-				\multirow{2}{*}{\textit{investigation polygonale}} & $n$ & 2, 4 \\
+				\multirow{5}{*}{\textit{investigation polygonale}} & stratégie initiale & \textit{peinture au rouleau} \\
+				& $d$ & 1, 2, 3, 6 (mètres) \\
+				& $n$ & 2, 4 \\
 				& $k$ & 1, 2 \\
 				& $p$ & 4, 6 \\
 				\hline
@@ -611,8 +619,6 @@
 			\caption{Paramètres expérimentaux utilisés pour chaque stratégie de navigation.}
 			\label{tab:exp_params}
 		\end{table}
-
-		\TODO{Rajouter d dans les paramètres pour investigation polygonale}
 
 		Au cours de ces simulations, nous nous attendons à avoir certains résultats.
 		Parmi eux, nous nous attendons à ce que la stratégie \textit{peinture au rouleau} soit la plus rapide, mais également la moins précise.
@@ -694,7 +700,7 @@
 						\caption{Temps d'exécution en fonction de la densité du monde}
 						\label{fig:peinture_au_rouleau-time_vs_world}
 				\end{subfigure}
-				\caption{Évolution du score de Cohen et du temps d'exécution de l'algorithme de peinture au rouleau en fonction de la densité du monde.}
+				\caption{Évolution du score de Cohen et du temps d'exécution de l'algorithme de peinture au rouleau en fonction de la densité du monde et de la distance entre les robots.}
 				\label{fig:peinture_au_rouleau-world}
 			\end{figure}
 
@@ -738,11 +744,16 @@
 				\label{fig:ghost_zone}
 			\end{figure}
 
+			Nous avons également introduit deux cartes avec des formes plus complexes que les cartes de base.
+			Malheureusement nous n'avons pas pu, par soucis de temps, faire varier la position des zones de corrosion, comme nous l'avons fait avec les cartes de faible densité.
+			Néanmoins, il semble ne pas exister de différence significative entre les cartes de formes complexes et les cartes de formes simples.
+			Par exemple pour les cartes avec 15 formes de corrosion et la carte avec 15 formes de corrosion complexes, le score de Cohen ne varie que de 0.02 pour une distance $d = 1$ et de 0.04 pour une distance $d = 6$.
+
 			Dans la suite de ce rapport nous considérerons une distance $d = 3$ entre les deux crawlers pour l'algorithme \textit{peinture au rouleau}.
 		\subsection*{Stratégie de navigation \textit{ski nordique}}
 			Nous allons maintenant analyser les résultats obtenus pour l'algorithme \textit{ski nordique}.
-			Comme pour l'algorithme \textit{peinture au rouleau}, nous avons fait varier la densité du monde et la distance $d$ entre les deux crawlers.
-			La figure~\ref{fig:ski_nordique-world} présente l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la densité du monde.
+			Comme pour l'algorithme \textit{peinture au rouleau}, nous avons fait varier la densité du monde et la distance $d$ entre les deux crawlers mais également le pas utilisé entre les deux crawlers.
+			La figure~\ref{fig:ski_nordique-world_d} présente l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la densité du monde pour différentes valeurs de la distance $d$ entre les deux crawlers et un pas de 3 mètres.
 
 			\begin{figure}[h!]
 				\centering
@@ -757,9 +768,13 @@
 						\caption{Temps d'exécution en fonction de la densité du monde}
 						\label{fig:ski_nordique-time_vs_world_d}
 				\end{subfigure}
-				\caption{Évolution du score de Cohen et du temps d'exécution de l'algorithme de peinture au rouleau en fonction de la densité du monde.}
+				\caption{Évolution du score de Cohen et du temps d'exécution de l'algorithme de peinture au rouleau en fonction de la densité du monde pour différentes valeurs de la distance entre les deux crawlers.}
 				\label{fig:ski_nordique-world_d}
 			\end{figure}
+
+			Nous avons des résultats très similaires à ceux obtenus pour l'algorithme \textit{peinture au rouleau}.
+			En effet, nous observons à la figure \ref{fig:ski_nordique-kappa_vs_world_d} que le score de Cohen diminue de manière générale lorsque la densité du monde augmente.
+			De plus, le temps d'exécution de l'algorithme \textit{ski nordique}, observé à la figure \ref{fig:ski_nordique-time_vs_world_d}, est constant pour chaque valeur de la densité du monde.
 
 			\begin{figure}[h!]
 				\centering
@@ -774,9 +789,24 @@
 						\caption{Temps d'exécution en fonction de la densité du monde}
 						\label{fig:ski_nordique-time_vs_world_s}
 				\end{subfigure}
-				\caption{Évolution du score de Cohen et du temps d'exécution de l'algorithme de peinture au rouleau en fonction de la densité du monde.}
+				\caption{Évolution du score de Cohen et du temps d'exécution de l'algorithme de peinture au rouleau en fonction de la densité du monde pour différentes valeurs du pas entre les deux crawlers.}
 				\label{fig:ski_nordique-world_s}
 			\end{figure}
+
+			Nous pouvons observer à la figure~\ref{fig:ski_nordique-world_s} l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la densité du monde pour différentes valeurs du pas entre les deux crawlers et une distance entre les crawlers de 3 mètres.
+			À la figure \ref{fig:ski_nordique-kappa_vs_world_s}, nous observons que le score de Cohen est le plus bas pour des grandes valeurs de densités et des grandes valeurs de $d$, comme pour $d = 6$ et les cartes avec 30 et 20 zones de corrosion.
+			Ceci s'expplique que pour de grandes valeurs de densités et de $d$, la probabilité que les rayons du signals traversent des zones de corrosions est plus élevée.
+			Il y a donc plus de chance que des zones fantômes soient créées ce qui fait diminuer le score de Cohen.
+			Les formes allongées des zones de corrosion sont également un facteur qui fait diminuer le score de Cohen comme étudié précédemment.
+			C'est pourquoi nous observons que le score de Cohen est le plus haut pour la carte avec la plus petite densité et sans formes allongées de corrosion, c'est-à-dire la carte avec 15 zones de corrosion.
+
+			À la figure \ref{fig:ski_nordique-time_vs_world_s}, nous observons que le temps d'exécution de l'algorithme \textit{ski nordique} est constant pour chaque valeur de la densité du monde.
+			Ceci était attendu comme pour la stratégie \textit{peinture au rouleau}.
+			Cependant, nous observons que le temps d'exécution avec le pas utilisé.
+			Nous nous serions plutôt attendu à ce que le temps d'exécution reste constant avec le pas des crawlers.
+			En effet, indépendamment de la valeur du pas, la distance verticale et horizontale à parcourir par les crawlers est la même.
+			Cette difference significative du temps d'exécution est due à la manière dont nous avons implémenté l'algorithme \textit{ski nordique} qui n'est pas optimale.
+			Nous n'avons pas fait arréter les crawlers aux extrémité des plaques mais nous les avons fait continuer d'une valeur du pas en plus par simplicité d'implémentation sans penser que l'impact sur le temps d'exécution serait significatif.
 
 			\begin{figure}[h!]
 				\begin{subfigure}[t]{0.49\linewidth}
@@ -794,6 +824,12 @@
 				\label{fig:ski_nordique-distance}
 			\end{figure}
 
+			À la figure \ref{fig:ski_nordique-distance}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la distance qui sépare les deux crawlers pour un pas de 3 mètres.
+			Le score semble comme pour la stratégie \textit{peinture au rouleau} suivre une relation lineaire avec la distance qui sépare les deux crawlers.
+			Le temps d'exécution semble également suivre une relation linéaire avec la distance qui sépare les deux crawlers.
+			Le fait que la courbe à figure \ref{fig:ski_nordique-time_vs_distance} ne soit pas une droite est dû au fait que plus la distance entre les crawlers est petite et plus le nombre de rotation que les crawlers doivent effectuer est grand.
+			Or le temps de rotation n'est pas négligeable dans les temps d'exécution des algorithmes.
+
 			\begin{figure}[h!]
 				\begin{subfigure}[t]{0.49\linewidth}
 					\includegraphics[width=\linewidth]{graphics/ski_nordique-kappa_vs_stride.png}
@@ -810,7 +846,17 @@
 				\label{fig:ski_nordique-stride}
 			\end{figure}
 
-			\TODO{Analyse}
+			À la figure \ref{fig:ski_nordique-stride}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction du pas des crawlers pour une distance de 3 mètres.
+			Le score semble suivre une relation linéaire avec le pas des crawlers.
+			Plus le pas est grand et plus le score est grand.
+			Cela entre en concordance avec ce que nous expliquions précédemment.
+			Plus le pas est grand et plus il y a de chance de créer des zones fantômes et donc de faire diminuer le score de Cohen.
+			Le temps d'exécution lui semble suivre une relation linéaire avec le pas des crawlers.
+			Comme expliqué précédemment, ce dernier aurait dû être linéaire mais notre implémentation fait dépendre le temps d'exécution du pas des crawlers.
+
+			Ici encore il semble que le score et le temps ne soient pas affectés par le fait que les formes soient convexes ou non.
+
+			Dans la suite de ce rapport nous considérerons une distance $d = 3$ entre les deux crawlers et un pas $s = 3$ pour l'algorithme \textit{ski nordique}.
 		\subsection*{Stratégie de navigation \textit{investigation polygonale}}
 			\TODO{Analyse}
 		\subsection*{Comparaisons et discussions}
@@ -825,99 +871,6 @@
 	% \section{Données collectées}
 	% \section{Éléments majeurs de la conception}
 	% \section{Preuves}
-	\section{Environnements de test}
-		\label{annexe:cartes}
-		\begin{figure}[h!]
-			\centering
-			\begin{subfigure}[t]{\linewidth}
-				\centering
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_1.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_2.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_3.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_4.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_5.png}
-				\caption{Testing worlds with 5 corrosion areas}
-				\label{fig:test_model_05_5}
-			\end{subfigure}
-			\hfill
-			\begin{subfigure}[t]{\linewidth}
-				\centering
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_1.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_2.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_3.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_4.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_5.png}
-				\caption{Testing worlds with 8 corrosion areas}
-				\label{fig:test_model_08_5}
-			\end{subfigure}
-			\hfill
-			\begin{subfigure}[t]{\linewidth}
-				\centering
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_1.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_2.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_3.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_4.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_5.png}
-				\caption{Testing worlds with 11 corrosion areas}
-				\label{fig:test_model_11_5}
-			\end{subfigure}
-			\hfill
-			\begin{subfigure}[t]{\linewidth}
-				\centering
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_1.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_2.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_3.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_4.png}
-				\hfill
-				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_5.png}
-				\caption{Testing worlds with 15 corrosion areas}
-				\label{fig:test_model_15_5}
-			\end{subfigure}
-			\hfill
-			\begin{subfigure}[t]{0.15\linewidth}
-				\centering
-				\includegraphics[width=\linewidth]{graphics/test_model_20_1.png}
-				\caption{Testing world with 20 corrosion areas}
-				\label{fig:test_model_20_1}
-			\end{subfigure}
-			\hfill
-			\begin{subfigure}[t]{0.15\linewidth}
-				\centering
-				\includegraphics[width=\linewidth]{graphics/test_model_30_1.png}
-				\caption{Testing world with 30 corrosion areas}
-				\label{fig:test_model_30_1}
-			\end{subfigure}
-			\hfill
-			\begin{subfigure}[t]{0.15\linewidth}
-					\includegraphics[width=\linewidth]{graphics/test_model_11_complex_1.png}
-					\caption{Testing world with 15 complex corrosion areas}
-					\label{fig:test_model_11_complex_1}
-			\end{subfigure}
-			\hfill
-			\begin{subfigure}[t]{0.15\linewidth}
-				\centering
-				\includegraphics[width=\linewidth]{graphics/test_model_15_complex_1.png}
-				\caption{Testing world with 15 complex corrosion areas}
-				\label{fig:test_model_15_complex_1}
-			\end{subfigure}
-			\caption{Différents environnements de test.}
-			\label{fig:test_models}
-		\end{figure}
 	\section{Implémentations techniques}
 		\label{annexe:implementations}
 		\subsection{Implémentation de l'algorithme \textit{peinture au rouleau}}
@@ -1611,6 +1564,99 @@ if __name__ == '__main__':
 		mission(centroids_map, polygons_map, radii_map, crawler_id, n_crawlers, n_points, cruise_velocity, investigation_velocity)
 
 			\end{lstlisting}
+	\section{Environnements de test}
+		\label{annexe:cartes}
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_1.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_2.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_3.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_4.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_5.png}
+				\caption{Testing worlds with 5 corrosion areas}
+				\label{fig:test_model_05_5}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_1.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_2.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_3.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_4.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_5.png}
+				\caption{Testing worlds with 8 corrosion areas}
+				\label{fig:test_model_08_5}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_1.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_2.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_3.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_4.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_5.png}
+				\caption{Testing worlds with 11 corrosion areas}
+				\label{fig:test_model_11_5}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_1.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_2.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_3.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_4.png}
+				\hfill
+				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_5.png}
+				\caption{Testing worlds with 15 corrosion areas}
+				\label{fig:test_model_15_5}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{0.15\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{graphics/test_model_20_1.png}
+				\caption{Testing world with 20 corrosion areas}
+				\label{fig:test_model_20_1}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{0.15\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{graphics/test_model_30_1.png}
+				\caption{Testing world with 30 corrosion areas}
+				\label{fig:test_model_30_1}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{0.15\linewidth}
+					\includegraphics[width=\linewidth]{graphics/test_model_11_complex_1.png}
+					\caption{Testing world with 11 complex corrosion areas}
+					\label{fig:test_model_11_complex_1}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{0.15\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{graphics/test_model_15_complex_1.png}
+				\caption{Testing world with 15 complex corrosion areas}
+				\label{fig:test_model_15_complex_1}
+			\end{subfigure}
+			\caption{Différents environnements de test.}
+			\label{fig:test_models}
+		\end{figure}
 	\section{Résultat d'investigation}
 		\label{annexe:resultat}
 		\TODO{figure avec la superposition des images}
