@@ -53,7 +53,7 @@
 %DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
-% Classe de base 
+% Classe de base
 \LoadClass[a4paper,12pt,twoside]{article}
 \RequirePackage[2020-02-02]{latexrelease} % Ajouté le 09/03/2022
 \RequirePackage[utf8]{inputenc}
@@ -66,6 +66,7 @@
 \else
 \RequirePackage[english]{babel}
 \fi
+\RequirePackage[hyphens]{url}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
 \RequirePackage{amsthm}
@@ -92,7 +93,7 @@
 % Logo de la structure d'accueil
 \newcommand{\logoStructureAccueil}[2]{\logoStructureAccueiltrue\gdef\@logoStructureAccueil{\includegraphics[#1]{#2}}}
 
-% Encadrants 
+% Encadrants
 \newbox{\@encadrantsBox}
 \newsavebox{\@encadrantsBoxA}
 \newif\if@encadrantsPresent
@@ -179,7 +180,7 @@
   {\vfill%
   \cleardoublepage%
   }
-  
+
 
 
 \newcommand\ResumesMotsCles{%
@@ -377,7 +378,7 @@ Annexes
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Quelques environnements 
+% Quelques environnements
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \theoremstyle{definition}
@@ -392,7 +393,7 @@ Annexes
 
 \endinput
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
-%%% End: 
+%%% End:
