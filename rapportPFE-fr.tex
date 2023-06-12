@@ -11,6 +11,7 @@
 \usepackage{subcaption}
 \usepackage{xcolor}
 \usepackage{multirow}
+\usepackage{multicol}
 \usepackage{floatrow}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -45,7 +46,6 @@
 }
 
 \SetKwComment{Comment}{/* }{ */}
-
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.2pt}
 \renewcommand{\footrulewidth}{0.2pt}
@@ -78,47 +78,67 @@
 	\maketitle
 	\begin{ResumeMotsCles}
 		\begin{resumeEn}
-			This project is part of the European project BugWright2, which aims to address the problem of inspecting large metal structures using heterogeneous fleets of mobile robots. The project will focus on developing navigation strategies for mobile robots using guided ultrasonic waves to perform the inspection of metal plates. Guided waves have the ability to propagate along a plate by interacting with the material that makes it up and being affected by changes in geometry, such as corrosion. By combining measurements between a transmitter and a distant receiver system, it is possible to perform a tomography of the area to be inspected and potentially identify and locate points of corrosion.
+			{\scriptsize
+				This report presents a study on autonomous exploration on metal structures, focusing on the evaluation of three exploration strategies.
+				The objective of this study was to develop effective methods allowing autonomous robots to explore a metal structure, in a complete and efficient way, in search of corrosion points.
+				The three strategies evaluated include \textit{Roll Painting}, \textit{Nordic Skiing} and \textit{polygonal investigation}, all three based on occupancy grids.
+				The \textit{Roll Paint} strategy is a simple but robust approach, which exhaustively covers the search space with rectilinear trajectories and simultaneous movements of the robots.
+				The \textit{Nordic Skiing} strategy is a more complex approach, which introduces a phase shift in the movement of the different robots.
+				The \textit{Polygonal Investigation} strategy tries to improve the result of the previous strategies by investigating around the detected corrosion points.
+				The experiments were carried out in simulation using Gazebo and a crawler model developed for the European project BugWright2.
+				These robots are notably equipped with UGW sensors, specific to our problem.
+				The performances of the different strategies were evaluated in terms of investigation time and accuracy of the mapping obtained.
+				The results obtained demonstrated the effectiveness of each strategy.
+				The \textit{paint roller} strategy allowed for a quick but imprecise investigation. The \textit{Nordic skiing} strategy allowed a slow but rather precise investigation.
+				Finally, the \textit{polygonal investigation} strategy made it possible to combine the advantages of the other two strategies by allowing a less slow and more precise investigation than the previous one.
+				Future perspectives include improving the polygonal exploration strategy by developing more robust methods for collision management.
+				In addition, the extension of this study to experiments with several teams of robots constitutes an interesting avenue for further accelerating the investigation time.
+				This study contributes to research in autonomous investigation and provides indications for the development of effective investigation systems in corroded metallic environments.
+				The results obtained have important implications in various fields, such as service robotics, space exploration and environmental monitoring.
+			}
 		\end{resumeEn}
-		\keywords{Navigation~; Multi-Robot~; Tomography~; Ultrasonic Guided Waves~; Inspection.}
+		\keywords{{\scriptsize Navigation~; Multi-Robot~; Tomography~; Ultrasonic Guided Waves~; Inspection.}}
 		\begin{resumeFr}
-			Ce projet fait partie du projet européen BugWright2 qui a pour objectif de résoudre la problématique de l'inspection de grandes structures métalliques en utilisant des flottes hétérogènes de robots mobiles. Le projet se concentrera sur le développement de stratégies de navigation pour des robots mobiles utilisant des ondes ultrasoniques guidées pour réaliser l'inspection de plaques métalliques. Les ondes guidées ont la capacité de se propager le long d'une plaque en interagissant avec la matière qui la compose et en étant affectées par des changements de géométrie, tels que la corrosion. En combinant des mesures entre un système émetteur et un système récepteur distant, il est possible de réaliser une tomographie de la zone à inspecter et de potentiellement identifier et localiser des points de corrosion.
+			{\scriptsize
+				Ce rapport présente une étude sur l'exploration autonome sur des structures métalliques, en se concentrant sur l'évaluation de trois stratégies d'exploration. L'objectif de cette étude était de développer des méthodes efficaces permettant à des robots autonomes d'explorer un une structure métallique, de manière complète et efficace, à la recherche de points de corrosion.
+				Les trois stratégies évaluées comprennent la \textit{peinture au rouleau}, le \textit{ski nordique} et l'\textit{investigation polygonale}, toutes trois basées sur de grilles d'occupation.
+				La stratégie \textit{peinture au rouleau} est une approche simple mais robuste, qui couvre de manière exhaustive l'espace de recherche avec des trajectoires rectilignes et des déplacements simultanés des robots.
+				La stratégie \textit{ski nordique} est une approche plus complexe, qui introduit un déphasage dans le déplacement des différents robots.
+				La stratégie \textit{investigation polygonale} tente d'améliorer le résultat des stratégies précedentes en investiguant autour des points de corrosion détectés.
+				Les expérimentations ont été réalisées en simulation en utilisant Gazebo et un modèle de crawler développé pour le projet européen BugWright2.
+				Ces robots sont notamment équipés de capteurs UGW, spécifiques à notre problématique.
+				Les performances des différentes stratégies ont été évaluées en termes de temps d'investigation et de justesse de la cartographie obtenue.
+				Les résultats obtenus ont démontré l'efficacité de chaque stratégie.
+				La startégie \textit{peinture au rouleau} a permis une investigation rapide mais peu précise. La stratégie \textit{ski nordique} a permis une investigation lente mais plutôt précise.
+				Enfin la stratégie \textit{investigation polygonale} a permis de combiner les avantages des deux autres stratégies en permettant une investigation moins lente et plus précise que la précédente.
+				Les perspectives futures incluent l'amélioration de la stratégie d'exploration polygonale en développant des méthodes plus robustes pour la gestion des collisions.
+				De plus, l'extension de cette étude à des expérimentations avec plusieurs équipes de robots constitue une piste intéressante pour accélérer davantage le temps d'investigation.
+				Cette étude contribue à la recherche en investigation autonome et fournit des indications pour le développement de systèmes d'investigation efficaces dans des environnements métalliques corrodés.
+				Les résultats obtenus ont des implications importantes dans divers domaines, tels que la robotique de service, l'exploration spatiale et la surveillance environnementale.
+			}
 		\end{resumeFr}
-		\motscles{Navigation~; Multi-Robot~; Tomographie~; Ondes Guidées Ultrasoniques~; Inspection.}
+		\motscles{{\scriptsize Navigation~; Multi-Robot~; Tomographie~; Ondes Guidées Ultrasoniques~; Inspection.}}
 	\end{ResumeMotsCles}
 	\begin{remerciements}
-		\TODO{Remerciements}
+		Je tiens à exprimer ma sincère gratitude à toutes les personnes qui ont contribué à la réalisation de ce projet et à l'élaboration de ce rapport.
+		Je tiens tout d'abord à remercier mes superviseurs, Cédirc Pradalier et Olivier Simonin, pour leurs conseils précieux et leur expertise dans le domaine de la robotique et de la navigation multi-robots. Leurs orientations ont été essentielles pour la réussite de ce projet.
+		Je souhaite également remercier les équipes de recherche des laboratoires INSA Lyon CITI lab. et CNRS IRL2958 GT-CNRS pour leur collaboration et leur partage de connaissances.
+		Je tiens à exprimer ma reconnaissance envers mes proches pour leur soutien inconditionnel et leur compréhension tout au long de cette période intense.
+		Leur présence et leurs encouragements ont été une source de motivation essentielle.
+		Enfin, je tiens à remercier toutes les personnes qui ont participé de près ou de loin à la réalisation de ce projet et à la rédaction de ce rapport.
+		Leur soutien et leur engagement ont été déterminants pour le succès de cette étude.
 	\end{remerciements}
 	\setcounter{tocdepth}{3}
 	\listoffigures
-	\listoftables
-	\listofalgorithms
-	\lstlistoflistings
 	\clearpage
+	\listoftables
+	\clearpage
+	\listofalgorithms
+	\clearpage
+	% \lstlistoflistings
+	% \clearpage
 	\tableofcontents
 	\cleardoublepage
-	\INFO{Ceci est un rapport d'environ 30 pages (hors annexes, hors première, deuxième, troisième et quatrième de couverture, hors table des matières et éventuelles autres tables des figures, des définitions, des algorithmes\ldots).}
-
-	Introduction / Background / Motivation:
-
-	\TODO{What did you try to do? What problem did you try to solve? Articulate your objectives using absolutely no jargon.}
-
-	\TODO{How is it done today, and what are the limits of current practice?}
-
-	\TODO{Who cares? If you are successful, what difference will it make?}
-
-	\TODO{What data did you use? Provide details about your data, specifically choose the most important aspects of your data mentioned here: Datasheets for Datasets (https://arxiv.org/abs/1803.09010). Note that you do not have to choose all of them, just the most relevant.}
-
-	Approach:
-
-	\TODO{What did you do exactly? How did you solve the problem? Why did you think it would be successful? Is anything new in your approach?}
-
-	\TODO{What problems did you anticipate? What problems did you encounter? Did the very first thing you tried work?}
-
-	Experiments and Results:
-
-	\TODO{How did you measure success? What experiments were used? What were the results, both quantitative and qualitative? Did you succeed? Did you fail? Why? Justify your reasons with arguments supported by evidence and data. Make sure to mention any code repositories and/or resources that you used!}
-
 	\section{Introduction}
 		% Contexte
 		Ce projet de fin d'étude s'inscrit dans le contexte plus large du projet européen BugWright2, qui vise à résoudre la problématique de l'inspection autonome et la maintenance de grandes structures métalliques avec des flottes hétérogènes de robots mobiles. Dans ce projet, nous nous concentrons sur le développement de stratégies de navigation pour un ensemble de robots mobiles utilisant des ondes ultrasoniques guidées pour réaliser l'inspection des plaques métalliques. En effet, les ondes guidées ont la particularité de se propager le long d'une plaque en interagissant avec la matière qui la compose, et en étant affectées par des changements de géométrie liés, en particulier, à la corrosion.
@@ -138,16 +158,83 @@
 		% Plan du rapport
 		Ce rapport présente le travail effectué dans le cadre de notre projet de fin d'étude sur la navigation et le contrôle multi-robots pour l'inspection acoustique de structures métalliques. Dans la première section, nous introduisons le sujet du rapport et présentons les objectifs de notre projet. La deuxième section est consacrée à l'étude bibliographique, où nous résumons les recherches et les publications existantes sur le sujet. Dans la troisième section, nous proposons une solution pour la navigation et le contrôle multi-robots pour l'inspection acoustique de structures métalliques. Cette section est divisée en trois sous-sections : définitions préliminaires, proposition de solution et étude théorique de propriétés de la solution proposée. La quatrième section décrit les détails de l'implémentation technique de notre solution proposée. La cinquième section présente les résultats de nos expérimentations, validations et évaluations. Dans la sixième section, nous faisons un bilan personnel de notre expérience de travail sur ce projet. Enfin, dans la septième section, nous concluons notre rapport en résumant les résultats obtenus, les limites du projet et les perspectives pour des recherches futures.
 	\section{Étude bibliographique}
+		Cette section présente une étude approfondie de la littérature scientifique pertinente dans le domaine de l'inspection multi-robots.
+		L'objectif de cette étude bibliographique était de recueillir des informations clés, d'analyser les travaux antérieurs et de situer notre projet dans le contexte de recherche existant.
+		Les références et les sources citées dans cette section fournissent une base solide de connaissances et d'expertise sur le sujet.
 
+		Dans un premier temps, nous nous sommes intéréssé aux propriétés des ondes guidées ultrasoniques et à leurs applications dans le domaine de la tomographie~\cite{OUABI2022106705, HUTHWAITE2013979}, de la cartographie des robots et des structures métalliques~\cite{9364359, 9811581, inventions3030059, 9568841}, des robots et capteurs utilisés dans notre projet~\cite{s22093235}, de l'exploration multi-robots~\cite{bautin:hal-00757960, articlesvsdf} ainsi que des stratégies de placement pour la détection d'objet~\cite{article455556, 7487624, 7139673}.
 
+		Dans ce papier~\cite{OUABI2022106705}, les auteurs proposent une méthode pour inférer la géométrie des plaques métalliques en utilisant des ondes de Lamb.
+		Ils utilisent la focalisation et le beamforming pour estimer les limites de la plaque en se basant sur des mesures acoustiques.
+		Les résultats expérimentaux montrent une inférence précise de la géométrie de la plaque.
+		Cependant, les auteurs se contentent de cartographier les contours des structures, sans proposer de méthode pour cartographier les défauts.
 
+		Cet article~\cite{9364359} présente une approche basée sur FastSLAM pour l'inspection robotique des structures métalliques en utilisant des ultrasons.
+		Les auteurs proposent une méthode d'allocation des fronts pionniers pour l'exploration multi-robot, permettant une inspection rapide et précise des structures.
+		Notre travail considère la localisation et la cartographie des robots comme étant connues, et se concentre sur la planification de trajectoire pour l'inspection des structures métalliques.
+		L'approche utilisée dans cet article est donc complémentaire à notre travail.
 
-		\TODO{Étude bibliographique}
+		Dans ce papier~\cite{9811581}, les auteurs proposent une méthode de cartographie des structures métalliques en utilisant des ondes guidées ultrasonores.
+		Ils combinent une grille cartésienne avec des caractéristiques spécifiques pour la détection des défauts.
+		Les résultats expérimentaux montrent une cartographie précise des structures métalliques.
+		Cependant, les auteurs se contentent de cartographier les contours des structures, sans proposer de méthode pour cartographier les défauts.
 
-		% Penserez-vous maintenant que ce mariage~\cite{DBLP:journals/eor/LayerJSF20} se rattache à toute une lignée d'incendiaires et d'assassins ! Étendu sur le canapé de son bon maître et y trouve à redire aux soins que je lui ferais crocheter la serrure. Pied à terre, déclarèrent, par l'importance qu'il y vint demeurer. Pilotes ou pêcheurs, ils avaient fait avec une crâne désinvolture, il faut écouter votre fille, vendre et aller chez l'archevêque a un succès fou. Personnellement, je déteste les routes. Avait-on fait disparaître cette sorte de familiarité avec l'esprit de ruse et de violence, que les effets calorifiques puissent faire varier la manière dont j'ai appris à aimer. Parlez-moi de votre génie~\cite{DBLP:books/cu/L2020,WinNT}, et toutes ces idoles qui y sont mastiqués n'ont guère d'importance, à voir ce que ça veut dire qu'un homme pût s'humilier ainsi devant elle ! Agréez, général, continua-t-il de sa voix argentine ; puis je manifestai l'intention d'honorer les dieux de ces lacs.
+		Cet article~\cite{inventions3030059} se concentre sur la localisation des impacts dans les structures composites en utilisant une méthode d'imagerie développée.
+		Les auteurs utilisent des capteurs piézoélectriques pour détecter et localiser les impacts, et une méthode de transformée en ondelettes pour analyser les signaux acoustiques.
+		Les résultats expérimentaux montrent une détection et une localisation précises des impacts.
+		Les capteurs utilisés sont similaires à ceux utilisés dans notre projet, mais ces capteur sont positionnés de manière fixe sur la structure, alors que nous souhaitons une stratégie mobile.
 
+		Dans ce papier~\cite{HUTHWAITE2013979}, les auteurs proposent une méthode de tomographie ultrasonore à haute résolution pour la quantification de l'épaisseur des parois.
+		Ils exploitent la nature dispersante des ondes de Lamb pour convertir les variations d'épaisseur en variations de vitesse d'onde, permettant ainsi une reconstruction précise de l'épaisseur des parois.
+		Les résultats expérimentaux montrent des reconstructions précises des défauts de corrosion.
+		Cet article fut intéréssant pour comprendre les propriétés des ondes ultrasoniques guidées et leurs applications dans le domaine de la tomographie.
 
-		% Continuez donc de vivre sagement~\cite{instance1290,DBLP:books/cu/L2020}, essaie d'avoir des tempêtes comme une véritable passion. Rejetons cette bête dans son antre, et sans attendre les ordres du roi. Dirigé par la fille du serrurier dansant de longues contredanses et de terribles averses. Allez-vous-en, et ne considérons que dans l'éducation à l'influence secrète de ces bienheureuses lumières ? Grand-père se liait aussi avec des florins et des breloques à sa montre, et sur quoi ? Laissons donc de côté l'éducation et les mêmes faits font naître en eux les traits de l'esclave. Convoquez tous les ouvriers étaient à mes pieds. Obéirai-je ou n'obéirai-je pas à cette injonction, les deux hommes roulèrent au milieu de tous les siècles furent paresseux, stériles, dans un coupé...
+		Cet article~\cite{s22093235} présente un système de robot magnétique pour l'inspection et la maintenance autonome de structures de grande taille.
+		Les auteurs proposent un cadre de localisation basé sur une grille créée à partir d'un nuage de points, couplée à des capteurs ultra wideband (UWB) et à une unité de mesure inertielle (IMU).
+		Ils intègrent également des ondes guidées ultrasonores (UGWs) pour une localisation précise du robot et une cartographie des caractéristiques structurelles.
+		Ce sont typiquement ces robots et ces capteurs qui sont utilisés dans notre travail.
+
+		Ce papier~\cite{bautin:hal-00757960} présente un algorithme de planification pour l'exploration multi-robot.
+		Cet algorithme, appelé MinPos, est conçu pour allouer de manière efficace les frontières aux robots afin de minimiser les déplacements et le temps nécessaire pour explorer l'environnement. Il utilise des techniques avancées d'optimisation pour résoudre ce problème de manière efficace.
+		Cepandant, notre travail se concentre sur de l'inspection de structures pour la détection de défauts.
+		Nous souhaitons une inspection fine des zones de corrosion et non une exploration globale de l'environnement.
+
+		Cet article~\cite{article455556} présente des stratégies pour le placement optimal de caméras de surveillance dans les galeries d'art.
+		Les auteurs proposent des méthodes pour maximiser la couverture de surveillance tout en minimisant le nombre de caméras nécessaires.
+		Cepandant, les capteurs utilisés dans notre projet sont des capteurs qui fournissent une information sur un segment uniquement, et non une information globale comme une caméra.
+		Les capteurs utilisés dans notre projet sont présentés dans la section~\ref{sec:definitions}.
+
+		Dans l'article~\cite{articlesvsdf}, les auteurs proposent une méthode de localisation et de dimensionnement automatiques des défauts dans les structures en utilisant l'imagerie par ondes guidées.
+		Ils utilisent un réseau de neurones convolutifs pour analyser les signaux d'ondes guidées et estimer la taille des défauts.
+		Les résultats expérimentaux montrent l'efficacité de l'approche proposée pour inverser à la fois les données synthétiques et expérimentales.
+		Cette approche nécéssite des capteurs fixes sur la structure.
+		Nous souhaitons une approche mobile, ne nécéssitant pas le déploiement de capteurs sur la structure.
+
+		L'article~\cite{9568841} présente une exploration autonome sur plaque pour un robot d'inspection utilisant des ondes guidées ultrasonores.
+		Les auteurs proposent une méthode de localisation basée sur un maillage créé à partir d'un nuage de points et utilisent des mesures d'unités de mesure inertielle (IMU) et de bande ultra-large (UWB).
+		Ils intègrent également des ondes guidées ultrasonores dans le système pour une localisation précise du robot et une cartographie des caractéristiques structurelles.
+		Dans notre approche, la localisation est suposée connue.
+		Ce travail peut être utilisé pour la localisation du robot, bien que ce ne soit pas le sujet de notre projet.
+
+		L'article~\cite{7487624} présente des stratégies efficaces de planification de mesures pour la détection à distance des gaz avec des robots mobiles.
+		L'objectif de l'étude est d'optimiser la planification des mesures de manière à maximiser la précision de détection des gaz tout en minimisant le temps et les ressources nécessaires.
+		Les auteurs proposent différentes approches pour la planification des mesures, notamment l'utilisation de techniques d'exploration basées sur les frontières des zones de détection, la sélection de trajectoires efficaces pour couvrir l'environnement et la réduction du nombre de mesures nécessaires en utilisant des modèles probabilistes.
+		Le type de capteur utilisé possède des caractéristiques similaires à celles des capteurs utilisés dans notre projet.
+		Cependant notre problématique impose des déplacements de paires de robots.
+		La manière de scinder l'investigation en deux phases, une phase d'inspection grossière et une phase d'affinement, est également similaire à notre approche.
+		Cependant cette première phase est réalisée par des capteurs fixes ce qui n'est pas souhaitable dans notre approche.
+		Nous utiliserons également un TSP (Travelling Salesman Problem) pour optimiser les déplacements des robots entre les zones d'intérêt.
+
+		Dans le papier~\cite{7139673}, les auteurs proposent une méthode efficace de planification des mesures pour la détection de gaz à distance avec des robots mobiles.
+		Leur approche consiste à optimiser la planification des mesures afin de minimiser le temps et les ressources nécessaires.
+		Pour ce faire, ils utilise une technique de relaxation convexe afin de résoudre le problème d'optimisation qui permet de minimiser le nombre de mesures nécessaires, tout en garantissant une couverture complète de l'environnement.
+		Cet étude est intéréssante pour notre problématique et pourrais inspirer des améliorations de notre approche dans l'optimisation du TSP utilisé.
+
+		En résumé, les travaux présentés dans cette section sont intéréssants pour notre problématique car ils nous ont permis d'approfondir notre connaissance des problématiques liées à la tomographie par ondes guidées.
+		Les articles~\cite{7487624, 7139673} sont ceux qui se repprochent le plus de notre problématique.
+		Cependant, ces articles se concentrent sur un recouvrement de l'environnement sans se soucier de la qualité de la cartographie des zones d'intérêt.
+		De plus ces articles utilisent des capteurs fixes sur la structure pour la première phase d'inspection grossière, ce qui n'est pas souhaitable dans notre approche.
+		C'est pourquoi nous proposons notre approche de navigation multi-robots pour l'inspection acoustique de structures métalliques afin d'optimiser l'acquisition de données qui permettrons de réaliser la tomographie des surfaces métalliques.
 	\section{Propositions scientifiques et techniques}
 		Nous proposons trois stratégies de navigations multi-robots pour l'inspection acoustique de structures métalliques afin d'optimiser l'acquisition de données qui permettrons de réaliser la tomographie des surfaces métalliques. Ces trois stratégies sont les suivantes:
 		\begin{itemize}
@@ -158,7 +245,7 @@
 		Parmi ces stratégies, deux sont non réactives et peuvent être considérées comme des stratégies d'exploration grossières, le but étant de rapidement obtenir une couverture globale de la surface à inspecter (\textit{peinture au rouleau} et \textit{ski nordique}).
 		La troisième stratégie est réactive et permet d'optimiser l'acquisition de données pour la réalisation de la tomographie (\textit{investigation polygonale}).
 		Dans cette section, nous présentons les définitions préliminaires, la proposition de solution et l'étude théorique de propriétés de la solution proposée.
-		\subsection{Définitions préliminaires}
+		\subsection{Définitions préliminaires}\label{sec:definitions}
 			Ici, nous allons expliciter les hypothèses et les définitions préliminaires qui seront utilisées dans la suite de ce rapport.
 			Premièrement, nous considérons un environnement plan, borné et de taille connue.
 			Nous ne nous intéressons pas à la localisation des robots dans l'environnement, mais nous supposons que chaque robot est capable de connaître sa position dans l'environnement.
@@ -269,7 +356,7 @@
 				Ainsi, cette stratégie permet d'approcher les enveloppes convexes des zones de corrosion par des formes plus diverses et précises que des rectangles.
 			\subsubsection*{Stratégie de navigation \textit{investigation polygonale}}
 				La troisième stratégie que nous proposons est la stratégie de navigation \textit{investigation polygonale}.
-				Nous avons vu,  précédemment, qu'à l'issue de la réalisation de la stratégie de navigation \textit{peinture au rouleau}, l'enveloppe convexe des zone de corrosion est approximée par un rectangle.
+				Nous avons vu,  précédemment, qu'à l'issue de la réalisation de la stratégie de navigation \textit{peinture au rouleau}, l'enveloppe convexe des zonesrrrrrk,;aaaaaaaq de corrosion est approximée par un rectangle.
 				Cette approximation est un peut plus précise pour la stratégie de navigation \textit{ski nordique}.
 				Il serait intéréssant de pouvoir un plus grand degré de précision autours des zones potentielles de corrosion.
 				C'est ce que nous proposons avec la stratégie de navigation \textit{investigation polygonale}.
@@ -369,27 +456,44 @@
 				\end{proof}
 			\subsubsection*{Stratégie de navigation \textit{investigation polygonale}}
 				\begin{Proposition}
-					L'enveloppe convexe des zones de corrosion à l'issue de l'investigation polygonale, avec un polygone à $p$ sommets, $p \in \mathbb{N}$, est un polygone d'au plus $2p$ sommets.
+					La stratégie de navigation \textit{investigation polygonale}, définie par un polygone $P$ permet de couvrir tout points à l'intérieur du polygone $P$.
+					\label{prop:completude}
+				\end{Proposition}
+				\begin{proof}
+					Démontrons la proposition~\ref{prop:completude}.
+					\begin{itemize}
+						\item Soit $P$ un polygone convexe utilisé pour la stratégie de navigation \textit{investigation polygonale}.
+						\item Par simplicité nous considérons une stratégie à 2 robots mais la preuve reste semblablement la même pour $n > 2$ robots.
+						\item Considérons le robot $r_1$ au sommet $s_1$ du polygone $P$.
+						\item Soit un point $p$ à l'intérieur du polygone $P$.
+						\item Alors il existe un point $p'$ tel que $p'$ est sur le segment $[s_1, p]$ et $p'$ est sur le bord du polygone $P$.
+						\item Par définition de la stratégie de navigation \textit{investigation polygonale}, le robot $r_1$ se déplace sur les contours du polygone $P$ et donc en particulier sur le point $p'$.
+						\item On a donc pour tout point $p$ à l'intérieur du polygone $P$, il existe un couple de points tel que $p$ se trouve sur le segment formé par ces deux points.
+						\item Donc tout les points à l'intérieur du polygone $P$ sont couverts par la stratégie de navigation \textit{investigation polygonale}.
+					\end{itemize}
+				\end{proof}
+
+				\begin{Proposition}
+					L'approximation de l'enveloppe convexe des zones de corrosion à l'issue de l'investigation polygonale, avec un polygone à $p$ sommets, $p \in \mathbb{N}$, est un polygone d'au plus $2p$ sommets.
 					\label{prop:cotes_poly}
 				\end{Proposition}
 				\begin{proof}
 					Démontrons la proposition~\ref{prop:cotes_poly}.
 					\begin{itemize}
 						\item On a, pour chaque sommet du polygone, il existe deux droites passant par ce point et touchant la zone de corrosion sans la traverser.
-						\item On a donc pour un sommet du polygone, au plus deux droites qui participent à la construction de l'enveloppe convexe et donc, dont un segement de ces droites est une arête de l'enveloppe convexe.
-						\item On a donc pour un sommet du polygone, au plus deux arêtes de l'enveloppe convexe.
-						\item On a donc pour un polygone à $p$ sommets, au plus $2p$ arêtes de l'enveloppe convexe.
-						\item On a donc pour un polygone à $p$ sommets, au plus $2p$ sommets de l'enveloppe convexe.
+						\item On a donc pour un sommet du polygone, au plus deux droites qui participent à la construction de l'approximation de l'enveloppe convexe et donc, dont un segement de ces droites est une arête de l'approximation de l'enveloppe convexe.
+						\item On a donc pour un sommet du polygone, au plus deux arêtes de l'approximation de l'enveloppe convexe.
+						\item On a donc pour un polygone à $p$ sommets, au plus $2p$ arêtes de l'approximation de l'enveloppe convexe.
+						\item On a donc pour un polygone à $p$ sommets, au plus $2p$ sommets de l'approximation de l'enveloppe convexe.
 					\end{itemize}
 				\end{proof}
 
 				\begin{Proposition}
-					\TODO{Qu'est ce que je souhaite démontrer ?}
-					\label{prop:}
+					Si le polygone utilisé lors de l'investigation polygonale est un cercle, alors l'approximation de l'enveloppe convexe de la zone de corrosion à l'issue de l'investigation polygonale est l'enveloppe convexe.
+					\label{prop:cercle}
 				\end{Proposition}
 				\begin{proof}
-					Démontrons la proposition~\ref{prop:}.
-					\TODO{Faire la preuve.}
+					Nous laissons la démonstration de la proposition~\ref{prop:cercle} au lecteur aguerri.
 				\end{proof}
 	\section{Implémentations techniques}
 		Dans cette section, nous mettons en évidence certaines des différentes implémentations techniques que nous avons développées pour soutenir nos solutions de navigation et de contrôle multi-robots dans le contexte de l'inspection acoustique de structures métalliques.
@@ -400,7 +504,7 @@
 		Enfin, nous présentons l'algorithme de calcul du $\kappa$ de Cohen, utilisé pour évaluer la qualité et la fiabilité des résultats de l'inspection acoustique.
 		Nous discutons en détail de notre implémentation de cet algorithme, qui fournit des mesures quantitatives pour évaluer la performance des robots dans l'inspection des structures métalliques.
 		Chacune de ces implémentations techniques contribue à l'efficacité et à la précision de notre approche de navigation et de contrôle multi-robots, et sera examinée en détail dans les sous-sections suivantes.
-		\subsection*{Algorithme de tracé de segement de Bresenham}
+		\subsection*{Algorithme de tracé de segment de Bresenham}
 			L'algorithme de tracé de segment de Bresenham est couramment utilisé pour déterminer les points d'un plan discret qui doivent être tracés afin de former une approximation de segment de droite entre deux points donnés.
 			Lors du balaiement de la surface à inspecter par une paire de robot émetteur et récepteur, le robot émetteur émet une onde acoustique dans la structure métallique, qui est ensuite reçue par le robot récepteur.
 			La détection étant considérée comme parfaite, le robot récepteur reçoit l'onde émise par le robot émetteur, sans quasi altération de la puissance du signal, si et seulement si le segment de droite entre les deux robots ne traverse pas une zone de corrosion.
@@ -451,7 +555,9 @@
 			Une fois que tous les points du segment ont été parcourus, la grille $G$ est mise à jour avec les nouvelles informations.
 			L'algorithme de tracé de segment de Bresenham contribue ainsi à la construction de la grille d'occupation qui permet de localiser les zones de corrosion détectées par les robots lors de l'inspection acoustique des structures métalliques.
 		\subsection*{Algorithme \textit{peinture au rouleau} et \textit{ski nordique}}
-			Nous présentons dans cette sous-section les implémentations des algorithmes \textit{peinture au rouleau} et \textit{ski nordique}, présentées en annexe~\ref{annexe:implementations}, au listing~\ref{lst:peinture_au_rouleau} et au listing~\ref{lst:ski_nordique}.
+			Nous présentons dans cette sous-section les implémentations des algorithmes \textit{peinture au rouleau} et \textit{ski
+			nordique}.
+			Le code source est disponible sur Github~\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/tree/cr_nav_strat/bugwright_ws/src/floor_nav/missions}}.
 
 			L'implémentation de ces algorithmes, ont été réalisées en utilisant le langage de programmation Python et les bibliothèques ROS (Robot Operating System).
 			Dans ces implémentations, nous utilisons le framework Task Manager~\cite{ROSTaskManager} pour gérer les tâches des robots inspecteurs.
@@ -473,7 +579,8 @@
 			La grille d'occupation est également enregistré afin de calculer le score de l'inspection.
 			Cette implémentation constitue une étape essentielle dans notre proposition de solution pour l'inspection acoustique de structures métalliques et permet de garantir une couverture complète et efficace de la surface à inspecter.
 		\subsection*{Algorithme \textit{investigation polygonale}}
-			Nous présentons dans cette sous-section l'implémentation de l'algorithme \textit{investigation polygonale}, présentée en annexe~\ref{annexe:implementations}, au listing~\ref{lst:investigation_polygonale}.
+			Nous présentons dans cette sous-section l'implémentation de l'algorithme \textit{investigation polygonale}.
+			Le code source est disponible sur Github~\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/tree/cr_nav_strat/bugwright_ws/src/floor_nav/missions}}.
 
 			L'implémentation de cet algorithme, a également été réalisée en utilisant le langage de programmation Python et les bibliothèques ROS (Robot Operating System).
 			Dans cette implémentation, nous utilisons toujours le framework Task Manager~\cite{ROSTaskManager} pour gérer les tâches des robots inspecteurs.
@@ -488,7 +595,9 @@
 			Pour cela, nous utiilisons la bibliothèque Gurobi pour résoudre un simple TSP dans le cas où le nombre d'équipe de robots $k = 1$.
 			Lorsque $k > 1$, nous utilisons l'algorithme génétique proposé par Elad Kivelevitch~\cite{MDMTSPV_GA} pour résoudre le problème du mTSP avec plusieurs dépôts.
 
-			\TODO{investigation}
+			Une fois les algorithmes terminés, le temps d'exécution est enregistré, fournissant une indication de la durée nécessaire pour inspecter les différentes zones potentielles de corrosion.
+			La grille d'occupation est également enregistré afin de calculer le score de l'inspection.
+			Cette implémentation constitue une étape essentielle dans notre proposition de solution pour l'inspection acoustique de structures métalliques et permet d'investiguer les zones potentielles de corrosion de manière efficace.
 		\subsection*{Algorithme de calcul du $\kappa$ de Cohen}
 			L'évaluation de la qualité et de la fiabilité des résultats de l'inspection acoustique est essentielle pour garantir des mesures précises de l'état des structures métalliques.
 			Dans cette sous-section, nous présentons l'algorithme du calcul du $\kappa$ de Cohen, présenté à l'algorithme~\ref{alg:Cohen_Kappa}, une mesure statistique couramment utilisée pour évaluer l'accord entre les résultats obtenus par les robots et une référence humaine.
@@ -636,53 +745,56 @@
 		Finalement, nous nous attendons à ce que le nombre de zones de corrosion ait un impact sur la précision des différentes stratégies.
 		Plus le nombre de zones de corrosion est élevé, moins la précision devrait être élevée.
 
-		\begin{table}[h!]
-			\centering
-			\begin{tabular}{|c|c|c|c|}
-				\hline
-				Stratégie & Paramètres & Score & Temps \\
-				\hline
-				\multirow{5}{*}{\textit{peinture au rouleau}} & densité moyenne, $d$ moyen & - & ++ \\
-				\cline{2-4}
-				& faible densité & + & ++ \\
-				& forte densité & - - & ++ \\
-				& faible $d$ & + & + \\
-				& fort $d$ & - - & +++ \\
-				\hline
-				\multirow{7}{*}{\textit{ski nordique}} & densité moyenne, $d$ moyen, $s$ moyen & ++ & - \\
-				\cline{2-4}
-				& faible densité & +++ & - \\
-				& forte densité & + & - \\
-				& faible $d$ & +++ & - - \\
-				& fort $d$ & + & + \\
-				& faible $s$ & +++ & - - \\
-				& fort $s$ & + & + \\
-				\hline
-				\multirow{9}{*}{\textit{investigation polygonale}} & densité moyenne, $n$ moyen, $k$ moyen, $p$ moyen & +++ & - \\
-				\cline{2-4}
-				& faible densité & ++++ & + \\
-				& forte densité & ++ & - - \\
-				& faible $n$ & +++ & - - \\
-				& fort $n$ & +++ & + \\
-				& faible $k$ & +++ & - - \\
-				& fort $k$ & +++ & + \\
-				& faible $p$ & ++ & + \\
-				& fort $p$ & ++++ & - - \\
-				\hline
-			\end{tabular}
-			\caption{Résultats attendus pour chaque stratégie de navigation.}
-			\label{tab:expected_results}
-		\end{table}
+		% \begin{table}[h!]
+		% 	\centering
+		% 	\begin{tabular}{|c|c|c|c|}
+		% 		\hline
+		% 		Stratégie & Paramètres & Score & Temps \\
+		% 		\hline
+		% 		\multirow{5}{*}{\textit{peinture au rouleau}} & densité moyenne, $d$ moyen & - & ++ \\
+		% 		\cline{2-4}
+		% 		& faible densité & + & ++ \\
+		% 		& forte densité & - - & ++ \\
+		% 		& faible $d$ & + & + \\
+		% 		& fort $d$ & - - & +++ \\
+		% 		\hline
+		% 		\multirow{7}{*}{\textit{ski nordique}} & densité moyenne, $d$ moyen, $s$ moyen & ++ & - \\
+		% 		\cline{2-4}
+		% 		& faible densité & +++ & - \\
+		% 		& forte densité & + & - \\
+		% 		& faible $d$ & +++ & - - \\
+		% 		& fort $d$ & + & + \\
+		% 		& faible $s$ & +++ & - - \\
+		% 		& fort $s$ & + & + \\
+		% 		\hline
+		% 		\multirow{9}{*}{\textit{investigation polygonale}} & densité moyenne, $n$ moyen, $k$ moyen, $p$ moyen & +++ & - \\
+		% 		\cline{2-4}
+		% 		& faible densité & ++++ & + \\
+		% 		& forte densité & ++ & - - \\
+		% 		& faible $n$ & +++ & - - \\
+		% 		& fort $n$ & +++ & + \\
+		% 		& faible $k$ & +++ & - - \\
+		% 		& fort $k$ & +++ & + \\
+		% 		& faible $p$ & ++ & + \\
+		% 		& fort $p$ & ++++ & - - \\
+		% 		\hline
+		% 	\end{tabular}
+		% 	\caption{Résultats attendus pour chaque stratégie de navigation.}
+		% 	\label{tab:expected_results}
+		% \end{table}
 
-		Par soucis de clarté, nous résumons dans le tableau~\ref{tab:expected_results} les résultats attendus pour chaque stratégie de navigation.
-		Le tableau présente les résultats attendus pour chaque stratégie de navigation, en fonction des différents paramètres expérimentaux.
-		Les stratégies de navigation incluent \textit{peinture au rouleau}, \textit{ski nordique} et \textit{investigation polygonale}.
-		Les paramètres comprennent la densité, la distance $d$, le pas $s$, le nombre de côtés d'un polygone utilisé dans l'investigation polygonale $p$, le nombre d'équipes $k$ et le nombre de robots $n$.
+		% Par soucis de clarté, nous résumons dans le tableau~\ref{tab:expected_results} les résultats attendus pour chaque stratégie de navigation.
+		% Le tableau présente les résultats attendus pour chaque stratégie de navigation, en fonction des différents paramètres expérimentaux.
+		% Les stratégies de navigation incluent \textit{peinture au rouleau}, \textit{ski nordique} et \textit{investigation polygonale}.
+		% Les paramètres comprennent la densité, la distance $d$, le pas $s$, le nombre de côtés d'un polygone utilisé dans l'investigation polygonale $p$, le nombre d'équipes $k$ et le nombre de robots $n$.
 
-		Pour chaque stratégie, le tableau indique les scores et temps attendus associés à chacun des paramètres comparés aux scores et temps attendus pour les paramètres intermédiaires.
-		Les scores sont représentés par des symboles "+" et "-" et indiquent le niveau de précision attendu.
-		Les temps sont également indiqués par des symboles "+" et "-" et reflètent la lenteur d'inspection attendue.
-		Ainsi un score ++ est considéré comme plus précis qu'un score +, et un temps - - est considéré comme plus lent qu'un temps - par exemple.
+		% Pour chaque stratégie, le tableau indique les scores et temps attendus associés à chacun des paramètres comparés aux scores et temps attendus pour les paramètres intermédiaires.
+		% Les scores sont représentés par des symboles "+" et "-" et indiquent le niveau de précision attendu.
+		% Les temps sont également indiqués par des symboles "+" et "-" et reflètent la lenteur d'inspection attendue.
+		% Ainsi un score ++ est considéré comme plus précis qu'un score +, et un temps - - est considéré comme plus lent qu'un temps - par exemple.
+
+		Les différentes résultats issues des différentes simulations effectuées sont disponibles en annexe~\ref{annexe:resultat}.
+		Sur ces imgaes, il est possible de voir en noir les zones réelles de corrosion et en bleu les zones détectées comme comportant de la corrosion par les différents algorithmes de navigation.
 		\subsection*{Stratégie de navigation \textit{peinture au rouleau}}
 			Nous résumons à la figure~\ref{fig:peinture_au_rouleau-kappa_vs_world} l'évolution du score de Cohen en fonction de la densité du monde pour chaque valeur de $d$.
 			Nous résumons également à la figure~\ref{fig:peinture_au_rouleau-time_vs_world} l'évolution du temps d'inspection en fonction de la densité du monde pour chaque valeur de $d$.
@@ -773,8 +885,8 @@
 			\end{figure}
 
 			Nous avons des résultats très similaires à ceux obtenus pour l'algorithme \textit{peinture au rouleau}.
-			En effet, nous observons à la figure \ref{fig:ski_nordique-kappa_vs_world_d} que le score de Cohen diminue de manière générale lorsque la densité du monde augmente.
-			De plus, le temps d'exécution de l'algorithme \textit{ski nordique}, observé à la figure \ref{fig:ski_nordique-time_vs_world_d}, est constant pour chaque valeur de la densité du monde.
+			En effet, nous observons à la figure~\ref{fig:ski_nordique-kappa_vs_world_d} que le score de Cohen diminue de manière générale lorsque la densité du monde augmente.
+			De plus, le temps d'exécution de l'algorithme \textit{ski nordique}, observé à la figure~\ref{fig:ski_nordique-time_vs_world_d}, est constant pour chaque valeur de la densité du monde.
 
 			\begin{figure}[h!]
 				\centering
@@ -794,13 +906,13 @@
 			\end{figure}
 
 			Nous pouvons observer à la figure~\ref{fig:ski_nordique-world_s} l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la densité du monde pour différentes valeurs du pas entre les deux crawlers et une distance entre les crawlers de 3 mètres.
-			À la figure \ref{fig:ski_nordique-kappa_vs_world_s}, nous observons que le score de Cohen est le plus bas pour des grandes valeurs de densités et des grandes valeurs de $d$, comme pour $d = 6$ et les cartes avec 30 et 20 zones de corrosion.
+			À la figure~\ref{fig:ski_nordique-kappa_vs_world_s}, nous observons que le score de Cohen est le plus bas pour des grandes valeurs de densités et des grandes valeurs de $d$, comme pour $d = 6$ et les cartes avec 30 et 20 zones de corrosion.
 			Ceci s'expplique que pour de grandes valeurs de densités et de $d$, la probabilité que les rayons du signals traversent des zones de corrosions est plus élevée.
 			Il y a donc plus de chance que des zones fantômes soient créées ce qui fait diminuer le score de Cohen.
 			Les formes allongées des zones de corrosion sont également un facteur qui fait diminuer le score de Cohen comme étudié précédemment.
 			C'est pourquoi nous observons que le score de Cohen est le plus haut pour la carte avec la plus petite densité et sans formes allongées de corrosion, c'est-à-dire la carte avec 15 zones de corrosion.
 
-			À la figure \ref{fig:ski_nordique-time_vs_world_s}, nous observons que le temps d'exécution de l'algorithme \textit{ski nordique} est constant pour chaque valeur de la densité du monde.
+			À la figure~\ref{fig:ski_nordique-time_vs_world_s}, nous observons que le temps d'exécution de l'algorithme \textit{ski nordique} est constant pour chaque valeur de la densité du monde.
 			Ceci était attendu comme pour la stratégie \textit{peinture au rouleau}.
 			Cependant, nous observons que le temps d'exécution avec le pas utilisé.
 			Nous nous serions plutôt attendu à ce que le temps d'exécution reste constant avec le pas des crawlers.
@@ -824,10 +936,10 @@
 				\label{fig:ski_nordique-distance}
 			\end{figure}
 
-			À la figure \ref{fig:ski_nordique-distance}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la distance qui sépare les deux crawlers pour un pas de 3 mètres.
+			À la figure~\ref{fig:ski_nordique-distance}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la distance qui sépare les deux crawlers pour un pas de 3 mètres.
 			Le score semble comme pour la stratégie \textit{peinture au rouleau} suivre une relation lineaire avec la distance qui sépare les deux crawlers.
 			Le temps d'exécution semble également suivre une relation linéaire avec la distance qui sépare les deux crawlers.
-			Le fait que la courbe à figure \ref{fig:ski_nordique-time_vs_distance} ne soit pas une droite est dû au fait que plus la distance entre les crawlers est petite et plus le nombre de rotation que les crawlers doivent effectuer est grand.
+			Le fait que la courbe à figure~\ref{fig:ski_nordique-time_vs_distance} ne soit pas une droite est dû au fait que plus la distance entre les crawlers est petite et plus le nombre de rotation que les crawlers doivent effectuer est grand.
 			Or le temps de rotation n'est pas négligeable dans les temps d'exécution des algorithmes.
 
 			\begin{figure}[h!]
@@ -846,7 +958,7 @@
 				\label{fig:ski_nordique-stride}
 			\end{figure}
 
-			À la figure \ref{fig:ski_nordique-stride}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction du pas des crawlers pour une distance de 3 mètres.
+			À la figure~\ref{fig:ski_nordique-stride}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction du pas des crawlers pour une distance de 3 mètres.
 			Le score semble suivre une relation linéaire avec le pas des crawlers.
 			Plus le pas est grand et plus le score est grand.
 			Cela entre en concordance avec ce que nous expliquions précédemment.
@@ -858,712 +970,193 @@
 
 			Dans la suite de ce rapport nous considérerons une distance $d = 3$ entre les deux crawlers et un pas $s = 3$ pour l'algorithme \textit{ski nordique}.
 		\subsection*{Stratégie de navigation \textit{investigation polygonale}}
-			\TODO{Analyse}
+			Nous avons ensuite testé l'algorithme \textit{investigation polygonale} sur des mondes composés de 5, 8 et 11 zones de corrosion.
+			La stratégie d'inspection se base sur les résultats de la stratégie \textit{peinture au rouleau}.
+			Comme expliqué précédemment, nous justifions ce choix par le fait que la stratégie \textit{peinture au rouleau} est la plus rapide des stratégies a priori que nous avons implémenté.
+
+			\begin{figure}[h!]
+				\begin{subfigure}[t]{0.9\linewidth}
+					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p4.png}
+					\caption{$\kappa$ en fonction de la densité du monde}
+					\label{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p4}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.9\linewidth}
+						\includegraphics[width=\linewidth]{graphics/investigation_polygonale-time_vs_world_for_each_d_k1_n2_p4.png}
+						\caption{Temps d'exécution en fonction de la densité du monde}
+						\label{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p4}
+				\end{subfigure}
+				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{investigation polygonale} en fonction de la densité du monde pour différentes distances entre les crawlers avec un polygone à 4 côtés.}
+				\label{fig:investigation_polygonale-world_for_each_d_k1_n2_p4}
+			\end{figure}
+
+			La figure~\ref{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p4} montre l'évolution du score de Cohen en fonction de la densité du monde pour chaque valeurs de $d$ utilisées dans la stratégie \textit{peinture au rouleau}.
+			Nous avons utilisé un polygone d'investigation à 4 côtés.
+			En premier lieu, nous observons des scores de Cohen relativement indépendant de la distance entre les crawlers pour les cartes avec 5 et 8 zones de corrosion.
+			Ceci est un résultat enthousiasmant car cela signifie que nous pouvons utiliser la stratégie \textit{investigation polygonale} en se basant sur les résultats de la stratégie \textit{peinture au rouleau} en utilisant une grande distance entre les crawlers et donc une stratégie \textit{peinture au rouleau} très rapide.
+			Néanmoins, nous pouvons observer que pour les cartes avec 11 zones de corrosion, le score de Cohen est impacté par la distance entre les crawlers augmente.
+			Nous imputons ce résultat au fait que cette carte comporte des zones de corrosion allongées très proches les unes des autres, ayant pour effet de bloquer certains rayons émis et reçus lors de l'inspection polygonale d'une zone.
+			L'inspection polygonale est donc naturellement impactée par la densité du monde.
+			Cepandant nous pouvons imaginer lors de la réparation des structures métalliques, il soit plus convenable de fusionner des zones de corrosion proches les unes des autres en une seule zone de corrosion, bien que cela ne soit pas considéré dans notre problème.
+
+			La figure~\ref{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p4} montre l'évolution du temps d'exécution en fonction de la densité du monde pour chaque valeurs de $d$ utilisées dans la stratégie \textit{peinture au rouleau}.
+			Nous avons utilisé un polygone d'investigation à 4 côtés.
+			Nous observons que le temps d'exécution augmente avec la densité du monde de manière linéaire.
+			Ceci est un résultat attendu car l'algorithme \textit{investigation polygonale} est de complexité linéaire en fonction du nombre de zones de corrosion, ce dernier consistant à parcourir toutes les zones de corrosion potentielles et à les inspecter.
+			Nous observons également que le temps d'exécution augmente avec la distance entre les crawlers.
+			En effet, plus la distance entre les crawlers est grande, plus le nombre de zones fantômes est important à l'issue de la stratégie de navigation \textit{peinture au rouleau}, et donc plus le nombre de zones de corrosion potentielles est important.
+			Cependant, ces zones fantômes sont rapidement traitées par l'algorithme \textit{investigation polygonale}.
+			Par exemple, pour la carte 5 avec 11 zones de corrosion, nous obtenons 12 zones de corrosion potentielles avec une distance de 1 mètre entre les crawlers à l'issue de la peinture qu rouleau contre 20 zones de corrosion potentielles avec une distance de 6 mètres entre les crawlers.
+			Or nous observons un temps d'exécution de 1027 secondes pour la première configuration contre 1616 secondes pour la seconde configuration.
+			Nous avons donc pour une augmentation de 67\% du nombre de zones de corrosion potentielles une augmentation de 57\% du temps d'exécution.
+			Le gain de performance n'est pas très important mais est tout de même significatif.
+
+			\begin{figure}[h!]
+				\begin{subfigure}[t]{0.9\linewidth}
+					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p6.png}
+					\caption{$\kappa$ en fonction de la densité du monde}
+					\label{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p6}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.9\linewidth}
+						\includegraphics[width=\linewidth]{graphics/investigation_polygonale-time_vs_world_for_each_d_k1_n2_p6.png}
+						\caption{Temps d'exécution en fonction de la densité du monde}
+						\label{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p6}
+				\end{subfigure}
+				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{investigation polygonale} en fonction de la densité du monde pour différentes distances entre les crawlers avec un polygone de 6 côtés.}
+				\label{fig:investigation_polygonale-world_for_each_d_k1_n2_p6}
+			\end{figure}
+
+			Nous avons également fait varier la taille du polygone d'investigation de la stratégie \textit{investigation polygonale}.
+			Nous présentons à la figure~\ref{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p6} l'évolution du score de Cohen en fonction de la densité du monde pour la carte 5, pour un polygone à 6 sommets.
+			Premièrement, nous n'observons pas une amélioration significative du score de Cohen lorsque la taille du polygone d'investigation augmente.
+			Au contraire, nous observons une diminution en moyenne, bien que très faible, du score.
+			En théorie l'augementation de la taille du polygone d'investigation devrait permettre de mieux approcher l'enveloppe convexe de la zone de corrosion, et donc d'obtenir un meilleur score de Cohen.
+			Cependant, nous sommes limité dans notre implémentation par la résolution utilisée pour la discrétisation de la carte.
+			Ainsi, il est probable que le fait d'augmenter la taille du polygone d'investigation élimine des cellules de la grille d'occupation (en périphérie des zones de corrosion) où de la corrosion est réellement présente, du fait qu'il ait existé un rayon qui ait traversé cette même cellule.
+			Cependant, pour une résolution pus précise, nous pourrions observer une amélioration du score de Cohen.
+
+			Nous présentons à la figure~\ref{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p6} l'évolution du temps d'exécution en fonction de la densité du monde pour la carte 5, pour un polygone à 6 sommets.
+			Ici, nous observons naturellement une augmentation du temps d'exécution lorsque la taille du polygone d'investigation augmente.
+
+			Nous aurions également voulu faire varier le nombre de robots utilisés pour l'investigation polygonale ainsi que le nombre d'équipes de robots.
+			Cependant nous n'avons pas eu le temps de mettre en place une solution de gestion des collisions entre les robots.
+			Il serait intéréssant dans un travail future de mettre en place une telle solution et d'analyser les performances de l'algorithme \textit{investigation polygonale} avec ces différents paramètres.
+			En effet le temps d'exécution de l'algorithme \textit{investigation polygonale} devrait diminuer lorsque $k$ et $n$ augmentent.
+
+			Dans la sous section-suivante, nous comparerons les performances de l'algorithme \textit{investigation polygonale} avec celles des algorithmes \textit{peinture au rouleau} et \textit{ski nordique}.
+			Pour ce faire, nous considererons un polygone d'investigation pour l'investigation polygonale à 4 sommets.
 		\subsection*{Comparaisons et discussions}
+			Dans cette sous-section, nous comparons les performances des différentes stratégies de navigation multi-robots.
+
+			\begin{figure}[h!]
+				\begin{subfigure}[t]{0.9\linewidth}
+					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_world.png}
+					\caption{$\kappa$ en fonction de la densité du monde}
+					\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_d}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.9\linewidth}
+						\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_world.png}
+						\caption{Temps d'exécution en fonction de la densité du monde}
+						\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_d}
+				\end{subfigure}
+				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution des différents algorithmes en fonction de la densité du monde pour différentes distances entre les crawlers.}
+				\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique_for_each_world}
+			\end{figure}
+
+			Nous présentons à la figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique_for_each_world} l'évolution du score de Cohen et du temps d'exécution en fonction de la densité du monde, pour chaque algorithme.
+			Dans cette figure nous avons représenté les scores et temps obtenus, en moyenne, pour les différentes valeurs de $d$ et de $s$, par soucis de lisibilité.
+			Une version plus détaillée, pour chaque valeur de $d$, est disponible en annexe~\ref{annexe:comparaison}.
+
+			Nous pouvons observer à la figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_d} que le score de Cohen obtenu par l'algorithme \textit{investigation polygonale} est supérieur à ceux obtenus par les algorithmes \textit{peinture au rouleau} et \textit{ski nordique}.
+			Seule la stratégie \textit{investigation polygonale} a permis d'obtenir un score de Cohen considéré comme \textit{accord presque parfait} (supérieur à 0.8) selon Landis et Koch.
+
+			Nous pouvez observer à la figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_d} que le temps d'exécution de l'algorithme \textit{peinture au rouleau} est inférieur à ceux obtenus par les algorithmes \textit{investigation polygonale} et \textit{ski nordique}.
+			Pour de faibles densités de cartes comme celles utilisées dans nos expérimentations, l'algorithme \textit{ski nordique} est le moins rapide.
+			Ce résultat est à nuancer.
+			En effet, pour des densités plus élevées, l'algorithme \textit{ski nordique} devient plus rapide que l'algorithme \textit{investigation polygonale}, comme nous pouvons déjà presque le voir pour la carte comportant 11 zones de corrosion.
+
+			\begin{table}[h!]
+				\centering
+				\begin{tabular}{|c|c|c|}
+					\hline
+					& \multicolumn{2}{c|}{\textbf{Gain en performance \textit{investigation polygonale}}} \\
+					\hline
+					\textbf{comparé à} & \textbf{$\kappa$ de Cohen} & \textbf{Temps d'exécution} \\
+					\hline
+					\textit{peinture au rouleau} & +68.39\% & +305.80\% \\
+					\hline
+					\textit{ski nordique} & +27.92\% & -3.92\% \\
+					\hline
+				\end{tabular}
+				\caption{Gain en performance apporté par la stratégie \textit{investigation polygonale} par rapport aux stratégies \textit{peinture au rouleau} et \textit{ski nordique}.}
+				\label{tab:gain}
+			\end{table}
+
+			La table~\ref{tab:gain} présente le gain en performance apporté par la stratégie \textit{investigation polygonale} par rapport aux stratégies \textit{peinture au rouleau} et \textit{ski nordique}.
+			Ici nous avons considéré le temps d'investigation de la stratégie \textit{investigation polygonale} comme étant égal à la somme des temps d'investigation de la stratégie \textit{investigation polygonale} et de la stratégie \textit{peinture au rouleau} puisque la première stratégie se base sur la seconde pour explorer les zones de corrosion.
+			Nous pouvons observer que l'algorithme \textit{investigation polygonale} permet d'obtenir un score de Cohen supérieur de 68.39\% à celui obtenu par l'algorithme \textit{peinture au rouleau}, bien qu'il soit bien plus lent que ce dernier.
+			En revanche, l'algorithme \textit{investigation polygonale} permet d'obtenir un score de Cohen supérieur de 27.92\% à celui obtenu par l'algorithme \textit{ski nordique}, tout en étant plus rapide que ce dernier.
 	\section{Bilan personnel}
-		\TODO{Bilan personnel}
+		Au cours de cette période de travail, j'ai pu approfondir mes connaissances dans le domaine de la robotique et de l'inspection multi-robots.
+		J'ai été confronté à divers défis que j'ai éssayé de surmonter.
+		Ce projet m'a permis d'acquérir de nouvelles compétences techniques et d'améliorer ma capacité à travailler au sein d'un projet de recherche.
+
+		Tout d'abord, j'ai pu approfondir mes connaissances en robotique et dans l'inspection multi-robots.
+		J'ai effectué des recherches approfondies et j'ai consulté des sources fiables pour obtenir des informations pertinentes.
+		Cela m'a permis de comprendre en profondeur les concepts clés liés à mon sujet d'étude.
+
+		Au cours de ce projet, j'ai pu grandement évoluer sur le plan personnel et professionnel.
+		J'ai acquis de nouvelles compétences et enrichi mon bagage technique, ce qui a renforcé ma confiance dans mes capacités en tant qu'ingénieur.
+
+		Tout d'abord, j'ai considérablement développé mes compétences en programmation, en mettant l'accent sur Python et C++.
+		Grâce à cette expérience, j'ai acquis une meilleure compréhension de ces langages et j'ai gagné en efficacité dans la résolution de problèmes.
+
+		Parallèlement, j'ai eu l'opportunité d'explorer de nouveaux outils qui se sont révélés essentiels pour la réalisation de mon projet.
+		J'ai notamment travaillé avec Gazebo, une plateforme de simulation d'environnements virtuels, ce qui m'a permis de tester et de valider mes algorithmes dans des conditions proches de la réalité.
+		J'ai également utilisé Blender pour créer des modèles 3D. De plus, l'apprentissage de ROS (Robot Operating System) m'a offert une infrastructure logicielle solide pour le développement et le contrôle de robots.
+
+		En outre, ma participation à ce projet m'a offert une première immersion dans le monde de la recherche.
+		J'ai eu l'occasion d'explorer la littérature scientifique, de me familiariser avec les travaux antérieurs liés à mon domaine d'étude et de mettre en pratique des méthodologies de recherche.
+		J'ai appris à collecter et à analyser des données, ainsi qu'à rédiger des rapports techniques et des articles scientifiques.
+		Cette expérience m'a permis de développer ma rigueur scientifique et ma capacité à mener des investigations approfondies.
+
+		Enfin, ce projet m'a également permis de renforcer ma gestion du temps et de prioriser efficacement les tâches.
+		J'ai dû établir un planning détaillé pour respecter les échéances et m'assurer que chaque étape du projet était réalisée en temps voulu.
+		J'ai appris à gérer les imprévus et à ajuster mon emploi du temps en conséquence pour maintenir un bon équilibre entre la qualité du travail et le respect des délais.
+
+		Dans l'ensemble, ce projet a été une expérience enrichissante qui m'a permis de développer mes compétences et de progresser dans mon domaine.
+		J'ai acquis une compréhension approfondie de la robotique et de l'inspection multi-robots, renforcé mes compétences techniques et amélioré ma capacité à m'organiser.
+		Je suis reconnaissant d'avoir eu l'opportunité de m'investir dans ce projet et je suis confiant que les compétences que j'ai acquises me seront utiles dans mes futurs projets professionnels.
+
+		En conclusion, ce projet a été une étape essentielle dans mon parcours professionnel.
+		J'ai acquis des compétences techniques avancées, j'ai exploré de nouveaux outils et j'ai pu me familiariser avec les exigences de la recherche.
+		Ces acquis me seront précieux pour mes projets futurs, qu'il s'agisse de poursuivre dans le domaine de la recherche ou dans l'industrie.
 	\section{Conclusion et perspectives}
-		\TODO{Conclusion et perspectives}
-	\section*{}
+		En conclusion, cette étude a permis de mettre en œuvre et d'évaluer trois stratégies pour la réalisation d'une exploration autonome dans des environnements complexes.
+		Les résultats obtenus démontrent l'efficacité de ces approches dans la résolution du problème d'inspection de surfaces métalliques et mettent en évidence leurs caractéristiques respectives.
+
+		La première stratégie, la stratégie peinture au rouleau, a permis d'obtenir des résultats satisfaisants en des temps d'exploration très courts.
+		La distance entre les robots peut être ajustée pour optimiser les résultats dépendamment de la densité des zones de corrosion inférées.
+		Cette stratégies est particulièrement adaptée à une utilisation préalable à la stratégie investigation polygonale, car elle permet de rapidement avoir une vue grossière des zones de corrosion potentielles.
+
+		La deuxième stratégie, la stratégie ski nordique, a permis d'obtenir des résultats supérieurs à ceux de la stratégie de peinture au rouleau, mais avec des temps d'exploration plus longs.
+		Cette approche est plus robuste que la stratégie de peinture au rouleau, car elle fait varier l'angle des rayons UGW émis et reçus, permettant ainsi de plus finement approcher les zones de corrosion.
+
+		Enfin, la troisième stratégie, l'investigation polygonale, a permis d'obtenir les meilleurs résultats.
+		Cette stratégie réactive permet d'affiner la localisation des zones de corrosion en se basant sur les résultats des deux stratégies précédentes.
+		Cependant, cette stratégie est plus sensible aux collisions entre les robots, ce qui peut entraîner des résultats moins satisfaisants dans certains cas.
+
+		En termes de perspectives, plusieurs axes de développement peuvent être envisagés.
+		Tout d'abord, il serait intéressant d'approfondir l'exploration polygonale en recherchant des méthodes plus robustes pour la gestion des collisions avec les différents robots.
+		Cela permettrait de rendre cette stratégie plus fiable et utilisable dans un large éventail d'environnements complexes.
+		Enfin, l'extension de cette étude à des expérimentations avec plusieurs équipes de robots constitue une piste prometteuse pour accélérer davantage le processus d'exploration et d'investigation.
+
+		En conclusion, cette étude a permis de mettre en évidence les avantages et les limites de trois stratégies d'exploration autonome. Les résultats obtenus ouvrent la voie à de nombreuses perspectives de développement, notamment en ce qui concerne l'amélioration de l'efficacité et de la robustesse des approches existantes. Ces avancées pourraient avoir un impact significatif dans divers domaines, tels que la robotique de service, l'exploration spatiale ou encore la surveillance environnementale.
 	\bibliographystyle{unsrt}
 	\bibliography{rapportPFE}
 	\appendix
-	% \section{Données collectées}
-	% \section{Éléments majeurs de la conception}
-	% \section{Preuves}
-	\section{Implémentations techniques}
-		\label{annexe:implementations}
-		\subsection{Implémentation de l'algorithme \textit{peinture au rouleau}}
-			\begin{lstlisting}[language=Python,caption={Implémentation de l'algorithme de peinture au rouleau},label=lst:peinture_au_rouleau]
-#!/usr/bin/env python3
-import rospy
-import numpy
-from math import *
-from task_manager_lib.TaskClient import *
-
-rospy.init_node('task_client')
-server_node = rospy.get_param("~server", "/crawler_id/task_server")
-default_period = rospy.get_param("~period", 0.05)
-tc = TaskClient(server_node, default_period)
-rospy.loginfo("Mission connected to server: " + server_node)
-vel = rospy.get_param("~velocity", 0.5)
-crawler_id = rospy.get_param("~crawler_id", 0)
-crawlers_distance = rospy.get_param("~crawlers_distance", 1.0)
-overlap = rospy.get_param("~overlap", 0.1)
-width = rospy.get_param("~width", 20.0)
-height = rospy.get_param("~height", 20.0)
-
-d = crawlers_distance
-k = 0
-stat = 0
-
-start = rospy.Time.now()
-
-try:
-	tc.SetStatusSync(status=stat)
-	if crawler_id == 0:
-		tc.WaitForStatusSync(partner="crawler_1", status=stat)
-	elif crawler_id == 1:
-		tc.WaitForStatusSync(partner="crawler_0", status=stat)
-	stat += 1
-
-	# vertical
-	if crawler_id == 0:
-		for i in numpy.arange(-width/2, width/2-d+1, d):
-			tc.AlignWithTarget(goal_x=i-overlap, goal_y=height/2*(-1)**k)
-			tc.FollowLine(goal_x=i-overlap, goal_y=height/2*(-1)**k, max_velocity=vel)
-			tc.AlignWithTarget(goal_x=i+d-overlap, goal_y=height/2*(-1)**k)
-			tc.FollowLine(goal_x=i+d-overlap, goal_y=height/2*(-1)**k, max_velocity=vel)
-			k = (k+1) % 2
-			tc.SetStatusSync(status=stat)
-			tc.WaitForStatusSync(partner="crawler_1", status=stat)
-			stat += 1
-	elif crawler_id == 1:
-		for i in numpy.arange(-width/2+d, width/2+1, d):
-			tc.AlignWithTarget(goal_x=i+overlap, goal_y=height/2*(-1)**k)
-			tc.FollowLine(goal_x=i+overlap, goal_y=height/2*(-1)**k, max_velocity=vel)
-			tc.AlignWithTarget(goal_x=i+d+overlap, goal_y=height/2*(-1)**k)
-			tc.FollowLine(goal_x=i+d+overlap, goal_y=height/2*(-1)**k, max_velocity=vel)
-			k = (k+1) % 2
-			tc.SetStatusSync(status=stat)
-			tc.WaitForStatusSync(partner="crawler_0", status=stat)
-			stat += 1
-
-	if crawler_id == 0:
-		tc.GoTo(goal_x=width/2+d, goal_y=-height/2, max_velocity=vel)
-		tc.SetStatusSync(status=stat)
-		tc.WaitForStatusSync(partner="crawler_1", status=stat)
-		stat += 1
-		tc.GoTo(goal_x=width/2, goal_y=-height/2, max_velocity=vel)
-		tc.SetStatusSync(status=stat)
-		tc.WaitForStatusSync(partner="crawler_1", status=stat)
-	elif crawler_id == 1:
-		tc.GoTo(goal_x=width/2+d, goal_y=-height/2+d, max_velocity=vel)
-		tc.SetStatusSync(status=stat)
-		tc.WaitForStatusSync(partner="crawler_0", status=stat)
-		stat += 1
-		tc.GoTo(goal_x=width/2, goal_y=-height/2+d, max_velocity=vel)
-		tc.SetStatusSync(status=stat)
-		tc.WaitForStatusSync(partner="crawler_0", status=stat)
-	stat += 1
-	k = 1
-
-	# horizontal
-	if crawler_id == 0:
-		for i in numpy.arange(-height/2, height/2-d+1, d):
-			tc.AlignWithTarget(goal_x=width/2*(-1)**k, goal_y=i-overlap)
-			tc.FollowLine(goal_x=width/2*(-1)**k, goal_y=i-overlap, max_velocity=vel)
-			tc.AlignWithTarget(goal_x=width/2*(-1)**k, goal_y=i+d-overlap)
-			tc.FollowLine(goal_x=width/2*(-1)**k, goal_y=i+d-overlap, max_velocity=vel)
-			k = (k+1) % 2
-			tc.SetStatusSync(status=stat)
-			tc.WaitForStatusSync(partner="crawler_1", status=stat)
-			stat += 1
-	elif crawler_id == 1:
-		for i in numpy.arange(-height/2+d, height/2+1, d):
-			tc.AlignWithTarget(goal_x=width/2*(-1)**k, goal_y=i+overlap)
-			tc.FollowLine(goal_x=width/2*(-1)**k, goal_y=i+overlap, max_velocity=vel)
-			tc.AlignWithTarget(goal_x=width/2*(-1)**k, goal_y=i+d+overlap)
-			tc.FollowLine(goal_x=width/2*(-1)**k, goal_y=i+d+overlap, max_velocity=vel)
-			k = (k+1) % 2
-			tc.SetStatusSync(status=stat)
-			tc.WaitForStatusSync(partner="crawler_0", status=stat)
-			stat += 1
-
-except TaskException as e:
-	rospy.logerr("Exception caught: " + str(e))
-
-end = rospy.Time.now()
-time = (end-start).to_sec()
-rospy.loginfo("Mission completed in " + str(time) + " seconds")
-			\end{lstlisting}
-		\subsection{Implémentation de l'algorithme \textit{ski nordique}}
-			\begin{lstlisting}[language=Python,caption={Implémentation de l'algorithme de ski nordique},label=lst:ski_nordique]
-#!/usr/bin/env python3
-from time import sleep
-import rospy
-import numpy
-from math import *
-from task_manager_lib.TaskClient import *
-
-rospy.init_node('task_client')
-server_node = rospy.get_param("~server", "/crawler_id/task_server")
-default_period = rospy.get_param("~period", 0.05)
-tc = TaskClient(server_node, default_period)
-rospy.loginfo("Mission connected to server: " + server_node)
-vel = rospy.get_param("~velocity", 0.5)
-crawler_id = rospy.get_param("~crawler_id", 0)
-crawlers_distance = rospy.get_param("~crawlers_distance", 1.0)
-stride_size = int(rospy.get_param("~stride_size", 1.0))
-overlap = rospy.get_param("~overlap", 0.1)
-grid_width = rospy.get_param("~grid_width", 6) // 2
-grid_height = rospy.get_param("~grid_height", 6) // 2
-
-d = crawlers_distance
-k = 0
-if crawler_id == 0: overlap = -overlap
-
-start = rospy.Time.now()
-
-# vertical pass
-
-if crawler_id == 0: begin_w, end_w = -grid_width, grid_width + 1 - d
-elif crawler_id == 1: begin_w, end_w = -grid_width + d, grid_width + 1
-
-stat = 0
-tc.SetStatusSync(status=stat)
-if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-
-for i in numpy.arange(begin_w, end_w, d):
-
-	if crawler_id == 0: begin_h, end_h = -grid_height + 2*stride_size, grid_height + 1 + stride_size
-	elif crawler_id == 1: begin_h, end_h = -grid_height + stride_size, grid_height + 1 + stride_size
-
-	for j in numpy.arange(begin_h, end_h, 2*stride_size):
-		tc.GoTo(goal_x=i+overlap, goal_y=j, max_velocity=vel, relative=False)
-		stat += 1
-		tc.SetStatusSync(status=stat)
-		if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-		elif crawler_id == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat)
-
-	tc.SetStatusSync(status=stat+1)
-	if stride_size % 2 == 1:
-		if crawler_id == 0: tc.GoTo(goal_x=i+overlap, goal_y=grid_height + stride_size, max_velocity=vel, relative=False)
-		if crawler_id == 1: tc.GoTo(goal_x=i+overlap, goal_y=grid_height, max_velocity=vel, relative=False)
-	elif stride_size % 2 == 0:
-		if crawler_id == 0: tc.GoTo(goal_x=i+overlap, goal_y=grid_height, max_velocity=vel, relative=False)
-		if crawler_id == 1: tc.GoTo(goal_x=i+overlap, goal_y=grid_height + stride_size, max_velocity=vel, relative=False)
-	stat = 0
-	tc.SetStatusSync(status=stat)
-	if crawler_id == 1 and stride_size % 2 == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat+1)
-	elif crawler_id == 0 and stride_size % 2 == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-
-	if stride_size % 2 == 1:
-		if crawler_id == 0: begin_h, end_h = grid_height - stride_size, -grid_height - 1 - stride_size
-		elif crawler_id == 1: begin_h, end_h = grid_height - 2*stride_size, -grid_height - 1 - stride_size
-	elif stride_size % 2 == 0:
-		if crawler_id == 0: begin_h, end_h = grid_height - 2*stride_size, -grid_height - 1 - stride_size
-		elif crawler_id == 1: begin_h, end_h = grid_height - stride_size, -grid_height - 1 - stride_size
-
-	for j in numpy.arange(begin_h, end_h, -2*stride_size):
-		tc.GoTo(goal_x=i+overlap, goal_y=j, max_velocity=vel, relative=False)
-		stat += 1
-		tc.SetStatusSync(status=stat)
-		if crawler_id == 0 and stride_size % 2 == 1: tc.WaitForStatusSync(partner="crawler_1", status=stat)
-		if crawler_id == 0 and stride_size % 2 == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-		elif crawler_id == 1 and stride_size % 2 == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat+1)
-		elif crawler_id == 1 and stride_size % 2 == 0: tc.WaitForStatusSync(partner="crawler_0", status=stat)
-
-	tc.SetStatusSync(status=stat+1)
-	if crawler_id == 0: tc.GoTo(goal_x=i+d+overlap, goal_y=-grid_height, max_velocity=vel, relative=False)
-	if crawler_id == 1: tc.GoTo(goal_x=i+d+overlap, goal_y=-grid_height - stride_size, max_velocity=vel, relative=False)
-	stat = 0
-	tc.SetStatusSync(status=stat)
-	if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-
-tc.SetStatusSync(status=stat+1)
-
-# repostioning
-
-stat = 0
-tc.SetStatusSync(status=stat)
-
-if crawler_id == 0: tc.GoTo(goal_x=grid_width, goal_y=-grid_height, max_velocity=vel, relative=False)
-elif crawler_id == 1: tc.GoTo(goal_x=grid_width + stride_size, goal_y=-grid_height + d, max_velocity=vel, relative=False)
-
-if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-
-# horizontal pass
-
-if crawler_id == 0: begin_h, end_h = -grid_height, grid_height + 1 - d
-elif crawler_id == 1: begin_h, end_h = -grid_height + d, grid_height + 1
-
-# stat = 0
-# tc.SetStatusSync(status=stat)
-# if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-
-for j in numpy.arange(begin_h, end_h, d):
-
-	if crawler_id == 0: begin_w, end_w = grid_width - 2*stride_size, -grid_width - 1 - stride_size
-	elif crawler_id == 1: begin_w, end_w = grid_width - stride_size, -grid_width - 1 - stride_size
-
-	for i in numpy.arange(begin_w, end_w, -2*stride_size):
-		tc.GoTo(goal_x=i, goal_y=j+overlap, max_velocity=vel, relative=False)
-		stat += 1
-		tc.SetStatusSync(status=stat)
-		if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-		elif crawler_id == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat)
-
-	tc.SetStatusSync(status=stat+1)
-	if stride_size % 2 == 1:
-		if crawler_id == 0: tc.GoTo(goal_x=-grid_width - stride_size, goal_y=j+overlap, max_velocity=vel, relative=False)
-		if crawler_id == 1: tc.GoTo(goal_x=-grid_width, goal_y=j+overlap, max_velocity=vel, relative=False)
-	elif stride_size % 2 == 0:
-		if crawler_id == 0: tc.GoTo(goal_x=-grid_width, goal_y=j+overlap, max_velocity=vel, relative=False)
-		if crawler_id == 1: tc.GoTo(goal_x=-grid_width - stride_size, goal_y=j+overlap, max_velocity=vel, relative=False)
-	stat = 0
-	tc.SetStatusSync(status=stat)
-	if crawler_id == 1 and stride_size % 2 == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat+1)
-	if crawler_id == 0 and stride_size % 2 == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-
-	if stride_size % 2 == 1:
-		if crawler_id == 0: begin_w, end_w = -grid_width + stride_size, grid_width + 1 + stride_size
-		elif crawler_id == 1: begin_w, end_w = -grid_width + 2*stride_size, grid_width + 1 + stride_size
-	elif stride_size % 2 == 0:
-		if crawler_id == 0: begin_w, end_w = -grid_width + 2*stride_size, grid_width + 1 + stride_size
-		elif crawler_id == 1: begin_w, end_w = -grid_width + stride_size, grid_width + 1 + stride_size
-
-	for i in numpy.arange(begin_w, end_w, 2*stride_size):
-		tc.GoTo(goal_x=i, goal_y=j+overlap, max_velocity=vel, relative=False)
-		stat += 1
-		tc.SetStatusSync(status=stat)
-		if crawler_id == 0 and stride_size % 2 == 1: tc.WaitForStatusSync(partner="crawler_1", status=stat)
-		if crawler_id == 0 and stride_size % 2 == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-		elif crawler_id == 1 and stride_size % 2 == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat+1)
-		elif crawler_id == 1 and stride_size % 2 == 0: tc.WaitForStatusSync(partner="crawler_0", status=stat)
-
-	if crawler_id == 1: tc.SetStatusSync(status=stat+1)
-	if crawler_id == 0: tc.GoTo(goal_x=grid_width, goal_y=j+d+overlap, max_velocity=vel, relative=False)
-	if crawler_id == 1: tc.GoTo(goal_x=grid_width + stride_size, goal_y=j+d+overlap, max_velocity=vel, relative=False)
-	stat = 0
-	tc.SetStatusSync(status=stat)
-	if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-
-tc.SetStatusSync(status=stat+1)
-
-end = rospy.Time.now()
-time = (end-start).to_sec()
-rospy.loginfo("Mission completed in " + str(time) + " seconds")
-
-			\end{lstlisting}
-		\subsection{Implémentation de l'algorithme \textit{investigation polygonale}}
-			\begin{lstlisting}[language=Python,caption={Implémentation de l'algorithme d'investigation polygonale},label=lst:investigation_polygonale]
-#!/usr/bin/env python3
-# ROS specific imports
-import roslib; roslib.load_manifest('floor_nav')
-import rospy
-import os
-import tf
-from task_manager_lib.TaskClient import *
-from nav_msgs.msg import OccupancyGrid
-from visualization_msgs.msg import MarkerArray
-from visualization_msgs.msg import Marker
-from geometry_msgs.msg import Point
-from CrawlerOccupancyGrid import *
-import numpy as np
-from oct2py import octave
-from math import sqrt
-from time import sleep
-
-DEFAULT_UWB_POWER_RX_THRESHOLD = 0
-DEFAULT_N_CRAWLERS = 2
-DEFAULT_N_POINTS = 4
-DEFAULT_SCALE = 10
-DEFAULT_DELTA = 5.0
-
-def mission(centroids_map, polygons_map, radii_map, crawler_id, n_crawlers, n_points, cruise_velocity, investigation_velocity, idx=None, tm=None):
-	print("Starting mission")
-	start = rospy.Time.now()
-
-	print(f'Number of crawlers: {n_crawlers}')
-
-	if n_crawlers == 2:
-		for centroid in range(len(centroids_map)):
-			if idx is not None and centroid < idx: continue
-
-			print(f'Investigating centroid {centroid}')
-
-			file = open("/home/chroma/Downloads/mission.txt", "w")
-			file.write(f'{centroid}\n')
-			end = rospy.Time.now()
-			if tm is not None: time = (end-start).to_sec() + tm
-			else: time = (end-start).to_sec()
-			file.write(f'{time}\n')
-			file.close()
-			os.system("rosservice call /save_occgrid")
-
-			tc.AlignWithTarget(goal_x=polygons_map[centroid][crawler_id][0], goal_y=polygons_map[centroid][crawler_id][1], angle_threshold=0.05)
-			tc.FollowLine(goal_x=polygons_map[centroid][crawler_id][0], goal_y=polygons_map[centroid][crawler_id][1], max_velocity=cruise_velocity)
-
-			first_turn = True
-
-			stat = 0
-			tc.SetStatusSync(status=stat)
-			if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat)
-			elif crawler_id == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat)
-
-			crawler_position = crawler_id
-			polygon = polygons_map[centroid]
-			radii = radii_map[centroid]
-
-			area_x = radii[0] - 0.1
-			area_w = radii[2] + 0.3
-			area_y = radii[1] - 0.1
-			area_h = radii[3] + 0.3
-
-			stat = 0
-			tc.SetStatusSync(status=stat)
-			if crawler_id == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat+1)
-
-			for _ in range(0, n_points, n_crawlers):
-				w4Completion = tc.WaitForCompletion(x=area_x, y=area_y, w=area_w, h=area_h, foreground=False)
-				tc.addCondition(ConditionIsCompleted("Completion detector", tc, w4Completion))
-				try:
-					for _ in range(1, n_points - n_crawlers + 1):
-						crawler_position = (crawler_position - 1) % n_points
-						tc.AlignWithTarget(goal_x=polygon[crawler_position][0], goal_y=polygon[crawler_position][1])
-						tc.FollowLine(goal_x=polygon[crawler_position][0], goal_y=polygon[crawler_position][1], max_velocity=investigation_velocity)
-					first_turn = False
-				except TaskConditionException as e:
-					rospy.loginfo("Path following interrupted on condition: %s" % " or ".join([str(c) for c in e.conditions]))
-				except TaskException as e:
-					print(e)
-
-				tc.clearConditions()
-				tc.stopTask(w4Completion)
-
-				stat += 1
-				tc.SetStatusSync(status=stat)
-				if crawler_id == 0 and not first_turn: tc.WaitForStatusSync(partner="crawler_1", status=stat)
-				elif crawler_id == 1 and not first_turn and stat < n_points: tc.WaitForStatusSync(partner="crawler_0", status=stat+1)
-				# if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat)
-				# elif crawler_id == 1 and stat < n_points: tc.WaitForStatusSync(partner="crawler_0", status=stat+1)
-
-			tc.SetStatusSync(status=stat+1)
-			tc.clearConditions()
-			tc.stopTask(w4Completion)
-	elif n_crawlers == 3:
-		for centroid in range(len(centroids_map)):
-			if idx is not None and centroid < idx: continue
-
-			print(f'Investigating centroid {centroid}')
-
-			file = open("/home/chroma/Downloads/mission.txt", "w")
-			file.write(f'{centroid}\n')
-			end = rospy.Time.now()
-			if tm is not None: time = (end-start).to_sec() + tm
-			else: time = (end-start).to_sec()
-			file.write(f'{time}\n')
-			file.close()
-			os.system("rosservice call /save_occgrid")
-
-			tc.AlignWithTarget(goal_x=polygons_map[centroid][crawler_id][0], goal_y=polygons_map[centroid][crawler_id][1], angle_threshold=0.05)
-			tc.FollowLine(goal_x=polygons_map[centroid][crawler_id][0], goal_y=polygons_map[centroid][crawler_id][1], max_velocity=cruise_velocity)
-
-			stat = 0
-			tc.SetStatusSync(status=stat)
-			if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_1", status=stat)
-			if crawler_id == 0: tc.WaitForStatusSync(partner="crawler_2", status=stat)
-			if crawler_id == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat)
-			if crawler_id == 1: tc.WaitForStatusSync(partner="crawler_2", status=stat)
-			if crawler_id == 2: tc.WaitForStatusSync(partner="crawler_0", status=stat)
-			if crawler_id == 2: tc.WaitForStatusSync(partner="crawler_1", status=stat)
-
-			print(f'Ready crawler {crawler_id}')
-
-			crawler_position = crawler_id
-			polygon = polygons_map[centroid]
-			radii = radii_map[centroid]
-
-			area_x = radii[0] - 0.1
-			area_w = radii[2] + 0.3
-			area_y = radii[1] - 0.1
-			area_h = radii[3] + 0.3
-
-			stat = 0
-			tc.SetStatusSync(status=stat)
-			if crawler_id == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat+1)
-			elif crawler_id == 2: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-
-			for _ in range(0, n_points, n_crawlers + crawler_id):
-				w4Completion = tc.WaitForCompletion(x=area_x, y=area_y, w=area_w, h=area_h, foreground=False)
-				tc.addCondition(ConditionIsCompleted("Completion detector", tc, w4Completion))
-				try:
-					for _ in range(0, n_points - n_crawlers):
-						crawler_position = (crawler_position - 1) % n_points
-						tc.AlignWithTarget(goal_x=polygon[crawler_position][0], goal_y=polygon[crawler_position][1])
-						tc.FollowLine(goal_x=polygon[crawler_position][0], goal_y=polygon[crawler_position][1], max_velocity=investigation_velocity)
-				except TaskConditionException as e:
-					rospy.loginfo("Path following interrupted on condition: %s" % " or ".join([str(c) for c in e.conditions]))
-				except TaskException as e:
-					print(e)
-
-				tc.clearConditions()
-				tc.stopTask(w4Completion)
-
-				stat += 1
-				tc.SetStatusSync(status=stat)
-				if crawler_id == 0 and stat < 2: tc.WaitForStatusSync(partner="crawler_2", status=stat)
-				elif crawler_id == 1: tc.WaitForStatusSync(partner="crawler_0", status=stat+1)
-				elif crawler_id == 2: tc.WaitForStatusSync(partner="crawler_1", status=stat+1)
-
-			if crawler_id == 1 and stat == 1: tc.SetStatusSync(status=stat+1)
-			if crawler_id == 2 and stat == 1:
-				tc.AlignWithTarget(goal_x=polygons_map[centroid][1][0] - 0.5, goal_y=polygons_map[centroid][1][1] + 0.5, angle_threshold=0.05)
-				tc.FollowLine(goal_x=polygons_map[centroid][1][0] - 0.5, goal_y=polygons_map[centroid][1][1] + 0.5, max_velocity=cruise_velocity)
-				tc.Wait(duration=5.0)
-
-	end = rospy.Time.now()
-	if tm is not None: time = (end-start).to_sec() + tm
-	else: time = (end-start).to_sec()
-	rospy.loginfo("Mission completed in " + str(time) + " seconds")
-
-	os.system("rm /home/chroma/Downloads/mission.txt")
-
-def solve_TSP(centroids_map):
-	import math
-	from itertools import combinations
-	import gurobipy as gp
-	from gurobipy import GRB
-
-	# Callback - use lazy constraints to eliminate sub-tours
-	def subtourelim(model, where):
-		if where == GRB.Callback.MIPSOL:
-			vals = model.cbGetSolution(model._vars)
-			# find the shortest cycle in the selected edge list
-			tour = subtour(vals)
-			if len(tour) < n:
-				# add subtour elimination constr. for every pair of cities in tour
-				model.cbLazy(gp.quicksum(model._vars[i, j] for i, j in combinations(tour, 2)) <= len(tour)-1)
-
-	# Given a tuplelist of edges, find the shortest subtour
-	def subtour(vals):
-		# make a list of edges selected in the solution
-		edges = gp.tuplelist((i, j) for i, j in vals.keys() if vals[i, j] > 0.5)
-		unvisited = list(range(n))
-		cycle = range(n+1)  # initial length has 1 more city
-		while unvisited:  # true if list is non-empty
-			thiscycle = []
-			neighbors = unvisited
-			while neighbors:
-				current = neighbors[0]
-				thiscycle.append(current)
-				unvisited.remove(current)
-				neighbors = [j for i, j in edges.select(current, '*') if j in unvisited]
-			if len(cycle) > len(thiscycle):
-				cycle = thiscycle
-		return cycle
-
-	n = len(centroids_map)
-	points = [(centroids_map[i][0], centroids_map[i][1]) for i in range(n)]
-
-	# Dictionary of Euclidean distance between each pair of points
-	dist = {(i, j): math.sqrt(sum((points[i][k]-points[j][k])**2 for k in range(2))) for i in range(n) for j in range(i)}
-
-	m = gp.Model()
-
-	# Create variables
-	vars = m.addVars(dist.keys(), obj=dist, vtype=GRB.BINARY, name='e')
-	for i, j in vars.keys():
-		vars[j, i] = vars[i, j]  # edge in opposite direction
-
-	# Add degree-2 constraint
-	m.addConstrs(vars.sum(i, '*') == 2 for i in range(n))
-
-	# Optimize model
-	m._vars = vars
-	m.Params.LazyConstraints = 1
-	m.optimize(subtourelim)
-
-	vals = m.getAttr('X', vars)
-	tour = subtour(vals)
-	assert len(tour) == n
-
-	print(f'Optimal tour: {tour}')
-	print(f'Optimal cost: {m.objVal}')
-
-	return tour
-
-def solve_mTSP(centroids_map, perimeters_map, n_crawlers):
-	"""
-		Returns a permutation of the centroids_map that minimizes the total distance traveled by the crawlers
-	"""
-
-	def d(x1, y1, x2, y2):
-		return sqrt((x1-x2)**2 + (y1-y2)**2) + 50.0
-
-	octave.addpath('/home/chroma/Documents/Multi-robot_navigation_and_control_for_acoustic_inspection_of_metal_plate_structures/scripts/')
-	octave.eval('pkg load statistics')
-
-	XY = np.array(centroids_map)
-	max_salesmen = n_crawlers
-	depots = np.array([
-		[-3, -4.0],
-		[3.0, -4.0]
-	])
-	CostType = 2
-	MIN_TOUR = 1
-	POP_SIZE = 256
-	NUM_ITER = 100
-	SHOW_PROG = True
-	SHOW_RES = True
-	DMAT = np.zeros((len(XY), len(XY)))
-	for i in range(len(XY)):
-		for j in range(len(XY)):
-			DMAT[i, j] = d(XY[i, 0], XY[i, 1], XY[j, 0], XY[j, 1])
-	[min_dist, best_tour, generation] = octave.mdmtspv_ga(XY, max_salesmen, depots, CostType, MIN_TOUR, POP_SIZE, NUM_ITER, SHOW_PROG, SHOW_RES, DMAT, nout=3)
-	print("Minimum distance: ")
-	print(min_dist)
-	print("Best tour: ")
-	print(best_tour)
-	print("Generation: ")
-	print(generation)
-
-	sleep(10000000)
-
-if __name__ == '__main__':
-	rospy.init_node('task_client')
-	server_node = rospy.get_param("~server", "/crawler_id/task_server")
-	default_period = rospy.get_param("~period", 0.05)
-	tc = TaskClient(server_node, default_period)
-	investigation_velocity = rospy.get_param("~investigation_velocity", 0.3)
-	cruise_velocity = rospy.get_param("~cruise_velocity", 1.)
-	uwb_power_rx_threshold = rospy.get_param("~uwb_power_rx_threshold", DEFAULT_UWB_POWER_RX_THRESHOLD)
-	n_crawlers = rospy.get_param("~n_crawlers", DEFAULT_N_CRAWLERS)
-	n_points = rospy.get_param("~n_points", DEFAULT_N_POINTS)
-	scale = rospy.get_param("~scale", DEFAULT_SCALE)
-	delta = rospy.get_param("~delta", DEFAULT_DELTA)
-	crawler_id = rospy.get_param("~crawler_id", 0)
-	depot_x = rospy.get_param("~depot_x", -3.0)
-	depot_y = rospy.get_param("~depot_y", -3.0)
-	filename = rospy.get_param("~filename", '')
-	occ_grid = CrawlerOccupancyGrid(
-		rospy.get_param("~grid_width", rospy.get_param("~grid_width", DEFAULT_GRID_WIDTH)),
-		rospy.get_param("~grid_height", rospy.get_param("~grid_height", DEFAULT_GRID_HEIGHT)),
-		rospy.get_param("~grid_resolution", rospy.get_param("~grid_resolution", DEFAULT_GRID_RESOLUTION))
-	)
-
-	listener = tf.TransformListener()
-
-	pub_centroid = rospy.Publisher("~circle", MarkerArray, queue_size=1)
-	pub_polygone = rospy.Publisher("~poly", MarkerArray, queue_size=1)
-	pub_occgrid = rospy.Publisher("~occ_grid", OccupancyGrid, queue_size=1)
-
-	occ_grid.restore_from_image(filename)
-
-	centroids_grid, radii_grid = occ_grid.find_centroid_of_clusters()
-	centroids_map = []
-	radii_map = []
-	for i in range(len(centroids_grid)):
-		centroids_map.append((centroids_grid[i][0] * occ_grid.resolution - occ_grid.width / 2.0, centroids_grid[i][1] * occ_grid.resolution - occ_grid.height / 2.0))
-		radii_map.append((radii_grid[i][0] * occ_grid.resolution - occ_grid.width / 2.0, radii_grid[i][1] * occ_grid.resolution - occ_grid.height / 2.0, radii_grid[i][2] * occ_grid.resolution, radii_grid[i][3] * occ_grid.resolution))
-	polygons_grid = []
-	polygons_map = []
-	for i in range(len(centroids_grid)):
-		vertices_grid = occ_grid.get_polygone_around_centroid(n_points, centroids_grid[i], radii_grid[i][2:4] / 2.0, scale, delta)
-		vertices_map = []
-		for j in range(len(vertices_grid)):
-			vertices_map.append((vertices_grid[j][0] * occ_grid.resolution - occ_grid.width / 2.0, vertices_grid[j][1] * occ_grid.resolution - occ_grid.height / 2.0))
-		polygons_grid.append(vertices_grid)
-		polygons_map.append(vertices_map)
-
-	perimeters_grid = []
-	perimeters_map = []
-	for i in range(len(centroids_grid)):
-		perimeters_grid.append(occ_grid.get_perimeter_of_polygone(polygons_grid[i]))
-		perimeters_map.append(occ_grid.get_perimeter_of_polygone(polygons_map[i]))
-
-	tour = solve_TSP(centroids_map)
-	depot = (depot_x, depot_y)
-	# find closest centroid to depot
-	min_dist = 100000
-	min_index = 0
-	for i in range(len(centroids_map)):
-		dist = sqrt((centroids_map[i][0] - depot[0]) ** 2 + (centroids_map[i][1] - depot[1]) ** 2)
-		if dist < min_dist:
-			min_dist = dist
-			min_index = i
-	# shift tour so that the closest centroid to depot is the first one
-	tour = tour[min_index:] + tour[:min_index]
-
-	# reorder centroids, radii, polygons and perimeters according to tour
-	centroids_map = [centroids_map[i] for i in tour]
-	radii_map = [radii_map[i] for i in tour]
-	polygons_map = [polygons_map[i] for i in tour]
-	perimeters_map = [perimeters_map[i] for i in tour]
-
-	print(f"tour: {tour}")
-	print(f"centroids_map: {centroids_map}")
-
-	if os.path.isfile("/home/chroma/Downloads/occupancy_grid.png"):
-		occ_grid.restore_from_image("/home/chroma/Downloads/occupancy_grid.png")
-
-	marker_array = MarkerArray()
-	for i in range(len(centroids_map)):
-		marker = Marker()
-		marker.header.frame_id = "world"
-		marker.header.stamp = rospy.Time.now()
-		marker.ns = "circle"
-		marker.id = i
-		marker.type = Marker.CYLINDER
-		marker.action = Marker.ADD
-		marker.pose.position.x = centroids_map[i][0]
-		marker.pose.position.y = centroids_map[i][1]
-		marker.pose.position.z = 0.0
-		marker.pose.orientation.x = 0.0
-		marker.pose.orientation.y = 0.0
-		marker.pose.orientation.z = 0.0
-		marker.pose.orientation.w = 1.0
-		marker.scale.x = 0.1
-		marker.scale.y = 0.1
-		marker.scale.z = 0.1
-		marker.color.a = 1.0
-		marker.color.r = 0.0
-		marker.color.g = 1.0
-		marker.color.b = 0.0
-		marker_array.markers.append(marker)
-
-	marker_array_2 = MarkerArray()
-	for i in range(len(centroids_map)):
-		for j in range(n_points):
-			marker = Marker()
-			marker.header.frame_id = "world"
-			marker.header.stamp = rospy.Time.now()
-			marker.ns = "poly"
-			marker.id = i * n_points + j
-			marker.type = Marker.LINE_STRIP
-			marker.action = Marker.ADD
-			marker.pose.position.x = 0.0
-			marker.pose.position.y = 0.0
-			marker.pose.position.z = 0.0
-			marker.pose.orientation.x = 0.0
-			marker.pose.orientation.y = 0.0
-			marker.pose.orientation.z = 0.0
-			marker.pose.orientation.w = 1.0
-			marker.scale.x = 0.01
-			marker.scale.y = 0.01
-			marker.scale.z = 0.01
-			marker.color.a = 1.0
-			marker.color.r = 1.0
-			marker.color.g = 0.0
-			marker.color.b = 0.0
-			point = Point()
-			point.x = polygons_map[i][j][0]
-			point.y = polygons_map[i][j][1]
-			point.z = 0.0
-			marker.points.append(point)
-			point = Point()
-			point.x = polygons_map[i][(j + 1) % n_points][0]
-			point.y = polygons_map[i][(j + 1) % n_points][1]
-			point.z = 0.0
-			marker.points.append(point)
-			marker_array_2.markers.append(marker)
-
-	pub_centroid.publish(marker_array)
-	pub_polygone.publish(marker_array_2)
-	occ_grid.publish(pub_occgrid, rospy.Time.now())
-
-	if os.path.isfile("/home/chroma/Downloads/mission.txt"):
-		file = open("/home/chroma/Downloads/mission.txt", "r")
-		lines = file.readlines()
-		file.close()
-		idx = int(lines[0])
-		tm = float(lines[1])
-		mission(centroids_map, polygons_map, radii_map, crawler_id, n_crawlers, n_points, cruise_velocity, investigation_velocity, idx, tm)
-	else:
-		mission(centroids_map, polygons_map, radii_map, crawler_id, n_crawlers, n_points, cruise_velocity, investigation_velocity)
-
-			\end{lstlisting}
 	\section{Environnements de test}
 		\label{annexe:cartes}
 		\begin{figure}[H]
@@ -1657,71 +1250,538 @@ if __name__ == '__main__':
 			\caption{Différents environnements de test.}
 			\label{fig:test_models}
 		\end{figure}
+	\section{Comparaison des différentes stratégies de navigation}
+		\label{annexe:comparaison}
+		\begin{figure}[H]
+			\begin{subfigure}[t]{0.9\linewidth}
+				\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_d_vs_investigation_polygonale-kappa_for_each_d.png}
+				\caption{$\kappa$ en fonction de la densité du monde}
+				\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_d_vs_investigation_polygonale-kappa_for_each_d}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{0.9\linewidth}
+					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_d_vs_investigation_polygonale-time_for_each_d.png}
+					\caption{Temps d'exécution en fonction de la densité du monde}
+					\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_d_vs_investigation_polygonale-time_for_each_d}
+			\end{subfigure}
+			\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution des différents algorithmes en fonction de la densité du monde pour différentes distances entre les crawlers.}
+			\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique_for_each_d}
+		\end{figure}
 	\section{Résultat d'investigation}
 		\label{annexe:resultat}
-		\TODO{figure avec la superposition des images}
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.12\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_05_1-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_08_1-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_11_1-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_15_1-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_20_1-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_30_1-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_11_complex_1-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_15_complex_1-1.0/both.png}
+				\end{subfigure}
+				\caption{$d = 1$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_05_1-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_08_1-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_11_1-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_15_1-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.1\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_20_1-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_30_1-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_11_complex_1-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_15_complex_1-2.0/both.png}
+				\end{subfigure}
+				\caption{$d = 2$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_05_1-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_08_1-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_11_1-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_15_1-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_20_1-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_30_1-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_11_complex_1-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_15_complex_1-3.0/both.png}
+				\end{subfigure}
+				\caption{$d = 3$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_05_1-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_08_1-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_11_1-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_15_1-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_20_1-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_30_1-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_11_complex_1-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/peinture_au_rouleau-test_model_15_complex_1-6.0/both.png}
+				\end{subfigure}
+				\caption{$d = 6$ m}
+			\end{subfigure}
+			\caption{Superposition des cartes d'investigation avec la cartographie des zones de corrosion obtenues pour les différents mondes de test, pour la méthode de la peinture au rouleau.}
+			\label{fig:peinture_au_rouleau_resultats}
+		\end{figure}
+
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_05_1-1.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_08_1-1.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_1-1.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_1-1.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_20_1-1.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_30_1-1.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_complex_1-1.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_complex_1-1.0-3.0/both.png}
+				\end{subfigure}
+				\caption{$d = 1$ m, $s = 3$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_05_1-2.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_08_1-2.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_1-2.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_1-2.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_20_1-2.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_30_1-2.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_complex_1-2.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_complex_1-2.0-3.0/both.png}
+				\end{subfigure}
+				\caption{$d = 2$ m, $s = 3$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_05_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_08_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_20_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_30_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_complex_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_complex_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\caption{$d = 3$ m, $s = 3$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_05_1-6.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_08_1-6.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_1-6.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_1-6.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_20_1-6.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_30_1-6.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_complex_1-6.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_complex_1-6.0-3.0/both.png}
+				\end{subfigure}
+				\caption{$d = 6$ m, $s = 3$ m}
+			\end{subfigure}
+			\caption{Superposition des cartes d'investigation avec la cartographie des zones de corrosion obtenues pour les différents mondes de test, pour la méthode du ski nordique.}
+			\label{fig:ski_nordique_resultats}
+		\end{figure}
+
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_05_1-3.0-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_08_1-3.0-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_1-3.0-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_1-3.0-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_20_1-3.0-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_30_1-3.0-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_complex_1-3.0-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_complex_1-3.0-1.0/both.png}
+				\end{subfigure}
+				\caption{$d = 3$ m, $s = 1$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_05_1-3.0-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_08_1-3.0-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_1-3.0-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_1-3.0-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_20_1-3.0-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_30_1-3.0-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_complex_1-3.0-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_complex_1-3.0-2.0/both.png}
+				\end{subfigure}
+				\caption{$d = 3$ m, $s = 2$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_05_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_08_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_20_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_30_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_complex_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_complex_1-3.0-3.0/both.png}
+				\end{subfigure}
+				\caption{$d = 3$ m, $s = 3$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_05_1-3.0-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_08_1-3.0-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_1-3.0-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_1-3.0-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_20_1-3.0-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_30_1-3.0-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_11_complex_1-3.0-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.11\linewidth}
+					\includegraphics[width=\linewidth]{../tests/ski_nordique-test_model_15_complex_1-3.0-6.0/both.png}
+				\end{subfigure}
+				\caption{$d = 6$ m, $s = 3$ m}
+			\end{subfigure}
+			\caption{Superposition des cartes d'investigation avec la cartographie des zones de corrosion obtenues pour les différents mondes de test, pour la méthode du ski nordique.}
+			\label{fig:ski_nordique_resultats_2}
+		\end{figure}
+
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_05_1-4-2-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_08_1-4-2-1.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_11_1-4-2-1.0/both.png}
+				\end{subfigure}
+				\caption{$k = 1$, $n = 2$, $p = 4$, $d = 1$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_05_1-4-2-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_08_1-4-2-2.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_11_1-4-2-2.0/both.png}
+				\end{subfigure}
+				\caption{$k = 1$, $n = 2$, $p = 4$, $d = 2$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_05_1-4-2-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_08_1-4-2-3.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_11_1-4-2-3.0/both.png}
+				\end{subfigure}
+				\caption{$k = 1$, $n = 2$, $p = 4$, $d = 3$ m}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[t]{\linewidth}
+				\centering
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_05_1-4-2-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_08_1-4-2-6.0/both.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}[t]{0.2\linewidth}
+					\includegraphics[width=\linewidth]{../tests/investigation_polygonale-test_model_11_1-4-2-6.0/both.png}
+				\end{subfigure}
+				\caption{$k = 1$, $n = 2$, $p = 4$, $d = 6$ m}
+			\end{subfigure}
+			\caption{Superposition des cartes d'investigation avec la cartographie des zones de corrosion obtenues pour les différents mondes de test, pour la méthode d'investigation polygonale.}
+			\label{fig:investigation_polygonale_resultats}
+		\end{figure}
 \end{document}
-
-% \begin{Definition}[Proposition (mathématiques)
-% 	\footnote{\url{https://www.techno-science.net/definition/6406.html}, dernière visite le 31/10/2019.}]
-% 	\label{def:troll}
-% 	En mathématiques, dans une théorie donnée, une \textbf{proposition} est un énoncé formé d'un assemblage de symboles et de mots, auquel une valeur de vérité vrai ou faux peut être attribuée, dans certaines conditions mais de la vérité duquel on pourra toujours décider dans toute situation.
-% \end{Definition}
-
-% Exemple de proposition~:
-% \begin{Proposition}[La Terre sphérique des Anciens\footnote{\url{https://planet-terre.ens-lyon.fr/article/histoire-forme-Terre.xml}, dernière visite le 31/10/2019}]
-% 	\label{prop:f}
-% 	La Terre est supposée plate, de la forme d'un disque, entièrement ceinturée par le fleuve Océan et recouverte d'un ciel en coupole hémi-sphérique.
-% \end{Proposition}
-
-% Pour effectuer une définition
-% \begin{Definition}[Troll (internet)
-% 	\footnote{\url{https://www.commentcamarche.net/faq/3610-qu-est-ce-qu-un-troll-informatique}, dernière visite le 31/10/2019.}]
-% 	\label{def:troll}
-% 	Le terme \textbf{troll} désigne, dans le jargon de l'internet, un personnage malfaisant dont le but premier est de perturber le fonctionnement des forums de discussion en multipliant les messages sans intérêt (ou, plus subtilement, en provoquant leur multiplication).
-% \end{Definition}
-
-% Lorsque l'on veut écrire des équations
-% \begin{equation}
-% 	\label{eq:f}
-% 	f(x) = 0 \iff x = 1
-% \end{equation}
-
-% La définition~\ref{def:troll} n'a aucun lien avec l'équation~\ref{eq:f}.
-
-% \begin{Theorem}[Théorème de Pythagore]
-% 	\label{Th:Pythagore}
-% 	On nomme $a$, $b$ et $c$ les longueurs des trois côtés d'un triangle.\\
-% 	Les triangles pour lesquels on a la relation $a^{2}+ b^{2} = c^{2}$ sont tous les triangles rectangles dont l'hypoténuse est le côté de longueur $c$, et seulement eux.
-
-% 	Source : \url{http://mathematiques3.free.fr/2troisieme/problemes/prob014.php}, dernière visite 31/10/2019.
-% \end{Theorem}
-
-% On peut aussi écrire des corolaires
-% \begin{Corollary}[]
-% 	\label{Cor:TriangleImpossible}
-% 	Il n'existe aucun triangle rectangle ayant les longueurs de côté suivantes~: $3$, $2$ et $23$.
-% \end{Corollary}
-
-% Reste à le prouver.
-% \begin{proof}
-% 	Pour prouver ce corollaire, procédons par l'absurde en supposant que le triangle soit rectangle. Il y a alors trois possibilités pour la longueur de l'hypoténuse $c$.
-% 	\begin{itemize}
-% 		\item $c=3$\\
-% 		or $2^{2}+ 23^{2} \neq 3^{2}$\\
-% 		donc si le triangle est rectangle, sa longueur ne peut être $3$.
-% 		\item $c=2$\\
-% 		or $3^{2}+ 23^{2} \neq 2^{2}$\\
-% 		donc si le triangle est rectangle, sa longueur ne peut être $2$.
-% 		\item $c=23$\\
-% 		or $2^{2}+ 3^{2} \neq 23^{2}$\\
-% 		donc si le triangle est rectangle, sa longueur ne peut être $23$.
-% 	\end{itemize}
-% 	Donc aucun côté ne satisfait la définition d'une hypoténuse. Le triangle ne peut donc pas être un triangle rectangle.
-% \end{proof}
-% Il est aussi possible d'écrire des lemmes.
-
-% \begin{Lemma}[Lemme d'Euclide\footnote{\url{https://fr.wikipedia.org/wiki/Lemme_d'Euclide}, dernière visite le 30/10/2019}]
-% 	\label{lem:Euclide}
-% 	Si un nombre premier $p$ divise le produit de deux nombres entiers $b$ et $c$, alors $p$ divise $b$ ou $c$.
-% \end{Lemma}
