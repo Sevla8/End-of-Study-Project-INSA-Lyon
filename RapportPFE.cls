@@ -261,7 +261,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand\maketitle {%
     \begin{titlepage}%
-    \vspace*{-2cm}\hspace{-2cm}\includegraphics[width=6cm]{insa}\iflogoStructureAccueil\hfill\@logoStructureAccueil\fi\vspace*{2cm}%
+    \vspace*{-2cm}\hspace{-2cm}\includegraphics[height=1cm]{insa}\iflogoStructureAccueil\hfill\@logoStructureAccueil\fi\vspace*{2cm}%
       \begin{center}%
         {\fontsize{14pt}{18pt}\selectfont%
           INSA Lyon - Département Informatique%
