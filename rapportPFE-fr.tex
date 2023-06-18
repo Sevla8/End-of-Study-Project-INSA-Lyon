@@ -120,7 +120,7 @@
 	\end{ResumeMotsCles}
 	\begin{remerciements}
 		Je tiens à exprimer ma sincère gratitude à toutes les personnes qui ont contribué à la réalisation de ce projet et à l'élaboration de ce rapport.
-		Je tiens tout d'abord à remercier mes superviseurs, Cédirc Pradalier et Olivier Simonin, pour leurs conseils précieux et leur expertise dans le domaine de la robotique et de la navigation multi-robots. Leurs orientations ont été essentielles pour la réussite de ce projet.
+		Je tiens tout d'abord à remercier mes superviseurs, Cédric Pradalier et Olivier Simonin, pour leurs conseils précieux et leur expertise dans le domaine de la robotique et de la navigation multi-robots. Leurs orientations ont été essentielles pour la réussite de ce projet.
 		Je souhaite également remercier les équipes de recherche des laboratoires INSA Lyon CITI lab. et CNRS IRL2958 GT-CNRS pour leur collaboration et leur partage de connaissances.
 		Je tiens à exprimer ma reconnaissance envers mes proches pour leur soutien inconditionnel et leur compréhension tout au long de cette période intense.
 		Leur présence et leurs encouragements ont été une source de motivation essentielle.
@@ -148,7 +148,7 @@
 		Le problème principal est donc de définir des stratégies de navigation multi-robots pour optimiser l'acquisition des données permettant de réaliser une tomographie des surfaces métalliques.
 		Pour atteindre cet objectif, nous allons dans un premier temps effectuer une recherche bibliographique, puis mettre en place des méthodes de navigation dans un environnement de simulation.
 		Enfin, nous envisagerons un déploiement sur différents robots en fonction des résultats obtenus.
-		Ce projet sera réalisé sous la supervision d'Olivier Simonin (INSA Lyon CITI lab) et de Cédric Pradalier (CNRS IRL2958 GT).
+		Ce projet sera réalisé sous la supervision d'Olivier Simonin (INSA Lyon CITI lab) et de Cédric Pradalier (CNRS IRL2958 GT-CNRS).
 
 		% Aperçu des contributions
 		Les contributions attendues de ce projet sont les suivantes :
@@ -176,22 +176,22 @@
 
 		Dans un premier temps, nous nous sommes intéressés aux propriétés des ondes guidées ultrasoniques et à leurs applications dans le domaine de la tomographie~\cite{OUABI2022106705, HUTHWAITE2013979}, de la cartographie des robots et des structures métalliques~\cite{9364359, 9811581, inventions3030059, 9568841}, des robots et des capteurs utilisés dans notre projet~\cite{s22093235}, de l'exploration multi-robots~\cite{bautin:hal-00757960, articlesvsdf} ainsi que des stratégies de placement pour la détection d'objet~\cite{article455556, 7487624, 7139673}.
 
-		Dans ce papier~\cite{OUABI2022106705}, les auteurs proposent une méthode pour inférer la géométrie des plaques métalliques en utilisant des ondes de Lamb.
+		Dans le papier~\cite{OUABI2022106705}, les auteurs proposent une méthode pour inférer la géométrie des plaques métalliques en utilisant des ondes de Lamb.
 		Ils utilisent le beamforming~\cite{enwiki:1151960654} pour estimer les limites de la plaque en se basant sur des mesures acoustiques.
 		Les résultats expérimentaux montrent une inférence précise de la géométrie de la plaque.
 		Cependant, les auteurs se contentent de cartographier les contours des structures, sans proposer de méthode pour cartographier les défauts.
 
-		Cet article~\cite{9364359} présente une approche basée sur FastSLAM~\cite{article254524} pour l'inspection robotique des structures métalliques en utilisant des ultrasons.
+		L'article~\cite{9364359} présente une approche basée sur FastSLAM~\cite{article254524} pour l'inspection robotique des structures métalliques en utilisant des ultrasons.
 		Les auteurs proposent une méthode d'allocation des fronts pionniers pour l'exploration multi-robots, permettant une inspection rapide et précise des structures.
 		Notre travail considère la localisation et la cartographie des robots comme étant connues, et se concentre sur la planification de trajectoire pour l'inspection des structures métalliques.
 		L'approche utilisée dans cet article peut donc être complémentaire à notre travail.
 
-		Dans ce papier~\cite{9811581}, les auteurs proposent une méthode de cartographie des structures métalliques en utilisant des ondes UGW.
+		Dans Le papier~\cite{9811581}, les auteurs proposent une méthode de cartographie des structures métalliques en utilisant des ondes UGW.
 		Ils combinent une grille cartésienne avec des caractéristiques spécifiques pour la détection des défauts.
 		Les résultats expérimentaux montrent une cartographie précise des structures métalliques.
 		Cependant, les auteurs se contentent encore une fois de cartographier les contours des structures, sans proposer de méthode pour cartographier les défauts.
 
-		Cet article~\cite{inventions3030059} se concentre sur la localisation des impacts dans les structures composites en utilisant une méthode d'imagerie développée.
+		L'article~\cite{inventions3030059} se concentre sur la localisation des impacts dans les structures composites en utilisant une méthode d'imagerie développée.
 		Les auteurs utilisent des capteurs piézoélectriques~\cite{enwiki:1154129092} pour détecter et localiser les impacts, et une méthode de transformée en ondelettes~\cite{enwiki:1147185762} pour analyser les signaux acoustiques.
 		Les résultats expérimentaux montrent une détection et une localisation précises des impacts.
 		Les capteurs utilisés sont similaires à ceux utilisés dans notre projet, mais ces capteurs sont positionnés de manière fixe sur la structure, alors que nous souhaitons une stratégie mobile.
@@ -206,7 +206,7 @@
 		Ils intègrent également un capteur piézoélectrique pour la détection d'ondes UGW pour une localisation précise du robot et une cartographie des caractéristiques structurelles.
 		Ce sont typiquement ces robots et ces capteurs qui sont utilisés dans notre travail.
 
-		Ce papier~\cite{bautin:hal-00757960} présente un algorithme de planification pour l'exploration multi-robots.
+		Le papier~\cite{bautin:hal-00757960} présente un algorithme de planification pour l'exploration multi-robots.
 		Cet algorithme, appelé \textit{MinPos}, est conçu pour allouer de manière efficace les frontières aux robots afin de minimiser les déplacements et le temps nécessaire pour explorer l'environnement. Il utilise des techniques avancées d'optimisation pour résoudre ce problème de manière efficace.
 		Cependant, notre travail se concentre sur de l'inspection de structures pour la détection de défauts.
 		Nous souhaitons une inspection fine des zones de corrosion et non une exploration globale de l'environnement.
