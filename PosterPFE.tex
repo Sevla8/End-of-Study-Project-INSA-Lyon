@@ -57,68 +57,83 @@
 			\hspace{0.5cm}
 			\includegraphics[height=1cm]{graphics/insa}
 		}
-		\headerbox{1. Introduction}{name=introduction,column=0,row=0,span=3}{
-			Saepissime igitur mihi de amicitia cogitanti maxime illud considerandum videri solet, utrum propter imbecillitatem atque inopiam desiderata sit amicitia, ut dandis recipiendisque meritis quod quisque minus per se ipse posset, id acciperet ab alio vicissimque redderet, an esset hoc quidem proprium amicitiae, sed antiquior et pulchrior et magis a natura ipsa profecta alia causa. Amor enim, ex quo amicitia nominata est, princeps est ad benevolentiam coniungendam. Nam utilitates quidem etiam ab iis percipiuntur saepe qui simulatione amicitiae coluntur et observantur temporis causa, in amicitia autem nihil fictum est, nihil simulatum et, quidquid est, id est verum et voluntarium.
+		\headerbox{1. Introduction}{name=introduction,column=0,row=0,span=2}{
+			L'inspection acoustique des structures métalliques est une tâche importante dans divers domaines tels que l'industrie, la construction et la maintenance.
+			Elle vise à détecter les défauts et les anomalies, ce qui peut être crucial pour garantir la sécurité et la durabilité des structures.
+			Cependant, l'inspection acoustique des structures métalliques peut être une tâche complexe et exigeante, en particulier dans les cas où les structures sont vastes ou difficilement accessibles.
+			Les méthodes traditionnelles d'inspection manuelle sont souvent limitées en termes d'efficacité, de précision et de couverture.
+			Dans ce projet de fin d'études, nous proposons une approche basée sur la navigation et le contrôle multi-robots pour améliorer l'inspection acoustique des structures métalliques.
+			L'idée est d'utiliser un groupe de robots autonomes équipés de capteurs acoustiques pour explorer et inspecter efficacement la structure.
 		}
-		\headerbox{2. Problématique}{name=model,column=0,below=introduction,span=1}{
-			Iis igitur est difficilius satis facere, qui se Latina scripta dicunt contemnere. in quibus hoc primum est in quo admirer, cur in gravissimis rebus non delectet eos sermo patrius, cum idem fabellas Latinas ad verbum e Graecis expressas non inviti legant. quis enim tam inimicus paene nomini Romano est, qui Ennii Medeam aut Antiopam Pacuvii spernat aut reiciat, quod se isdem Euripidis fabulis delectari dicat, Latinas litteras oderit?
+		\headerbox{2. Problématique}{name=model,column=2,row=0,span=1}{
+			L'objectif principal de ce projet est de développer des algorithmes de navigation et de contrôle multi-robots, permettant une exploration coordonnée et une collecte de données acoustiques précises sur la structure métallique.
+			Nous cherchons à :
+			\begin{itemize}\compresslist
+				\item Obtenir une couverture complète de la structure.
+				\item Maximiser la précision de la cartographie des défauts sur la structure.
+				\item Minimiser le temps nécessaire pour effectuer une inspection complète.
+			\end{itemize}
+			En abordant ces problématiques, notre projet de fin d'études vise à proposer une solution basée sur la navigation et le contrôle multi-robots pour améliorer l'inspection acoustique des structures métalliques.
+		}
+		\headerbox{3. Éléments techniques}{name=item,column=2,below=model,span=1}{
+			Ces stratégies sont basées sur l'utilisation de robots de type "crawlers" équipés de capteurs tels qu'un capteur IMU, un capteur UGW et un capteur LIDAR. Les robots sont capables de se synchroniser pour se déplacer simultanément ou de manière alternée.
 
 			\begin{center}
-				\includegraphics[width=\linewidth]{graphics/DiagrammeThil.jpg}
+				\includegraphics[width=\linewidth]{graphics/crawlers.png}
 			\end{center}
 		}
-		\headerbox{3. La méthode des moments}{name=mcs,column=0,below=model,span=1}{
-			La méthode des moments est un outil d'estimation intuitif qui date du début des statistiques.
-
-			\textit{Elle consiste à estimer les paramètres recherchés en égalisant certains moments théoriques (qui dépendent de ces paramètres) avec leurs contreparties empiriques. L'égalisation se justifie par la loi des grands nombres qui implique que l'on peut "approcher" une espérance mathématique par une moyenne empirique. On est donc amené à résoudre un système d'équations.}
-			\\\hfill \url{https://fr.wikipedia.org/wiki/Méthode_des_moments_(statistiques)}~\cite{DBLP:journals/eor/LayerJSF20}.
-
-			\begin{center}
-				\includegraphics[width=\linewidth]{graphics/DiagrammeThil.jpg}
-			\end{center}
-		}
-		\headerbox{4. Proposition de solution}{name=screen,span=2,column=1,below=introduction}{
-			Dumque ibi \textbf{diu moratur commeatus opperiens, quorum translationem} ex Aquitania verni imbres solito crebriores prohibebant auctique torrentes, Herculanus advenit protector domesticus, Hermogenis ex magistro equitum filius, apud Constantinopolim, ut supra rettulimus, populari quondam turbela discerpti. quo verissime referente quae Gallus egerat, damnis super praeteritis maerens et futurorum timore suspensus angorem animi quam diu potuit emendabat.
-
-			\begin{center}
-				\includegraphics[width=0.85\linewidth]{graphics/DiagrammeThil.jpg}
-			\end{center}
-		}
-		\headerbox{5. Évaluation de la proposition}{name=sea,span=2,column=1,below=screen}{
-			\begin{wrapfigure}{l}{0.3\textwidth}
-				\begin{center}
-					\includegraphics[width=\linewidth]{graphics/DiagrammeThil.jpg}
-				\end{center}
-			\end{wrapfigure}
-
-			We tested DeCAF in 35 case studies taken from the DUD-E database, to evaluate its power to discriminate between active and inactive molecules.
-			We used DeCAF as a classifier and compared it to the SEA (Similarity Ensemble Approach) algorithm \cite{keiser2007relating}.
-			To compare sets of ligands, we adapted the approach used in SEA, replacing Tc by DCAF.
-			We prepared datasets as shown in the left diagram.
-			Then, we tested both classifiers calculating ROC AUC values for every target (below).
-
-			\includegraphics[width=0.95\linewidth]{graphics/DiagrammeThil.jpg}
-		}
-		\headerbox{6. Conclusions}{name=conclusion,column=1,below=sea,span=2,above=bottom}{
-			% DeCAF is a chemoinformatical tool that can be helpful in ligand-based drug design.
-			% It provides a comprehensive molecule description and a fast algorithms for comparing and aligning multiple ligands.
-			Pour le problème… nous avons proposé une solution basée sur… et nous avons montré
+		\headerbox{4. Proposition de solution}{name=prop,span=2,column=0,below=introduction}{
+			Nous proposons trois stratégies de navigation multi-robots pour l'inspection acoustique de structures métalliques, dans le but d'optimiser l'acquisition de données permettant de réaliser la tomographie des surfaces métalliques.
+			Les trois stratégies sont les suivantes :
 			\begin{boenumerate}\compresslist
-				\item qu'elle est conforme aux normes de l'entreprise (fonctionnalisés, intégration avec les autres applications et qualité de code),
-				\item que les performances obtenues sont largement suffisante pour supporter les applications actuelles et les évolutions prévues
-				\item que les utilisateurs sont satisfaits (étude d'usage non inclue dans ce poster)
+				\item Stratégie de navigation \textit{peinture au rouleau} :
+				Cette stratégie consiste en une exploration grossière de la surface à inspecter, où les robots se déplacent en ligne droite sur des trajectoires parallèles.
+				Cette approche vise à obtenir rapidement une couverture globale de la surface à inspecter.
+				Cette stratégie permet de quadriller la surface à inspecter et d'approcher les enveloppes convexes des zones de corrosion sous forme de rectangles.
+				\item Stratégie de navigation \textit{ski nordique} :
+				Cette stratégie est similaire à la stratégie \textit{peinture au rouleau}, mais les robots se déplacent de manière séquentielle plutôt que simultanée.
+				Les robots se déplacent en ligne droite sur des trajectoires parallèles, avec des points d'arrêt différents pour chaque robot.
+				Cette stratégie vise à augmenter la diversité d'orientation des rayons des signaux émis et reçu, ce qui permet d'approcher plus précisément les enveloppes convexes des zones de corrosion.
+				\item Stratégie de navigation \textit{investigation polygonale} :
+				Cette stratégie propose une approche plus précise pour l'inspection des zones potentielles de corrosion.
+				Elle consiste en une exploration de la surface métallique en suivant des trajectoires polygonales.
+				Les robots se déplacent en formant des polygones qui couvrent les zones à inspecter, permettant ainsi une meilleure approximation des enveloppes convexes des zones de corrosion.
 			\end{boenumerate}
+			Une grille d'occupation est utilisée pour modéliser l'environnement et obtenir en temps réel l'état de la surface métallique pendant l'inspection.
+		}
+		\headerbox{5. Évaluation de la proposition}{name=eval,span=2,column=0,below=prop,above=bottom}{
+			Nous avons modélisé plusieurs cartes de tests qui modélisent une surface plane comportant différentes formes géométriques représentant les zones de corrosion à détecter et à localiser.
+			La densité de corrosion des cartes varie.
+			Nous avons évalué les performances des trois stratégies en termes de concordance avec la réalité et de temps d'inspection.
+			Pour la stratégie "peinture au rouleau" et la stratégie "ski nordique", nous avons fait varier la distance entre les robots pour évaluer son impact sur les performances.
+			Pour la stratégie "ski nordique", nous avons également fait varier le pas entre les robots.
+			Pour la stratégie "investigation polygonale", nous avons fait varier le nombre de robots, le nombre d'équipes de robots et le nombre de côtés des polygones utilisés.
 
-			La solution proposée est en production depuis deux mois.
-			% It can be also used in other [procedures], such as database screening or drug repositioning.
-			% DeCAF is written in Python and freely available at \textbf{\color{darkgreen}http://bitbucket.org/marta-sd/decaf}.
+			Lors de nos expérimentations, nous avons enregistré les valeurs du coefficient kappa de Cohen et du temps d'inspection pour chaque combinaison de paramètres. En analysant ces données, nous serons en mesure de déterminer quelle stratégie de navigation offre le meilleur compromis entre vitesse et précision pour notre système d'inspection de corrosion.
+
+			\begin{center}
+				\includegraphics[width=0.49\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_world.png}
+				\includegraphics[width=0.49\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_world.png}
+			\end{center}
 		}
-		\headerbox{7. References}{name=references,column=0,span=1,below=mcs,above=bottom}{
-			%\small % Reduce the font size in this block
-			\renewcommand{\section}[2]{\vskip 0.05em} % Get rid of the default "References" section title
-			%\nocite{*} % Insert publications even if they are not cited in the poster
-			\bibliographystyle{unsrt}
-			\bibliography{rapportPFE} % Use sample.bib as the bibliography file
+		\headerbox{6. Conclusions}{name=conclusion,column=2,below=item,span=1,above=bottom}{
+			Pour la problématique d'inspection de corrosion, nous avons proposé trois stratégies de navigation multi-robots.
+
+			\begin{boenumerate}\compresslist
+				\item La stratégie \textit{peinture au rouleau}, a permis d'obtenir des résultats satisfaisants en des temps d'exploration très courts.
+				La distance entre les robots peut être ajustée pour optimiser les résultats dépendamment de la densité des zones de corrosion inférées.
+				\item La stratégie \textit{ski nordique}, a permis d'obtenir des résultats supérieurs à ceux de la stratégie \textit{peinture au rouleau}, mais avec des temps d'exploration plus longs.
+				\item Enfin, la startégie \textit{investigation polygonale}, a permis d'obtenir les meilleurs résultats, en termes de précision.
+				Cette stratégie réactive permet d'affiner la localisation des zones de corrosion en se basant sur les résultats d'une des deux stratégies précédentes.
+				Cependant, cette stratégie est plus sensible aux collisions entre les robots, ce qui peut entraîner des résultats moins satisfaisants dans certains cas.
+			\end{boenumerate}
 		}
+		% \headerbox{7. References}{name=references,column=0,span=1,below=mcs,above=bottom}{
+		% 	\small % Reduce the font size in this block
+		% 	\renewcommand{\section}[2]{\vskip 0.05em} % Get rid of the default "References" section title
+		% 	\nocite{*} % Insert publications even if they are not cited in the poster
+		% 	\bibliographystyle{unsrt}
+		% 	\bibliography{rapportPFE} % Use sample.bib as the bibliography file
+		% }
 	\end{poster}
 \end{document}

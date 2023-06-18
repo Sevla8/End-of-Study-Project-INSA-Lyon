@@ -62,7 +62,7 @@
 %\RequirePackage{fancyvrb}
 %\RequirePackage{fancyhdr}
 \iffrancais
-\RequirePackage[french,english]{babel}
+\RequirePackage[french]{babel}
 \else
 \RequirePackage[english]{babel}
 \fi
@@ -388,7 +388,7 @@ Annexes
 \newtheorem{Lemma}{Lemme}
 \newtheorem{Proposition}{Proposition}
 \newtheorem{Corollary}{Corollaire}
-
+\newtheorem{Conjecture}{Conjecture}
 
 
 \endinput
