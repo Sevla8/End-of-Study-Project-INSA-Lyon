@@ -61,9 +61,9 @@
 \lastname{Alves}
 \dateDebutPFE{9 janvier 2023}
 \dateFinPFE{30 juin 2023}
-\nomStructureAcceuil{INRIA}
+\nomStructureAcceuil{Laboratoire CITI, équipe CHROMA (INSA \& INRIA)\\}
 \villeStructureAccuel{Villeurbanne, France}
-\logoStructureAccueil{height=1cm}{graphics/LogoStructureAccueil}
+\logoStructureAccueil{height=1cm}{graphics/citi}
 \begin{encadrants}
 	\referent{Référent}{Cédric \Nom{Pradalier}}{Professeur}{GT Europe}
 	\referent{Référent}{Olivier \Nom{Simonin}}{Professeur}{INSA Lyon}
@@ -156,7 +156,7 @@
 			\item Développement de stratégies de navigation multi-robots pour l'inspection acoustique de structures métalliques.
 			\item Optimisation de l'acquisition de données pour la réalisation de la tomographie.
 			\item Résolution des problèmes de coordination et de synchronisation entre les robots.
-			\item Implémentation des méthodes de navigation dans un environnement de simulation et leur déploiement sur des robots réels.
+			\item Implémentation des méthodes de navigation dans un environnement de simulation.
 		\end{itemize}
 
 		% Plan du rapport
@@ -176,44 +176,44 @@
 
 		Dans un premier temps, nous nous sommes intéressés aux propriétés des ondes guidées ultrasoniques et à leurs applications dans le domaine de la tomographie~\cite{OUABI2022106705, HUTHWAITE2013979}, de la cartographie des robots et des structures métalliques~\cite{9364359, 9811581, inventions3030059, 9568841}, des robots et des capteurs utilisés dans notre projet~\cite{s22093235}, de l'exploration multi-robots~\cite{bautin:hal-00757960, articlesvsdf} ainsi que des stratégies de placement pour la détection d'objet~\cite{article455556, 7487624, 7139673}.
 
-		Dans ce papier~\cite{OUABI2022106705}, les auteurs proposent une méthode pour inférer la géométrie des plaques métalliques en utilisant des ondes de Lamb.
+		Le papier~\cite{OUABI2022106705}, les auteurs proposent une méthode pour inférer la géométrie des plaques métalliques en utilisant des ondes de Lamb.
 		Ils utilisent le beamforming~\cite{enwiki:1151960654} pour estimer les limites de la plaque en se basant sur des mesures acoustiques.
 		Les résultats expérimentaux montrent une inférence précise de la géométrie de la plaque.
-		Cependant, les auteurs se contentent de cartographier les contours des structures, sans proposer de méthode pour cartographier les défauts.
+		Cependant, les auteurs se contentent de cartographier les contours des structures, sans proposer de méthode pour cartographier les défauts, ce qui est l'objet de notre problématique.
 
-		Cet article~\cite{9364359} présente une approche basée sur FastSLAM~\cite{article254524} pour l'inspection robotique des structures métalliques en utilisant des ultrasons.
+		L'article~\cite{9364359} présente une approche basée sur FastSLAM~\cite{article254524} pour l'inspection robotique des structures métalliques en utilisant des ultrasons.
 		Les auteurs proposent une méthode d'allocation des fronts pionniers pour l'exploration multi-robots, permettant une inspection rapide et précise des structures.
 		Notre travail considère la localisation et la cartographie des robots comme étant connues, et se concentre sur la planification de trajectoire pour l'inspection des structures métalliques.
 		L'approche utilisée dans cet article peut donc être complémentaire à notre travail.
 
-		Dans ce papier~\cite{9811581}, les auteurs proposent une méthode de cartographie des structures métalliques en utilisant des ondes UGW.
+		Le papier~\cite{9811581}, les auteurs proposent une méthode de cartographie des structures métalliques en utilisant des ondes UGW.
 		Ils combinent une grille cartésienne avec des caractéristiques spécifiques pour la détection des défauts.
 		Les résultats expérimentaux montrent une cartographie précise des structures métalliques.
 		Cependant, les auteurs se contentent encore une fois de cartographier les contours des structures, sans proposer de méthode pour cartographier les défauts.
 
-		Cet article~\cite{inventions3030059} se concentre sur la localisation des impacts dans les structures composites en utilisant une méthode d'imagerie développée.
+		L'article~\cite{inventions3030059} se concentre sur la localisation d'impacts dans des structures composites en utilisant une méthode d'imagerie développée.
 		Les auteurs utilisent des capteurs piézoélectriques~\cite{enwiki:1154129092} pour détecter et localiser les impacts, et une méthode de transformée en ondelettes~\cite{enwiki:1147185762} pour analyser les signaux acoustiques.
 		Les résultats expérimentaux montrent une détection et une localisation précises des impacts.
 		Les capteurs utilisés sont similaires à ceux utilisés dans notre projet, mais ces capteurs sont positionnés de manière fixe sur la structure, alors que nous souhaitons une stratégie mobile.
 
-		Dans ce papier~\cite{HUTHWAITE2013979}, les auteurs proposent une méthode de tomographie ultrasonore à haute résolution pour la quantification de l'épaisseur des parois.
+		Le papier~\cite{HUTHWAITE2013979}, les auteurs proposent une méthode de tomographie ultrasonore à haute résolution pour la quantification de l'épaisseur des parois.
 		Ils exploitent la nature dispersante des ondes de Lamb pour convertir les variations d'épaisseur en variations de vitesse d'onde, permettant ainsi une reconstruction précise de l'épaisseur des parois.
 		Les résultats expérimentaux montrent des reconstructions précises des défauts de corrosion.
 		Cet article fut intéréssant pour comprendre les propriétés des ondes ultrasoniques guidées et leurs applications dans le domaine de la tomographie.
 
-		Cet article~\cite{s22093235} présente un système de robot magnétique pour l'inspection et la maintenance autonome de structures de grande taille.
+		L'article~\cite{s22093235}, issu des travaux du projet BugWright2, présente un système de robot magnétique pour l'inspection et la maintenance autonome de structures de grande taille.
 		Les auteurs proposent un cadre de localisation basé sur une grille créée à partir d'un nuage de points, couplée à des capteurs ultra wideband (UWB) et à une unité de mesure inertielle (IMU).
 		Ils intègrent également un capteur piézoélectrique pour la détection d'ondes UGW pour une localisation précise du robot et une cartographie des caractéristiques structurelles.
 		Ce sont typiquement ces robots et ces capteurs qui sont utilisés dans notre travail.
 
-		Ce papier~\cite{bautin:hal-00757960} présente un algorithme de planification pour l'exploration multi-robots.
+		Le papier~\cite{bautin:hal-00757960} présente un algorithme de planification pour l'exploration multi-robots.
 		Cet algorithme, appelé \textit{MinPos}, est conçu pour allouer de manière efficace les frontières aux robots afin de minimiser les déplacements et le temps nécessaire pour explorer l'environnement. Il utilise des techniques avancées d'optimisation pour résoudre ce problème de manière efficace.
 		Cependant, notre travail se concentre sur de l'inspection de structures pour la détection de défauts.
 		Nous souhaitons une inspection fine des zones de corrosion et non une exploration globale de l'environnement.
 
-		Cet article~\cite{article455556} présente des stratégies pour le placement optimal de caméras de surveillance dans les galeries d'art.
+		L'article~\cite{article455556} présente des stratégies pour le placement optimal de caméras de surveillance dans les galeries d'art.
 		Les auteurs proposent des méthodes pour maximiser la couverture de surveillance tout en minimisant le nombre de caméras nécessaires.
-		Cependant, les capteurs utilisés dans notre projet sont des capteurs qui fournissent une information sur un segment uniquement, et non une information globale comme une caméra.
+		Cependant, les capteurs utilisés dans notre projet sont des capteurs qui fournissent une information sur un segment uniquement, entre un émetteur et un récepteur, et non une information globale comme une caméra.
 		Les capteurs utilisés dans notre projet sont présentés dans la section~\ref{sec:definitions}.
 
 		Dans l'article~\cite{articlesvsdf}, les auteurs proposent une méthode de localisation et de dimensionnement automatiques des défauts dans les structures en utilisant l'imagerie par ondes guidées.
@@ -247,16 +247,8 @@
 		Les articles~\cite{7487624, 7139673} sont ceux qui se rapprochent le plus de notre problématique.
 		Cependant, ces articles se concentrent sur un recouvrement de l'environnement sans se soucier de la qualité de la cartographie des zones d'intérêt.
 		De plus, ces articles utilisent des capteurs fixes sur la structure pour la première phase d'inspection grossière, ce qui n'est pas souhaitable dans notre approche.
-		C'est pourquoi nous proposons notre approche de navigation multi-robots pour l'inspection acoustique de structures métalliques afin d'optimiser l'acquisition de données qui permettront de réaliser la tomographie des surfaces métalliques.
+		C'est pourquoi nous proposons une approche de navigation multi-robots pour l'inspection acoustique de structures métalliques afin d'optimiser l'acquisition de données qui permettront de réaliser la tomographie des surfaces métalliques.
 	\section{Propositions scientifiques et techniques}
-		Nous proposons trois stratégies de navigations multi-robots pour l'inspection acoustique de structures métalliques afin d'optimiser l'acquisition de données qui permettront de réaliser la tomographie des surfaces métalliques. Ces trois stratégies sont les suivantes :
-		\begin{enumerate}
-			\item Stratégie de navigation \textit{peinture au rouleau}
-			\item Stratégie de navigation \textit{ski nordique}
-			\item Stratégie de navigation \textit{investigation polygonale}
-		\end{enumerate}
-		Parmi ces stratégies, les deux premières sont non réactives et peuvent être considérées comme des stratégies d'exploration grossières, le but étant de rapidement obtenir une couverture globale de la surface à inspecter.
-		La troisième stratégie est réactive et permet d'optimiser l'acquisition de données pour la réalisation de la tomographie.
 		Dans cette section, nous présentons les définitions préliminaires, la proposition de solution et l'étude théorique de propriétés de la solution proposée.
 		\subsection{Définitions préliminaires}\label{sec:definitions}
 			Ici, nous allons expliciter les hypothèses et les définitions préliminaires qui seront utilisées dans la suite de ce rapport.
@@ -270,7 +262,7 @@
 			La pose du robot est définie par un triplet $(x, y, \theta)$ où $x$ et $y$ sont les coordonnées du robot dans l'environnement et $\theta$ est l'orientation du robot dans l'environnement.
 			Nous supposons que la pose du robot est connue.
 			Nous supposons également que les robots sont capables de se synchroniser afin de pouvoir se déplacer de manière simultanée ou bien de manière alternée.
-			On note $cr$ le coût de rotation du robot et $ct$ le coût de translation du robot.
+			On note $cr$ le coût unitaire de rotation du robot et $ct$ le coût unitaire de translation du robot.
 
 			\begin{figure}[h!]
 				\centering
@@ -288,10 +280,10 @@
 				\item un capteur LIDAR (Light Detection And Ranging)
 			\end{itemize}
 			Le capteur IMU permet de connaître l'orientation du robot dans l'environnement.
-			Le capteur UGW permet de détecter les zones de corrosion sur la surface métallique en émettant et en recevant des ondes ultrasoniques.
+			Le capteur UGW permet de détecter la présence de corrosion sur la surface métallique en émettant et en recevant des ondes ultrasoniques.
 			Le capteur LIDAR permet de détecter les obstacles dans l'environnement.
 			Les obstacles considérés ici, sont principalement les différents robots inspectant la surface métallique.
-			La détection de ces zones de corrosion est réalisée par l'émission d'ondes ultrasoniques par un robot et la réception de ces ondes par un autre robot.
+			La détection des zones de corrosion est réalisée par l'émission d'ondes ultrasoniques par un robot et la réception de ces ondes par un autre robot.
 			Dans la mesure où l'onde reçue par un des crawlers est altérée, alors il existe un point de corrosion entre le robot émetteur et le robot récepteur.
 			La détection de ces zones de corrosion est réalisée en temps réel.
 			La portée maximale des ondes ultrasoniques est notée $d_{max}$.
@@ -315,6 +307,14 @@
 		\subsection{Proposition de solution}
 			Nous présentons notre proposition de solution pour l'inspection acoustique de structures métalliques en utilisant des stratégies de navigation multi-robots.
 			Nous avons développé trois stratégies spécifiques pour optimiser l'acquisition de données et permettre la réalisation de la tomographie des surfaces métalliques.
+			Ces trois stratégies sont les suivantes :
+			\begin{enumerate}
+				\item Stratégie de navigation \textit{peinture au rouleau}
+				\item Stratégie de navigation \textit{ski nordique}
+				\item Stratégie de navigation \textit{investigation polygonale}
+			\end{enumerate}
+			Parmi ces stratégies, les deux premières sont non réactives et peuvent être considérées comme des stratégies d'exploration grossières, le but étant de rapidement obtenir une couverture globale de la surface à inspecter.
+			La troisième stratégie est réactive et permet d'optimiser l'acquisition de données pour la réalisation de la tomographie.
 			Ces trois stratégies ont pour objectif de cartographier la surface métallique et de détecter les zones de corrosion.
 			Nous définissons ces trois stratégies de navigation dans les sous-sections suivantes.
 			Nous explicitons également comment la structure de données utilisée pour la cartographie des zones de corrosion, une grille d'occupation, est mise à jour en fonction des informations recueillies par les capteurs UGW des robots.
@@ -324,12 +324,14 @@
 				Il est ainsi possible de déterminer si une zone de corrosion est présente entre les deux robots en vérifiant si le signal reçu par le robot récepteur est suffisamment puissant.
 				Dans la mesure où il n'y a pas de détection de corrosion entre l'émetteur et le récepteur, alors le segment de droite entre les deux robots est considéré comme étant libre de corrosion.
 				Dans le cas contraire, alors les points du segment de droite entre les deux robots sont considérés comme étant de la corrosion, à l'exception des points préalablement perçus comme étant libre de corrosion.
+				On surestime donc la présence de corrosion sur le segment.
+				Les stratégies de déplacement viseront à réaliser plusieurs mesures, pour réduire cette surestimation, et approcher la forme réelle de la corrosion.
 
 				Il nous suffit maintenant de déterminer quelles cellules de la grille d'occupation sont traversées par le segment de droite entre les deux robots.
 				Pour cela, nous utilisons l'algorithme de tracé de segment de Bresenham~\cite{enwiki:1155124335} qui est couramment utilisé pour déterminer les points d'un plan discret qui doivent être tracés afin de former une approximation de segment de droite entre deux points donnés.
 				Nous détaillons notre implémentations de cet algorithme dans la section~\ref{subsec:Bresenham}.
 
-				À l'issue de l'exploration de la surface métallique, la grille d'occupation est mise à jour en fonction des informations recueillies par les robots.
+				Lors de l'exploration de la surface métallique, la grille d'occupation est mise à jour en fonction des informations recueillies par les robots.
 				Plus précisément, les cellules de la grille d'occupation qui identifient des éléments de corrosion sont mises à jour avec l'état occupé, tandis que les cellules qui identifient des zones saines sont mises à jour avec l'état vide.
 				Nous aboutissions ainsi à une grille d'occupation qui représente l'état de corrosion de la surface métallique, avec, pour chaque zone de corrosion, une approximation de l'enveloppe convexe de la zone de corrosion.
 			\subsubsection*{Stratégie de navigation \textit{peinture au rouleau}}
@@ -356,17 +358,18 @@
 				Le même procédé est ensuite répété, mais cette fois-ci, horizontalement.
 
 				Durant cette stratégie, chaque robot est à la fois un émetteur et un récepteur d'ondes UGW.
-				Si la distance qui sépare un robot $n_a$ d'un robot $n_b$, $(n_a, n_b) \in \{1, 2, \dots, n\}^2$, est inférieure à la distance maximale de propagation des ondes UGW, $d_{max}$, alors le robot $n_a$ est capable de recevoir le signal émis par le robot $n_b$ et récipriquement.
+				Si la distance qui sépare un robot $n_a$ d'un robot $n_b$, $(n_a, n_b) \in \{1, 2, \dots, n\}^2$, est inférieure à la distance maximale de propagation des ondes UGW, $d_{max}$, alors le robot $n_a$ est capable de recevoir le signal émis par le robot $n_b$ et réciproquement.
 				Il n'est cependant pas nécessaire pour un robot $n_k$, $n_k \in \{1, 2, \dots, n\}$, de traiter les signaux reçu de tous les autres robots.
 				En effet, les robots étant alignés, les signaux reçus des robots $n_{k-1}$ et $n_{k+1}$, sont suffisants pour la reconstruction de l'état de la surface métallique.
-				Les ondes émisent par les robots $n_1, n_2, \dots, n_{k-1}$ et $n_{k+1}, \dots, n_n$ ne sont pas utiles pour le robot $n_k$.
+				Les ondes émisent par les robots $n_1, n_2, \dots, n_{k-2}$ et $n_{k+2}, \dots, n_n$ ne sont pas utiles pour le robot $n_k$.
 				Le robot $n_k$ peut donc ignorer ces signaux et se concentrer uniquement sur les signaux reçus des robots $n_{k-1}$ et $n_{k+1}$.
-				Dans la mesure où les premiers signaux perçus par le robot $n_k$ sont ceux émis par les robots $n_{k-1}$ et $n_{k+1}$, du fait de leur priximité, il est possible pour le robot $n_k$ de filtrer les signaux reçus des autres robots.
+				Dans la mesure où les premiers signaux perçus par le robot $n_k$ sont ceux émis par les robots $n_{k-1}$ et $n_{k+1}$, du fait de leur proximité, il est possible pour le robot $n_k$ de filtrer les signaux reçus des autres robots.
 				Ceci constitue une optimisation en terme de traitement pour chaque robot.
 
 				Le fait que les robots se déplacent en suivant une trajectoire parallèle et en simultané, implique que les rayons du signal émis par le robot émetteur et reçu par le robot récepteur, ont toujours une orientation de $0$ radian pour la phase verticale et une orientation de $\frac{\pi}{2}$ radians pour la phase horizontale.
 				Il n'y a donc pas une grande variation de l'orientation du signal émis et reçu.
 				Ainsi, cette stratégie ne pourra approcher les enveloppes convexes des zones de corrosion que par des rectangles.
+				Des examples de grilles d'occupations résultantes de la stratégie de navigation \textit{peinture au rouleau}, représentées sous formes d'images, où les cellules de la grille correspondent aux pixels des images, sont réprésentés à l'annexe~\ref{annexe:resultat}, figure~\ref{fig:peinture_au_rouleau_resultats}.
 			\subsubsection*{Stratégie de navigation \textit{ski nordique}}
 				La deuxième stratégie que nous proposons est la stratégie de navigation \textit{ski nordique}.
 				Nous avons choisi ce nom pour cette stratégie, car le mouvement des robots durant cette stratégie est similaire au mouvement des skis d'un skieur.
@@ -405,13 +408,14 @@
 				Ce sont ensuite les robots impairs qui se déplacent en ligne droite d'une distance $2 \cdot s$ puis s'arrêtent.
 				Les robots se déplacent ensuite horizontalement d'une distance $(n - 1) \cdot d$ et répètent le même procédé jusqu'à ce que la surface métallique soit entièrement inspectée.
 				Le même procédé est ensuite répété, mais cette fois-ci, horizontalement.
-				Afin que les differents robots receuveurs puissent recevoir les signaux émis par les robots émetteurs, il faut également imposer que $s$ soit inférieur strictement à $\frac{d_{max}}{2}$, soit $s < \frac{d_{max}}{2}$.
+				Afin que les differents robots receveurs puissent recevoir les signaux émis par les robots émetteurs, il faut également imposer que $s$ soit inférieur strictement à $\frac{d_{max}}{2}$, soit $s < \frac{d_{max}}{2}$.
 
 				Durant cette stratégie, chaque robot est à la fois un émetteur et un récepteur d'ondes UGW.
 				Ici, comme pour la stratégie de navigation \textit{peinture au rouleau}, il n'est pas nécéssaire pour un robot $n_k$, $n_k \in \{1, 2, \dots, n\}$, de traiter les signaux reçu par les robots autres que $n_{k-1}$ et $n_{k+1}$.
 
 				Le fait que les robots se déplacent en suivant une trajectoire parallèle, mais de manière séquentielle, implique que les rayons du signal émit par le robot émetteur et reçu par le robot récepteur, ont une orientation d'une plus grande variation.
 				Ainsi, cette stratégie permet d'approcher les enveloppes convexes des zones de corrosion par des formes plus diverses et précises que des rectangles.
+				Des examples de grilles d'occupations résultantes de la stratégie de navigation \textit{ski nordique}, représentées sous formes d'images, où les cellules de la grille correspondent aux pixels des images, sont réprésentés à l'annexe~\ref{annexe:resultat}, figure~\ref{fig:ski_nordique_resultats} et figure~\ref{fig:ski_nordique_resultats_2}.
 			\subsubsection*{Stratégie de navigation \textit{investigation polygonale}}
 				La troisième stratégie que nous proposons est la stratégie de navigation \textit{investigation polygonale}.
 				Nous avons vu,  précédemment, qu'à l'issue de la réalisation de la stratégie de navigation \textit{peinture au rouleau}, l'enveloppe convexe des zones de corrosion était approximée par un rectangle.
@@ -436,12 +440,75 @@
 				Les autres attendent jusqu'à ce que le robot qui est en train d'avancer atteigne le dernier sommet libre du polygone.
 				Le procédé est ensuite répété pour chaque robot de chaque équipe jusqu'à ce que les sommets occupés par les robots soient les mêmes que ceux occupés au début de la stratégie de navigation \textit{investigation polygonale}.
 
+				\begin{figure}[h!]
+					\centering
+					\begin{subfigure}[t]{0.3\linewidth}
+						\centering
+						\includegraphics[width=\linewidth]{graphics/triangle_1.png}
+						\caption{Phase initiale.}
+						\label{fig:triangle_1}
+					\end{subfigure}
+					\hfill
+					\begin{subfigure}[t]{0.3\linewidth}
+						\centering
+						\includegraphics[width=\linewidth]{graphics/triangle_2.png}
+						\caption{Première phase de déplacement.}
+						\label{fig:triangle_2}
+					\end{subfigure}
+					\hfill
+					\begin{subfigure}[t]{0.3\linewidth}
+						\centering
+						\includegraphics[width=\linewidth]{graphics/triangle_3.png}
+						\caption{Seconde phase.}
+						\label{fig:triangle_3}
+					\end{subfigure}
+					\hfill
+					\begin{subfigure}[t]{0.3\linewidth}
+						\centering
+						\includegraphics[width=\linewidth]{graphics/triangle_4.png}
+						\caption{Seconde phase de déplacement.}
+						\label{fig:triangle_4}
+					\end{subfigure}
+					\hfill
+					\begin{subfigure}[t]{0.3\linewidth}
+						\centering
+						\includegraphics[width=\linewidth]{graphics/triangle_5.png}
+						\caption{Troisième phase.}
+						\label{fig:triangle_5}
+					\end{subfigure}
+					\hfill
+					\begin{subfigure}[t]{0.3\linewidth}
+						\centering
+						\includegraphics[width=\linewidth]{graphics/triangle_6.png}
+						\caption{Troisième phase de déplacement.}
+						\label{fig:triangle_6}
+					\end{subfigure}
+					\hfill
+					\begin{subfigure}[t]{0.3\linewidth}
+						\centering
+						\includegraphics[width=\linewidth]{graphics/triangle_7.png}
+						\caption{Dernière phase.}
+						\label{fig:triangle_7}
+					\end{subfigure}
+						\caption{Phases de déplacement de la stratégie de navigation \textit{investigation polygonale}.}
+						\label{fig:triangle}
+				\end{figure}
+
+				Nous présentons à la figure~\ref{fig:triangle} un exemple des différentes phases de déplacement de la stratégie de navigation \textit{investigation polygonale} avec $k = 1$ équipe, $n = 2$ robots et un poygone à 3 sommets.
+				Sur ces différentes figures, nous avons représenté une zone de corrosion par un cercle et une approximation de cette zone par une forme enveloppant le cercle.
+				L'objectif est d'approcher le plus finement possible la zone de corrosion.
+				La zone de corrosion n'est pas connue à l'avance, seule la forme enveloppant le cercle est connue.
+				La figure~\ref{fig:triangle_1} présente la phase initiale de la stratégie de navigation \textit{investigation polygonale}.
+				La figure~\ref{fig:triangle_2} présente la première phase de déplacement de la stratégie de navigation \textit{investigation polygonale}, pendant que le crawler $CR2$ avance.
+				Nous pouvons voir qu'après que le crawler $CR2$ ait avancé, une partie de la zone suspectée comme étant de la corrosion est éliminée et considérée comme seine, comme nous pouvons le voir à la figure~\ref{fig:triangle_3}.
+				Les crawlers continuent de se déplacer jusqu'à atteindre leur position initiale, comme nous pouvons le voir à la figure~\ref{fig:triangle_7}.
+
 				\begin{Definition}[Zone fantôme]
 					\label{def:fantomas}
 					Une zone fantôme est une zone de corrosion détectée par une des stratégies de navigation, mais qui n'est pas une zone de corrosion. Il s'agit d'un faux positif.
 				\end{Definition}
 
-				Cette stratégie a deux avantages.
+				La stratégie de navigation \textit{investigation polygonale} a deux avantages.
 				Le premier est qu'elle permet de rapidement éliminer les zones fantômes~\ref{def:fantomas}.
 				Le second est qu'elle permet d'approcher les enveloppes convexes des zones de corrosion par des formes plus diverses et précises que des rectangles du fait de la grande variation de l'orientation des rayons du signal émis et reçu par les robots autour de chaque sommet du polygone.
 
@@ -451,16 +518,16 @@
 					\item la détermination de l'ordre d'investigation des zones de corrosion.
 				\end{enumerate}
 
-				\begin{Definition}[Composante fortement connexe (SCC)]
-					\label{def:scc}
-					Une composante fortement connexe d'un graphe $G = (V, E)$ est un sous-ensemble $C$ de $V$ tel que pour tout couple de sommets $(u, v) \in C^2$, il existe un chemin de $u$ à $v$ et un chemin de $v$ à $u$.
-				\end{Definition}
-
 				La première étape peut être résolue en utilisant un algorithme de décomposition de graphe en composantes fortement connexes.
 				Une composante fortement connexe est définie à la définition~\ref{def:scc}.
 				Nous considérons alors notre grille d'occupation, résultante de l'exploration d'une des deux stratégies définies préalablement, comme un graphe non orienté $G = (V, E)$, où  $V$ est l'ensemble des sommets du graphe, correspondant aux cellules de la grille d'occupation et $E$ sont les arêtes du graphe, correspond aux cellules adjacentes.
 				Ce problème est bien connu et il existe des algorithmes simples pour les résoudre comme l'algorithme de Tarjan~\cite{enwiki:1148118528}, de complexité temporelle linéaire $O(|V| + |E|)$.
 				Nous ne nous pencherons pas plus sur ce problème et confions sa résolution à la bibliothèque \textit{OpenCV}.
+
+				\begin{Definition}[Composante fortement connexe (SCC)]
+					\label{def:scc}
+					Une composante fortement connexe d'un graphe $G = (V, E)$ est un sous-ensemble $C$ de $V$ tel que pour tout couple de sommets $(u, v) \in C^2$, il existe un chemin de $u$ à $v$ et un chemin de $v$ à $u$.
+				\end{Definition}
 
 				\begin{Definition}[Cycle hamiltonien]
 					\label{def:hamilton}
@@ -562,13 +629,13 @@
 				\begin{proof}
 					Démontrons la proposition~\ref{prop:completude}.
 					\begin{itemize}
-						\item Soit $P$ un polygone convexe utilisé pour la stratégie de navigation \textit{investigation polygonale}.
+						\item Soit $P$ un polygone convexe à $p$ sommets utilisé pour la stratégie de navigation \textit{investigation polygonale}.
 						\item Par simplicité, nous considérons une stratégie à 2 robots, mais la preuve reste semblablement la même pour $n > 2$ robots.
-						\item Considérons le robot $r_1$ au sommet $s_1$ du polygone $P$.
+						\item Considérons le robot $r_1$ au sommet $s_1$ du polygone $P$ et le robot $r_2$ au sommet $s_2$ du polygone $P$.
 						\item Soit un point $p$ à l'intérieur du polygone $P$.
 						\item Alors, il existe un point $p'$ tel que $p$ est sur le segment $[s_1, p']$ et $p'$ est sur le bord du polygone $P$, par définition de la convexité de $P$.
-						\item Par définition de la stratégie de navigation \textit{investigation polygonale}, le robot $r_1$ se déplace sur les contours du polygone $P$ et donc en particulier sur le point $p'$.
-						\item On a donc pour tout point $p$ à l'intérieur du polygone $P$, il existe un couple de points tel que $p$ se trouve sur le segment formé par ces deux points.
+						\item Par définition de la stratégie de navigation \textit{investigation polygonale}, le robot $r_2$ se déplace sur les contours du polygone $P$ et donc en particulier sur le point $p'$.
+						\item On a donc pour tout point $p$ à l'intérieur du polygone $P$, il existe un couple de positions pour les robots $r_1$ et $r_2$ tel que $p$ se trouve sur le segment formé par les points où se trouvent les robots $r_1$ et $r_2$.
 						\item Donc tous les points à l'intérieur du polygone $P$ sont couverts par la stratégie de navigation \textit{investigation polygonale}.
 					\end{itemize}
 				\end{proof}
@@ -592,10 +659,7 @@
 					Si le polygone utilisé lors de l'investigation polygonale est un cercle, alors l'approximation de l'enveloppe convexe de la zone de corrosion à l'issue de l'investigation polygonale est l'enveloppe convexe.
 					\label{prop:cercle}
 				\end{Conjecture}
-				\begin{proof}
-					Nous laissons la démonstration de la conjecture~\ref{prop:cercle} au lecteur aguerri.
-				\end{proof}
-	\section{Implémentations techniques}
+	\section{Implémentations des algorithmes}
 		Dans cette section, nous mettons en évidence certaines des différentes implémentations techniques que nous avons développées pour soutenir nos solutions de navigation et de contrôle multi-robots dans le contexte de l'inspection acoustique de structures métalliques.
 		Nous commençons par décrire notre adaptation de l'algorithme de tracé de segment de Bresenham~\cite{enwiki:1155124335}, largement utilisé pour déterminer quels sont les points d'un plan discret qui doivent être tracés afin de former une approximation de segment de droite entre deux points donnés.
 		Ensuite, nous abordons l'implémentation de l'algorithme \textit{peinture au rouleau}, qui permet aux robots de se déplacer de manière simultanée, en suivant des trajectoires parallèles.
@@ -640,7 +704,7 @@
 				}
 			\end{algorithm}
 
-			Nous utilisons donc l'algorithme de tracé de segment de Bresenham pour déterminer les points du segment de droite entre les deux robots.
+			Nous utilisons l'algorithme de tracé de segment de Bresenham pour déterminer les points du segment de droite entre les deux robots.
 			L'algorithme est présenté à l'algorithme~\ref{alg:Bresenham}.
 			La partie adaptée à notre problème se trouve entre les lignes 12 et 17 de ce dernier.
 			À cet endroit, nous vérifions si la puissance du signal est suffisamment altérée et si le point du segment de droite entre les deux robots n'a pas déjà été perçu comme étant libre de corrosion.
@@ -652,7 +716,7 @@
 			Nous présentons dans cette sous-section les implémentations des algorithmes \textit{peinture au rouleau} et \textit{ski nordique}.
 			Leur code source est disponible sur GitLab, ici\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/blob/cr_nav_strat/bugwright_ws/src/floor_nav/missions/peinture_au_rouleau.py}} et ici\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/blob/cr_nav_strat/bugwright_ws/src/floor_nav/missions/ski_nordique.py}}.
 
-			L'implémentation de ces algorithmes, ont été réalisées en utilisant le langage de programmation Python et les bibliothèques ROS (Robot Operating System).
+			Les implémentations de ces algorithmes, ont été réalisées en utilisant le langage de programmation Python et les bibliothèques ROS (Robot Operating System).
 			Dans ces implémentations, nous utilisons le framework ROS Task Manager~\cite{ROSTaskManager} pour gérer les tâches des robots inspecteurs.
 			Tout d'abord, nous initialisons le nœud ROS et créons un client de tâches.
 			Ensuite, nous récupérons les paramètres nécessaires tels que la vitesse des crawlers, l'identifiant du crawler, la distance entre les crawlers, le chevauchement ou encore les dimensions de la surface à inspecter.
@@ -758,12 +822,12 @@
 
 			L'algorithme se déroule en plusieurs étapes.
 			Tout d'abord, les résultats des inspections réalisées par les robots et les réelles répartitions des zones de corrosion sont comparés pour chaque zone inspectée.
-			Pour ce faire, nous comparons les valeurs de chaque cellule de la grille d'occupation, obtenue à l'issue de l'inspection par les robots, avec celles de la vérité de terrain.
+			Pour ce faire, nous comparons les valeurs de chaque cellule de la grille d'occupation, obtenue à l'issue de l'inspection par les robots, avec celles de la vérité terrain.
 			Ayant modélisé les différents environnements de tests, nous connaissons la véritable répartition des zones de corrosion.
 			Ensuite, les résultats sont regroupés en quatre catégories : concordance positive, concordance négative, discordance positive (faux positifs) et discordance négative (faux négatifs).
 			Ces catégories sont utilisées pour calculer les taux d'observation et d'accord observés entre les robots et la véritable répartition des zones de corrosion.
 			Le $\kappa$ de Cohen est ensuite calculé à partir des taux d'observation et d'accord observés, prenant en compte la possibilité de concordance due au hasard.
-			Plus le $\kappa$ de Cohen se rapproche de 1, plus il y a un accord élevé entre les résultats des robots et ceux de la vérité de terrain.
+			Plus le $\kappa$ de Cohen se rapproche de 1, plus il y a un accord élevé entre les résultats des robots et ceux de la vérité terrain.
 			En revanche, un $\kappa$ proche de 0 indique un faible niveau d'accord, tandis qu'un $\kappa$ négatif suggère une discordance entre les résultats.
 			Une Interprétation du $\kappa$ de Cohen selon Landis et Koch est présentée dans le tableau~\ref{tab:Kappa_Cohen}.
 
@@ -785,7 +849,7 @@
 		Pour les cartes de 5, 8, 11 et 15 zones, nous avons généré 5 cartes différentes afin d'avoir des résultats plus représentatifs.
 		Nous ne nous sommes pas permis de générer plusieurs cartes pour les cartes de 20 et 30 zones, le temps d'investigation polygonale étant trop conséquent.
 
-		Nous avons également simulé le capteur UGW par un capteur UWB.
+		Nous avons également simulé le capteur UGW en exploitant la simulation d'un capteur UWB.
 		Ce capteur UWB permet d'émettre une impulsion et de la recevoir.
 		En mesurant la puissance du signal, sous sommes en mesure de savoir si le signal a traversé un objet ou non.
 		Le comportement de ce capteur UWB est donc similaire à celui du capteur UGW, à savoir qu'il permet de détecter la présence d'un objet entre deux points, mais pas de le localiser.
@@ -839,6 +903,8 @@
 		Plus le nombre de zones de corrosion est élevé, plus le temps d'inspection devrait être élevé pour la stratégie \textit{investigation polygonale}.
 		Finalement, nous nous attendons à ce que le nombre de zones de corrosion ait un impact sur la précision des différentes stratégies.
 		Plus le nombre de zones de corrosion est élevé, moins la précision devrait être élevée.
+		En effet, plus le nombre de zones de corrosion est élevé, plus la probabilité d'apparition de zones fantômes devrait être élevée pour les stratégies \textit{peinture au rouleau} et \textit{ski nordique}.
+		Pour la stratégie \textit{investigation polygonale}, plus le nombre de zones de corrosion est élevé, et plus la probabilité que deux zones distinctes de corrosion aient été confondues en une seule lors des stratégies \textit{peinture au rouleau} ou \textit{ski nordique}.
 
 		% \begin{table}[h!]
 		% 	\centering
@@ -889,7 +955,7 @@
 		% Ainsi un score ++ est considéré comme plus précis qu'un score +, et un temps - - est considéré comme plus lent qu'un temps - par exemple.
 
 		Les différents résultats issues des différentes simulations effectuées sont disponibles en annexe~\ref{annexe:resultat}.
-		Sur ces imgaes, il est possible de voir en noir les zones réelles de corrosion et en bleu les zones détectées comme comportant de la corrosion par les différents algorithmes de navigation.
+		Sur ces images, il est possible de voir en noir les zones réelles de corrosion et en bleu les zones détectées comme comportant de la corrosion par les différents algorithmes de navigation.
 		\subsection*{Stratégie de navigation \textit{peinture au rouleau}}
 			Nous résumons sur la figure~\ref{fig:peinture_au_rouleau-kappa_vs_world} l'évolution du score de Cohen en fonction de la densité du monde pour chaque valeur de $d$.
 			Nous résumons également sur la figure~\ref{fig:peinture_au_rouleau-time_vs_world} l'évolution du temps d'inspection en fonction de la densité du monde pour chaque valeur de $d$.
@@ -949,9 +1015,12 @@
 			En revanche, le temps d'exécution dépend de la distance $d$ entre les deux crawlers.
 			Comme nous pouvons observer sur la figure~\ref{fig:peinture_au_rouleau-time_vs_distance}, le temps d'exécution augmente lorsque la distance $d$ entre les deux crawlers diminue.
 			Cela s'explique du fait que plus la distance $d$ est grande, moins les crawlers doivent effectuer de déplacements pour couvrir la carte.
-			Il semble également exister une relation linéaire entre le temps d'exécution et la distance $d$ entre les deux crawlers, excepté pour la distance $d = 6$.
+			Il ne semble pas exister de relation linéaire entre le temps d'exécution et la distance $d$ entre les deux crawlers.
+			Or, nous nous serions attendus à ce qu'il existe une relation linéaire entre le temps d'exécution et la distance $d$ entre les deux crawlers.
+			Il serait intéressant de vérifier s'il n'y a pas eu de biais introduit lors de l'implémentation de l'algorithme.
 
 			Nous avons également introduit deux cartes avec des formes plus complexes que les cartes de base.
+			Celles-ci sont visibles en annexe~\ref{annexe:cartes}, sur les figures~\ref{fig:test_model_11_complex_1} et~\ref{fig:test_model_15_complex_1}.
 			Malheureusement, nous n'avons pas pu, par soucis de temps, faire varier la position des zones de corrosion, comme nous l'avons fait avec les cartes de faible densité.
 			Néanmoins, il semble ne pas exister de différence significative entre les cartes de formes complexes et les cartes de formes simples.
 			Par exemple, pour les cartes avec 15 formes de corrosion et la carte avec 15 formes de corrosion complexes, le score de Cohen ne varie que de 0.02 en moyenne pour une distance $d = 1$ et de 0.04 en moyenne pour une distance $d = 6$.
@@ -1007,7 +1076,7 @@
 			Les formes allongées des zones de corrosion sont également un facteur qui fait diminuer le score de Cohen comme étudié précédemment.
 			C'est pourquoi nous observons que le score de Cohen est le plus haut pour la carte avec la plus petite densité et sans formes allongées de corrosion, c'est-à-dire la carte avec 15 zones de corrosion.
 
-			sur la figure~\ref{fig:ski_nordique-time_vs_world_s}, nous observons que le temps d'exécution de l'algorithme \textit{ski nordique} est constant pour chaque valeur de la densité du monde.
+			Sur la figure~\ref{fig:ski_nordique-time_vs_world_s}, nous observons que le temps d'exécution de l'algorithme \textit{ski nordique} est constant pour chaque valeur de la densité du monde.
 			Ceci était attendu comme pour la stratégie \textit{peinture au rouleau}.
 			Cependant, nous observons que le temps d'exécution varie avec le pas $s$ utilisé.
 			Nous nous serions plutôt attendus à ce que le temps d'exécution reste constant avec le pas des crawlers.
@@ -1031,7 +1100,7 @@
 				\label{fig:ski_nordique-distance}
 			\end{figure}
 
-			sur la figure~\ref{fig:ski_nordique-distance}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la distance qui sépare les deux crawlers pour un pas de 3 mètres.
+			Sur la figure~\ref{fig:ski_nordique-distance}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la distance qui sépare les deux crawlers pour un pas de 3 mètres.
 			Le score semble, comme pour la stratégie \textit{peinture au rouleau}, suivre une relation linéaire avec la distance qui sépare les deux crawlers.
 			Le temps d'exécution semble également suivre une relation linéaire avec la distance qui sépare les deux crawlers.
 			Le fait que la courbe à figure~\ref{fig:ski_nordique-time_vs_distance} ne soit pas une droite est dû au fait que plus la distance entre les crawlers est petite et plus le nombre de rotations que les crawlers doivent effectuer est grand.
@@ -1053,7 +1122,7 @@
 				\label{fig:ski_nordique-stride}
 			\end{figure}
 
-			sur la figure~\ref{fig:ski_nordique-stride}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction du pas $s$ des crawlers pour une distance $d = 3$ mètres.
+			Sur la figure~\ref{fig:ski_nordique-stride}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction du pas $s$ des crawlers pour une distance $d = 3$ mètres.
 			Le score semble suivre une relation linéaire avec le pas des crawlers.
 			Plus le pas est petit et plus le score est grand.
 			Cela entre en concordance avec ce que nous expliquions précédemment.
@@ -1130,7 +1199,7 @@
 			Au contraire, nous observons une diminution en moyenne, bien que très faible, du score.
 			En théorie, l'augmentation de la taille du polygone d'investigation devrait permettre de mieux approcher l'enveloppe convexe des zones de corrosion, et donc d'obtenir un meilleur score de Cohen.
 			Cependant, nous sommes limités dans notre implémentation par la résolution utilisée pour la discrétisation de la carte.
-			Ainsi, il est probable que le fait d'augmenter la taille du polygone d'investigation élimine des cellules de la grille d'occupation (en périphérie des zones de corrosion) où de la corrosion est réellement présente, du fait qu'il ait existé un rayon qui ait traversé cette même cellule.
+			% Ainsi, il est probable que le fait d'augmenter la taille du polygone d'investigation élimine des cellules de la grille d'occupation (en périphérie des zones de corrosion) où de la corrosion est réellement présente, du fait qu'il ait existé un rayon qui ait traversé cette même cellule.
 			Cependant, pour une résolution plus précise, nous devrions observer une amélioration du score de Cohen.
 
 			Nous présentons sur la figure~\ref{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p6} l'évolution du temps d'exécution en fonction de la densité du monde pour la carte 5, pour un polygone à 6 sommets.
@@ -1216,7 +1285,7 @@
 
 		En outre, ma participation à ce projet m'a offert une première immersion dans le monde de la recherche.
 		J'ai eu l'occasion d'explorer la littérature scientifique, de me familiariser avec les travaux antérieurs liés à mon domaine d'étude et de mettre en pratique des méthodologies de recherche.
-		J'ai appris à collecter et à analyser des données, ainsi qu'à rédiger des rapports techniques et des articles scientifiques.
+		J'ai appris à collecter et à analyser des données, rédiger des rapports techniques, et lire des articles scientifiques.
 		Cette expérience m'a permis de développer ma rigueur scientifique et ma capacité à mener des investigations approfondies.
 
 		Enfin, ce projet m'a également permis de renforcer ma gestion du temps et de prioriser efficacement les tâches.
