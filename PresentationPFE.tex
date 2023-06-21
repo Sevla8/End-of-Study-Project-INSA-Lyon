@@ -3,9 +3,16 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage[T1]{fontenc}
-\usepackage{algorithm2e}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[linesnumbered]{algorithm2e}
 \usepackage{multimedia}
 \usepackage{array}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{xcolor}
+
+\def\HiLi{\leavevmode\rlap{\hbox to \linewidth{\color{yellow!50}\leaders\hrule height .8\baselineskip depth .5ex\hfill}}}
 
 \mode<presentation> {
 	% \usetheme{default}
@@ -57,370 +64,502 @@
 }
 
 \AtBeginSection[]{
-  \begin{frame}
-    \frametitle{Contents}
+  \begin{frame}[shrink=0]
+    \frametitle{Table des matières}
     \tableofcontents[currentsection]
   \end{frame}
 }
 \AtBeginSubsection[]{
-  \begin{frame}
+  \begin{frame}[shrink=0]
     \frametitle{Contents}
-    \tableofcontents[currentsubsection]
+    \tableofcontents[currentsection, currentsubsection]
   \end{frame}
 }
 \AtBeginSubsubsection[]{
-  \begin{frame}
+  \begin{frame}[shrink=0]
 	\frametitle{Contents}
-	\tableofcontents[currentsubsection]
+	\tableofcontents[currentsection, currentsubsection, currentsubsubsection]
   \end{frame}
 }
 
-\title[Projet de Fin d'Étude]{Projet de Fin d'Étude}
-\author{Brandon Alves}
-\institute[INSA Lyon]{
-	\huge{Réunion de mi-parcours}
+\title[Projet de Fin d'Étude]{Navigation et contrôle multi-robots pour l'inspection acoustique de structures métalliques [R\&D]}
+\author[Brandon Alves]{
+	Projet de fin d'étude de: \\
+	\textbf{Brandon Alves} \\
+	\vspace*{.25cm}
+	\footnotesize Supervisé par: \\
+	\textbf{Cédric Pradalier (GT Europe, CNRS), Olivier Simonin (INSA Lyon, CITI)}
 }
-
+\institute[INSA Lyon, CITI]{INSA Lyon, Laboratoire CITI, équipe CHROMA (INSA \& INRIA)}
+\titlegraphic{
+	\includegraphics[height=1cm]{graphics/insa.jpg}
+	\hspace*{4.75cm}
+	\includegraphics[height=1cm]{graphics/citi.png}
+}
 \date{\today}
 
 \begin{document}
 	\begin{frame}
 		\titlepage
 	\end{frame}
-	\begin{frame}
-		\frametitle{Contents}
+	\begin{frame}[shrink=0]
+		\frametitle{Table des matières}
 		\tableofcontents
 	\end{frame}
-	\section{Contexte}
-		\begin{frame}
-			\frametitle{Contexte}
-			\begin{itemize}
-				\item Projet européen BugWright2
-				\item Inspection de structures métalliques
-				\item Tomographie de la zone à inspecter
-				\item Localiser des points de corrosion
-			\end{itemize}
-		\end{frame}
-		\begin{frame}
-			\frametitle{Contexte}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.8\textwidth]{graphics/Concept-Cartoon-NJ3-e1582812224528.jpg}
-				\caption{Projet BugWright2 (https://www.bugwright2.eu/project/)}
-			\end{figure}
-		\end{frame}
-	\section{Problème \& hypothèses}
-		\begin{frame}
-			\frametitle{Problème \& hypothèses}
-			\begin{block}{Problème}
-				Définir des stratégies de navigation multi-robot pour optimiser l'acquisition de données permettant de réaliser la tomographie des structures métalliques.
-			\end{block}
-		\end{frame}
-		\begin{frame}
-			\frametitle{Problème \& hypothèses}
-			\begin{block}{Hypothèses}
-				\begin{itemize}
-					\item Environnement :
-					\begin{itemize}
-						\item espace 2D, borné et de taille connue,
-						\item obstacles localisés,
-						\item zones de corrosion non localisées.
-					\end{itemize}
-					\item Robots :
-					\begin{itemize}
-						\item robots à 2 roues,
-						\item pose $(x, y, \theta)$ connue,
-						\item coût de rotation $cr$ et coût de translation $ct$ connus.
-						\item Nombre de robots $\ge$ 2.
-					\end{itemize}
-					\item Perception :
-					\begin{itemize}
-						\item Robot est émetteur ou récepteur,
-						\item Émission et réception omnidirectionnelle d'ondes ultrasoniques (\textit{UGW}),
-						\item Si puissance de signal altérée, alors détection,
-						\item Détection parfaite et en temps réel,
-						\item Distance maximale d'émission et de réception $d_{max}$.
-					\end{itemize}
-				\end{itemize}
-			\end{block}
-		\end{frame}
-		\begin{frame}
-			\frametitle{Problème \& hypothèses}
-			\begin{block}{Structures de données}
-				\begin{itemize}
-					\item Grille d'occupation :
-					\begin{itemize}
-						\item inconnu,
-						\item vide,
-						\item occupé.
-					\end{itemize}
-				\end{itemize}
-			\end{block}
-		\end{frame}
-	\section{Stratégies de navigation}
-		\subsection{Stratégies}
+	\section{Introduction}
+		\subsection*{Contexte}
 			\begin{frame}
-				\frametitle{Stratégies}
-				\begin{block}{Strétégies de navigation}
-					\begin{itemize}
-						\item Stratégies de navigation grossières,
-						\item Investigation polygonale.
-					\end{itemize}
+				\frametitle{Introduction}
+				\framesubtitle{Contexte}
+				\begin{itemize}
+					\item CITI, équipe CHROMA
+					\item GT Europe, thèse de master
+					\item Projet européen BugWright2 (\url{https://www.bugwright2.eu/project/})
+					\includegraphics[width=0.8\textwidth]{graphics/Concept-Cartoon-NJ3-e1582812224528.jpg}
+				\end{itemize}
+			\end{frame}
+		\subsection*{Définition du problème}
+			\begin{frame}
+				\frametitle{Introduction}
+				\framesubtitle{Définition du problème}
+				\begin{itemize}
+					\item Inspection de structures métalliques
+					\item Tomographie de la zone à inspecter
+					\item Localiser des points de corrosion
+					\item Ondes acoustiques (UGW)
+				\end{itemize}
+				\begin{block}{Problématique}
+					Définir des stratégies de navigation multi-robot pour optimiser l'acquisition de données permettant de réaliser la tomographie des structures métalliques.
 				\end{block}
-				\begin{block}{Hypothèse}
+			\end{frame}
+		\subsection*{Aperçu des contributions}
+			\begin{frame}
+				\frametitle{Introduction}
+				\framesubtitle{Aperçu des contributions}
+				\begin{itemize}
+					\item Développement de stratégies de navigation multi-robots pour l'inspection acoustique de structures métalliques.
+					\item Optimisation de l'acquisition de données pour la réalisation de la tomographie.
+					\item Résolution des problèmes de coordination et de synchronisation entre les robots.
+					\item Implémentation des méthodes de navigation dans un environnement de simulation.
+				\end{itemize}
+			\end{frame}
+	\section{État de l'art}
+		\begin{frame}
+			\frametitle{État de l'art}
+			The right direction to smell: Efficient sensor planning strategies for robot assisted gas tomography
+
+			Arain, Muhammad Asif and Schaffernicht, Erik and Bennetts, Victor Hernandez and Lilienthal, Achim J.
+
+			2016 IEEE International Conference on Robotics and Automation (ICRA)
+
+			2016
+		\end{frame}
+	\section{Propositions scientifiques et techniques}
+		\subsection{Définitions préliminaires}
+			\begin{frame}[shrink=5]
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Définitions préliminaires}
+				\begin{block}{Hypothèses}
 					\begin{itemize}
-						\item Formes convexes.
+						\item Environnement :
+						\begin{itemize}
+							\item espace 2D, borné et de taille connue,
+							\item obstacles localisés,
+							\item zones de corrosion non localisées.
+						\end{itemize}
+						\item Robots :
+						\begin{itemize}
+							\item robots à 2 roues,
+							\item pose $(x, y, \theta)$ connue,
+							\item coût de rotation $cr$ et coût de translation $ct$ connus.
+							\item Nombre de robots $\ge$ 2.
+						\end{itemize}
+						\item Perception :
+						\begin{itemize}
+							\item Robot est émetteur ou récepteur,
+							\item Émission et réception omnidirectionnelle d'ondes ultrasoniques (\textit{UGW}),
+							\item Si puissance de signal altérée, alors détection,
+							\item Détection parfaite et en temps réel,
+							\item Distance maximale d'émission et de réception $d_{max}$.
+						\end{itemize}
 					\end{itemize}
 				\end{block}
 			\end{frame}
-		\subsection{Stratégies de navigation grossières}
-			\subsubsection{Peinture au rouleau}
-				\begin{frame}
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Peinture au rouleau}
-					\begin{block}{Description}
-						\begin{itemize}
-							\item Nombre de robots $\ge$ 2,
-							\item Chaque robot se déplace en ligne droite,
-							\item Les robots se déplacent en parallèle,
-							\item Les robots se synchronisent régulièrment.
-						\end{itemize}
-					\end{block}
-				\end{frame}
-				\begin{frame}
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Peinture au rouleau}
-					\begin{figure}
-						\centering
-						\includegraphics[width=0.6\textwidth]{graphics/peinture_au_rouleau1.png}
-						\caption{Peinture au rouleau - passe verticale}
-					\end{figure}
-				\end{frame}
-				\begin{frame}
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Peinture au rouleau}
-					\begin{figure}
-						\centering
-						\includegraphics[width=0.4\textwidth]{graphics/peinture_au_rouleau2.png}
-						\caption{Peinture au rouleau - passe horizontale}
-					\end{figure}
-				\end{frame}
-				\begin{frame}
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Peinture au rouleau}
-					\begin{figure}[H]
-						\centering
-						\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.08]{graphics/black.png}}{graphics/d=2.0_o=0.1_v=0.2.mp4}
-						\caption{Peinture au rouleau, d=4.0, o=0.1, v=0.3}
-					\end{figure}
-				\end{frame}
-				\begin{frame}
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Peinture au rouleau}
-					\begin{exampleblock}{Avantages}
-						\begin{itemize}
-							\item Simple à mettre en oeuvre,
-							\item Peut être utilisé pour des zones de tailles importantes,
-							\item Rapide.
-						\end{itemize}
-					\end{exampleblock}
-					\begin{alertblock}{Inconvénients}
-						\begin{itemize}
-							\item Enveloppe rectangulaire,
-							\item Peu précis,
-							\item Zones fantômes.
-						\end{itemize}
-					\end{alertblock}
-				\end{frame}
-			\subsubsection{Ski nordique}
-				\begin{frame}
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Ski nordique}
-					\begin{block}{Description}
-						\begin{itemize}
-							\item Nombre de robots $\ge$ 2,
-							\item Chaque robot se déplace en ligne droite,
-							\item La trajectoire des robots est parallèle,
-							\item Les robots se déplacent de manière asynchrone.
-						\end{itemize}
-					\end{block}
-				\end{frame}
-				\begin{frame}
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Ski nordique}
-					\begin{figure}
-						\centering
-						\includegraphics[width=0.4\textwidth]{graphics/ski_nordique1.png}
-						\caption{Ski nordique - passe verticale}
-					\end{figure}
-				\end{frame}
-				\begin{frame}
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Ski nordique}
-					\begin{figure}
-						\centering
-						\includegraphics[width=0.6\textwidth]{graphics/ski_nordique2.png}
-						\caption{Ski Nordique - passe horizontale}
-					\end{figure}
-				\end{frame}
-				\begin{frame}<0>
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Peinture au rouleau}
-					\begin{figure}[H]
-						\centering
-						\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.08]{graphics/black.png}}{graphics/ski_nordique.mp4}
-						\caption{Peinture au rouleau, d=4.0, o=0.1, v=0.3}
-					\end{figure}
-				\end{frame}
-				\begin{frame}
-					\frametitle{Stratégies de navigation grossières}
-					\framesubtitle{Ski nordique}
-					\begin{exampleblock}{Avantages comparé à peinture au rouleau}
-						\begin{itemize}
-							\item Enveloppe d'un polygone convexe à $4$ côtés,
-							\item Peut être utilisé pour des zones de tailles importantes,
-							\item Plus précis que la peinture au rouleau.
-						\end{itemize}
-					\end{exampleblock}
-					\begin{alertblock}{Inconvénients comparé à peinture au rouleau}
-						\begin{itemize}
-							\item Moins simple à mettre en oeuvre,
-							\item Plus lent que la peinture au rouleau,
-							\item Zones fantômes.
-						\end{itemize}
-					\end{alertblock}
-				\end{frame}
-		\subsection{Investigation polygonale}
 			\begin{frame}
-				\frametitle{Investigation polygonale}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Définitions préliminaires}
+				\begin{block}{Structure de données}
+					\begin{itemize}
+						\item Grille d'occupation :
+						\begin{itemize}
+							\item inconnu,
+							\item vide,
+							\item occupé.
+						\end{itemize}
+					\end{itemize}
+				\end{block}
+			\end{frame}
+		\subsection{Mise à jour de la grille d'occupation pour la cartographie}
+			\begin{frame}[shrink=50]
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Mise à jour de la grille d'occupation pour la cartographie}
+				\begin{algorithm}[H]
+					\KwData{$P_1 \in \mathbb{R}^2$, $P_2 \in \mathbb{R}^2$, $pw \in \mathbb{R}$, $threshold \in \mathbb{R}$, $G$: $l \times w \rightarrow [\text{UNKNOWN}, \text{EMPTY}, \text{OCCUPIED}]$, $l \in \mathbb{N}$, $w \in \mathbb{N}$ \\
+						with $P_1$ and $P_2$ the two points to connect, $pw$ the power of the UGW, $threshold$ the threshold above which the power of the UGW is considered undistributed and $G$ the grid to update.}
+					\KwResult{The updated grid.}
+					$p_0 \gets \text{from\_position\_to\_grid\_coordinate}(P_1)$ \\
+					$p_1 \gets \text{from\_position\_to\_grid\_coordinate}(P_2)$ \\
+					\If{\text{is\_out\_of\_grid}($p_0$) \textbf{or} \text{is\_out\_of\_grid}($p_1$)}{
+						\Return
+					}
+					$dx \gets p_1.x - p_0.x$ \\
+					$dy \gets p_1.y - p_0.y$ \\
+					$sx \gets \text{sign}(dx)$ \\
+					$sy \gets \text{sign}(dy)$ \\
+					$err = dx - dy$ \\
+					\While{$p_0 \neq p_1$}{
+						\HiLi \If{$pwd \leq threshold$ \textbf{and} $G(p_0) = \text{UNKNOWN}$}{
+							\HiLi $G(p_0) \gets \text{OCCUPIED}$
+						\HiLi}
+						\HiLi \ElseIf{$pwd > threshold$}{
+							\HiLi $G(p_0) \gets \text{EMPTY}$
+						\HiLi}
+						$e2 \gets 2 \times err$ \\
+						\If{$e2 > -dy$}{
+							$err \gets err - dy$ \\
+							$p_0.x \gets p_0.x + sx$
+						}
+						\If{$e2 < dx$}{
+							$err \gets err + dx$ \\
+							$p_0.y \gets p_0.y + sy$
+						}
+					}
+				\end{algorithm}
+			\end{frame}
+		\subsection{Stratégie de navigation \textit{peinture au rouleau}}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
+				\begin{block}{Description}
+					\begin{itemize}
+						\item Nombre de robots $n \ge 2$, séparés par une distance $d < d_{max}$,
+						\item Chaque robot se déplace en ligne droite,
+						\item Les robots suivent une trajectoire parallèle,
+						\item Les robots se déplacent de manière \textbf{simultanée},
+						\item Les robots se synchronisent régulièrment.
+					\end{itemize}
+				\end{block}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.7\linewidth]{graphics/peinture_au_rouleau.png}
+				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
+				\begin{exampleblock}{Avantages}
+					\begin{itemize}
+						\item Rapide.
+					\end{itemize}
+				\end{exampleblock}
+				\begin{alertblock}{Inconvénients}
+					\begin{itemize}
+						\item Approximation des enveloppes peu précises,
+						\item Zones fantômes.
+					\end{itemize}
+				\end{alertblock}
+			\end{frame}
+		\subsection{Stratégie de navigation \textit{ski nordique}}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
+				\begin{block}{Description}
+					\begin{itemize}
+						\item Nombre de robots $n \ge 2$, séparés par une distance $d < d_{max}$,
+						\item Chaque robot se déplace en ligne droite,
+						\item Les robots suivent une trajectoire parallèle,
+						\item Les robots se déplacent de manière \textbf{alternée},
+						\item Les robots se synchronisent régulièrment.
+					\end{itemize}
+				\end{block}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.5\textwidth]{graphics/ski_nordique_1.png}
+				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.5\textwidth]{graphics/ski_nordique_2.png}
+				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
+				\begin{exampleblock}{Avantages (comparés à \textit{peinture au rouleau})}
+					\begin{itemize}
+						\item Approximation des enveloppes plus précises,
+					\end{itemize}
+				\end{exampleblock}
+				\begin{alertblock}{Inconvénients comparé à peinture au rouleau}
+					\begin{itemize}
+						\item Plus lent,
+						\item Zones fantômes.
+					\end{itemize}
+				\end{alertblock}
+			\end{frame}
+		\subsection{Stratégie de navigation \textit{investigation polygonale}}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
 				\begin{block}{Description}
 					\begin{itemize}
 						\item $k \ge 1$ équipes de $n \ge 2$ robots,
-						\item Les robots d'une même équipe se placent sur des sommets consécutifs d'un polygone convexe,
-						\item Les robots se déplacent l'un après l'autre.
+						\item Les robots d'une même équipe se placent sur des sommets consécutifs d'un polygone convexe $P$ à $p$ sommets,
+						\item Les robots se déplacent, les uns après les autres, en suivant le chemin définie par le périmètre du polygone $P$.
+						\item L'algorithme se termine lorsque les sommets inialement occupés par les robots sont à nouveau occupés.
 					\end{itemize}
 				\end{block}
 			\end{frame}
 			\begin{frame}
-				\frametitle{Investigation polygonale}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\textwidth]{graphics/automat_poly.png}
-					\caption{Automate à états finis pour un robot lors d'une investigation polygonale}
 				\end{figure}
 			\end{frame}
 			\begin{frame}
-				\frametitle{Investigation polygonale}
-				\begin{figure}[H]
-					\centering
-					\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.08]{graphics/black.png}}{graphics/invest.mp4}
-					\caption{Peinture au rouleau, d=4.0, o=0.1, v=0.3}
-				\end{figure}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
+				\begin{enumerate}
+					\item Extraction des zones de corrosion
+					\item Détermination de l'ordre d'investigation des zones de corrosion
+				\end{enumerate}
+				\begin{block}{Extraction des zones de corrosion}
+					\begin{itemize}
+						\item Conversion de la grille d'occupation en graphe,
+						\item Algorithme SCC,
+					\end{itemize}
+				\end{block}
+				\begin{block}{Détermination de l'ordre d'investigation des zones de corrosion}
+					\begin{itemize}
+						\item Algorithme TSP ($k = 1$)
+						\item Algorithme mTSP ($k > 1$)
+					\end{itemize}
+				\end{block}
 			\end{frame}
 			\begin{frame}
-				\frametitle{Investigation polygonale}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
 				\begin{exampleblock}{Avantages}
 					\begin{itemize}
-						\item Niveau de précision variable de l'enveloppe convexe de la zone de corrosion (proportionnellement au nombre de sommet du polygone)
-						\item Efficace pour des zones de petites tailles,
+						\item Approximation des enveloppes précise (proportionnellement au nombre de sommet du polygone)
 						\item Permet de rapidement éliminer les zones fantômes.
 					\end{itemize}
 				\end{exampleblock}
 				\begin{alertblock}{Inconvénients}
 					\begin{itemize}
-						\item Lent (proportionnellement au nombre de sommet du polygone, inversement proportionnel au nombre de robots),
+						\item Lent (proportionnellement au nombre de sommet du polygone, inversement proportionnel au nombre de robots, proportionnellement au nombre de zones de corrosion),
 					\end{itemize}
 				\end{alertblock}
 			\end{frame}
-		\subsection{Scénario}
+	\section{Implémentations des algorithmes}
+		\subsection{Environnement de simulation}
 			\begin{frame}
-				\frametitle{Scénario}
-				\begin{enumerate}
-					\item Peinture au rouleau
-					\item Extraction des zones de corrosion
-					\item Calcul des centroides et des polygones
-					\item Resolution du mTSP connectant les centroides
-					\item Investigation polygonale
-				\end{enumerate}
+				\frametitle{Implémentations des algorithmes}
+				\framesubtitle{Environnement de simulation}
+				\begin{itemize}
+					\item Langage de programmation \textit{Python}, \textit{C++},
+					\item Bibliothèques \textit{ROS}, \textit{OpenCV}, \textit{Gurobi},
+					\item Outil de simulation \textit{Gazebo},
+					\item Outil de visualisation \textit{Rviz},
+					\item Framework \textit{ROS Task Manager}.
+				\end{itemize}
 			\end{frame}
-	\section{Évaluation}
+		\subsection{Implémentations des algorithmes de navigation}
+			\subsubsection*{Stratégie de navigation \textit{peinture au rouleau}}
+				\begin{frame}
+					\frametitle{Implémentations des algorithmes de navigation}
+					\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
+					\begin{figure}[H]
+						\centering
+						\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/peinture_au_rouleau.mp4}
+					\end{figure}
+				\end{frame}
+			\subsubsection*{Stratégie de navigation \textit{ski nordique}}
+				\begin{frame}
+					\frametitle{Implémentations des algorithmes de navigation}
+					\framesubtitle{Stratégie de navigation \textit{ski nordique}}
+					\begin{figure}[H]
+						\centering
+						\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/ski_nordique_2.mp4}
+					\end{figure}
+				\end{frame}
+			\subsubsection*{Stratégie de navigation \textit{investigation polygonale}}
+				\begin{frame}
+					\frametitle{Implémentations des algorithmes de navigation}
+					\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
+					\begin{figure}[H]
+						\centering
+						\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/investigation_polygonale.mp4}
+					\end{figure}
+				\end{frame}
+	\section{Expérimentations, validations et évaluations}
+		\subsection{Métrique d'évaluation}
+			\begin{frame}
+				\frametitle{Expérimentations, validations et évaluations}
+				\framesubtitle{Métrique d'évaluation}
+				Kappa de Cohen:
+				\begin{equation*}
+					\kappa = \frac{p_o - p_e}{1 - p_e}
+				\end{equation*}
+				avec :
+				\begin{itemize}
+					\item $p_o$ : précision observée,
+					\item $p_e$ : précision aléatoire,
+					\item $\kappa$ : mesure une classification binaire, en la comparant à une classification aléatoire.
+				\end{itemize}
+				\begin{table}
+					\centering
+					\begin{tabular}{|c|c|}
+						\hline
+						$\kappa$ & Interprétation \\
+						\hline
+						$< 0$ & Désaccord \\
+						\hline
+						$0.00 - 0.20$ & Accord très faible \\
+						\hline
+						$0.21 - 0.40$ & Accord faible \\
+						\hline
+						$0.41 - 0.60$ & Accord modéré \\
+						\hline
+						$0.61 - 0.80$ & Accord fort \\
+						\hline
+						$0.81 - 1.00$ & Accord presque parfait \\
+						\hline
+					\end{tabular}
+				\end{table}
+			\end{frame}
+		\subsection{Expérimentations}
+			\begin{frame}
+				\frametitle{Expérimentations, validations et évaluations}
+				\framesubtitle{Expérimentations}
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|c|c|c|}
+						\hline
+						Stratégie & Paramètre & Valeurs \\
+						\hline
+						\multirow{2}{*}{\textit{peinture au rouleau}} & $n$ & 2 \\
+						& $d$ & 1, 2, 3, 6 (mètres) \\
+						\hline
+						\multirow{3}{*}{\textit{ski nordique}} & $n$ & 2 \\
+						& $d$ & 1, 2, 3, 6 (mètres) \\
+						& $s$ & 1, 2, 3, 6 (mètres) \\
+						\hline
+						\multirow{5}{*}{\textit{investigation polygonale}} & stratégie initiale & \textit{peinture au rouleau} \\
+						& $d$ & 1, 2, 3, 6 (mètres) \\
+						& $n$ & 2, 4 \\
+						& $k$ & 1, 2 \\
+						& $p$ & 4, 6 \\
+						\hline
+					\end{tabular}
+				\end{table}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Expérimentations, validations et évaluations}
+				\framesubtitle{Expérimentations}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_1.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_2.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_3.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_4.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_5.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_1.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_2.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_3.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_4.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_5.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_1.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_2.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_3.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_4.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_5.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_1.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_2.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_3.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_4.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_5.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_20_1.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_30_1.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_complex_1.png}
+					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_complex_1.png}
+				\end{figure}
+			\end{frame}
+		\subsection{Comparaison et analyse des résultats}
+			\begin{frame}
+				\frametitle{Expérimentations, validations et évaluations}
+				\framesubtitle{Comparaison et analyse des résultats}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_world.png}
+				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Expérimentations, validations et évaluations}
+				\framesubtitle{Comparaison et analyse des résultats}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_world.png}
+				\end{figure}
+			\end{frame}
+	\section{Bilan personnel}
 		\begin{frame}
-			\frametitle{Métrique de performance}
-			Kappa de Cohen:
-			\begin{equation*}
-				\kappa = \frac{p_o - p_e}{1 - p_e}
-			\end{equation*}
-			avec :
+			\frametitle{Bilan personnel}
 			\begin{itemize}
-				\item $p_o$ : précision observée,
-				\item $p_e$ : précision aléatoire,
-				\item $\kappa$ : mesure une classification binaire, en la comparant à une classification aléatoire.
+				\item Domaine de la recherche,
+				\item Recherches bibliographiques,
+				\item Robotique,
+				\item Nouveaux outils techniques,
+				\item Rédaction du rapport PFE
 			\end{itemize}
-			\begin{table}
+		\end{frame}
+	\section{Conclusion et perspectives}
+		\begin{frame}
+			\frametitle{Conclusion et perspectives}
+			\framesubtitle{Conclusion}
+			\begin{table}[H]
 				\centering
-				\begin{tabular}{|c|c|}
+				\begin{tabular}{|c|c|c|}
 					\hline
-					$\kappa$ & Interprétation \\
+					& \multicolumn{2}{c|}{\textbf{Gain en performance \textit{investigation polygonale}}} \\
 					\hline
-					$< 0$ & Désaccord \\
+					\textbf{comparé à} & \textbf{$\kappa$ de Cohen} & \textbf{Temps d'exécution} \\
 					\hline
-					$0.00 - 0.20$ & Accord très faible \\
+					\textit{peinture au rouleau} & +68.39\% & +305.80\% \\
 					\hline
-					$0.21 - 0.40$ & Accord faible \\
-					\hline
-					$0.41 - 0.60$ & Accord modéré \\
-					\hline
-					$0.61 - 0.80$ & Accord fort \\
-					\hline
-					$0.81 - 1.00$ & Accord presque parfait \\
+					\textit{ski nordique} & +27.92\% & -3.92\% \\
 					\hline
 				\end{tabular}
-				\caption{Interprétation du $\kappa$ de Cohen selon Landis et Koch}
 			\end{table}
 		\end{frame}
 		\begin{frame}
-			\frametitle{Résultats}
-			\framesubtitle{Peinture au rouleau}
-			\begin{figure}
-				\centering
-				\includegraphics[scale=1.0]{graphics/d=2.0_o=0.1_v=0.2.png}
-				\caption{Peinture au rouleau, d = 2.0m, o = 0.1m, v = 0.2m/s}
-			\end{figure}
-			Score : $\kappa = 0.63$, Temps : $t = 9 \text{min} 4 \text{sec}$
-		\end{frame}
-		\begin{frame}
-			\frametitle{Résultats}
-			\framesubtitle{Peinture au rouleau}
-			\begin{figure}
-				\centering
-				\includegraphics[scale=0.5]{graphics/result.png}
-				\caption{Résultat peinture au rouleau, d = 2.0m, o = 0.1m, v = 0.2m/s}
-			\end{figure}
-			Score : $\kappa = 0.63$, Temps : $t = 9 \text{min} 4 \text{sec}$
-		\end{frame}
-		\begin{frame}
-			\frametitle{Résultats}
-			\framesubtitle{Investigation polygonale}
-			\begin{figure}
-				\centering
-				\includegraphics[scale=1.0]{graphics/occupancy_grid.png}
-				\caption{Investigation polygonale, p = 4, n = 2}
-			\end{figure}
-			Score : $\kappa = 0.66$
-		\end{frame}
-		\begin{frame}
-			\frametitle{Résultats}
-			\framesubtitle{Peinture au rouleau}
-			\begin{figure}
-				\centering
-				\includegraphics[scale=0.5]{graphics/output.png}
-				\caption{Résultat peinture au rouleau, d = 2.0m, o = 0.1m, v = 0.2m/s}
-			\end{figure}
-			Score : $\kappa = 0.63$
-		\end{frame}
-	\section{Conclusion}
-		\begin{frame}
-			\frametitle{Conclusion}
-			% Choses qu'il reste à faire
+			\frametitle{Conclusion et perspectives}
+			\framesubtitle{Perspectives}
+			\begin{itemize}
+				\item Gestion des collisions
+				\item Simulation avec $k > 1$ équipes et $n > 2$ robots
+				\item Déploiement sur des systèmes réels
+			\end{itemize}
 		\end{frame}
 \end{document}
