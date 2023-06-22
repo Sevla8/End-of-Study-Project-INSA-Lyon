@@ -120,7 +120,8 @@
 	\end{ResumeMotsCles}
 	\begin{remerciements}
 		Je tiens à exprimer ma sincère gratitude à toutes les personnes qui ont contribué à la réalisation de ce projet et à l'élaboration de ce rapport.
-		Je tiens tout d'abord à remercier mes superviseurs, Cédric Pradalier et Olivier Simonin, pour leurs conseils précieux et leur expertise dans le domaine de la robotique et de la navigation multi-robots. Leurs orientations ont été essentielles pour la réussite de ce projet.
+		Je tiens tout d'abord à remercier mes superviseurs, Cédric Pradalier et Olivier Simonin, pour leurs conseils précieux et leur expertise dans le domaine de la robotique et de la navigation multi-robots.
+		Leurs orientations ont été essentielles pour la réussite de ce projet.
 		Je souhaite également remercier les équipes de recherche des laboratoires INSA Lyon CITI-INRIA et CNRS IRL2958 GT-CNRS pour leur collaboration et leur partage de connaissances.
 		Je tiens à exprimer ma reconnaissance envers mes proches pour leur soutien inconditionnel et leur compréhension tout au long de cette période intense.
 		Leur présence et leurs encouragements ont été une source de motivation essentielle.
@@ -319,7 +320,7 @@
 			Nous définissons ces trois stratégies de navigation dans les sous-sections suivantes.
 			Nous explicitons également comment la structure de données utilisée pour la cartographie des zones de corrosion, une grille d'occupation, est mise à jour en fonction des informations recueillies par les capteurs UGW des robots.
 			\subsubsection*{Mise à jour de la grille d'occupation pour la cartographie}
-				Lors du balayement de la surface à inspecter par une paire de robot émetteur et récepteur, le robot émetteur émet une onde acoustique dans la structure métallique, qui est ensuite reçue par le robot récepteur.
+				Lors du balayement de la surface à inspecter par une paire de robots émetteur et récepteur, le robot émetteur émet une onde acoustique dans la structure métallique, qui est ensuite reçue par le robot récepteur.
 				La détection étant considérée comme parfaite, le robot récepteur reçoit l'onde émise par le robot émetteur, sans quasi-altération de la puissance du signal, si et seulement si le segment de droite entre les deux robots ne traverse pas une zone de corrosion.
 				Il est ainsi possible de déterminer si une zone de corrosion est présente entre les deux robots en vérifiant si le signal reçu par le robot récepteur est suffisamment puissant.
 				Dans la mesure où il n'y a pas de détection de corrosion entre l'émetteur et le récepteur, alors le segment de droite entre les deux robots est considéré comme étant libre de corrosion.

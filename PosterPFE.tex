@@ -76,11 +76,13 @@
 			En abordant ces problématiques, notre projet de fin d'études vise à proposer une solution basée sur la navigation et le contrôle multi-robots pour améliorer l'inspection acoustique des structures métalliques.
 		}
 		\headerbox{3. Éléments techniques}{name=item,column=2,below=model,span=1}{
-			Ces stratégies sont basées sur l'utilisation de robots de type "crawlers" équipés de capteurs tels qu'un capteur IMU, un capteur UGW et un capteur LIDAR. Les robots sont capables de se synchroniser pour se déplacer simultanément ou de manière alternée.
+			Ces stratégies sont basées sur l'utilisation de robots de type "crawlers" équipés de capteurs tels qu'un capteur IMU, un capteur UGW pour l'émission et la réception d'ondes accoustiques et un capteur LIDAR. Les robots sont capables de se synchroniser pour se déplacer simultanément ou de manière alternée.
 
 			\begin{center}
-				\includegraphics[width=\linewidth]{graphics/crawlers.png}
+				\includegraphics[width=\linewidth]{graphics/exemple_model.png}
 			\end{center}
+
+			Nous avons utilisé Gazebo pour simuler l'environnement et les robots, et ROS pour la communication entre les robots et le contrôle de la simulation.
 		}
 		\headerbox{4. Proposition de solution}{name=prop,span=2,column=0,below=introduction}{
 			Nous proposons trois stratégies de navigation multi-robots pour l'inspection acoustique de structures métalliques, dans le but d'optimiser l'acquisition de données permettant de réaliser la tomographie des surfaces métalliques.
@@ -99,6 +101,17 @@
 				Elle consiste en une exploration de la surface métallique en suivant des trajectoires polygonales.
 				Les robots se déplacent en formant des polygones qui couvrent les zones à inspecter, permettant ainsi une meilleure approximation des enveloppes convexes des zones de corrosion.
 			\end{boenumerate}
+			% \begin{boenumerate}\compresslist
+			% 	\item Stratégie de navigation \textit{peinture au rouleau} :
+			% 	\item Stratégie de navigation \textit{ski nordique} :
+			% 	\item Stratégie de navigation \textit{investigation polygonale} :
+			% \end{boenumerate}
+			% \begin{center}
+			% 	\includegraphics[width=0.45\linewidth]{graphics/peinture_au_rouleau.png}
+			% 	\includegraphics[width=0.45\linewidth]{graphics/ski_nordique_1.png}
+			% 	% \includegraphics[width=0.3\linewidth]{graphics/ski_nordique_2.png}
+			% 	\includegraphics[width=0.9\linewidth]{graphics/automat_poly.png}
+			% \end{center}
 			Une grille d'occupation est utilisée pour modéliser l'environnement et obtenir en temps réel l'état de la surface métallique pendant l'inspection.
 		}
 		\headerbox{5. Évaluation de la proposition}{name=eval,span=2,column=0,below=prop,above=bottom}{
@@ -107,17 +120,13 @@
 			Nous avons évalué les performances des trois stratégies en termes de concordance avec la réalité et de temps d'inspection.
 			Pour la stratégie "peinture au rouleau" et la stratégie "ski nordique", nous avons fait varier la distance entre les robots pour évaluer son impact sur les performances.
 			Pour la stratégie "ski nordique", nous avons également fait varier le pas entre les robots.
-			Pour la stratégie "investigation polygonale", nous avons fait varier le nombre de robots, le nombre d'équipes de robots et le nombre de côtés des polygones utilisés.
-
-			Lors de nos expérimentations, nous avons enregistré les valeurs du coefficient kappa de Cohen et du temps d'inspection pour chaque combinaison de paramètres. En analysant ces données, nous serons en mesure de déterminer quelle stratégie de navigation offre le meilleur compromis entre vitesse et précision pour notre système d'inspection de corrosion.
+			Pour la stratégie "investigation polygonale", nous avons fait varier le nombre de côtés des polygones utilisés.
+			Lors de nos expérimentations, nous avons enregistré les valeurs du coefficient kappa de Cohen et du temps d'inspection pour chaque combinaison de paramètres.
 
 			\begin{center}
 				\includegraphics[width=0.49\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_world.png}
 				\includegraphics[width=0.49\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_world.png}
 			\end{center}
-		}
-		\headerbox{6. Conclusions}{name=conclusion,column=2,below=item,span=1,above=bottom}{
-			Pour la problématique d'inspection de corrosion, nous avons proposé trois stratégies de navigation multi-robots.
 
 			\begin{boenumerate}\compresslist
 				\item La stratégie \textit{peinture au rouleau}, a permis d'obtenir des résultats satisfaisants en des temps d'exploration très courts.
@@ -127,6 +136,18 @@
 				Cette stratégie réactive permet d'affiner la localisation des zones de corrosion en se basant sur les résultats d'une des deux stratégies précédentes.
 				Cependant, cette stratégie est plus sensible aux collisions entre les robots, ce qui peut entraîner des résultats moins satisfaisants dans certains cas.
 			\end{boenumerate}
+		}
+		\headerbox{6. Conclusions}{name=conclusion,column=2,below=item,span=1,above=bottom}{
+			Pour la problématique d'inspection de corrosion, nous avons proposé trois stratégies de navigation multi-robots.
+			Nous avons évalué ces stratégies en termes de précision et de temps d'inspection.
+			Chacune de ces stratégies a montrée des résultats intéréssants.
+			Les deux premières stratégies sont plus rapides, mais moins précises et permettent d'obtenir une première approximation des zones de corrosion.
+			La troisième stratégie permet d'affiner la localisation des zones de corrosion en se basant sur les résultats des deux premières stratégies.
+
+			Il serait maintenant intéréssant d'implémenter ces stratégies sur des robots réels afin de pouvoir les évaluer dans un environnement réel.
+			Pour ce faire, il faudrait d'abord intégrer un système de gestion des collisions entre les robots.
+
+
 		}
 		% \headerbox{7. References}{name=references,column=0,span=1,below=mcs,above=bottom}{
 		% 	\small % Reduce the font size in this block

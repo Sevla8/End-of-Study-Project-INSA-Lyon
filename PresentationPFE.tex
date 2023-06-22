@@ -261,6 +261,14 @@
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
+				\begin{figure}[H]
+					\centering
+					\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/peinture_au_rouleau.mp4}
+				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
 				\begin{exampleblock}{Avantages}
 					\begin{itemize}
 						\item Rapide.
@@ -306,6 +314,14 @@
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
+				\begin{figure}[H]
+					\centering
+					\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/ski_nordique_2.mp4}
+				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
 				\begin{exampleblock}{Avantages (comparés à \textit{peinture au rouleau})}
 					\begin{itemize}
 						\item Approximation des enveloppes plus précises,
@@ -324,6 +340,7 @@
 				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
 				\begin{block}{Description}
 					\begin{itemize}
+						\item Utilise la cartographie résultante d'une des deux stratégies précédentes,
 						\item $k \ge 1$ équipes de $n \ge 2$ robots,
 						\item Les robots d'une même équipe se placent sur des sommets consécutifs d'un polygone convexe $P$ à $p$ sommets,
 						\item Les robots se déplacent, les uns après les autres, en suivant le chemin défini par le périmètre du polygone $P$.
@@ -349,7 +366,7 @@
 				\begin{block}{Extraction des zones de corrosion}
 					\begin{itemize}
 						\item Conversion de la grille d'occupation en graphe,
-						\item Algorithme SCC,
+						\item Algorithme d'extraction de composantes fortement connexes,
 					\end{itemize}
 				\end{block}
 				\begin{block}{Détermination de l'ordre d'investigation des zones de corrosion}
@@ -358,6 +375,25 @@
 						\item Algorithme mTSP ($k > 1$)
 					\end{itemize}
 				\end{block}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Implémentation de l'algorithme}
+				\begin{itemize}
+					\item Langage de programmation \textit{Python}, \textit{C++},
+					\item Bibliothèques \textit{ROS}, \textit{OpenCV}, \textbf{\textit{Gurobi}},
+					\item Outil de simulation \textit{Gazebo},
+					\item Outil de visualisation \textit{Rviz},
+					\item Framework \textit{ROS Task Manager}.
+				\end{itemize}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
+				\begin{figure}[H]
+					\centering
+					\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/investigation_polygonale.mp4}
+				\end{figure}
 			\end{frame}
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
@@ -374,47 +410,6 @@
 					\end{itemize}
 				\end{alertblock}
 			\end{frame}
-	\section{Implémentations des algorithmes}
-		\subsection{Environnement de simulation}
-			\begin{frame}
-				\frametitle{Implémentations des algorithmes}
-				\framesubtitle{Environnement de simulation}
-				\begin{itemize}
-					\item Langage de programmation \textit{Python}, \textit{C++},
-					\item Bibliothèques \textit{ROS}, \textit{OpenCV}, \textit{Gurobi},
-					\item Outil de simulation \textit{Gazebo},
-					\item Outil de visualisation \textit{Rviz},
-					\item Framework \textit{ROS Task Manager}.
-				\end{itemize}
-			\end{frame}
-		\subsection{Implémentations des algorithmes de navigation}
-			\subsubsection*{Stratégie de navigation \textit{peinture au rouleau}}
-				\begin{frame}
-					\frametitle{Implémentations des algorithmes de navigation}
-					\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
-					\begin{figure}[H]
-						\centering
-						\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/peinture_au_rouleau.mp4}
-					\end{figure}
-				\end{frame}
-			\subsubsection*{Stratégie de navigation \textit{ski nordique}}
-				\begin{frame}
-					\frametitle{Implémentations des algorithmes de navigation}
-					\framesubtitle{Stratégie de navigation \textit{ski nordique}}
-					\begin{figure}[H]
-						\centering
-						\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/ski_nordique_2.mp4}
-					\end{figure}
-				\end{frame}
-			\subsubsection*{Stratégie de navigation \textit{investigation polygonale}}
-				\begin{frame}
-					\frametitle{Implémentations des algorithmes de navigation}
-					\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
-					\begin{figure}[H]
-						\centering
-						\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/investigation_polygonale.mp4}
-					\end{figure}
-				\end{frame}
 	\section{Expérimentations, validations et évaluations}
 		\subsection{Métrique d'évaluation}
 			\begin{frame}
@@ -507,7 +502,15 @@
 					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_complex_1.png}
 					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_complex_1.png}
 				\end{figure}
-			\end{frame}
+				\end{frame}
+				\begin{frame}
+					\frametitle{Expérimentations, validations et évaluations}
+					\framesubtitle{Expérimentations}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.8\linewidth]{graphics/exemple_model.png}
+					\end{figure}
+				\end{frame}
 		\subsection{Comparaison et analyse des résultats}
 			\begin{frame}
 				\frametitle{Expérimentations, validations et évaluations}
@@ -522,6 +525,24 @@
 				\begin{figure}[H]
 					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_world.png}
 				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Expérimentations, validations et évaluations}
+				\framesubtitle{Comparaison et analyse des résultats}
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|c|c|c|}
+						\hline
+						& \multicolumn{2}{c|}{\textbf{Gain en performance \textit{investigation polygonale}}} \\
+						\hline
+						\textbf{comparé à} & \textbf{$\kappa$ de Cohen} & \textbf{Temps d'exécution} \\
+						\hline
+						\textit{peinture au rouleau} & +68.39\% & +305.80\% \\
+						\hline
+						\textit{ski nordique} & +27.92\% & -3.92\% \\
+						\hline
+					\end{tabular}
+				\end{table}
 			\end{frame}
 	\section{Bilan personnel}
 		\begin{frame}
@@ -538,20 +559,10 @@
 		\begin{frame}
 			\frametitle{Conclusion et perspectives}
 			\framesubtitle{Conclusion}
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{|c|c|c|}
-					\hline
-					& \multicolumn{2}{c|}{\textbf{Gain en performance \textit{investigation polygonale}}} \\
-					\hline
-					\textbf{comparé à} & \textbf{$\kappa$ de Cohen} & \textbf{Temps d'exécution} \\
-					\hline
-					\textit{peinture au rouleau} & +68.39\% & +305.80\% \\
-					\hline
-					\textit{ski nordique} & +27.92\% & -3.92\% \\
-					\hline
-				\end{tabular}
-			\end{table}
+			\begin{itemize}
+				\item 2 stratégies de cartographie grossière des zones de corrosions,
+				\item 1 stratégie de cartographie fine des zones de corrosions.
+			\end{itemize}
 		\end{frame}
 		\begin{frame}
 			\frametitle{Conclusion et perspectives}
