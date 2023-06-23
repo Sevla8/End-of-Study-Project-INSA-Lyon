@@ -143,16 +143,13 @@
 					\item Implémentation des méthodes de navigation dans un environnement de simulation.
 				\end{itemize}
 			\end{frame}
-	\section{État de l'art}
+	\section{Étude bibliographique et état de l'art}
 		\begin{frame}
-			\frametitle{État de l'art}
-			The right direction to smell: Efficient sensor planning strategies for robot assisted gas tomography
-
-			Arain, Muhammad Asif and Schaffernicht, Erik and Bennetts, Victor Hernandez and Lilienthal, Achim J.
-
-			2016 IEEE International Conference on Robotics and Automation (ICRA)
-
-			2016
+			\frametitle{Étude bibliographique et état de l'art}
+			\tiny
+			\nocite{9811581, HUTHWAITE2013979, s22093235, article455556, 9568841, 7487624, 7139673}
+			\bibliographystyle{unsrt}
+			\bibliography{RapportPFE}
 		\end{frame}
 	\section{Propositions scientifiques et techniques}
 		\subsection{Définitions préliminaires}
@@ -188,6 +185,15 @@
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Définitions préliminaires}
+				Modélisation de l'environnement et des robots
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.7\linewidth]{graphics/exemple_model.png}
+				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Définitions préliminaires}
 				\begin{block}{Structure de données}
 					\begin{itemize}
 						\item Grille d'occupation :
@@ -200,41 +206,19 @@
 				\end{block}
 			\end{frame}
 		\subsection{Mise à jour de la grille d'occupation pour la cartographie}
-			\begin{frame}[shrink=50]
+			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Mise à jour de la grille d'occupation pour la cartographie}
-				\begin{algorithm}[H]
-					\KwData{$P_1 \in \mathbb{R}^2$, $P_2 \in \mathbb{R}^2$, $pw \in \mathbb{R}$, $threshold \in \mathbb{R}$, $G$: $l \times w \rightarrow [\text{UNKNOWN}, \text{EMPTY}, \text{OCCUPIED}]$, $l \in \mathbb{N}$, $w \in \mathbb{N}$ \\
-						with $P_1$ and $P_2$ the two points to connect, $pw$ the power of the UGW, $threshold$ the threshold above which the power of the UGW is considered undistributed and $G$ the grid to update.}
-					\KwResult{The updated grid.}
-					$p_0 \gets \text{from\_position\_to\_grid\_coordinate}(P_1)$ \\
-					$p_1 \gets \text{from\_position\_to\_grid\_coordinate}(P_2)$ \\
-					\If{\text{is\_out\_of\_grid}($p_0$) \textbf{or} \text{is\_out\_of\_grid}($p_1$)}{
-						\Return
-					}
-					$dx \gets p_1.x - p_0.x$ \\
-					$dy \gets p_1.y - p_0.y$ \\
-					$sx \gets \text{sign}(dx)$ \\
-					$sy \gets \text{sign}(dy)$ \\
-					$err = dx - dy$ \\
-					\While{$p_0 \neq p_1$}{
-						\HiLi \If{$pwd \leq threshold$ \textbf{and} $G(p_0) = \text{UNKNOWN}$}{
-							\HiLi $G(p_0) \gets \text{OCCUPIED}$
-						\HiLi}
-						\HiLi \ElseIf{$pwd > threshold$}{
-							\HiLi $G(p_0) \gets \text{EMPTY}$
-						\HiLi}
-						$e2 \gets 2 \times err$ \\
-						\If{$e2 > -dy$}{
-							$err \gets err - dy$ \\
-							$p_0.x \gets p_0.x + sx$
-						}
-						\If{$e2 < dx$}{
-							$err \gets err + dx$ \\
-							$p_0.y \gets p_0.y + sy$
-						}
-					}
-				\end{algorithm}
+				\begin{figure}
+					\centering
+					\begin{overprint}
+						\onslide<1> \includegraphics[width=0.95\linewidth]{graphics/Bresenham_line.png}
+						\onslide<2> \includegraphics[width=0.95\linewidth]{graphics/Bresenham_line_2.png}
+						\onslide<3> \includegraphics[width=0.95\linewidth]{graphics/Bresenham_line_3.png}
+						\onslide<4> \includegraphics[width=0.95\linewidth]{graphics/Bresenham_line_4.png}
+					\end{overprint}
+				\end{figure}
+
 			\end{frame}
 		\subsection{Stratégie de navigation \textit{peinture au rouleau}}
 			\begin{frame}
@@ -253,17 +237,44 @@
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
-				\begin{figure}
+				\begin{figure}[H]
 					\centering
-					\includegraphics[width=0.7\linewidth]{graphics/peinture_au_rouleau.png}
+					\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/peinture_au_rouleau.mp4}
 				\end{figure}
 			\end{frame}
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
-				\begin{figure}[H]
+				Cartographie résultante
+				\begin{figure}
 					\centering
-					\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/peinture_au_rouleau.mp4}
+					\includegraphics[width=0.3\linewidth]{graphics/test_05_flip.png}
+					\includegraphics[width=0.3\linewidth]{graphics/occupancy_grid_example_par.png}
+					\includegraphics[width=0.3\linewidth]{graphics/both_example_par.png}
+				\end{figure}
+				score = 0.29
+
+				temps = 4 m 20 s
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
+				Implémentation
+				\begin{itemize}
+					\item Langage de programmation \textit{Python}, \textit{C++},
+					\item Bibliothèques \textit{ROS}, \textit{OpenCV},
+					\item Outil de simulation \textit{Gazebo},
+					\item Outil de visualisation \textit{Rviz},
+					\item Framework \textit{ROS Task Manager},
+					\item Plugin UWB de l'équipe CHROMA.
+				\end{itemize}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.7\linewidth]{graphics/peinture_au_rouleau.png}
 				\end{figure}
 			\end{frame}
 			\begin{frame}
@@ -298,25 +309,32 @@
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
-				\begin{figure}
-					\centering
-					\includegraphics[width=0.5\textwidth]{graphics/ski_nordique_1.png}
-				\end{figure}
-			\end{frame}
-			\begin{frame}
-				\frametitle{Propositions scientifiques et techniques}
-				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
-				\begin{figure}
-					\centering
-					\includegraphics[width=0.5\textwidth]{graphics/ski_nordique_2.png}
-				\end{figure}
-			\end{frame}
-			\begin{frame}
-				\frametitle{Propositions scientifiques et techniques}
-				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
 				\begin{figure}[H]
 					\centering
 					\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/ski_nordique_2.mp4}
+				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
+				Cartographie résultante
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.3\linewidth]{graphics/test_05_flip.png}
+					\includegraphics[width=0.3\linewidth]{graphics/occupancy_grid_example_sn.png}
+					\includegraphics[width=0.3\linewidth]{graphics/both_example_sn.png}
+				\end{figure}
+				score = 0.63
+
+				temps = 16 m 31 s
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.49\textwidth]{graphics/ski_nordique_1.png}
+					\includegraphics[width=0.49\textwidth]{graphics/ski_nordique_2.png}
 				\end{figure}
 			\end{frame}
 			\begin{frame}
@@ -351,6 +369,28 @@
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
+				\begin{figure}[H]
+					\centering
+					\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/investigation_polygonale.mp4}
+				\end{figure}
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
+				Cartographie résultante
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.3\linewidth]{graphics/test_05_flip.png}
+					\includegraphics[width=0.3\linewidth]{graphics/occupancy_grid_example_ip.png}
+					\includegraphics[width=0.3\linewidth]{graphics/both_example_ip.png}
+				\end{figure}
+				score = 0.86
+
+				temps = 9 m 31 s (13 m 51 s)
+			\end{frame}
+			\begin{frame}
+				\frametitle{Propositions scientifiques et techniques}
+				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\textwidth]{graphics/automat_poly.png}
@@ -378,22 +418,13 @@
 			\end{frame}
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
-				\framesubtitle{Implémentation de l'algorithme}
-				\begin{itemize}
-					\item Langage de programmation \textit{Python}, \textit{C++},
-					\item Bibliothèques \textit{ROS}, \textit{OpenCV}, \textbf{\textit{Gurobi}},
-					\item Outil de simulation \textit{Gazebo},
-					\item Outil de visualisation \textit{Rviz},
-					\item Framework \textit{ROS Task Manager}.
-				\end{itemize}
-			\end{frame}
-			\begin{frame}
-				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
-				\begin{figure}[H]
-					\centering
-					\movie[label=show1, poster, showcontrols]{\includegraphics[scale=0.1]{graphics/black.png}}{graphics/investigation_polygonale.mp4}
-				\end{figure}
+				Implémentation
+				\begin{itemize}
+					\item Bibliothèque \textit{OpenCV} pour l'extraction des zones de corrosion,
+					\item Bibliothèque \textit{Gurobi} pour le TSP,
+					\item MDMTSPV\_GA - Multiple Depot Multiple Traveling Salesmen Problem solved by Genetic Algorithm, Elad Kivelevitch, pour le mTSP.
+				\end{itemize}
 			\end{frame}
 			\begin{frame}
 				\frametitle{Propositions scientifiques et techniques}
@@ -477,40 +508,48 @@
 				\framesubtitle{Expérimentations}
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_1.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_2.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_3.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_4.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_05_5.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_1.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_2.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_3.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_4.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_08_5.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_1.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_2.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_3.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_4.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_5.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_1.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_2.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_3.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_4.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_5.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_20_1.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_30_1.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_11_complex_1.png}
-					\includegraphics[width=0.15\linewidth]{graphics/test_model_15_complex_1.png}
+					\begin{columns}
+						\begin{column}{0.14\textwidth}
+							\includegraphics[width=1\linewidth]{graphics/test_model_05_1.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_08_1.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_11_1.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_15_1.png}
+						\end{column}
+						\begin{column}{0.14\textwidth}
+							\includegraphics[width=1\linewidth]{graphics/test_model_05_2.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_08_2.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_11_2.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_15_2.png}
+						\end{column}
+						\begin{column}{0.14\textwidth}
+							\includegraphics[width=1\linewidth]{graphics/test_model_05_3.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_08_3.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_11_3.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_15_3.png}
+						\end{column}
+						\begin{column}{0.14\textwidth}
+							\includegraphics[width=1\linewidth]{graphics/test_model_05_4.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_08_4.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_11_4.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_15_4.png}
+						\end{column}
+						\begin{column}{0.14\textwidth}
+							\includegraphics[width=1\linewidth]{graphics/test_model_05_5.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_08_5.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_11_5.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_15_5.png}
+						\end{column}
+						\begin{column}{0.05\textwidth}
+						\end{column}
+						\begin{column}{0.14\textwidth}
+							\includegraphics[width=1\linewidth]{graphics/test_model_20_1.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_30_1.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_11_complex_1.png}
+							\includegraphics[width=1\linewidth]{graphics/test_model_15_complex_1.png}
+						\end{column}
+					\end{columns}
 				\end{figure}
-				\end{frame}
-				\begin{frame}
-					\frametitle{Expérimentations, validations et évaluations}
-					\framesubtitle{Expérimentations}
-					\begin{figure}[H]
-						\centering
-						\includegraphics[width=0.8\linewidth]{graphics/exemple_model.png}
-					\end{figure}
-				\end{frame}
+			\end{frame}
 		\subsection{Comparaison et analyse des résultats}
 			\begin{frame}
 				\frametitle{Expérimentations, validations et évaluations}
@@ -560,8 +599,11 @@
 			\frametitle{Conclusion et perspectives}
 			\framesubtitle{Conclusion}
 			\begin{itemize}
-				\item 2 stratégies de cartographie grossière des zones de corrosions,
-				\item 1 stratégie de cartographie fine des zones de corrosions.
+				\item Développement et évaluation de 3 stratégies de navigation pour la tomographie,
+				\item État de l'art pauvre dans ce domaine
+				\item Mise en place d'un environnement de simulation
+				\item Mise en place d'un protocole d'évaluation avec métriques d'évaluation et scénarios de test
+				\item Collecte de données et analyses statistiques
 			\end{itemize}
 		\end{frame}
 		\begin{frame}
