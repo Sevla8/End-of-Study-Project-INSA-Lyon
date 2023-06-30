@@ -118,7 +118,7 @@
 		\end{resumeFr}
 		\motscles{{\scriptsize Navigation~; Multi-Robot~; Tomographie~; Ondes Guidées Ultrasoniques~; Inspection.}}
 	\end{ResumeMotsCles}
-	\begin{remerciements}
+	\begin{acknowledgements}
 		I would like to express my sincere gratitude to all those who have contributed to the realization of this project and the preparation of this report.
 		I would first like to thank my supervisors, Cédric Pradalier and Olivier Simonin, for their valuable advice and expertise in the field of robotics and multi-robot navigation.
 		Their guidance was essential to the success of this project.
@@ -127,7 +127,7 @@
 		Their presence and their encouragement were an essential source of motivation.
 		Finally, I would like to thank all the people who participated directly or indirectly in the realization of this project and the drafting of this report.
 		Their support and commitment were key to the success of this study.
-	\end{remerciements}
+	\end{acknowledgements}
 	\setcounter{tocdepth}{3}
 	% \listoffigures
 	% \clearpage
@@ -433,142 +433,142 @@
 					\label{fig:automat}
 				\end{figure}
 
-				Nous présentons sur la figure~\ref{fig:automat} un automate à états finis décrivant la stratégie de navigation \textit{investigation polygonale}.
-				Au début de la stratégie de navigation \textit{investigation polygonale}, chaque $n \in \mathbb{N}$ robots de $k \in \mathbb{N}$ équipes sont positionnés sur des sommets consécutifs d'un polygone englobant la zone potentielle de corrosion.
-				Dans cette dernière, chaque robot a deux états.
-				Le premier consiste à attendre et le second consiste à se déplacer en suivant la trajectoire polygonale, à savoir parcourir les différents sommets constituant le polygone.
-				Le robot capable d'avancer, c'est-à-dire, dont le sommet suivant n'est pas occupé par un autre robot, avance.
-				Les autres attendent jusqu'à ce que le robot qui est en train d'avancer atteigne le dernier sommet libre du polygone.
-				Le procédé est ensuite répété pour chaque robot de chaque équipe jusqu'à ce que les sommets occupés par les robots soient les mêmes que ceux occupés au début de la stratégie de navigation \textit{investigation polygonale}.
+				We present in figure~\ref{fig:automat} a finite state automaton describing the navigation strategy \textit{Polygonal Investigation}.
+				At the beginning of the \textit{Polygonal Investigation} navigation strategy, each $n \in \mathbb{N}$ robots of $k \in \mathbb{N}$ teams are positioned on consecutive vertices of a polygon enclosing the potential area of corrosion.
+				In the latter, each robot has two states.
+				The first consists of waiting and the second consists of moving along the polygonal trajectory, namely traversing the various vertices that make up the polygon.
+				The robot capable of advancing, that is to say, whose next vertex is not occupied by another robot, advances.
+				The others wait until the advancing robot reaches the last free vertex of the polygon.
+				The process is then repeated for each robot of each team until the vertices occupied by the robots are the same as those occupied at the beginning of the navigation strategy \textit{Polygonal Investigation}.
 
 				\begin{figure}[h!]
 					\centering
 					\begin{subfigure}[t]{0.3\linewidth}
 						\centering
 						\includegraphics[width=\linewidth]{graphics/triangle_1.png}
-						\caption{Phase initiale.}
+						\caption{Initial phase.}
 						\label{fig:triangle_1}
 					\end{subfigure}
 					\hfill
 					\begin{subfigure}[t]{0.3\linewidth}
 						\centering
 						\includegraphics[width=\linewidth]{graphics/triangle_2.png}
-						\caption{Première phase de déplacement.}
+						\caption{First phase of movement.}
 						\label{fig:triangle_2}
 					\end{subfigure}
 					\hfill
 					\begin{subfigure}[t]{0.3\linewidth}
 						\centering
 						\includegraphics[width=\linewidth]{graphics/triangle_3.png}
-						\caption{Seconde phase.}
+						\caption{Second phase.}
 						\label{fig:triangle_3}
 					\end{subfigure}
 					\hfill
 					\begin{subfigure}[t]{0.3\linewidth}
 						\centering
 						\includegraphics[width=\linewidth]{graphics/triangle_4.png}
-						\caption{Seconde phase de déplacement.}
+						\caption{Second phase of movement.}
 						\label{fig:triangle_4}
 					\end{subfigure}
 					\hfill
 					\begin{subfigure}[t]{0.3\linewidth}
 						\centering
 						\includegraphics[width=\linewidth]{graphics/triangle_5.png}
-						\caption{Troisième phase.}
+						\caption{Third phase.}
 						\label{fig:triangle_5}
 					\end{subfigure}
 					\hfill
 					\begin{subfigure}[t]{0.3\linewidth}
 						\centering
 						\includegraphics[width=\linewidth]{graphics/triangle_6.png}
-						\caption{Troisième phase de déplacement.}
+						\caption{Third phase of movement..}
 						\label{fig:triangle_6}
 					\end{subfigure}
 					\hfill
 					\begin{subfigure}[t]{0.3\linewidth}
 						\centering
 						\includegraphics[width=\linewidth]{graphics/triangle_7.png}
-						\caption{Dernière phase.}
+						\caption{Last phase.}
 						\label{fig:triangle_7}
 					\end{subfigure}
-						\caption{Phases de déplacement de la stratégie de navigation \textit{investigation polygonale}.}
+						\caption{Movement phases of the \textit{Polygonal Investigation} navigation strategy.}
 						\label{fig:triangle}
 				\end{figure}
 
-				Nous présentons à la figure~\ref{fig:triangle} un exemple des différentes phases de déplacement de la stratégie de navigation, \textit{investigation polygonale} avec $k = 1$ équipe, $n = 2$ robots et un polygone à 3 sommets.
-				Sur ces différentes figures, nous avons représenté une zone de corrosion par un cercle et une approximation de cette zone par une forme enveloppant le cercle.
-				L'objectif est d'approcher le plus finement possible la zone de corrosion.
-				La zone de corrosion n'est pas connue à l'avance, seule la forme enveloppant le cercle est connue.
-				La figure~\ref{fig:triangle_1} présente la phase initiale de la stratégie de navigation \textit{investigation polygonale}.
-				La figure~\ref{fig:triangle_2} présente la première phase de déplacement de la stratégie de navigation \textit{investigation polygonale}, pendant que le crawler $CR2$ avance.
-				Nous pouvons voir qu'après que le crawler $CR2$ ait avancé, une partie de la zone suspectée comme étant de la corrosion est éliminée et considérée comme seine, comme nous pouvons le voir à la figure~\ref{fig:triangle_3}.
-				Les crawlers continuent de se déplacer jusqu'à atteindre leur position initiale, comme nous pouvons le voir à la figure~\ref{fig:triangle_7}.
+				We present in figure~\ref{fig:triangle} an example of the different moving phases of the navigation strategy, \textit{Polygonal Investigation} with $k = 1$ team, $n = 2$ robots and a polygon with 3 peaks.
+				On these different figures, we have represented a corrosion zone by a circle and an approximation of this zone by a shape enveloping the circle.
+				The objective is to approach the corrosion zone as finely as possible.
+				The corrosion zone is not known in advance, only the shape enveloping the circle is known.
+				Figure~\ref{fig:triangle_1} presents the initial phase of the navigation strategy \textit{polygonal investigation}.
+				Figure~\ref{fig:triangle_2} shows the first moving phase of the \textit{Polygonal Investigation} navigation strategy, while the crawler $CR2$ moves forward.
+				We can see that after the $CR2$ crawler has moved forward, part of the suspected corrosion area is removed and considered healthy, as we can see in fig~\ref{fig:triangle_3}.
+				The crawlers keep moving until they reach their initial position, as we can see in figure~\ref{fig:triangle_7}.
 
-				\begin{Definition}[Zone fantôme]
+				\begin{Definition}[Phantom zone]
 					\label{def:fantomas}
-					Une zone fantôme est une zone de corrosion détectée par une des stratégies de navigation, mais qui n'est pas une zone de corrosion. Il s'agit d'un faux positif.
+					A phantom zone is a corrosion zone detected by one of the navigation strategies, but which is not a corrosion zone. It is a false positive.
 				\end{Definition}
 
-				La stratégie de navigation \textit{investigation polygonale} a deux avantages.
-				Le premier est qu'elle permet de rapidement éliminer les zones fantômes~\ref{def:fantomas}.
-				Le second est qu'elle permet d'approcher les enveloppes convexes des zones de corrosion par des formes plus diverses et précises que des rectangles du fait de la grande variation de l'orientation des rayons du signal émis et reçu par les robots autour de chaque sommet du polygone.
+				The \textit{Polygonal Investigation} navigation strategy has two advantages.
+				The first is that it quickly eliminates phantom zones~\ref{def:fantomas}.
+				The second is that it makes it possible to approach the convex envelopes of the corrosion zones by more diverse and precise shapes than rectangles due to the great variation in the orientation of the rays of the signal emitted and received by the robots around each vertex of the polygon.
 
-				Cette stratégie nécessite deux étapes préalables à son exécution :
+				This strategy requires two steps prior to its execution:
 				\begin{enumerate}
-					\item l'extraction des zones de corrosion détectées par une des stratégies de navigation précédentes.
-					\item la détermination de l'ordre d'investigation des zones de corrosion.
+					\item the extraction of the corrosion zones detected by one of the preceding navigation strategies.
+					\item determining the order of investigation of corrosion areas.
 				\end{enumerate}
 
-				La première étape peut être résolue en utilisant un algorithme de décomposition de graphe en composantes fortement connexes.
-				Une composante fortement connexe est définie à la définition~\ref{def:scc}.
-				Nous considérons alors notre grille d'occupation, résultante de l'exploration d'une des deux stratégies définies préalablement, comme un graphe non orienté $G = (V, E)$, où  $V$ est l'ensemble des sommets du graphe, correspondant aux cellules de la grille d'occupation et $E$ sont les arêtes du graphe, correspond aux cellules adjacentes.
-				Ce problème est bien connu et il existe des algorithmes simples pour les résoudre, comme l'algorithme de Tarjan~\cite{enwiki:1148118528}, de complexité temporelle linéaire $O(|V| + |E|)$.
-				Nous ne nous pencherons pas plus sur ce problème et confions sa résolution à la bibliothèque \textit{OpenCV}.
+				The first step can be solved using a strongly connected component graph decomposition algorithm.
+				A strongly connected component is defined at definition~\ref{def:scc}.
+				We then consider our occupation grid, resulting from the exploration of one of the two previously defined strategies, as an undirected graph $G = (V, E)$, where $V$ is the set of vertices of the graph, corresponding to the cells of the occupancy grid and $E$ are the edges of the graph, corresponds to the adjacent cells.
+				This problem is well known and there are simple algorithms to solve it, such as Tarjan's algorithm~\cite{enwiki:1148118528}, of linear time complexity $O(|V| + |E|)$.
+				We will not look further into this problem and entrust its resolution to the \textit{OpenCV} library.
 
-				\begin{Definition}[Composante fortement connexe (SCC)]
+				\begin{Definition}[Strongly connected component (SCC)]
 					\label{def:scc}
-					Une composante fortement connexe d'un graphe $G = (V, E)$ est un sous-ensemble $C$ de $V$ tel que pour tout couple de sommets $(u, v) \in C^2$, il existe un chemin de $u$ à $v$ et un chemin de $v$ à $u$.
+					A strongly connected component of a graph $G = (V, E)$ is a subset $C$ of $V$ such that for any pair of vertices $(u, v) \in C^2$, it there is a path from $u$ to $v$ and a path from $v$ to $u$.
 				\end{Definition}
 
-				\begin{Definition}[Cycle hamiltonien]
+				\begin{Definition}[Hamiltonian cycle]
 					\label{def:hamilton}
-					Un cycle hamiltonien est un cycle passant par tous les sommets d'un graphe, une et une seule fois.
+					A Hamiltonian cycle is a cycle passing through all the vertices of a graph, once and only once.
 				\end{Definition}
 
-				\begin{Definition}[Problème du voyageur de commerce (TSP)]
+				\begin{Definition}[Travelling Salesman Problem (TSP)]
 					\label{def:tsp}
-					Étant donné un graphe $G = (V, E)$, où $V$ est l'ensemble des sommets du graphe et $E$ est l'ensemble des arêtes du graphe, et une fonction de coût $c : E \rightarrow \mathbb{R}$, le problème du voyageur de commerce consiste à trouver un cycle hamiltonien~\ref{def:hamilton} de coût minimal dans $G$.
+					Given a graph $G = (V, E)$, where $V$ is the set of vertices of the graph and $E$ is the set of edges of the graph, and a cost function $c : E \rightarrow \mathbb{R}$, the Traveling Salesman's Problem consists in finding a Hamiltonian cycle~\ref{def:hamilton} of minimal cost in $G$.
 				\end{Definition}
 
-				\begin{Definition}[Problème du voyageur de commerce multiple avec multiples dépôts (mTSP)]
+				\begin{Definition}[Multi-depot multiple Traveling Salesman Problem (mTSP)]
 					\label{def:mtsp}
-					Étant donné un graphe $G = (V, E)$, où $V$ est l'ensemble des sommets du graphe et $E$ est l'ensemble des arêtes du graphe, une fonction de coût $c : E \rightarrow \mathbb{R}$, et un ensemble de dépôts $D \subset V$, le problème du voyageur de commerce multiple avec multiples dépôts consiste à trouver un ensemble de cycles de coût total minimal dans $G$, chacun passant par un et un seul dépôt.
+					Given a graph $G = (V, E)$, where $V$ is the set of vertices of the graph and $E$ is the set of edges of the graph, a cost function $c : E \rightarrow \ mathbb{R}$, and a set of depots $D \subset V$, the multi-depot multiple Traveling Salesman Problem is to find a set of cycles of minimum total cost in $G$, each going through one and one single deposit.
 				\end{Definition}
 
-				La seconde étape peut être résolue en utilisant un algorithme de TSP~\ref{def:tsp} (\textit{Travelling Salesman Problem}) dans le cas où le nombre d'équipes $k$ est égale à 1 et un algorithme de mTSP~\ref{def:mtsp} (\textit{(multiple depot) multiple Travelling Salesman Problem}) dans le cas où le nombre d'équipes $k$ est supérieur strictement à 1.
-				Il existe plusieurs paradigmes de résolution pour résoudre ce type de problème.
-				Un premier est de trouver une solution exacte en utilisant un algorithme de programmation linéaire en nombres entiers.
-				Un second est de trouver une solution approchée en utilisant une méta-heuristique.
+				The second step can be solved using a TSP~\ref{def:tsp} (\textit{Travelling Salesman Problem}) algorithm in the case where the number of teams $k$ is equal to 1 and a mTSP ~\ref{def:mtsp} (\textit{(multiple depot) multiple Traveling Salesman Problem}) algorithm in the case where the number of teams $k$ is strictly greater than 1.
+				There are several solution paradigms to solve this type of problem.
+				A first is to find an exact solution using an integer linear programming algorithm.
+				A second is to find an approximate solution using a meta-heuristic.
 
-				\begin{Definition}[Classe NP]
+				\begin{Definition}[NP Class]
 					\label{def:np}
-					La classe NP est la classe des problèmes de décision qui peuvent être résolus par un algorithme non déterministe en temps polynomial.
+					The class NP is the class of decision problems that can be solved by a non-deterministic algorithm in polynomial time.
 				\end{Definition}
 
-				\begin{Definition}[Problème NP-difficile]
+				\begin{Definition}[NP-hard problem]
 					\label{def:nph}
-					Un problème est NP-difficile s'il est au moins aussi difficile que les problèmes de la classe NP.
-					En d'autres termes, un problème est NP-difficile s'il existe un algorithme de réduction polynomiale qui transforme un problème de la classe NP en une instance de ce problème.
+					A problem is NP-hard if it is at least as hard as problems of class NP.
+					In other words, a problem is NP-hard if there is a polynomial reduction algorithm that transforms a problem of class NP into an instance of this problem.
 				\end{Definition}
 
-				\begin{Definition}[Problème NP-complet]
+				\begin{Definition}[NP-complete problem]
 					\label{def:npc}
-					Un problème est NP-complet s'il est à la fois NP et NP-difficile.
+					A problem is NP-complete if it is both NP and NP-hard.
 				\end{Definition}
 
-				Le problème du voyageur de commerce est un problème NP-complet~\ref{def:npc}.
-				Il peut être traité comme un problème d'optimisation linéaire en nombres entiers~\cite{article244, gurobi25}.
-				Pour ce faire, nous utilisons la formulation présentée à l'équation~\ref{eq:tsp}.
+				The traveling salesman problem is an NP-complete~\ref{def:npc} problem.
+				It can be treated as an integer linear optimization problem~\cite{article244, gurobi25}.
+				To do this, we use the formulation presented in equation~\ref{eq:tsp}.
 
 				\begin{equation}
 					\label{eq:tsp}
@@ -596,82 +596,82 @@
 					\end{array}
 				\end{equation}
 
-				La fonction objective à minimiser de la formulation~\ref{eq:tsp} est la somme des distances entre chaque paire de villes.
-				Les deux premières contraintes assurent que chaque ville est visitée exactement une fois.
-				La troisième contrainte assure que le cycle formé par les villes visitées est simple, c'est-à-dire, qu'il ne contient pas de sous-cycles.
-				La dernière contrainte assure que les variables de décision $x_{ij}$ sont binaires, avec $x_{ij} = 1$ si le robot se déplace de la ville $i$ à la ville $j$ et $x_{ij} = 0$ sinon.
+				The objective function to be minimized from the formulation~\ref{eq:tsp} is the sum of the distances between each pair of cities.
+				The first two constraints ensure that each city is visited exactly once.
+				The third constraint ensures that the cycle formed by the cities visited is simple, that is to say, that it does not contain sub-cycles.
+				The last constraint ensures that the decision variables $x_{ij}$ are binary, with $x_{ij} = 1$ if the robot moves from city $i$ to city $j$ and $x_{ij} = 0$ otherwise.
 
-				Le problème du voyageur de commerce multiple avec multiples dépôts est un problème NP-difficile~\ref{def:nph}~\cite{SUNDAR201639}.
-				Celui-ci peut être résolu en utilisant une méta-heuristique comme un algorithme génétique~\cite{SinghMTSP, Kiraly2011}
+				The mTSP is an NP-hard problem~\ref{def:nph}~\cite{SUNDAR201639}.
+				This one can be solved using meta-heuristics like a genetic algorithm~\cite{SinghMTSP, Kiraly2011}
 
-				Dans les prochaines sections, nous détaillerons chaque stratégie de navigation, en exposant les algorithmes et les mécanismes spécifiques utilisés pour mettre en œuvre notre proposition de solution. Nous analyserons également les performances et les résultats obtenus à travers des expérimentations et des évaluations approfondies.
-		\subsection{Étude théorique de propriétés de la solution proposée}
-			\subsubsection*{Stratégie de navigation \textit{ski nordique}}
+				In the next sections, we will detail each navigation strategy, exposing the specific algorithms and mechanisms used to implement our proposed solution. We will also analyze the performance and results obtained through extensive experimentation and evaluation.
+		\subsection{Theoretical study of properties of the proposed solution}
+			\subsubsection*{\textit{Nordic Skiing} navigation strategy}
 				\begin{Proposition}
-					L'angle du signal émis et reçu par les robots, pour la stratégie de navigation \textit{ski nordique}, varie entre $-\tan^{-1}(\frac{s}{d})$ et $\tan^{-1}(\frac{s}{d})$.
+					The angle of the signal emitted and received by the robots, for the \textit{Nordic Skiing} navigation strategy, varies between $-\tan^{-1}(\frac{s}{d})$ and $\tan ^{-1}(\frac{s}{d})$.
 					\label{prop:angle_ski_nordique}
 				\end{Proposition}
 
-				Nous pouvons observer le résultat de la proposition~\ref{prop:angle_ski_nordique}, en nous appuyant sur les propriétés de trigonométrie et la définition de la fonction tangente.
-				Nous explicitons sur la figure~\ref{fig:angle_ski_nordique} la démarche entreprise pour trouver $\alpha = -\tan^{-1}(\frac{s}{d})$.
-				Cette proposition nous permet de quantifier la portée de l'orientation du signal émis et reçu par les robots.
+				We can observe the result of the proposition~\ref{prop:angle_ski_nordique}, relying on the properties of trigonometry and the definition of the tangent function.
+				We explain in figure~\ref{fig:angle_ski_nordique} the process undertaken to find $\alpha = -\tan^{-1}(\frac{s}{d})$.
+				This proposal allows us to quantify the range of the orientation of the signal emitted and received by the robots.
 
 				\begin{figure}[h!]
 					\centering
 					\includegraphics[scale=0.5]{graphics/angle_ski_nordique.png}
-					\caption{Orientation du signal émis et reçu pour la stratégie de navigation \textit{ski nordique}.}
+					\caption{Orientation of the transmitted and received signal for the \textit{Nordic Skiing} navigation strategy.}
 					\label{fig:angle_ski_nordique}
 				\end{figure}
-			\subsubsection*{Stratégie de navigation \textit{investigation polygonale}}
+			\subsubsection*{\textit{Polygonal Investigation} navigation strategy}
 				\begin{Proposition}
-					La stratégie de navigation \textit{investigation polygonale}, définie par un polygone, $P$ permet de couvrir tous points à l'intérieur du polygone $P$.
-					\label{prop:completude}
+					The \textit{Polygonal Investigation} navigation strategy, defined by a polygon, $P$ allows to cover all points inside the polygon $P$.
+					\label{prop:completeness}
 				\end{Proposition}
 				\begin{proof}
-					Démontrons la proposition~\ref{prop:completude}.
+					Let's prove proposition~\ref{prop:completeness}.
 					\begin{itemize}
-						\item Soit $P$ un polygone convexe à $p$ sommets utilisé pour la stratégie de navigation \textit{investigation polygonale}.
-						\item Par simplicité, nous considérons une stratégie à 2 robots, mais la preuve reste semblablement la même pour $n > 2$ robots.
-						\item Considérons le robot $r_1$ au sommet $s_1$ du polygone $P$ et le robot $r_2$ au sommet $s_2$ du polygone $P$.
-						\item Soit un point $p$ à l'intérieur du polygone $P$.
-						\item Alors, il existe un point $p'$ tel que $p$ est sur le segment $[s_1, p']$ et $p'$ est sur le bord du polygone $P$, par définition de la convexité de $P$.
-						\item Par définition de la stratégie de navigation, \textit{investigation polygonale}, le robot $r_2$ se déplace sur les contours du polygone $P$ et donc en particulier sur le point $p'$.
-						\item On a donc pour tout point $p$ à l'intérieur du polygone $P$, il existe un couple de positions pour les robots $r_1$ et $r_2$ tel que $p$ se trouve sur le segment formé par les points où se trouvent les robots $r_1$ et $r_2$.
-						\item Donc tous les points à l'intérieur du polygone $P$ sont couverts par la stratégie de navigation \textit{investigation polygonale}.
+						\item Let $P$ be a convex polygon with $p$ vertices used for the \textit{Polygonal Investigation} navigation strategy.
+						\item For simplicity, we consider a strategy with 2 robots, but the proof remains similarly the same for $n > 2$ robots.
+						\item Consider the robot $r_1$ at vertex $s_1$ of polygon $P$ and the robot $r_2$ at vertex $s_2$ of polygon $P$.
+						\item Let $p$ be a point inside the polygon $P$.
+						\item Then, there exists a point $p'$ such that $p$ is on the segment $[s_1, p']$ and $p'$ is on the edge of the polygon $P$, by definition of the convexity of $P$.
+						\item By definition of the navigation strategy, \textit{polygonal investigation}, the robot $r_2$ moves on the contours of the polygon $P$ and therefore in particular on the point $p'$.
+						\item We therefore have for any point $p$ inside the polygon $P$, there is a pair of positions for the robots $r_1$ and $r_2$ such that $p$ is on the segment formed by the points where robots $r_1$ and $r_2$ are located.
+						\item So all points inside the polygon $P$ are covered by the \textit{Polygonal Investigation} navigation strategy.
 					\end{itemize}
 				\end{proof}
 
 				\begin{Proposition}
-					L'approximation de l'enveloppe convexe des zones de corrosion à l'issue de l'investigation polygonale, avec un polygone à $p$ sommets, $p \in \mathbb{N}$, est un polygone d'au plus $2p$ sommets.
-					\label{prop:cotes_poly}
+					The approximation of the convex envelope of the corrosion zones at the end of the Polygonal Investigation, with a polygon with $p$ vertices, $p \in \mathbb{N}$, is a polygon of at most $2 p$ vertices.
+					\label{prop:poly_dimensions}
 				\end{Proposition}
 				\begin{proof}
-					Donnons une intuition de la preuve de la proposition~\ref{prop:cotes_poly}.
+					Let us give an intuition of the proof of the proposition~\ref{prop:poly_dimensions}.
 					\begin{itemize}
-						\item On a, pour chaque sommet du polygone, il existe deux droites passant par ce point et touchant la zone de corrosion sans la traverser.
-						\item On a donc, pour un sommet du polygone, au plus deux droites qui participent à la construction de l'approximation de l'enveloppe convexe et donc, dont un segment de ces droites est une arête de l'approximation de l'enveloppe convexe.
-						\item On a donc, pour un sommet du polygone, au plus deux arêtes de l'approximation de l'enveloppe convexe.
-						\item On a donc, pour un polygone à $p$ sommets, au plus $2p$ arêtes de l'approximation de l'enveloppe convexe.
-						\item On a donc, pour un polygone à $p$ sommets, au plus $2p$ sommets de l'approximation de l'enveloppe convexe.
+						\item We have, for each vertex of the polygon, there are two straight lines passing through this point and touching the corrosion zone without crossing it.
+						\item We therefore have, for a vertex of the polygon, at most two lines which participate in the construction of the approximation of the convex envelope and therefore, of which a segment of these lines is an edge of the approximation of the envelope convex.
+						\item We therefore have, for a vertex of the polygon, at most two edges of the approximation of the convex envelope.
+						\item We therefore have, for a polygon with $p$ vertices, at most $2p$ edges of the convex envelope approximation.
+						\item We therefore have, for a polygon with $p$ vertices, at most $2p$ vertices of the convex envelope approximation.
 					\end{itemize}
 				\end{proof}
 
 				\begin{Conjecture}
-					Si le polygone utilisé lors de l'investigation polygonale est un cercle, alors l'approximation de l'enveloppe convexe de la zone de corrosion à l'issue de l'investigation polygonale est l'enveloppe convexe.
-					\label{prop:cercle}
+					If the polygon used during the polygonal investigation is a circle, then the approximation of the convex envelope of the corrosion zone at the end of the polygonal investigation is the convex envelope.
+					\label{prop:circle}
 				\end{Conjecture}
-	\section{Implémentations des algorithmes}
-		Dans cette section, nous mettons en évidence certaines des différentes implémentations techniques que nous avons développées pour soutenir nos solutions de navigation et de contrôle multi-robots dans le contexte de l'inspection acoustique de structures métalliques.
-		Nous commençons par décrire notre adaptation de l'algorithme de tracé de segment de Bresenham~\cite{enwiki:1155124335}, largement utilisé pour déterminer quels sont les points d'un plan discret qui doivent être tracés afin de former une approximation de segment de droite entre deux points donnés.
-		Ensuite, nous abordons l'implémentation de l'algorithme \textit{peinture au rouleau}, qui permet aux robots de se déplacer de manière simultanée, en suivant des trajectoires parallèles.
-		Nous poursuivons avec l'implémentation de l'algorithme \textit{ski nordique}, qui permet aux robots de se déplacer de manière alternée, en suivant des trajectoires parallèles, modifiant ainsi l'orientation du vecteur représentant la direction de déplacement de l'onde émise et reçue par la paire de robot.
-		De plus, nous examinons l'implémentation de l'algorithme \textit{investigation polygonale}, qui permet aux robots d'examiner plus précisément des zones suspectes de corrosion.
-		Enfin, nous présentons l'algorithme de calcul du $\kappa$ de Cohen~\cite{enwiki:1130024730}, utilisé pour évaluer la qualité et la fiabilité des résultats de l'inspection acoustique.
-		Nous discutons en détail de notre implémentation de cet algorithme, qui fournit des mesures quantitatives pour évaluer la performance des robots dans l'inspection des structures métalliques.
-		Chacune de ces implémentations techniques contribue à l'efficacité et à la précision de notre approche de navigation et de contrôle multi-robots, et sera examinée en détail dans les sous-sections suivantes.
-		\subsection*{Algorithme de tracé de segment de Bresenham}\label{subsec:Bresenham}
+	\section{Algorithm implementations}
+		In this section, we highlight some of the different technical implementations we have developed to support our multi-robot navigation and control solutions in the context of acoustic inspection of metal structures.
+		We begin by describing our adaptation of Bresenham's line algorithm~\cite{enwiki:1155124335}, widely used to determine which points of a discrete plane should be plotted in order to form a segment approximation of line between two given points.
+		Next, we discuss the implementation of the \textit{Roller Painting} algorithm, which allows the robots to move simultaneously, following parallel trajectories.
+		We continue with the implementation of the algorithm \textit{Nordic Skiing}, which allows the robots to move alternately, following parallel trajectories, thus modifying the orientation of the vector representing the direction of movement of the wave transmitted and received by the pair of robots.
+		Additionally, we look at the implementation of the \textit{Polygonal Investigation} algorithm, which allows robots to examine suspected areas of corrosion more precisely.
+		Finally, we present Cohen's $\kappa$ algorithm~\cite{enwiki:1130024730}, used to assess the quality and reliability of acoustic inspection results.
+		We discuss in detail our implementation of this algorithm, which provides quantitative measures to evaluate the performance of robots in the inspection of metal structures.
+		Each of these technical implementations contributes to the efficiency and accuracy of our multi-robot navigation and control approach, and will be discussed in detail in the following subsections.
+		\subsection*{Bresenham's line algorithm}\label{subsec:Bresenham}
 			\begin{algorithm}[h!]
-				\caption{Processus de mise à jour de la grille d'occupation à l'aide de l'algorithme de tracé de segment de Bresenham.}
+				\caption{Process of updating the occupancy grid using Bresenham's line algorithm.}
 				\label{alg:Bresenham}
 				\KwData{$P_1 \in \mathbb{R}^2$, $P_2 \in \mathbb{R}^2$, $pw \in \mathbb{R}$, $threshold \in \mathbb{R}$, $G$: $l \times w \rightarrow [\text{UNKNOWN}, \text{EMPTY}, \text{OCCUPIED}]$, $l \in \mathbb{N}$, $w \in \mathbb{N}$ \\
 					with $P_1$ and $P_2$ the two points to connect, $pw$ the power of the UGW, $threshold$ the threshold above which the power of the UGW is considered undistributed and $G$ the grid to update.}
@@ -705,90 +705,91 @@
 				}
 			\end{algorithm}
 
-			Nous utilisons l'algorithme de tracé de segment de Bresenham pour déterminer les points du segment de droite entre les deux robots.
-			L'algorithme est présenté à l'algorithme~\ref{alg:Bresenham}.
-			La partie adaptée à notre problème se trouve entre les lignes 12 et 17 de ce dernier.
-			À cet endroit, nous vérifions si la puissance du signal est suffisamment altérée et si le point du segment de droite entre les deux robots n'a pas déjà été perçu comme étant libre de corrosion.
-			Si c'est le cas, alors le point considéré est marqué comme étant de la corrosion, modélisé par la valeur \texttt{OCCUPIED}.
-			Si la puissance du signal n'est pas suffisamment altérée, alors le point considéré est marqué comme étant libre de corrosion, modélisé par la valeur \texttt{EMPTY}.
-			Une fois que tous les points du segment ont été parcourus, la grille $G$ est mise à jour avec les nouvelles informations.
-			L'algorithme de tracé de segment de Bresenham contribue ainsi à la construction de la grille d'occupation qui permet de localiser les zones de corrosion détectées par les robots lors de l'inspection acoustique des structures métalliques.
-		\subsection*{Algorithme \textit{peinture au rouleau} et \textit{ski nordique}}
-			Nous présentons dans cette sous-section les implémentations des algorithmes \textit{peinture au rouleau} et \textit{ski nordique}.
-			Leur code source est disponible sur GitLab, ici\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/blob/cr_nav_strat/bugwright_ws/src/floor_nav/missions/peinture_au_rouleau.py}} et ici\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/blob/cr_nav_strat/bugwright_ws/src/floor_nav/missions/ski_nordique.py}}.
+			We use Bresenham's line algorithm to determine the points of the line segment between the two robots.
+			The algorithm is presented at Algorithm~\ref{alg:Bresenham}.
+			The part adapted to our problem is between lines 12 and 17 of the latter.
+			At this point, we check if the signal strength is sufficiently impaired and if the point of the line segment between the two robots has not already been perceived as free of corrosion.
+			If so, then the considered point is marked as corrosion, modeled by the value \texttt{OCCUPIED}.
+			If the signal strength is not sufficiently altered, then the considered point is marked as being free of corrosion, modeled by the value \texttt{EMPTY}.
+			Once all the points of the segment have been traversed, the $G$ grid is updated with the new information.
+			Bresenham's line algorithm thus contributes to the construction of the occupation grid which makes it possible to locate the corrosion zones detected by the robots during the acoustic inspection of metal structures.
+		\subsection*{\textit{Roller Painting} and \textit{Nordic Skiing} algorithms}
+			We present in this subsection the implementations of the \textit{Roller Painting} and \textit{Nordic Skiing} algorithms.
+			Their source code is available on GitLab, here\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/blob/cr_nav_strat/bugwright_ws/src/floor_nav/missions/peinture_au_rouleau.py}} and here\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/blob/cr_nav_strat/bugwright_ws/src/floor_nav/missions/ski_nordique.py}}.
 
-			Les implémentations de ces algorithmes, ont été réalisées en utilisant le langage de programmation Python et les bibliothèques ROS (Robot Operating System).
-			Dans ces implémentations, nous utilisons le framework ROS Task Manager~\cite{ROSTaskManager} pour gérer les tâches des robots inspecteurs.
-			Tout d'abord, nous initialisons le nœud ROS et créons un client de tâches.
-			Ensuite, nous récupérons les paramètres nécessaires tels que la vitesse des crawlers, l'identifiant du crawler, la distance entre les crawlers, le chevauchement ou encore les dimensions de la surface à inspecter.
+			The implementations of these algorithms have been made using the Python programming language and the ROS (Robot Operating System) libraries.
+			In these implementations, we use the ROS Task Manager~\cite{ROSTaskManager} framework to manage the tasks of the robot inspectors.
+			First, we initialize the ROS node and create a task client.
+			Then, we retrieve the necessary parameters such as the speed of the crawlers, the crawler identifier, the distance between the crawlers, the overlap or the dimensions of the surface to be inspected.
 
-			Les algorithmes sont ensuite exécutés en suivant une séquence de mouvements précis.
-			Pour chaque crawler, nous définissons des trajectoires verticales et horizontales en utilisant une boucle itérative et des calculs mathématiques. Les crawlers se déplacent le long des trajectoires définies, en utilisant les fonctions du client de tâches telles que \texttt{AlignWithTarget} et \texttt{FollowLine} pour maintenir une trajectoire précise.
+			The algorithms are then executed following a sequence of precise movements.
+			For each crawler, we define vertical and horizontal trajectories using an iterative loop and mathematical calculations.
+			Crawlers move along defined paths, using task client functions such as \texttt{AlignWithTarget} and \texttt{FollowLine} to maintain a precise path.
 
-			Pendant l'exécution des algorithmes, les crawlers se synchronisent en utilisant les fonctions \texttt{SetStatusSync} et \texttt{WaitForStatusSync} du client de tâches.
-			Cela garantit que les crawlers exécutent les mouvements de manière coordonnée et se positionnent correctement pour couvrir toute la surface métallique.
-			À la fin de chaque étape de mouvement, le statut est mis à jour et la synchronisation est effectuée avec le partenaire correspondant.
+			During the execution of the algorithms, the crawlers synchronize using the \texttt{SetStatusSync} and \texttt{WaitForStatusSync} functions of the task client.
+			This ensures that the crawlers perform the movements in a coordinated manner and position themselves correctly to cover the entire metal surface.
+			At the end of each movement step, the status is updated and synchronization is performed with the corresponding partner.
 
-			L'implémentation des deux algorithmes \textit{peinture au rouleau} et \textit{ski nordique} permettent aux crawlers d'explorer la surface métallique de manière méthodique et complète.
-			En utilisant des trajectoires verticales et horizontales, les crawlers parcourent la surface en chevauchant les zones précédemment inspectées pour s'assurer d'une couverture optimale.
-			Ici, nous avons utilisé un chevauchement de 10 cm entre les différentes trajectoires verticales et horizontales.
+			The implementation of the two algorithms \textit{Roller Painting} and \textit{Nordic Skiing} allow crawlers to explore the metal surface in a methodical and complete way.
+			Using vertical and horizontal trajectories, crawlers traverse the surface overlapping previously inspected areas to ensure optimal coverage.
+			Here we have used a 10 cm overlap between the different vertical and horizontal trajectories.
 
-			Une fois les algorithmes terminés, le temps d'exécution est enregistré, fournissant une indication de la durée nécessaire pour inspecter la surface métallique.
-			La grille d'occupation est également enregistrée afin de calculer le score de l'inspection.
-			Cette implémentation constitue une étape essentielle dans notre proposition de solution pour l'inspection acoustique de structures métalliques et permet de garantir une couverture complète et efficace de la surface à inspecter.
-		\subsection*{Algorithme \textit{investigation polygonale}}
-			Nous présentons dans cette sous-section l'implémentation de l'algorithme \textit{investigation polygonale}.
-			Le code source correspondant est disponible sur GitLab~\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/blob/cr_nav_strat/bugwright_ws/src/floor_nav/missions/investigation_polygonale.py}}.
+			Once the algorithms are completed, the execution time is recorded, providing an indication of how long it took to inspect the metal surface.
+			The occupancy grid is also recorded in order to calculate the inspection score.
+			This implementation is an essential step in our proposed solution for the acoustic inspection of metal structures and guarantees complete and effective coverage of the surface to be inspected.
+		\subsection*{\textit{Polygonal Investigation} algorithm}
+			We present in this subsection the implementation of the \textit{Polygonal Investigation} algorithm.
+			The corresponding source code is available on GitLab~\footnote{\url{https://gitlab.georgiatech-metz.fr/bugwright2/bugwright2-ws/blob/cr_nav_strat/bugwright_ws/src/floor_nav/missions/investigation_polygonale.py}} .
 
-			L'implémentation de cet algorithme, a également été réalisée en utilisant le langage de programmation Python et les bibliothèques ROS (Robot Operating System).
-			Dans cette implémentation, nous utilisons toujours le framework ROS Task Manager~\cite{ROSTaskManager} pour gérer les tâches des robots inspecteurs.
-			Premièrement, nous initialisons le nœud ROS et récupérons les différents paramètres et plus particulièrement la carte des zones potentielles de corrosion, sur laquelle nous nous basons pour l'inspection, qui sont issues d'une des deux stratégies grossières.
-			Ensuite, nous extrayons les composantes fortement connexes de la carte en utilisant la fonction \texttt{connectedComponentsWithStats} de la biblliothèque \textit{OpenCV}.
-			Cette fonction utilise l'algorithme spaghetti de Bolleli~\cite{BolelliSpaghetti} pour extraire les composantes fortement connexes d'une image.
-			Pour chacune de ces composantes, nous récupérons son centre et ses dimensions.
-			Ensuite, nous construisons un polygone à $p \in \mathbb{N}$ côtés autour de chaque centre d'une composante.
-			Pour ce faire, nous plaçons $p$ points sur une ellipse centrée sur le centre de la composante et dont les axes sont les dimensions de la composante.
-			Nous avons donc pour chaque zone potentielle de corrosion un polygone à $p$ côtés qui l'entoure.
-			Il ne reste plus qu'à trouver le plus court chemin qui passe par tous les polygones.
-			Pour cela, nous utilisons la bibliothèque \textit{Gurobi} pour résoudre un simple TSP dans le cas où le nombre d'équipes de robots $k = 1$.
-			Lorsque $k > 1$, nous utilisons l'algorithme génétique proposé par Elad Kivelevitch~\cite{MDMTSPV_GA} pour résoudre le problème du mTSP avec plusieurs dépôts.
+			The implementation of this algorithm was also carried out using the Python programming language and the ROS (Robot Operating System) libraries.
+			In this implementation, we still use the ROS Task Manager~\cite{ROSTaskManager} framework to manage the tasks of the inspector robots.
+			First, we initialize the ROS node and retrieve the different parameters and more particularly the map of potential corrosion zones, on which we base ourselves for the inspection, which come from one of the two coarse strategies.
+			Next, we extract the strongly connected components from the map using the \texttt{connectedComponentsWithStats} function from the \textit{OpenCV} library.
+			This function uses Bolleli's spaghetti algorithm~\cite{BolelliSpaghetti} to extract strongly connected components from an image.
+			For each of these components, we retrieve its center and its dimensions.
+			Next, we construct a $p \in \mathbb{N}$ sided polygon around each center of a component.
+			To do this, we place $p$ points on an ellipse centered on the center of the component and whose axes are the dimensions of the component.
+			We therefore have for each potential zone of corrosion a polygon with $p$ sides which surrounds it.
+			All that remains is to find the shortest path that passes through all the polygons.
+			For this, we use the \textit{Gurobi} library to solve a simple TSP in the case where the number of teams of robots $k = 1$.
+			When $k > 1$, we use the genetic algorithm proposed by Elad Kivelevitch~\cite{MDMTSPV_GA} to solve the mTSP problem with multiple repositories.
 
-			Une fois les algorithmes terminés, le temps d'exécution est enregistré, fournissant une indication de la durée nécessaire pour inspecter les différentes zones potentielles de corrosion.
-			La grille d'occupation est également enregistrée afin de calculer le score de l'inspection.
-			Cette implémentation constitue une étape essentielle dans notre proposition de solution pour l'inspection acoustique de structures métalliques et permet d'investiguer les zones potentielles de corrosion de manière efficace.
-		\subsection*{Algorithme de calcul du $\kappa$ de Cohen}
-			L'évaluation de la qualité et de la fiabilité des résultats de l'inspection acoustique est essentielle pour garantir des mesures précises de l'état des structures métalliques.
-			Dans cette sous-section, nous présentons l'algorithme du calcul du $\kappa$ de Cohen~\cite{enwiki:1130024730}, présenté à l'algorithme~\ref{alg:Cohen_Kappa}, une mesure statistique couramment utilisée pour évaluer l'accord entre les résultats obtenus par les robots et une référence humaine.
+			Once the algorithms are completed, the run time is recorded, providing an indication of how long it will take to inspect the various potential areas of corrosion.
+			The occupancy grid is also recorded in order to calculate the inspection score.
+			This implementation is an essential step in our proposed solution for the acoustic inspection of metal structures and allows us to investigate potential areas of corrosion in an efficient way.
+		\subsection*{Algorithm for calculating Cohen's $\kappa$}
+			Assessing the quality and reliability of acoustic inspection results is essential to ensure accurate measurements of the condition of metal structures.
+			In this subsection, we present the algorithm for calculating Cohen's $\kappa$~\cite{enwiki:1130024730}, introduced in algorithm~\ref{alg:Cohen_Kappa}, a statistical measure commonly used to assess the agreement between the results obtained by the robots and a human reference.
 
 			\begin{table}[h!]
 				\centering
 				\begin{tabular}{|c|c|}
 					\hline
-					$\kappa$ & Interprétation \\
+					$\kappa$ & Interpretation \\
 					\hline
-					$< 0$ & Désaccord \\
+					$< 0$ & Disagreement \\
 					\hline
-					$0.00 - 0.20$ & Accord très faible \\
+					$0.00 - $0.20 & Very Low agreement \\
 					\hline
-					$0.21 - 0.40$ & Accord faible \\
+					$0.21 - $0.40 & Low agreement \\
 					\hline
-					$0.41 - 0.60$ & Accord modéré \\
+					$0.41 - $0.60 & Moderate agreement \\
 					\hline
-					$0.61 - 0.80$ & Accord fort \\
+					$0.61 - $0.80 & Strong agreement \\
 					\hline
-					$0.81 - 1.00$ & Accord presque parfait \\
+					$0.81 - $1.00 & Almost perfect agreement \\
 					\hline
 				\end{tabular}
-				\caption{Interprétation du $\kappa$ de Cohen selon Landis et Koch.}
+				\caption{Interpretation of Cohen's $\kappa$ according to Landis and Koch.}
 				\label{tab:Kappa_Cohen}
 			\end{table}
 
-			L'algorithme de calcul du $\kappa$ de Cohen se base sur la notion de concordance et de discordance entre les résultats des inspections réalisées par les robots et celles réalisées par des inspecteurs humains (vérité de terrain).
-			Il prend en compte les résultats positifs, négatifs, faux positifs et faux négatifs obtenus lors de l'inspection acoustique.
-			Ces informations sont utilisées pour calculer la valeur du coefficient de Cohen, noté $\kappa$, avec $\kappa = \frac{p_o - p_e}{1 - p_e}$, où $p_o$ est le taux d'accord observé et $p_e$ le taux d'accord attendu.
+			Cohen's $\kappa$ calculation algorithm is based on the notion of concordance and discordance between the results of inspections carried out by robots and those carried out by human inspectors (ground truth).
+			It takes into account the positive, negative, false positive and false negative results obtained during the acoustic inspection.
+			This information is used to calculate the value of the Cohen coefficient, noted $\kappa$, with $\kappa = \frac{p_o - p_e}{1 - p_e}$, where $p_o$ is the observed rate of agreement and $p_e$ the expected agreement rate.
 
 			\begin{algorithm}[h!]
-				\caption{Algorithme du $\kappa$ de Cohen.}
+				\caption{Cohen's $\kappa$ algorithm.}
 				\label{alg:Cohen_Kappa}
 				\KwData{$I_0$: $l \times w \times 3 \rightarrow [0 .. 255]$, $I$: $l \times w \times 3 \rightarrow [0 .. 255]$, $l \in \mathbb{N}$, $w \in \mathbb{N}$ \\
 					with $I_0$ the ground truth image and $I$ the image to score.}
@@ -821,511 +822,511 @@
 				$\kappa \gets \frac{TP + TN - f_c}{TP + TN + FN + FP - f_c}$
 			\end{algorithm}
 
-			L'algorithme se déroule en plusieurs étapes.
-			Tout d'abord, les résultats des inspections réalisées par les robots et les réelles répartitions des zones de corrosion sont comparés pour chaque zone inspectée.
-			Pour ce faire, nous comparons les valeurs de chaque cellule de la grille d'occupation, obtenue à l'issue de l'inspection par les robots, avec celles de la vérité terrain.
-			Ayant modélisé les différents environnements de tests, nous connaissons la véritable répartition des zones de corrosion.
-			Ensuite, les résultats sont regroupés en quatre catégories : concordance positive, concordance négative, discordance positive (faux positifs) et discordance négative (faux négatifs).
-			Ces catégories sont utilisées pour calculer les taux d'observation et d'accord observés entre les robots et la véritable répartition des zones de corrosion.
-			Le $\kappa$ de Cohen est ensuite calculé à partir des taux d'observation et d'accord observés, prenant en compte la possibilité de concordance due au hasard.
-			Plus le $\kappa$ de Cohen se rapproche de 1, plus il y a un accord élevé entre les résultats des robots et ceux de la vérité terrain.
-			En revanche, un $\kappa$ proche de 0 indique un faible niveau d'accord, tandis qu'un $\kappa$ négatif suggère une discordance entre les résultats.
-			Une Interprétation du $\kappa$ de Cohen selon Landis et Koch est présentée dans le tableau~\ref{tab:Kappa_Cohen}.
+			The algorithm proceeds in several steps.
+			First, the results of the inspections carried out by the robots and the actual distributions of the corrosion zones are compared for each zone inspected.
+			To do this, we compare the values of each cell of the occupancy grid, obtained at the end of the inspection by the robots, with those of the ground truth.
+			Having modeled the different test environments, we know the true distribution of the corrosion zones.
+			Then, the results are grouped into four categories: positive agreement, negative agreement, positive discrepancy (false positives), and negative discrepancy (false negatives).
+			These categories are used to calculate the observation and agreement rates observed between the robots and the true distribution of the corrosion zones.
+			Cohen's $\kappa$ is then calculated from observed observation and agreement rates, taking into account the possibility of concordance due to chance.
+			The closer Cohen's $\kappa$ is to 1, the greater the agreement between the robot results and the ground truth results.
+			On the other hand, a $\kappa$ close to 0 indicates a low level of agreement, while a negative $\kappa$ suggests a discrepancy between the results.
+			An Interpretation of Cohen's $\kappa$ according to Landis and Koch is presented in table~\ref{tab:Kappa_Cohen}.
 
-			Nous avons implémenté cet algorithme dans le cadre de notre projet, en utilisant les résultats des inspections acoustiques effectuées par les robots et des cartes composées de zones de corrosion comme base de comparaison.
-			Cette implémentation nous permet d'obtenir des mesures quantitatives pour évaluer la performance de notre approche de navigation et de contrôle multi-robots dans l'inspection des structures métalliques.
-			Dans les prochaines sections, nous détaillerons les résultats obtenus grâce à l'application de cet algorithme du calcul du $\kappa$ de Cohen.
-	\section{Expérimentations, validations et évaluations}
-		Dans cette section, nous présentons les expérimentations que nous avons menées pour valider et évaluer nos différentes stratégies de navigation et de contrôle multi-robots dans le contexte de l'inspection acoustique de structures métalliques.
-		Ces expérimentations visent à démontrer l'efficacité, la précision et la fiabilité de notre système dans la détection et la localisation des zones de corrosion.
+			We implemented this algorithm in our project, using the results of the acoustic inspections carried out by the robots and the maps composed of corrosion zones as a basis for comparison.
+			This implementation allows us to obtain quantitative measures to evaluate the performance of our multi-robot navigation and control approach in the inspection of metal structures.
+			In the next sections, we will detail the results obtained thanks to the application of this algorithm of the calculation of Cohen's $\kappa$.
+	\section{Experiments, validations and evaluations}
+		In this section, we present the experiments we conducted to validate and evaluate our different multi-robot navigation and control strategies in the context of acoustic inspection of metal structures.
+		These experiments aim to demonstrate the efficiency, precision and reliability of our system in detecting and locating corrosion zones.
 
-		Pour mener à bien ces étapes, nous avons choisi d'effectuer nos expériences en utilisant \textit{Gazebo}, un environnement de simulation bien établi dans le domaine de la robotique.
-		Nous avons commencé par construire plusieurs cartes de tests.
-		Ces cartes modélisent une surface plane sur laquelle sont placées des formes géométriques simples, des rectangles et des cercles, et des formes plus complexes, des polygones entre 3 et 8 sommets.
-		Ces différentes formes géométriques représentent les zones de corrosion que nous souhaitons détecter et localiser.
-		Nous présentons en annexe~\ref{annexe:cartes}, sur la figure~\ref{fig:test_models} les cartes que nous avons construites pour nos expérimentations.
-		Chacune de ces cartes est de taille 6 mètres par 6 mètres.
-		Le nombre de zones de corrosion varie entre 5, 8, 11, 15, 20 et 30 zones.
-		La taille et l'emplacement des zones de corrosion sont générés aléatoirement.
-		Pour les cartes de 5, 8, 11 et 15 zones, nous avons généré 5 cartes différentes afin d'avoir des résultats plus représentatifs.
-		Nous ne nous sommes pas permis de générer plusieurs cartes pour les cartes de 20 et 30 zones, le temps d'investigation polygonale étant trop conséquent.
+		To carry out these steps, we chose to perform our experiments using \textit{Gazebo}, a well-established simulation environment in the field of robotics.
+		We started by building several test maps.
+		These maps model a flat surface on which are placed simple geometric shapes, rectangles and circles, and more complex shapes, polygons between 3 and 8 vertices.
+		These different geometric shapes represent the corrosion areas that we want to detect and locate.
+		We present in appendix~\ref{annexe:cartes}, in figure~\ref{fig:test_models} the maps we built for our experiments.
+		Each of these cards is sized 6 meters by 6 meters.
+		The number of corrosion zones varies between 5, 8, 11, 15, 20 and 30 zones.
+		The size and location of corrosion areas are randomly generated.
+		For the maps of 5, 8, 11 and 15 zones, we generated 5 different maps in order to have more representative results.
+		We did not allow ourselves to generate several maps for the 20 and 30 zone maps, the polygonal investigation time being too long.
 
-		Nous avons également simulé le capteur UGW en exploitant la simulation d'un capteur UWB.
-		Ce capteur UWB permet d'émettre une impulsion et de la recevoir.
-		En mesurant la puissance du signal, sous sommes en mesure de savoir si le signal a traversé un objet ou non.
-		Le comportement de ce capteur UWB est donc similaire à celui du capteur UGW, à savoir qu'il permet de détecter la présence d'un objet entre deux points, mais pas de le localiser.
+		We also simulated the UGW sensor by exploiting the simulation of a UWB sensor.
+		This UWB sensor makes it possible to emit a pulse and to receive it.
+		By measuring the signal strength, we are able to know whether the signal has passed through an object or not.
+		The behavior of this UWB sensor is therefore similar to that of the UGW sensor, namely that it makes it possible to detect the presence of an object between two points, but not to locate it.
 
-		Nous avons évalué les performances des trois stratégies de navigation en termes de $\kappa$ de Cohen et de temps d'inspection.
-		Pour la stratégie \textit{peinture au rouleau} et \textit{ski nordique}, nous avons uniquement utilisé deux robots.
-		Pour ces deux stratégies, nous avons fait varier la distance $d$ entre les robots.
-		Pour la stratégie \textit{ski nordique}, nous avons également fait varier le pas $s$ entre les robots.
-		Pour la stratégie \textit{investigation polygonale}, nous faisons varier le nombre de robots $n$, le nombre d'équipes $k$ et le nombre de côtés $p$ des polygones utilisés.
-		Nous utilisons le résultat de la stratégie de navigation \textit{peinture au rouleau} comme point de départ.
-		Nous justifions ce choix par le fait que cette stratégie est la plus rapide et la moins précise et donc, la plus susceptible de bénéficier d'une amélioration de la part de la stratégie \textit{investigation polygonale}, sans atteindre des temps d'inspection trop longs.
-		Nous faisons donc varier le paramètre $d$ de cette stratégie.
-		Nous résumons les paramètres expérimentaux utilisés pour chaque stratégie dans le tableau~\ref{tab:exp_params}.
+		We evaluated the performance of the three navigation strategies in terms of Cohen's $\kappa$ and inspection time.
+		For the \textit{Roller Painting} and \textit{Nordic Skiing} strategy, we only used two robots.
+		For these two strategies, we varied the distance $d$ between the robots.
+		For the \textit{Nordic Skiing} strategy, we also varied the pitch $s$ between the robots.
+		For the \textit{Polygonal Investigation} strategy, we vary the number of robots $n$, the number of teams $k$ and the number of sides $p$ of the polygons used.
+		We use the result of the navigation strategy \textit{Roller Painting} as a starting point.
+		We justify this choice by the fact that this strategy is the fastest and least accurate and therefore the most likely to benefit from an improvement from the \textit{Polygonal Investigation} strategy, without reaching inspection times too long.
+		We therefore vary the parameter $d$ of this strategy.
+		We summarize the experimental parameters used for each strategy in table~\ref{tab:exp_params}.
 
 		\begin{table}[h!]
 			\centering
 			\begin{tabular}{|c|c|c|}
 				\hline
-				Stratégie & Paramètre & Valeurs \\
+				Strategy & Parameter & Values \\
 				\hline
-				\multirow{2}{*}{\textit{peinture au rouleau}} & $n$ & 2 \\
-				& $d$ & 1, 2, 3, 6 (mètres) \\
+				\multirow{2}{*}{\textit{Roller Painting}} & $n$ & 2 \\
+				& $d$ & 1, 2, 3, 6 (meters) \\
 				\hline
-				\multirow{3}{*}{\textit{ski nordique}} & $n$ & 2 \\
-				& $d$ & 1, 2, 3, 6 (mètres) \\
-				& $s$ & 1, 2, 3, 6 (mètres) \\
+				\multirow{3}{*}{\textit{Nordic Skiing}} & $n$ & 2 \\
+				& $d$ & 1, 2, 3, 6 (meters) \\
+				& $s$ & 1, 2, 3, 6 (meters) \\
 				\hline
-				\multirow{5}{*}{\textit{investigation polygonale}} & stratégie initiale & \textit{peinture au rouleau} \\
-				& $d$ & 1, 2, 3, 6 (mètres) \\
+				\multirow{5}{*}{\textit{Polygon Investigation}} & initial strategy & \textit{Roller Painting} \\
+				& $d$ & 1, 2, 3, 6 (meters) \\
 				& $n$ & 2, 4 \\
 				& $k$ & 1, 2 \\
 				& $p$ & 4, 6 \\
 				\hline
 			\end{tabular}
-			\caption{Paramètres expérimentaux utilisés pour chaque stratégie de navigation.}
+			\caption{Experimental settings used for each navigation strategy.}
 			\label{tab:exp_params}
 		\end{table}
 
-		Au cours de ces simulations, nous nous attendons à avoir certains résultats.
-		Parmi eux, nous nous attendons à ce que la stratégie \textit{peinture au rouleau} soit la plus rapide, mais également la moins précise.
-		À l'inverse, nous nous attendons à ce que la stratégie \textit{investigation polygonale} soit la plus précise, mais également la plus lente.
-		Nous nous attendons également à ce que le paramètre $d$ ait un impact sur la précision et le temps d'inspection des stratégies \textit{peinture au rouleau} et \textit{ski nordique}.
-		Une distance $d$ faible devrait permettre d'obtenir une meilleure précision, mais devrait également augmenter le temps d'inspection.
-		De plus, nous nous attendons à ce que le paramètre $s$ ait également un impact sur la précision et le temps d'inspection de la stratégie \textit{ski nordique}.
-		Une distance $s$ faible devrait permettre d'obtenir une meilleure précision, mais devrait également augmenter le temps d'inspection.
-		Nous nous attendons également à ce que le paramètre $p$ ait un impact sur la précision et le temps d'inspection de la stratégie \textit{investigation polygonale}.
-		Un nombre de côtés $p$ faible devrait permettre d'obtenir une meilleure précision, mais devrait également augmenter le temps d'inspection.
-		Ensuite, nous nous attendons à ce que les paramètres $k$ et $n$ aient un impact sur le temps d'inspection de la stratégie \textit{investigation polygonale}.
-		Un nombre d'équipes $k$ ou un nombre de robots $n$ élevé devrait permettre d'obtenir un temps d'inspection plus faible.
-		Enfin, nous nous attendons à ce que le nombre de zones de corrosion ait un impact sur le temps d'inspection de la stratégie \textit{investigation polygonale}, mais pas sur les stratégies \textit{peinture au rouleau} et \textit{ski nordique}.
-		Plus le nombre de zones de corrosion est élevé, plus le temps d'inspection devrait être élevé pour la stratégie \textit{investigation polygonale}.
-		Finalement, nous nous attendons à ce que le nombre de zones de corrosion ait un impact sur la précision des différentes stratégies.
-		Plus le nombre de zones de corrosion est élevé, moins la précision devrait être élevée.
-		En effet, plus le nombre de zones de corrosion est élevé, plus la probabilité d'apparition de zones fantômes devrait être élevée pour les stratégies \textit{peinture au rouleau} et \textit{ski nordique}.
-		Pour la stratégie \textit{investigation polygonale}, plus le nombre de zones de corrosion est élevé, et plus la probabilité que deux zones distinctes de corrosion aient été confondues en une seule lors des stratégies \textit{peinture au rouleau} ou \textit{ski nordique}.
+		During these simulations, we expect to have certain results.
+		Among them, we expect the \textit{Roller Painting} strategy to be the fastest, but also the least accurate.
+		Conversely, we expect the \textit{Polygonal Investigation} strategy to be the most accurate, but also the slowest.
+		We also expect the $d$ parameter to have an impact on the accuracy and inspection time of the \textit{Roller Painting} and \textit{Nordic Skiing} strategies.
+		A low $d$ distance should provide better accuracy, but should also increase inspection time.
+		Moreover, we expect that the $s$ parameter will also have an impact on the accuracy and inspection time of the \textit{Nordic Skiing} strategy.
+		A low $s$ distance should provide better accuracy, but should also increase inspection time.
+		We also expect the $p$ parameter to have an impact on the accuracy and inspection time of the \textit{Polygonal Investigation} strategy.
+		A low number of sides $p$ should provide better accuracy, but should also increase inspection time.
+		Next, we expect the parameters $k$ and $n$ to have an impact on the inspection time of the \textit{Polygonal Investigation} strategy.
+		A high number of teams $k$ or a high number of robots $n$ should allow to obtain a lower inspection time.
+		Finally, we expect the number of corrosion zones to have an impact on the inspection time of the \textit{Polygonal Investigation} strategy, but not on the \textit{Roller Painting} and \textit{Nordic Skiing} strategies.
+		The higher the number of corrosion areas, the higher the inspection time should be for the \textit{Polygonal Investigation} strategy.
+		Finally, we expect the number of corrosion zones to have an impact on the accuracy of the different strategies.
+		The greater the number of corrosion areas, the lower the accuracy should be.
+		Indeed, the higher the number of corrosion zones, the higher the probability of ghost zones appearing for the \textit{Roller Painting} and \textit{Nordic Skiing} strategies.
+		For the \textit{Polygonal Investigation} strategy, the higher the number of corrosion zones, the greater the probability that two distinct corrosion zones were confused into one during the \textit{Roller Painting} or \textit{Nordic Skiing} strategies.
 
 		% \begin{table}[h!]
 		% 	\centering
 		% 	\begin{tabular}{|c|c|c|c|}
 		% 		\hline
-		% 		Stratégie & Paramètres & Score & Temps \\
+		% 		Strategy & Parameters & Score & Time \\
 		% 		\hline
-		% 		\multirow{5}{*}{\textit{peinture au rouleau}} & densité moyenne, $d$ moyen & - & ++ \\
+		% 		\multirow{5}{*}{\textit{Roller Painting}} & medium density, $d$ medium & - & ++ \\
 		% 		\cline{2-4}
-		% 		& faible densité & + & ++ \\
-		% 		& forte densité & - - & ++ \\
-		% 		& faible $d$ & + & + \\
-		% 		& fort $d$ & - - & +++ \\
+		% 		& low density & + & ++ \\
+		% 		& high density & - - & ++ \\
+		% 		& low $d$ & + & + \\
+		% 		& strong $d$ & - - & +++ \\
 		% 		\hline
-		% 		\multirow{7}{*}{\textit{ski nordique}} & densité moyenne, $d$ moyen, $s$ moyen & ++ & - \\
+		% 		\multirow{7}{*}{\textit{Nordic Skiing}} & medium density, $d$ medium, $s$ medium & ++ & - \\
 		% 		\cline{2-4}
-		% 		& faible densité & +++ & - \\
-		% 		& forte densité & + & - \\
-		% 		& faible $d$ & +++ & - - \\
-		% 		& fort $d$ & + & + \\
-		% 		& faible $s$ & +++ & - - \\
-		% 		& fort $s$ & + & + \\
+		% 		& low density & +++ & - \\
+		% 		& high density & + & - \\
+		% 		& low $d$ & +++ & - - \\
+		% 		& strong $d$ & + & + \\
+		% 		& low $s$ & +++ & - - \\
+		% 		& strong $s$ & + & + \\
 		% 		\hline
-		% 		\multirow{9}{*}{\textit{investigation polygonale}} & densité moyenne, $n$ moyen, $k$ moyen, $p$ moyen & +++ & - \\
+		% 		\multirow{9}{*}{\textit{Polygonal Investigation}} & mean density, mean $n$, mean $k$, mean $p$ & +++ & - \\
 		% 		\cline{2-4}
-		% 		& faible densité & ++++ & + \\
-		% 		& forte densité & ++ & - - \\
-		% 		& faible $n$ & +++ & - - \\
-		% 		& fort $n$ & +++ & + \\
-		% 		& faible $k$ & +++ & - - \\
-		% 		& fort $k$ & +++ & + \\
-		% 		& faible $p$ & ++ & + \\
-		% 		& fort $p$ & ++++ & - - \\
+		% 		& low density & ++++ & + \\
+		% 		& high density & ++ & - - \\
+		% 		& low $n$ & +++ & - - \\
+		% 		& strong $n$ & +++ & + \\
+		% 		& low $k$ & +++ & - - \\
+		% 		& loud $k$ & +++ & + \\
+		% 		& low $p$ & ++ & + \\
+		% 		& strong $p$ & ++++ & - - \\
 		% 		\hline
 		% 	\end{tabular}
-		% 	\caption{Résultats attendus pour chaque stratégie de navigation.}
+		% 	\caption{Expected results for each navigation strategy.}
 		% 	\label{tab:expected_results}
 		% \end{table}
 
-		% Par soucis de clarté, nous résumons dans le tableau~\ref{tab:expected_results} les résultats attendus pour chaque stratégie de navigation.
-		% Le tableau présente les résultats attendus pour chaque stratégie de navigation, en fonction des différents paramètres expérimentaux.
-		% Les stratégies de navigation incluent \textit{peinture au rouleau}, \textit{ski nordique} et \textit{investigation polygonale}.
-		% Les paramètres comprennent la densité, la distance $d$, le pas $s$, le nombre de côtés d'un polygone utilisé dans l'investigation polygonale $p$, le nombre d'équipes $k$ et le nombre de robots $n$.
+		% For the sake of clarity, we summarize in table~\ref{tab:expected_results} the expected results for each navigation strategy.
+		% The table presents the expected results for each navigation strategy, according to the different experimental parameters.
+		% Navigation strategies include \textit{Roller Painting}, \textit{Nordic Skiing}, and \textit{Polygonal Investigation}.
+		% Parameters include density, distance $d$, pitch $s$, number of sides of a polygon used in polygonal investigation $p$, number of teams $k$ and number of robots $ n$.
 
-		% Pour chaque stratégie, le tableau indique les scores et temps attendus associés à chacun des paramètres comparés aux scores et temps attendus pour les paramètres intermédiaires.
-		% Les scores sont représentés par des symboles "+" et "-" et indiquent le niveau de précision attendu.
-		% Les temps sont également indiqués par des symboles "+" et "-" et reflètent la lenteur d'inspection attendue.
-		% Ainsi un score ++ est considéré comme plus précis qu'un score +, et un temps - - est considéré comme plus lent qu'un temps - par exemple.
+		% For each strategy, the table indicates the expected scores and times associated with each of the parameters compared to the expected scores and times for the intermediate parameters.
+		% The scores are represented by "+" and "-" symbols and indicate the expected level of precision.
+		% The times are also indicated by "+" and "-" symbols and reflect the expected inspection slowness.
+		% Thus a ++ score is considered more accurate than a + score, and a - - time is considered slower than a - time, for example.
 
-		Les différents résultats issus des différentes simulations effectuées sont disponibles en annexe~\ref{annexe:resultat}.
-		Sur ces images, il est possible de voir en noir les zones réelles de corrosion et en bleu les zones détectées comme comportant de la corrosion par les différents algorithmes de navigation.
-		\subsection*{Stratégie de navigation \textit{peinture au rouleau}}
-			Nous résumons sur la figure~\ref{fig:peinture_au_rouleau-kappa_vs_world} l'évolution du score de Cohen en fonction de la densité du monde pour chaque valeur de $d$.
-			Nous résumons également sur la figure~\ref{fig:peinture_au_rouleau-time_vs_world} l'évolution du temps d'inspection en fonction de la densité du monde pour chaque valeur de $d$.
+		The different results from the different simulations carried out are available in appendix~\ref{annexe:resultat}.
+		On these images, it is possible to see in black the real areas of corrosion and in blue the areas detected as having corrosion by the various navigation algorithms.
+		\subsection*{\textit{Roller Painting} navigation strategy}
+			We summarize in figure~\ref{fig:peinture_au_rouleau-kappa_vs_world} the evolution of the Cohen score as a function of the density of the world for each value of $d$.
+			We also summarize in figure~\ref{fig:peinture_au_rouleau-time_vs_world} the evolution of the inspection time according to the density of the world for each value of $d$.
 
 			\begin{figure}[h!]
 				\centering
 				\begin{subfigure}[t]{0.9\linewidth}
 					\includegraphics[width=\linewidth]{graphics/peinture_au_rouleau-kappa_vs_world_for_each_d.png}
-					\caption{$\kappa$ en fonction de la densité du monde}
+					\caption{$\kappa$ according to the density of the world.}
 					\label{fig:peinture_au_rouleau-kappa_vs_world}
 				\end{subfigure}
 				\hfill
 				\begin{subfigure}[t]{0.9\linewidth}
 						\includegraphics[width=\linewidth]{graphics/peinture_au_rouleau-time_vs_world_for_each_d.png}
-						\caption{Temps d'exécution en fonction de la densité du monde}
+						\caption{Runtime based on world density.}
 						\label{fig:peinture_au_rouleau-time_vs_world}
 				\end{subfigure}
-				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{peinture au rouleau} en fonction de la densité du monde et de la distance entre les robots.}
+				\caption{Evolution of Cohen's $\kappa$ and the execution time of the \textit{Roller Painting} algorithm as a function of the density of the world and the distance between the robots.}
 				\label{fig:peinture_au_rouleau-world}
 			\end{figure}
 
-			Premièrement, nous pouvons observer que le score de Cohen diminue, de manière générale, avec le nombre de zones de corrosion.
-			Il existe des exceptions, notamment pour la carte composée de 15 zones de corrosion, où le score de Cohen est plus élevé que pour les cartes composées de 5, 8 et 11 zones de corrosion.
-			Cela s'explique du fait que dans les cartes composées de 5, 8 et 11 zones de corrosion, nous avons introduit des zones de corrosion de formes allongées contrairement à la carte composée de 15 zones de corrosion où les zones de corrosion sont toutes des cercles.
-			En effet, les zones de corrosion de formes allongées ont une probabilité plus grande de faire apparaître des zones fantômes, illustrées sur la figure~\ref{fig:ghost_zone}, que les zones de corrosion de forme circulaire.
-			Ces zones fantômes sont des zones libres de corrosion qui sont détectées par les crawlers.
-			Il s'agit donc de faux positifs qui diminuent le score de Cohen.
-			Ces zones fantômes ont également plus de chance d'apparaître lorsque la densité du monde est élevée et que, donc, les zones de corrosion sont plus proches les unes des autres, ou encore lorsque la distance $d$ entre les deux crawlers est élevée.
-			C'est bien ce que nous pouvons observer sur la figure~\ref{fig:peinture_au_rouleau-kappa_vs_distance} où le score de Cohen diminue lorsque la distance $d$ entre les deux crawlers augmente.
-			Nous observons qu'il semble exister une relation linéaire entre le score de Cohen et la distance $d$ entre les deux crawlers.
+			First, we can observe that the Cohen score generally decreases with the number of corrosion zones.
+			There are exceptions, notably for the map composed of 15 corrosion zones, where the Cohen score is higher than for the maps composed of 5, 8 and 11 corrosion zones.
+			This is explained by the fact that in the maps composed of 5, 8 and 11 corrosion zones, we have introduced corrosion zones with elongated shapes unlike the map composed of 15 corrosion zones where the corrosion zones are all circles .
+			Indeed, elongated corrosion zones have a greater probability of causing phantom zones to appear, illustrated in figure~\ref{fig:ghost_zone}, than circular corrosion zones.
+			These phantom zones are areas free of corrosion which are detected by the crawlers.
+			These are therefore false positives which reduce the Cohen score.
+			These phantom zones are also more likely to appear when the density of the world is high and therefore the corrosion zones are closer to each other, or when the distance $d$ between the two crawlers is high.
+			This is what we can observe in figure~\ref{fig:peinture_au_rouleau-kappa_vs_distance} where the Cohen score decreases when the distance $d$ between the two crawlers increases.
+			We observe that there seems to be a linear relationship between the Cohen score and the distance $d$ between the two crawlers.
 
 			\begin{figure}[h!]
 				\begin{subfigure}[t]{0.49\linewidth}
 					\includegraphics[width=\linewidth]{graphics/peinture_au_rouleau-kappa_vs_distance.png}
-					\caption{$\kappa$ en fonction de la distance entre les deux crawlers}
+					\caption{$\kappa$ depending on the distance between the two crawlers.}
 					\label{fig:peinture_au_rouleau-kappa_vs_distance}
 				\end{subfigure}
 				\hfill
 				\begin{subfigure}[t]{0.49\linewidth}
 						\includegraphics[width=\linewidth]{graphics/peinture_au_rouleau-time_vs_distance.png}
-						\caption{Temps d'exécution en fonction de la distance entre les deux crawlers}
+						\caption{Runtime depending on the distance between the two crawlers.}
 						\label{fig:peinture_au_rouleau-time_vs_distance}
 				\end{subfigure}
-				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{peinture au rouleau} en fonction de la distance qui sépare les deux crawlers.}
+				\caption{Evolution of Cohen's $\kappa$ and the execution time of the \textit{Roller Painting} algorithm as a function of the distance between the two crawlers.}
 				\label{fig:peinture_au_rouleau-distance}
 			\end{figure}
 
 			\begin{figure}[h!]
 				\centering
 				\includegraphics[width=0.5\linewidth]{graphics/output.png}
-				\caption{Exemple de zone fantôme situé en bas à gauche de la carte.}
+				\caption{Example of a phantom zone located at the bottom left of the map.}
 				\label{fig:ghost_zone}
 			\end{figure}
 
-			Ensuite, nous observons que le temps d'exécution de l'algorithme \textit{peinture au rouleau} est constant pour chaque valeur du nombre de zones de corrosion.
-			Cela était attendu du fait que l'algorithme en question est un algorithme \textit{a priori} et ne dépend donc pas du nombre de zones de corrosion.
-			En revanche, le temps d'exécution dépend de la distance $d$ entre les deux crawlers.
-			Comme nous pouvons observer sur la figure~\ref{fig:peinture_au_rouleau-time_vs_distance}, le temps d'exécution augmente lorsque la distance $d$ entre les deux crawlers diminue.
-			Cela s'explique du fait que plus la distance $d$ est grande, moins les crawlers doivent effectuer de déplacements pour couvrir la carte.
-			Il ne semble pas exister de relation linéaire entre le temps d'exécution et la distance $d$ entre les deux crawlers.
-			Or, nous nous serions attendus à ce qu'il existe une relation linéaire entre le temps d'exécution et la distance $d$ entre les deux crawlers.
-			Il serait intéressant de vérifier s'il n'y a pas eu de biais introduit lors de l'implémentation de l'algorithme.
+			Then, we observe that the execution time of the \textit{Roller Painting} algorithm is constant for each value of the number of corrosion zones.
+			This was expected because the algorithm in question is an \textit{a priori} algorithm and therefore does not depend on the number of corrosion zones.
+			On the other hand, the execution time depends on the distance $d$ between the two crawlers.
+			As we can see in figure~\ref{fig:peinture_au_rouleau-time_vs_distance}, the execution time increases when the distance $d$ between the two crawlers decreases.
+			This is because the greater the distance $d$, the fewer moves the crawlers have to make to cover the map.
+			There does not seem to be a linear relationship between the execution time and the distance $d$ between the two crawlers.
+			However, we would have expected that there would be a linear relationship between the execution time and the distance $d$ between the two crawlers.
+			It would be interesting to check if there was no bias introduced during the implementation of the algorithm.
 
-			Nous avons également introduit deux cartes avec des formes plus complexes que les cartes de base.
-			Celles-ci sont visibles en annexe~\ref{annexe:cartes}, sur les figures~\ref{fig:test_model_11_complex_1} et~\ref{fig:test_model_15_complex_1}.
-			Malheureusement, nous n'avons pas pu, par souci de temps, faire varier la position des zones de corrosion, comme nous l'avons fait avec les cartes de faible densité.
-			Néanmoins, il semble ne pas exister de différence significative entre les cartes de formes complexes et les cartes de formes simples.
-			Par exemple, pour les cartes avec 15 formes de corrosion et la carte avec 15 formes de corrosion complexes, le score de Cohen ne varie que de 0.02 en moyenne pour une distance $d = 1$ et de 0.04 en moyenne pour une distance $d = 6$.
+			We have also introduced two maps with more complex shapes than the base maps.
+			These are visible in the appendix~\ref{annexe:cartes}, in figures~\ref{fig:test_model_11_complex_1} and~\ref{fig:test_model_15_complex_1}.
+			Unfortunately, we could not, for the sake of time, vary the position of the corrosion zones, as we did with the low density maps.
+			However, there seems to be no significant difference between complex shaped maps and simple shaped maps.
+			For example, for the maps with 15 forms of corrosion and the map with 15 complex forms of corrosion, the Cohen score only varies by 0.02 on average for a distance $d = 1$ and by 0.04 on average for a distance $d = 6$.
 
-			Dans la suite de ce rapport, nous considérerons une distance $d = 3$ mètres entre les deux crawlers pour l'algorithme \textit{peinture au rouleau}.
-		\subsection*{Stratégie de navigation \textit{ski nordique}}
-			Nous allons maintenant analyser les résultats obtenus pour l'algorithme \textit{ski nordique}.
-			Comme pour l'algorithme \textit{peinture au rouleau}, nous avons fait varier la densité du monde et la distance $d$ entre les deux crawlers, mais également le pas $s$ utilisé entre les deux crawlers.
-			La figure~\ref{fig:ski_nordique-world_d} présente l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la densité du monde pour différentes valeurs de la distance $d$ entre les deux crawlers et un pas $s = 3$ mètres.
+			In the rest of this report, we will consider a distance $d = 3$ meters between the two crawlers for the \textit{Roller Painting} algorithm.
+		\subsection*{\textit{Nordic Skiing} navigation strategy}
+			We are now going to analyze the results obtained for the \textit{Nordic Skiing} algorithm.
+			As for the \textit{Roller Painting} algorithm, we varied the density of the world and the distance $d$ between the two crawlers, but also the stride $s$ used between the two crawlers.
+			The figure~\ref{fig:ski_nordique-world_d} presents the evolution of the Cohen score and the execution time of the algorithm \textit{Nordic Skiing} as a function of the density of the world for different values of the distance $d$ between the two crawlers and a stride $s = 3$ meters.
 
 			\begin{figure}[h!]
 				\centering
 				\begin{subfigure}[t]{0.9\linewidth}
 					\includegraphics[width=\linewidth]{graphics/ski_nordique-kappa_vs_world_for_each_d.png}
-					\caption{$\kappa$ en fonction de la densité du monde}
+					\caption{$\kappa$ according to the density of the world.}
 					\label{fig:ski_nordique-kappa_vs_world_d}
 				\end{subfigure}
 				\hfill
 				\begin{subfigure}[t]{0.9\linewidth}
-						\includegraphics[width=\linewidth]{graphics/ski_nordique-time_vs_world_for_each_d.png}
-						\caption{Temps d'exécution en fonction de la densité du monde}
-						\label{fig:ski_nordique-time_vs_world_d}
+					\includegraphics[width=\linewidth]{graphics/ski_nordique-time_vs_world_for_each_d.png}
+					\caption{Runtime based on world density.}
+					\label{fig:ski_nordique-time_vs_world_d}
 				\end{subfigure}
-				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la densité du monde pour différentes valeurs de la distance entre les deux crawlers.}
+				\caption{Evolution of Cohen's $\kappa$ and the execution time of the \textit{Nordic Skiing} algorithm as a function of the density of the world for different values of the distance between the two crawlers.}
 				\label{fig:ski_nordique-world_d}
 			\end{figure}
 
-			Nous avons des résultats très similaires à ceux obtenus pour l'algorithme \textit{peinture au rouleau}.
-			En effet, nous observons sur la figure~\ref{fig:ski_nordique-kappa_vs_world_d} que le score de Cohen diminue de manière générale lorsque la densité du monde augmente.
-			De plus, le temps d'exécution de l'algorithme \textit{ski nordique}, observé sur la figure~\ref{fig:ski_nordique-time_vs_world_d}, est constant pour chaque valeur de la densité du monde.
+			We have very similar results to those obtained for the \textit{Roller Painting} algorithm.
+			Indeed, we observe in figure~\ref{fig:ski_nordique-kappa_vs_world_d} that the Cohen score generally decreases when the density of the world increases.
+			Moreover, the execution time of the algorithm \textit{Nordic Skiing}, observed in figure~\ref{fig:ski_nordique-time_vs_world_d}, is constant for each value of the density of the world.
 
 			\begin{figure}[h!]
 				\centering
 				\begin{subfigure}[t]{0.9\linewidth}
 					\includegraphics[width=\linewidth]{graphics/ski_nordique-kappa_vs_world_for_each_s.png}
-					\caption{$\kappa$ en fonction de la densité du monde}
+					\caption{$\kappa$ according to the density of the world.}
 					\label{fig:ski_nordique-kappa_vs_world_s}
 				\end{subfigure}
 				\hfill
 				\begin{subfigure}[t]{0.9\linewidth}
-						\includegraphics[width=\linewidth]{graphics/ski_nordique-time_vs_world_for_each_s.png}
-						\caption{Temps d'exécution en fonction de la densité du monde}
-						\label{fig:ski_nordique-time_vs_world_s}
+					\includegraphics[width=\linewidth]{graphics/ski_nordique-time_vs_world_for_each_s.png}
+					\caption{Runtime based on world density.}
+					\label{fig:ski_nordique-time_vs_world_s}
 				\end{subfigure}
-				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la densité du monde pour différentes valeurs du pas entre les deux crawlers.}
+				\caption{Evolution of Cohen's $\kappa$ and the execution time of the \textit{Nordic Skiing} algorithm according to the density of the world for different values of the stride between the two crawlers.}
 				\label{fig:ski_nordique-world_s}
 			\end{figure}
 
-			Nous pouvons observer sur la figure~\ref{fig:ski_nordique-world_s} l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la densité du monde pour différentes valeurs du pas $s$ entre les deux crawlers, et une distance $d = 3$ mètres entre les crawlers.
-			sur la figure~\ref{fig:ski_nordique-kappa_vs_world_s}, nous observons que le score de Cohen est le plus bas pour de grandes valeurs de densités et de grandes valeurs de $d$, comme pour $d = 6$ mètres et les cartes avec 30 et 20 zones de corrosion.
-			Ceci s'explique par le fait que pour de grandes valeurs de densités et de $d$, la probabilité que les rayons du signal traversent des zones de corrosions est plus élevée.
-			Il y a donc plus de chance que des zones fantômes soient créées, ce qui fait diminuer le score de Cohen.
-			Les formes allongées des zones de corrosion sont également un facteur qui fait diminuer le score de Cohen comme étudié précédemment.
-			C'est pourquoi nous observons que le score de Cohen est le plus haut pour la carte avec la plus petite densité et sans formes allongées de corrosion, c'est-à-dire la carte avec 15 zones de corrosion.
+			We can observe in the figure~\ref{fig:ski_nordique-world_s} the evolution of the Cohen score and the execution time of the algorithm \textit{Nordic Skiing} according to the density of the world for different values of the stride $s$ between the two crawlers, and a distance $d = 3$ meters between the crawlers.
+			in the figure~\ref{fig:ski_nordique-kappa_vs_world_s}, we observe that the Cohen score is the lowest for large values of densities and large values of $d$, as for $d = 6$ meters and the maps with 30 and 20 corrosion areas.
+			This is explained by the fact that for large values of densities and $d$, the probability that the signal rays cross corrosion zones is higher.
+			There is therefore a greater chance that phantom zones will be created, which lowers Cohen's score.
+			The elongated shapes of the corrosion zones are also a factor that lowers the Cohen score as studied previously.
+			This is why we observe that the Cohen score is the highest for the map with the smallest density and without elongated forms of corrosion, that is to say the map with 15 corrosion zones.
 
-			Sur la figure~\ref{fig:ski_nordique-time_vs_world_s}, nous observons que le temps d'exécution de l'algorithme \textit{ski nordique} est constant pour chaque valeur de la densité du monde.
-			Ceci était attendu comme pour la stratégie \textit{peinture au rouleau}.
-			Cependant, nous observons que le temps d'exécution varie avec le pas $s$ utilisé.
-			Nous nous serions plutôt attendus à ce que le temps d'exécution reste constant avec le pas des crawlers.
-			En effet, indépendamment de la valeur du pas, la distance verticale et horizontale à parcourir par les crawlers reste la même.
-			Cette différence significative du temps d'exécution est due à la manière dont nous avons implémenté l'algorithme \textit{ski nordique} qui n'est pas optimale.
-			Nous n'avons pas fait arrêter les crawlers aux extrémités des plaques, mais nous les avons fait continuer d'une valeur du pas $s$, en plus, par simplicité d'implémentation, sans penser que l'impact sur le temps d'exécution serait significatif.
+			In figure~\ref{fig:ski_nordique-time_vs_world_s}, we observe that the execution time of the algorithm \textit{Nordic Skiing} is constant for each value of the density of the world.
+			This was expected as for the \textit{Roller Painting} strategy.
+			However, we observe that the execution time varies with the stride $s$ used.
+			We would have rather expected the execution time to remain constant with the pitch of the crawlers.
+			Indeed, regardless of the value of the stride, the vertical and horizontal distance to be covered by the crawlers remains the same.
+			This significant difference in execution time is due to the way we implemented the \textit{Nordic Skiing} algorithm, which is not optimal.
+			We did not make the crawlers stop at the ends of the plates, but we made them continue by a value of the stride $s$, in addition, for simplicity of implementation, without thinking that the impact on the time of execution would be significant.
 
 			\begin{figure}[h!]
 				\begin{subfigure}[t]{0.49\linewidth}
 					\includegraphics[width=\linewidth]{graphics/ski_nordique-kappa_vs_distance.png}
-					\caption{$\kappa$ en fonction de la distance entre les deux crawlers}
+					\caption{$\kappa$ according to the distance between the two crawlers.}
 					\label{fig:ski_nordique-kappa_vs_distance}
 				\end{subfigure}
 				\hfill
 				\begin{subfigure}[t]{0.49\linewidth}
-						\includegraphics[width=\linewidth]{graphics/ski_nordique-time_vs_distance.png}
-						\caption{Temps d'exécution en fonction de la distance entre les deux crawlers}
-						\label{fig:ski_nordique-time_vs_distance}
+					\includegraphics[width=\linewidth]{graphics/ski_nordique-time_vs_distance.png}
+					\caption{Runtime according to the distance between the two crawlers.}
+					\label{fig:ski_nordique-time_vs_distance}
 				\end{subfigure}
-				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la distance qui sépare les deux crawlers.}
+				\caption{Evolution of Cohen's $\kappa$ and the execution time of the \textit{Nordic Skiing} algorithm according to the distance between the two crawlers.}
 				\label{fig:ski_nordique-distance}
 			\end{figure}
 
-			Sur la figure~\ref{fig:ski_nordique-distance}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction de la distance qui sépare les deux crawlers pour un pas de 3 mètres.
-			Le score semble, comme pour la stratégie \textit{peinture au rouleau}, suivre une relation linéaire avec la distance qui sépare les deux crawlers.
-			Le temps d'exécution semble également suivre une relation linéaire avec la distance qui sépare les deux crawlers.
-			Le fait que la courbe à figure~\ref{fig:ski_nordique-time_vs_distance} ne soit pas une droite est dû au fait que plus la distance entre les crawlers est petite et plus le nombre de rotations que les crawlers doivent effectuer est grand.
-			Or le temps de rotation n'est pas négligeable dans les temps d'exécution des algorithmes.
+			In the figure~\ref{fig:ski_nordique-distance}, we observe the evolution of the Cohen score and the execution time of the algorithm \textit{Nordic Skiing} according to the distance which separates the two crawlers for a stride of 3 meters.
+			The score seems, as for the strategy \textit{Roller Painting}, to follow a linear relation with the distance which separates the two crawlers.
+			Execution time also appears to follow a linear relationship with the distance between the two crawlers.
+			The fact that the curve in figure~\ref{fig:ski_nordique-time_vs_distance} is not a straight line is due to the fact that the smaller the distance between the crawlers, the greater the number of rotations that the crawlers must perform.
+			However, the rotation time is not negligible in the execution times of the algorithms.
 
 			\begin{figure}[h!]
 				\begin{subfigure}[t]{0.49\linewidth}
 					\includegraphics[width=\linewidth]{graphics/ski_nordique-kappa_vs_stride.png}
-					\caption{$\kappa$ en fonction du pas des crawlers}
+					\caption{$\kappa$ according to crawler stride.}
 					\label{fig:ski_nordique-kappa_vs_stride}
 				\end{subfigure}
 				\hfill
 				\begin{subfigure}[t]{0.49\linewidth}
-						\includegraphics[width=\linewidth]{graphics/ski_nordique-time_vs_stride.png}
-						\caption{Temps d'exécution en fonction du pas des crawlers}
-						\label{fig:ski_nordique-time_vs_stride}
+					\includegraphics[width=\linewidth]{graphics/ski_nordique-time_vs_stride.png}
+					\caption{Runtime according to crawler stride.}
+					\label{fig:ski_nordique-time_vs_stride}
 				\end{subfigure}
-				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction du pas des crawlers.}
+				\caption{Evolution of Cohen's $\kappa$ and the execution time of the \textit{Nordic Skiing} algorithm according to the crawler stride.}
 				\label{fig:ski_nordique-stride}
 			\end{figure}
 
-			Sur la figure~\ref{fig:ski_nordique-stride}, nous observons l'évolution du score de Cohen et du temps d'exécution de l'algorithme \textit{ski nordique} en fonction du pas $s$ des crawlers pour une distance $d = 3$ mètres.
-			Le score semble suivre une relation linéaire avec le pas des crawlers.
-			Plus le pas est petit et plus le score est grand.
-			Cela entre en concordance avec ce que nous expliquions précédemment.
-			Plus le pas est grand et plus, il y a de chance de créer des zones fantômes et donc, de faire diminuer le score de Cohen.
-			Il est à noter cependant qu'il existe une grande variation du score pour les différentes valeurs du pas.
-			Il semble donc que l'impact de la valeur du pas sur le score soit plutôt faible contrairement à l'impact de la valeur de la distance sur le score.
-			Le temps d'exécution, lui, semble suivre une relation linéaire avec le pas des crawlers.
-			Comme expliqué précédemment, ce dernier aurait dû être constant, mais notre implémentation fait dépendre le temps d'exécution du pas des crawlers.
+			In the figure~\ref{fig:ski_nordique-stride}, we observe the evolution of the Cohen score and the execution time of the algorithm \textit{Nordic skiing} according to the crawlers' stride $s$ for a distance $d = 3$ meters.
+			The score seems to follow a linear relationship with the stride of the crawlers.
+			The smaller the stride, the higher the score.
+			This is consistent with what we explained previously.
+			The larger the stride, the greater the chance of creating phantom zones and therefore of reducing Cohen's score.
+			It should be noted however that there is a large variation in the score for the different values of the stride.
+			It therefore seems that the impact of the value of the stride on the score is rather weak unlike the impact of the value of the distance on the score.
+			Execution time seems to follow a linear relationship with crawler pace.
+			As explained previously, the latter should have been constant, but our implementation makes the execution time depend on the stride of the crawlers.
 
-			Ici encore, il semble que le score et le temps d'exécution ne soient pas affectés par le fait que les formes soient complexes ou non.
+			Again, it seems that the score and execution time are not affected by whether the shapes are complex or not.
 
-			Dans la suite de ce rapport, nous considérerons une distance $d = 3$ entre les deux crawlers et un pas $s = 3$ pour l'algorithme \textit{ski nordique}.
-		\subsection*{Stratégie de navigation \textit{investigation polygonale}}
-			Nous avons ensuite testé l'algorithme \textit{investigation polygonale} sur des mondes composés de 5, 8 et 11 zones de corrosion.
-			La stratégie d'inspection se base sur les résultats de la stratégie \textit{peinture au rouleau}.
-			Comme expliqué précédemment, nous justifions ce choix par le fait que la stratégie \textit{peinture au rouleau} est la plus rapide des stratégies \textit{a priori} que nous avons implémenté.
+			In the rest of this report, we will consider a distance $d = 3$ between the two crawlers and a stride $s = 3$ for the algorithm \textit{Nordic Skiing}.
+		\subsection*{\textit{Polygonal Investigation} navigation strategy}
+			We then tested the \textit{Polygonal Investigation} algorithm on worlds composed of 5, 8 and 11 corrosion zones.
+			The inspection strategy is based on the results of the \textit{Roller Painting} strategy.
+			As explained previously, we justify this choice by the fact that the \textit{Roller Painting} strategy is the fastest of the \textit{a priori} strategies that we have implemented.
 
 			\begin{figure}[h!]
 				\begin{subfigure}[t]{0.9\linewidth}
 					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p4.png}
-					\caption{$\kappa$ en fonction de la densité du monde}
+					\caption{$\kappa$ according to the density of the world.}
 					\label{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p4}
 				\end{subfigure}
 				\hfill
 				\begin{subfigure}[t]{0.9\linewidth}
-						\includegraphics[width=\linewidth]{graphics/investigation_polygonale-time_vs_world_for_each_d_k1_n2_p4.png}
-						\caption{Temps d'exécution en fonction de la densité du monde}
-						\label{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p4}
+					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-time_vs_world_for_each_d_k1_n2_p4.png}
+					\caption{Runtime based on world density.}
+					\label{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p4}
 				\end{subfigure}
-				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{investigation polygonale} en fonction de la densité du monde pour différentes distances entre les crawlers avec un polygone à 4 côtés.}
+				\caption{Evolution of Cohen's $\kappa$ and \textit{Polygonal Investigation} algorithm runtime according to the world density for different distances between crawlers with a 4-sided polygon.}
 				\label{fig:investigation_polygonale-world_for_each_d_k1_n2_p4}
 			\end{figure}
 
-			La figure~\ref{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p4} montre l'évolution du score de Cohen en fonction de la densité du monde pour chaque valeur de $d$ utilisée dans la stratégie \textit{peinture au rouleau}.
-			Nous avons utilisé un polygone d'investigation à 4 côtés.
-			En premier lieu, nous observons des scores de Cohen relativement indépendant de la distance entre les crawlers pour les cartes avec 5 et 8 zones de corrosion.
-			Ceci est un résultat enthousiasmant, car cela signifie que nous pouvons utiliser la stratégie \textit{investigation polygonale} en se basant sur les résultats de la stratégie \textit{peinture au rouleau} en utilisant une grande distance entre les crawlers, et donc, une stratégie \textit{peinture au rouleau} très rapide.
-			Néanmoins, nous pouvons observer que pour les cartes avec 11 zones de corrosion, le score de Cohen est impacté par la distance entre les crawlers, lorsque cette dernière augmente.
-			Nous imputons ce résultat au fait que cette carte comporte des zones de corrosion allongées très proches les unes des autres, ayant pour effet de bloquer certains rayons émis et reçus lors de l'inspection polygonale d'une zone.
-			L'inspection polygonale est donc naturellement impactée par la densité du monde.
-			Cependant, nous pouvons imaginer, lors de la réparation des structures métalliques, qu'il soit plus convenable de fusionner des zones de corrosion proches les unes des autres en une seule zone de corrosion, bien que cela ne soit pas considéré dans notre problème.
+			The figure~\ref{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p4} shows the evolution of the Cohen score according to the density of the world for each value of $d$ used in the strategy \textit{Roller Painting}.
+			We used a 4-sided investigation polygon.
+			First, we observe Cohen scores relatively independent of distance between crawlers for maps with 5 and 8 corrosion zones.
+			This is an exciting result, because it means that we can use the \textit{Polygonal Investigation} strategy based on the results of the \textit{Roller Painting} strategy using a large distance between the crawlers, and therefore, a very fast \textit{Roller Painting} strategy.
+			Nevertheless, we can observe that for maps with 11 corrosion zones, the Cohen score is impacted by the distance between the crawlers, when the latter increases.
+			We attribute this result to the fact that this map has elongated corrosion zones very close to each other, having the effect of blocking certain rays emitted and received during the polygonal inspection of an area.
+			Polygonal inspection is therefore naturally impacted by the density of the world.
+			However, we can imagine, when repairing metal structures, that it is more convenient to merge corrosion areas close to each other into a single corrosion area, although this is not considered in our problem.
 
-			La figure~\ref{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p4} montre l'évolution du temps d'exécution en fonction de la densité du monde pour chaque valeur de $d$ utilisée dans la stratégie \textit{peinture au rouleau}.
-			Nous avons utilisé un polygone d'investigation à 4 côtés.
-			Nous observons que le temps d'exécution augmente avec la densité du monde de manière linéaire.
-			Ceci est un résultat attendu, car l'algorithme \textit{investigation polygonale} est de complexité linéaire en fonction du nombre de zones de corrosion, ce dernier consistant à parcourir toutes les zones de corrosion potentielles et à les inspecter.
-			Nous observons également que le temps d'exécution augmente avec la distance entre les crawlers.
-			En effet, plus la distance entre les crawlers est grande, plus le nombre de zones fantômes est important à l'issue de la stratégie de navigation \textit{peinture au rouleau}, et donc plus le nombre de zones de corrosion potentielles est important.
-			Cependant, ces zones fantômes sont rapidement traitées par l'algorithme \textit{investigation polygonale}.
-			Par exemple, pour la carte 5 avec 11 zones de corrosion, nous obtenons 12 zones de corrosion potentielles avec une distance de 1 mètre entre les crawlers à l'issue de la stratégie \textit{peinture au rouleau}, contre 20 zones de corrosion potentielles avec une distance de 6 mètres entre les crawlers.
-			Or, nous observons un temps d'exécution de 1027 secondes pour la première configuration contre 1616 secondes pour la seconde configuration.
-			Nous avons donc pour une augmentation de 67\% du nombre de zones de corrosion potentielles, une augmentation de 57\% du temps d'exécution.
-			Le gain de performance n'est pas très important, mais est tout de même significatif.
+			Figure~\ref{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p4} shows the evolution of execution time according to the world density for each value of $d$ used in the strategy \textit{Roller Painting}.
+			We used a 4-sided investigation polygon.
+			We observe that the execution time increases with the density of the world in a linear way.
+			This is an expected result, because the \textit{Polygonal Investigation} algorithm has linear complexity as a function of the number of corrosion zones, the latter consisting in traversing all the potential corrosion zones and inspecting them.
+			We also observe that the execution time increases with the distance between the crawlers.
+			Indeed, the greater the distance between the crawlers, the greater the number of phantom zones at the end of the \textit{Roller Painting} navigation strategy, and therefore the greater the number of potential corrosion zones.
+			However, these phantom areas are quickly processed by the \textit{Polygonal Investigation} algorithm.
+			For example, for map 5 with 11 corrosion areas, we get 12 potential corrosion areas with a distance of 1 meter between crawlers after the \textit{Roller Painting} strategy, versus 20 potential corrosion areas with a distance of 6 meters between the crawlers.
+			However, we observe an execution time of 1027 seconds for the first configuration versus 1616 seconds for the second configuration.
+			So we have for a 67\% increase in the number of potential corrosion areas, a 57\% increase in execution time.
+			The performance gain is not very large, but is still significant.
 
 			\begin{figure}[h!]
 				\begin{subfigure}[t]{0.9\linewidth}
 					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p6.png}
-					\caption{$\kappa$ en fonction de la densité du monde}
+					\caption{$\kappa$ according to the density of the world.}
 					\label{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p6}
 				\end{subfigure}
 				\hfill
 				\begin{subfigure}[t]{0.9\linewidth}
 						\includegraphics[width=\linewidth]{graphics/investigation_polygonale-time_vs_world_for_each_d_k1_n2_p6.png}
-						\caption{Temps d'exécution en fonction de la densité du monde}
+						\caption{Runtime based on world density.}
 						\label{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p6}
 				\end{subfigure}
-				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution de l'algorithme \textit{investigation polygonale} en fonction de la densité du monde pour différentes distances entre les crawlers avec un polygone à 6 côtés.}
+				\caption{Evolution of Cohen's $\kappa$ and \textit{Polygonal Investigation} algorithm runtime according to the world density for different distances between crawlers with a 6-sided polygon.}
 				\label{fig:investigation_polygonale-world_for_each_d_k1_n2_p6}
 			\end{figure}
 
-			Nous avons également fait varier la taille du polygone d'investigation de la stratégie \textit{investigation polygonale}.
-			Nous présentons sur la figure~\ref{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p6} l'évolution du score de Cohen en fonction de la densité du monde pour la carte 5, pour un polygone à 6 sommets.
-			Premièrement, nous n'observons pas une amélioration significative du score de Cohen lorsque la taille du polygone d'investigation augmente.
-			Au contraire, nous observons une diminution en moyenne, bien que très faible, du score.
-			En théorie, l'augmentation de la taille du polygone d'investigation devrait permettre de mieux approcher l'enveloppe convexe des zones de corrosion, et donc d'obtenir un meilleur score de Cohen.
-			Cependant, nous sommes limités dans notre implémentation par la résolution utilisée pour la discrétisation de la carte.
-			% Ainsi, il est probable que le fait d'augmenter la taille du polygone d'investigation élimine des cellules de la grille d'occupation (en périphérie des zones de corrosion) où de la corrosion est réellement présente, du fait qu'il ait existé un rayon qui ait traversé cette même cellule.
-			Cependant, pour une résolution plus précise, nous devrions observer une amélioration du score de Cohen.
+			We also varied the size of the investigation polygon of the \textit{Polygon Investigation} strategy.
+			We present in figure~\ref{fig:investigation_polygonale-kappa_vs_world_for_each_d_k1_n2_p6} the evolution of the Cohen score as a function of the density of the world for map 5, for a polygon with 6 vertices.
+			First, we do not observe a significant improvement in the Cohen score when the size of the investigation polygon increases.
+			On the contrary, we observe an average decrease, although very weak, of the score.
+			In theory, increasing the size of the investigation polygon should make it possible to better approach the convex hull of the corrosion zones, and therefore to obtain a better Cohen score.
+			However, we are limited in our implementation by the resolution used for the discretization of the map.
+			% Thus, it is probable that increasing the size of the investigation polygon eliminates cells from the occupancy grid (at the periphery of the corrosion zones) where corrosion is actually present, because it has there existed a ray which crossed this same cell.
+			However, for a more precise resolution, we should observe an improvement in the Cohen score.
 
-			Nous présentons sur la figure~\ref{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p6} l'évolution du temps d'exécution en fonction de la densité du monde pour la carte 5, pour un polygone à 6 sommets.
-			Ici, nous observons naturellement une augmentation du temps d'exécution lorsque la taille du polygone d'investigation augmente.
+			We present in the figure~\ref{fig:investigation_polygonale-time_vs_world_for_each_d_k1_n2_p6} the evolution of the execution time according to the density of the world for map 5, for a polygon with 6 vertices.
+			Here, we naturally observe an increase in execution time when the size of the investigation polygon increases.
 
-			Nous aurions également voulu faire varier le nombre de robots utilisés pour l'investigation polygonale ainsi que le nombre d'équipes de robots.
-			Cependant, nous n'avons pas eu le temps de mettre en place une solution de gestion des collisions entre les robots.
-			Il serait intéressant dans un travail futur de mettre en place une telle solution et d'analyser les performances de l'algorithme \textit{investigation polygonale} avec ces différents paramètres.
-			En effet, le temps d'exécution de l'algorithme \textit{investigation polygonale} devrait diminuer lorsque $k$ et $n$ augmentent.
+			We would also have liked to vary the number of robots used for the polygonal investigation as well as the number of robot teams.
+			However, we did not have time to implement a solution for managing collisions between robots.
+			It would be interesting in future work to implement such a solution and to analyze the performance of the \textit{Polygonal Investigation} algorithm with these different parameters.
+			Indeed, the execution time of the \textit{Polygonal Investigation} algorithm should decrease when $k$ and $n$ increase.
 
-			Dans la sous-section suivante, nous comparerons les performances de l'algorithme \textit{investigation polygonale} avec celles des algorithmes \textit{peinture au rouleau} et \textit{ski nordique}.
-			Pour ce faire, nous considérerons un polygone d'investigation pour l'investigation polygonale à $p = 4$ sommets.
-		\subsection*{Comparaisons et discussions}
-			Dans cette sous-section, nous comparons les performances des différentes stratégies de navigation multi-robots.
+			In the next subsection, we will compare the performance of the \textit{Polygonal Investigation} algorithm with those of the \textit{Roller Painting} and \textit{Nordic Skiing} algorithms.
+			To do this, we will consider an investigation polygon, for the polygonal investigation, with $p = 4$ vertices.
+		\subsection*{Comparisons and Discussions}
+			In this subsection, we compare the performance of different multi-robot navigation strategies.
 
 			\begin{figure}[h!]
 				\begin{subfigure}[t]{0.9\linewidth}
 					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_world.png}
-					\caption{$\kappa$ en fonction de la densité du monde}
+					\caption{$\kappa$ according to the density of the world.}
 					\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_d}
 				\end{subfigure}
 				\hfill
 				\begin{subfigure}[t]{0.9\linewidth}
-						\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_world.png}
-						\caption{Temps d'exécution en fonction de la densité du monde}
-						\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_d}
+					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_world.png}
+					\caption{Runtime based on world density.}
+					\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_d}
 				\end{subfigure}
-				\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution des différents algorithmes en fonction de la densité du monde pour différentes distances entre les crawlers.}
+				\caption{Evolution of Cohen's $\kappa$ and the execution time of the different algorithms according to the density of the world for different distances between the crawlers.}
 				\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique_for_each_world}
 			\end{figure}
 
-			Nous présentons sur la figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique_for_each_world} l'évolution du score de Cohen et du temps d'exécution en fonction de la densité du monde, pour chaque algorithme.
-			Dans cette figure, nous avons représenté les scores et temps d'exécution obtenus, en moyenne, pour les différentes valeurs de $d$ et de $s$, par soucis de lisibilité.
-			Une version plus détaillée, pour chaque valeur de $d$, est disponible en annexe~\ref{annexe:comparaison}, sur la figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique_for_each_d}.
+			We present on the figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique_for_each_world} the evolution of the Cohen score and the execution time according to the density of the world, for each algorithm.
+			In this figure, we have represented the scores and execution times obtained, on average, for the different values of $d$ and $s$, for the sake of readability.
+			A more detailed version, for each value of $d$, is available in appendix~\ref{annexe:comparaison}, in figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique_for_each_d}.
 
-			Nous pouvons observer sur la figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_d} que le score de Cohen obtenu par l'algorithme \textit{investigation polygonale} est supérieur à ceux obtenus par les algorithmes \textit{peinture au rouleau} et \textit{ski nordique}.
-			Seule la stratégie \textit{investigation polygonale} a permis d'obtenir un score de Cohen considéré comme \textit{accord presque parfait} (supérieur à 0.8) selon Landis et Koch.
+			We can observe on the figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_world_vs_investigation_polygonale-kappa_for_each_d} that the Cohen score obtained by the algorithm \textit{Polygonale Investigation} is higher than those obtained by the \textit{Roller Painting} and \textit{Nordic Skiing} algorithms.
+			Only the \textit{Polygonal Investigation} strategy made it possible to obtain a Cohen score considered as \textit{almost perfect agreement} (greater than 0.8) according to Landis and Koch.
 
-			Nous pouvons observer sur la figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_d} que le temps d'exécution de l'algorithme \textit{peinture au rouleau} est inférieur à ceux obtenus par les algorithmes \textit{investigation polygonale} et \textit{ski nordique}.
-			Pour de faibles densités de cartes comme celles utilisées dans nos expérimentations, l'algorithme \textit{ski nordique} est le moins rapide.
-			Ce résultat est à nuancer.
-			En effet, pour des densités plus élevées, l'algorithme \textit{investigation polygonale} devient plus lent que l'algorithme \textit{ski nordique}, comme nous pouvons déjà presque le voir pour la carte comportant 11 zones de corrosion.
+			We can observe on the figure~\ref{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_world_vs_investigation_polygonale-time_for_each_d} that the execution time of the \textit{Roller Painting} algorithm is lower than those obtained by the \textit{Polygonal Investigation} and \textit{Nordic Skiing} algorithms.
+			For low map densities like those used in our experiments, the \textit{Nordic Skiing} algorithm is the slowest.
+			This result should be qualified.
+			Indeed, for higher densities, the \textit{Polygonal Investigation} algorithm becomes slower than the \textit{Nordic Skiing} algorithm, as we can already almost see for the map with 11 corrosion zones.
 
 			\begin{table}[h!]
 				\centering
 				\begin{tabular}{|c|c|c|}
 					\hline
-					& \multicolumn{2}{c|}{\textbf{Gain en performance \textit{investigation polygonale}}} \\
+					& \multicolumn{2}{c|}{\textbf{Gain in performance \textit{Polygonal Investigation}}} \\
 					\hline
-					\textbf{comparé à} & \textbf{$\kappa$ de Cohen} & \textbf{Temps d'exécution} \\
+					\textbf{compared to} & \textbf{Cohen's $\kappa$} & \textbf{Runtime} \\
 					\hline
-					\textit{peinture au rouleau} & +68.39\% & +305.80\% \\
+					\textit{roll paint} & +68.39\% & +305.80\% \\
 					\hline
-					\textit{ski nordique} & +27.92\% & -3.92\% \\
+					\textit{Nordic skiing} & +27.92\% & -3.92\% \\
 					\hline
 				\end{tabular}
-				\caption{Gain en performance apporté par la stratégie \textit{investigation polygonale} par rapport aux stratégies \textit{peinture au rouleau} et \textit{ski nordique}.}
+				\caption{Performance gain provided by the \textit{Polygonal Investigation} strategy compared to the \textit{Roller Painting} and \textit{Nordic Skiing} strategies.}
 				\label{tab:gain}
 			\end{table}
 
-			La table~\ref{tab:gain} présente le gain en performance apporté par la stratégie \textit{investigation polygonale} par rapport aux stratégies \textit{peinture au rouleau} et \textit{ski nordique}.
-			Ici, nous avons considéré le temps d'investigation de la stratégie \textit{investigation polygonale} comme étant égal à la somme des temps d'investigation de la stratégie \textit{investigation polygonale} et de la stratégie \textit{peinture au rouleau} puisque la première stratégie se base sur la seconde pour explorer les zones de corrosion.
-			Nous pouvons observer que l'algorithme \textit{investigation polygonale} permet d'obtenir un score de Cohen supérieur de 68.39\% à celui obtenu par l'algorithme \textit{peinture au rouleau}, bien qu'il soit bien plus lent que ce dernier.
-			En revanche, l'algorithme \textit{investigation polygonale} permet d'obtenir un score de Cohen supérieur de 27.92\% à celui obtenu par l'algorithme \textit{ski nordique}, tout en étant plus rapide que ce dernier.
+			The table~\ref{tab:gain} presents the performance gain provided by the \textit{Polygonal Investigation} strategy compared to the \textit{Roller Painting} and \textit{Nordic Skiing} strategies.
+			Here, we considered the investigation time of the \textit{Polygonal Investigation} strategy to be equal to the sum of the investigation times of the \textit{Polygonal Investigation} strategy and the \textit{Roller Painting} strategy since the first strategy is based on the second to explore the corrosion zones.
+			We can observe that the \textit{Polygonal Investigation} algorithm achieves a Cohen score 68.39\% higher than that obtained by the \textit{Roller Painting} algorithm, although it is much slower than this last.
+			On the other hand, the algorithm \textit{Polygonal Investigation} makes it possible to obtain a Cohen score 27.92\% higher than that obtained by the algorithm \textit{Nordic Skiing}, while being faster than the latter.
 	\section{Bilan personnel}
-		Au cours de cette période de travail, j'ai pu approfondir mes connaissances dans le domaine de la robotique et de l'inspection multi-robots.
-		J'ai été confronté à divers défis que j'ai essayé de surmonter.
-		Ce projet m'a permis d'acquérir de nouvelles compétences techniques et d'améliorer ma capacité à travailler au sein d'un projet de recherche.
+		During this period of work, I was able to deepen my knowledge in the field of robotics and multi-robot inspection.
+		I faced various challenges which I tried to overcome.
+		This project allowed me to acquire new technical skills and improve my ability to work within a research project.
 
-		Tout d'abord, j'ai pu approfondir mes connaissances en robotique et dans l'inspection multi-robots.
-		J'ai effectué des recherches approfondies et j'ai consulté des sources fiables pour obtenir des informations pertinentes.
-		Cela m'a permis de comprendre en profondeur les concepts clés liés à mon sujet d'étude.
+		First of all, I was able to deepen my knowledge of robotics and multi-robot inspection.
+		I have done extensive research and consulted reliable sources for relevant information.
+		This allowed me to understand in depth the key concepts related to my subject of study.
 
-		Au cours de ce projet, j'ai pu grandement évoluer sur le plan personnel et professionnel.
-		J'ai acquis de nouvelles compétences et enrichi mon bagage technique, ce qui a renforcé ma confiance dans mes capacités en tant qu'ingénieur.
+		During this project, I was able to evolve greatly on a personal and professional level.
+		I acquired new skills and enriched my technical background, which boosted my confidence in my abilities as an engineer.
 
-		Tout d'abord, j'ai considérablement développé mes compétences en programmation, en mettant l'accent sur Python et C++.
-		Grâce à cette expérience, j'ai acquis une meilleure compréhension de ces langages et j'ai gagné en efficacité dans la résolution de problèmes.
+		First, I developed my programming skills considerably, with a focus on Python and C++.
+		Thanks to this experience, I acquired a better understanding of these languages and I became more efficient in problem solving.
 
-		Parallèlement, j'ai eu l'opportunité d'explorer de nouveaux outils qui se sont révélés essentiels pour la réalisation de mon projet.
-		J'ai notamment travaillé avec Gazebo, une plateforme de simulation d'environnements virtuels, ce qui m'a permis de tester et de valider mes algorithmes dans des conditions proches de la réalité.
-		J'ai également utilisé Blender pour créer des modèles 3D. De plus, l'apprentissage de ROS (Robot Operating System) m'a offert une infrastructure logicielle solide pour le développement et le contrôle de robots.
+		At the same time, I had the opportunity to explore new tools that turned out to be essential for the realization of my project.
+		In particular, I worked with Gazebo, a virtual environment simulation platform, which allowed me to test and validate my algorithms in conditions close to reality.
+		I also used Blender to create 3D models. In addition, learning ROS (Robot Operating System) gave me a solid software infrastructure for developing and controlling robots.
 
-		En outre, ma participation à ce projet m'a offert une première immersion dans le monde de la recherche.
-		J'ai eu l'occasion d'explorer la littérature scientifique, de me familiariser avec les travaux antérieurs liés à mon domaine d'étude et de mettre en pratique des méthodologies de recherche.
-		J'ai appris à collecter et à analyser des données, rédiger des rapports techniques, et lire des articles scientifiques.
-		Cette expérience m'a permis de développer ma rigueur scientifique et ma capacité à mener des investigations approfondies.
+		In addition, my participation in this project gave me a first immersion in the world of research.
+		I had the opportunity to explore the scientific literature, familiarize myself with previous work related to my field of study and practice research methodologies.
+		I learned to collect and analyze data, write technical reports, and read scientific articles.
+		This experience allowed me to develop my scientific rigor and my ability to carry out in-depth investigations.
 
-		Enfin, ce projet m'a également permis de renforcer ma gestion du temps et de prioriser efficacement les tâches.
-		J'ai dû établir un planning détaillé pour respecter les échéances et m'assurer que chaque étape du projet était réalisée en temps voulu.
-		J'ai appris à gérer les imprévus et à ajuster mon emploi du temps en conséquence pour maintenir un bon équilibre entre la qualité du travail et le respect des délais.
+		Finally, this project also allowed me to strengthen my time management and prioritize tasks effectively.
+		I had to establish a detailed schedule to meet deadlines and ensure that each stage of the project was completed on time.
+		I learned to manage the unexpected and to adjust my schedule accordingly to maintain a good balance between the quality of work and meeting deadlines.
 
-		Dans l'ensemble, ce projet a été une expérience enrichissante qui m'a permis de développer mes compétences et de progresser dans mon domaine.
-		J'ai acquis une compréhension approfondie de la robotique et de l'inspection multi-robots, renforcé mes compétences techniques et amélioré ma capacité à m'organiser.
-		Je suis reconnaissant d'avoir eu l'opportunité de m'investir dans ce projet et je suis convaincu que les compétences que j'ai acquises me seront utiles dans mes futurs projets professionnels.
+		Overall, this project was an enriching experience that allowed me to develop my skills and progress in my field.
+		I gained a deep understanding of robotics and multi-robot inspection, strengthened my technical skills and improved my ability to organize myself.
+		I am grateful to have had the opportunity to invest myself in this project and I am convinced that the skills I have acquired will be useful to me in my future professional projects.
 
-		En conclusion, ce projet a été une étape essentielle dans mon parcours professionnel.
-		J'ai acquis des compétences techniques avancées, j'ai exploré de nouveaux outils et j'ai pu me familiariser avec les exigences de la recherche.
-		Ces acquis me seront précieux pour mes projets futurs, qu'il s'agisse de poursuivre dans le domaine de la recherche ou dans l'industrie.
+		In conclusion, this project was an essential step in my professional career.
+		I learned advanced technical skills, explored new tools, and was able to familiarize myself with research requirements.
+		These achievements will be invaluable to me for my future projects, whether to continue in the field of research or in industry.
 	\section{Conclusion et perspectives}
-		En conclusion, cette étude a permis de mettre en œuvre et d'évaluer trois stratégies pour la réalisation d'une exploration muli-robots autonome dans des environnements complexes.
-		Les résultats obtenus démontrent l'efficacité de ces approches dans la résolution du problème d'inspection de surfaces métalliques et mettent en évidence leurs caractéristiques respectives.
+		In conclusion, this study made it possible to implement and evaluate three strategies for performing autonomous muli-robot exploration in complex environments.
+		The results obtained demonstrate the effectiveness of these approaches in solving the problem of inspecting metal surfaces and highlight their respective characteristics.
 
-		La première stratégie, la stratégie \textit{peinture au rouleau}, a permis d'obtenir des résultats satisfaisants en des temps d'exploration très courts.
-		La distance entre les robots peut être ajustée pour optimiser les résultats dépendamment de la densité des zones de corrosion inférées.
-		Cette stratégie est particulièrement adaptée à une utilisation préalable à la stratégie \textit{investigation polygonale}, car elle permet de rapidement avoir une vue grossière des zones de corrosion potentielles.
+		The first strategy, the \textit{Roller Painting} strategy, made it possible to obtain satisfactory results in very short exploration times.
+		The distance between the robots can be adjusted to optimize the results depending on the density of the inferred corrosion zones.
+		This strategy is particularly suitable for use prior to the \textit{Polygonal Investigation} strategy, because it allows you to quickly get a rough view of potential corrosion areas.
 
-		La deuxième stratégie, la stratégie \textit{ski nordique}, a permis d'obtenir des résultats supérieurs à ceux de la stratégie \textit{peinture au rouleau}, mais avec des temps d'exploration plus longs.
-		Cette approche est plus robuste que la stratégie de peinture au rouleau, car elle fait varier l'orientation des rayons UGW émis et reçus, permettant ainsi de plus finement approcher les zones de corrosion.
+		The second strategy, the \textit{Nordic Skiing} strategy, provided better results than the \textit{Roller Painting} strategy, but with longer exploration times.
+		This approach is more robust than the roller painting strategy, because it varies the orientation of the emitted and received UGW rays, thus making it possible to approach the corrosion zones more finely.
 
-		Enfin, la troisième stratégie, la stratégie \textit{investigation polygonale}, a permis d'obtenir les meilleurs résultats, en termes de précision.
-		Cette stratégie réactive permet d'affiner la localisation des zones de corrosion en se basant sur les résultats d'une des deux stratégies précédentes.
-		Cependant, cette stratégie est plus sensible aux collisions entre les robots, ce qui peut entraîner des résultats moins satisfaisants dans certains cas.
+		Finally, the third strategy, the \textit{Polygonal Investigation} strategy, yielded the best results, in terms of accuracy.
+		This reactive strategy makes it possible to refine the location of the corrosion zones based on the results of one of the two previous strategies.
+		However, this strategy is more sensitive to collisions between robots, which can lead to less satisfactory results in some cases.
 
-		En termes de perspectives, plusieurs axes de développement peuvent être envisagés.
-		Tout d'abord, il serait intéressant d'approfondir l'exploration polygonale en recherchant des méthodes plus robustes pour la gestion des collisions avec les différents robots.
-		Cela permettrait de rendre cette stratégie plus fiable et utilisable dans un large éventail d'environnements complexes.
-		L'extension de cette étude à des expérimentations avec plusieurs équipes de robots constitue également une piste prometteuse pour accélérer davantage le processus d'exploration et d'investigation.
-		Enfin, le déploiement de cette approche sur un système réel constituerait une étape importante pour valider les résultats obtenus en simulation et démontrer l'efficacité de cette approche dans un contexte industriel.
+		In terms of prospects, several areas of development can be envisaged.
+		First of all, it would be interesting to deepen the polygonal exploration by looking for more robust methods for the management of collisions with the different robots.
+		This would make this strategy more reliable and usable in a wide range of complex environments.
+		The extension of this study to experiments with several teams of robots is also a promising avenue for further accelerating the process of exploration and investigation.
+		Finally, the deployment of this approach on a real system would be an important step to validate the results obtained in simulation and demonstrate the effectiveness of this approach in an industrial context.
 
-		En conclusion, cette étude a permis de mettre en évidence les avantages et les limites de trois stratégies d'exploration autonome. Les résultats obtenus ouvrent la voie à de nombreuses perspectives de développement, notamment en ce qui concerne l'amélioration de l'efficacité et de la robustesse des approches existantes. Ces avancées pourraient avoir un impact significatif dans divers domaines, tels que la robotique de service, l'exploration spatiale ou encore la surveillance environnementale.
+		In conclusion, this study has highlighted the advantages and limitations of three autonomous exploration strategies. The results obtained open the way to many development prospects, particularly with regard to improving the efficiency and robustness of existing approaches. These advances could have a significant impact in various fields, such as service robotics, space exploration or environmental monitoring.
 	\bibliographystyle{unsrt}
 	\bibliography{RapportPFE}
 	\appendix
-	\section{Environnements de test}
+	\section{Test environments}
 		\label{annexe:cartes}
 		\begin{figure}[H]
 			\centering
@@ -1340,7 +1341,7 @@
 				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_4.png}
 				\hfill
 				\includegraphics[width=0.15\linewidth]{graphics/test_model_05_5.png}
-				\caption{Mondes de test avec 5 zones de corrosion.}
+				\caption{Test worlds with 5 corrosion zones.}
 				\label{fig:test_model_05_5}
 			\end{subfigure}
 			\hfill
@@ -1355,7 +1356,7 @@
 				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_4.png}
 				\hfill
 				\includegraphics[width=0.15\linewidth]{graphics/test_model_08_5.png}
-				\caption{Mondes de test avec 8 zones de corrosion.}
+				\caption{Test worlds with 8 corrosion zones.}
 				\label{fig:test_model_08_5}
 			\end{subfigure}
 			\hfill
@@ -1370,7 +1371,7 @@
 				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_4.png}
 				\hfill
 				\includegraphics[width=0.15\linewidth]{graphics/test_model_11_5.png}
-				\caption{Mondes de test avec 11 zones de corrosion.}
+				\caption{Test worlds with 11 corrosion zones.}
 				\label{fig:test_model_11_5}
 			\end{subfigure}
 			\hfill
@@ -1385,57 +1386,57 @@
 				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_4.png}
 				\hfill
 				\includegraphics[width=0.15\linewidth]{graphics/test_model_15_5.png}
-				\caption{Mondes de test avec 15 zones de corrosion.}
+				\caption{Test worlds with 15 corrosion zones.}
 				\label{fig:test_model_15_5}
 			\end{subfigure}
 			\hfill
 			\begin{subfigure}[t]{0.15\linewidth}
 				\centering
 				\includegraphics[width=\linewidth]{graphics/test_model_20_1.png}
-				\caption{Mondes de test avec 20 zones de corrosion.}
+				\caption{Test worlds with 20 corrosion zones.}
 				\label{fig:test_model_20_1}
 			\end{subfigure}
 			\hfill
 			\begin{subfigure}[t]{0.15\linewidth}
 				\centering
 				\includegraphics[width=\linewidth]{graphics/test_model_30_1.png}
-				\caption{Mondes de test avec 30 zones de corrosion.}
+				\caption{Test worlds with 30 corrosion zones.}
 				\label{fig:test_model_30_1}
 			\end{subfigure}
 			\hfill
 			\begin{subfigure}[t]{0.15\linewidth}
 					\includegraphics[width=\linewidth]{graphics/test_model_11_complex_1.png}
-					\caption{Mondes de test avec 11 zones de corrosion complexes.}
+					\caption{Test worlds with 11 complex corrosion areas.}
 					\label{fig:test_model_11_complex_1}
 			\end{subfigure}
 			\hfill
 			\begin{subfigure}[t]{0.15\linewidth}
 				\centering
 				\includegraphics[width=\linewidth]{graphics/test_model_15_complex_1.png}
-				\caption{Mondes de test avec 15 zones de corrosion complexes.}
+				\caption{Test worlds with 15 complex corrosion areas.}
 				\label{fig:test_model_15_complex_1}
 			\end{subfigure}
-			\caption{Différents environnements de test.}
+			\caption{Different test environments.}
 			\label{fig:test_models}
 		\end{figure}
-	\section{Comparaison des différentes stratégies de navigation}
+	\section{Comparison of different navigation strategies}
 		\label{annexe:comparaison}
 		\begin{figure}[H]
 			\begin{subfigure}[t]{0.9\linewidth}
 				\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_d_vs_investigation_polygonale-kappa_for_each_d.png}
-				\caption{$\kappa$ en fonction de la densité du monde}
+				\caption{$\kappa$ according to the density of the world.}
 				\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-kappa_for_each_d_vs_investigation_polygonale-kappa_for_each_d}
 			\end{subfigure}
 			\hfill
 			\begin{subfigure}[t]{0.9\linewidth}
-					\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_d_vs_investigation_polygonale-time_for_each_d.png}
-					\caption{Temps d'exécution en fonction de la densité du monde}
-					\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_d_vs_investigation_polygonale-time_for_each_d}
+				\includegraphics[width=\linewidth]{graphics/investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_d_vs_investigation_polygonale-time_for_each_d.png}
+				\caption{Runtime based on world density.}
+				\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique-time_for_each_d_vs_investigation_polygonale-time_for_each_d}
 			\end{subfigure}
-			\caption{Évolution du $\kappa$ de Cohen et du temps d'exécution des différents algorithmes en fonction de la densité du monde pour différentes distances entre les crawlers.}
+			\caption{Evolution of Cohen's $\kappa$ and the execution time of the different algorithms according to the density of the world for different distances between the crawlers.}
 			\label{fig:investigation_polygonale-peinture_au_rouleau_ski_nordique_for_each_d}
 		\end{figure}
-	\section{Résultat d'investigation}
+	\section{Investigation results}
 		\label{annexe:resultat}
 		\begin{figure}[H]
 			\centering
@@ -1582,7 +1583,7 @@
 				\end{subfigure}
 				\caption{$d = 6$ m}
 			\end{subfigure}
-			\caption{Superposition des cartes d'investigation avec la cartographie des zones de corrosion obtenue pour les différents mondes de test, pour la méthode \textit{peinture au rouleau}.}
+			\caption{Overlay of the investigation maps with the mapping of the corrosion zones obtained for the different test worlds, for the \textit{Roller Painting} method.}
 			\label{fig:peinture_au_rouleau_resultats}
 		\end{figure}
 
@@ -1731,7 +1732,7 @@
 				\end{subfigure}
 				\caption{$d = 6$ m, $s = 3$ m}
 			\end{subfigure}
-			\caption{Superposition des cartes d'investigation avec la cartographie des zones de corrosion obtenue pour les différents mondes de test, pour la méthode \textit{ski nordique} - 1.}
+			\caption{Overlay of the investigation maps with the mapping of the corrosion zones obtained for the different test worlds, for the \textit{Nordic Skiing} method - 1.}
 			\label{fig:ski_nordique_resultats}
 		\end{figure}
 
@@ -1880,7 +1881,7 @@
 				\end{subfigure}
 				\caption{$d = 6$ m, $s = 3$ m}
 			\end{subfigure}
-			\caption{Superposition des cartes d'investigation avec la cartographie des zones de corrosion obtenue pour les différents mondes de test, pour la méthode \textit{ski nordique} - 2.}
+			\caption{Overlay of the investigation maps with the mapping of the corrosion zones obtained for the different test worlds, for the \textit{Nordic Skiing} method - 2.}
 			\label{fig:ski_nordique_resultats_2}
 		\end{figure}
 
@@ -1949,7 +1950,7 @@
 				\end{subfigure}
 				\caption{$k = 1$, $n = 2$, $p = 4$, $d = 6$ m}
 			\end{subfigure}
-			\caption{Superposition des cartes d'investigation avec la cartographie des zones de corrosion obtenue pour les différents mondes de test, pour la méthode \textit{investigation polygonale} - 1.}
+			\caption{Overlay of the investigation maps with the map of the corrosion zones obtained for the different test worlds, for the \textit{Polygonal Investigation} method - 1.}
 			\label{fig:investigation_polygonale_resultats}
 		\end{figure}
 
@@ -1986,7 +1987,7 @@
 				\end{subfigure}
 				\caption{$k = 1$, $n = 2$, $p = 6$, $d = 6$ m}
 			\end{subfigure}
-			\caption{Superposition des cartes d'investigation avec la cartographie des zones de corrosion obtenue pour les différents mondes de test, pour la méthode \textit{investigation polygonale} - 2.}
+			\caption{Overlay of the investigation maps with the mapping of the corrosion zones obtained for the different test worlds, for the \textit{Polygonal Investigation} method - 2.}
 			\label{fig:investigation_polygonale_resultats_2}
 		\end{figure}
 \end{document}

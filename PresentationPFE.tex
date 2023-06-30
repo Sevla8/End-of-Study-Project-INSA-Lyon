@@ -88,9 +88,11 @@
 \author[Brandon Alves]{
 	Projet de fin d'étude de : \\
 	\textbf{Brandon Alves} \\
-	\vspace*{.25cm}
+	\vspace*{.15cm}
 	\footnotesize Supervisé par : \\
-	\textbf{Cédric Pradalier (GT Europe, CNRS), Olivier Simonin (INSA Lyon, CITI)}
+	\textbf{Cédric Pradalier (GT Europe, CNRS), Olivier Simonin (INSA Lyon, CITI)} \\
+	\vspace*{.15cm}
+	\footnotesize Réalisé du \textbf{9 janvier 2023} au \textbf{30 juin 2023}
 }
 \institute[INSA Lyon, CITI]{INSA Lyon, Laboratoire CITI, équipe CHROMA (INSA \& INRIA)}
 \titlegraphic{
@@ -113,6 +115,10 @@
 			\begin{frame}
 				\frametitle{Introduction}
 				\framesubtitle{Contexte}
+				\vspace{-15pt}
+				\begin{flushright}
+					\textit{3 min pour convaincre}
+				\end{flushright}
 				\begin{itemize}
 					\item CITI, équipe CHROMA
 					\item GeorgiaTech Europe, thèse de master
@@ -124,6 +130,10 @@
 			\begin{frame}
 				\frametitle{Introduction}
 				\framesubtitle{Définition du problème}
+				\vspace{-15pt}
+				\begin{flushright}
+					\textit{3 min pour convaincre}
+				\end{flushright}
 				\begin{itemize}
 					\item Inspection de structures métalliques
 					\item Tomographie de la zone à inspecter
@@ -138,6 +148,10 @@
 			\begin{frame}
 				\frametitle{Introduction}
 				\framesubtitle{Aperçu des contributions}
+				\vspace{-15pt}
+				\begin{flushright}
+					\textit{3 min pour convaincre}
+				\end{flushright}
 				\begin{itemize}
 					\item Développement de stratégies de navigation multi-robots pour l'inspection acoustique de structures métalliques
 					\item Optimisation de l'acquisition de données pour la réalisation de la tomographie
@@ -273,12 +287,12 @@
 				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
 				Implémentation
 				\begin{itemize}
-					\item Langage de programmation \textit{Python}, \textit{C++},
-					\item Bibliothèques \textit{ROS}, \textit{OpenCV},
-					\item Outil de simulation \textit{Gazebo},
-					\item Outil de visualisation \textit{Rviz},
-					\item Framework \textit{ROS Task Manager},
-					\item Plugin UWB de l'équipe CHROMA.
+					\item Langage de programmation \textit{Python}, \textit{C++}
+					\item Bibliothèques \textit{ROS}, \textit{OpenCV}
+					\item Outil de simulation \textit{Gazebo}
+					\item Outil de visualisation \textit{Rviz}
+					\item Framework \textit{ROS Task Manager}
+					\item Plugin UWB de l'équipe CHROMA
 				\end{itemize}
 			\end{frame}
 			\begin{frame}
@@ -286,13 +300,13 @@
 				\framesubtitle{Stratégie de navigation \textit{peinture au rouleau}}
 				\begin{exampleblock}{Avantages}
 					\begin{itemize}
-						\item Rapide.
+						\item Rapide
 					\end{itemize}
 				\end{exampleblock}
 				\begin{alertblock}{Inconvénients}
 					\begin{itemize}
-						\item Approximation des enveloppes peu précises,
-						\item Zones fantômes.
+						\item Approximation des enveloppes peu précises
+						\item Zones fantômes
 					\end{itemize}
 				\end{alertblock}
 			\end{frame}
@@ -304,11 +318,11 @@
 				\tiny
 				\begin{block}{Description}
 				\begin{itemize}\compresslist
-						\item Nombre de robots $n \ge 2$, séparés par une distance $d < d_{max}$,
-						\item Chaque robot se déplace en ligne droite,
-						\item Les robots suivent une trajectoire parallèle,
-						\item Les robots se déplacent de manière \textbf{alternée},
-						\item Les robots se synchronisent régulièrement.
+						\item Nombre de robots $n \ge 2$, séparés par une distance $d < d_{max}$
+						\item Chaque robot se déplace en ligne droite
+						\item Les robots suivent une trajectoire parallèle
+						\item Les robots se déplacent de manière \textbf{alternée}
+						\item Les robots se synchronisent régulièrement
 					\end{itemize}
 				\end{block}
 				\vspace{-5pt}
@@ -345,13 +359,13 @@
 				\framesubtitle{Stratégie de navigation \textit{ski nordique}}
 				\begin{exampleblock}{Avantages (comparés à \textit{peinture au rouleau})}
 					\begin{itemize}
-						\item Approximation des enveloppes plus précises,
+						\item Approximation des enveloppes plus précises
 					\end{itemize}
 				\end{exampleblock}
 				\begin{alertblock}{Inconvénients comparés à peinture au rouleau}
 					\begin{itemize}
-						\item Plus lent,
-						\item Zones fantômes.
+						\item Plus lent
+						\item Zones fantômes
 					\end{itemize}
 				\end{alertblock}
 			\end{frame}
@@ -363,11 +377,11 @@
 				\tiny
 				\begin{block}{Description}\compresslist
 					\begin{itemize}
-						\item Utilise la cartographie résultante d'une des deux stratégies précédentes,
-						\item $k \ge 1$ équipes de $n \ge 2$ robots,
-						\item Les robots d'une même équipe se placent sur des sommets consécutifs d'un polygone convexe $P$ à $p$ sommets,
-						\item Les robots se déplacent, les uns après les autres, en suivant le chemin défini par le périmètre du polygone $P$.
-						\item L'algorithme se termine lorsque les sommets initialement occupés par les robots sont à nouveau occupés.
+						\item Utilise la cartographie résultante d'une des deux stratégies précédentes
+						\item $k \ge 1$ équipes de $n \ge 2$ robots
+						\item Les robots d'une même équipe se placent sur des sommets consécutifs d'un polygone convexe $P$ à $p$ sommets
+						\item Les robots se déplacent, les uns après les autres, en suivant le chemin défini par le périmètre du polygone $P$
+						\item L'algorithme se termine lorsque les sommets initialement occupés par les robots sont à nouveau occupés
 					\end{itemize}
 				\end{block}
 				\vspace{-5pt}
@@ -408,13 +422,13 @@
 				\frametitle{Propositions scientifiques et techniques}
 				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
 				\begin{enumerate}
-					\item Extraction des zones de corrosion,
-					\item Détermination de l'ordre d'investigation des zones de corrosion.
+					\item Extraction des zones de corrosion
+					\item Détermination de l'ordre d'investigation des zones de corrosion
 				\end{enumerate}
 				\begin{block}{Extraction des zones de corrosion}
 					\begin{itemize}
-						\item Conversion de la grille d'occupation en graphe,
-						\item Algorithme d'extraction de composantes fortement connexes,
+						\item Conversion de la grille d'occupation en graphe
+						\item Algorithme d'extraction de composantes fortement connexes
 					\end{itemize}
 				\end{block}
 				\begin{block}{Détermination de l'ordre d'investigation des zones de corrosion}
@@ -429,9 +443,9 @@
 				\framesubtitle{Stratégie de navigation \textit{investigation polygonale}}
 				Implémentation
 				\begin{itemize}
-					\item Bibliothèque \textit{OpenCV} pour l'extraction des zones de corrosion,
-					\item Bibliothèque \textit{Gurobi} pour le TSP,
-					\item MDMTSPV\_GA - Multiple Depot Multiple Traveling Salesmen Problem solved by Genetic Algorithm, Elad Kivelevitch, pour le mTSP.
+					\item Bibliothèque \textit{OpenCV} pour l'extraction des zones de corrosion
+					\item Bibliothèque \textit{Gurobi} pour le TSP
+					\item MDMTSPV\_GA - Multiple Depot Multiple Traveling Salesmen Problem solved by Genetic Algorithm, Elad Kivelevitch, pour le mTSP
 				\end{itemize}
 			\end{frame}
 			\begin{frame}
@@ -440,12 +454,12 @@
 				\begin{exampleblock}{Avantages}
 					\begin{itemize}
 						\item Approximation des enveloppes précise (proportionnellement au nombre de sommets du polygone)
-						\item Permet de rapidement éliminer les zones fantômes.
+						\item Permet de rapidement éliminer les zones fantômes
 					\end{itemize}
 				\end{exampleblock}
 				\begin{alertblock}{Inconvénients}
 					\begin{itemize}
-						\item Lent (proportionnellement au nombre de sommets du polygone, inversement proportionnel au nombre de robots, proportionnellement au nombre de zones de corrosion),
+						\item Lent (proportionnellement au nombre de sommets du polygone, inversement proportionnel au nombre de robots, proportionnellement au nombre de zones de corrosion)
 					\end{itemize}
 				\end{alertblock}
 			\end{frame}
@@ -464,9 +478,9 @@
 				\vspace{-5pt}
 				avec :
 				\begin{itemize}
-					\item $p_o$ : précision observée,
-					\item $p_e$ : précision aléatoire,
-					\item $\kappa$ : mesure une classification binaire, en la comparant à une classification aléatoire.
+					\item $p_o$ : précision observée
+					\item $p_e$ : précision aléatoire
+					\item $\kappa$ : mesure une classification binaire, en la comparant à une classification aléatoire
 				\end{itemize}
 				\vspace{-15pt}
 				\begin{table}
@@ -583,11 +597,11 @@
 		\begin{frame}
 			\frametitle{Bilan personnel}
 			\begin{itemize}
-				\item Domaine de la recherche,
-				\item Recherches bibliographiques,
-				\item Robotique,
-				\item Nouveaux outils techniques,
-				\item Rédaction du rapport PFE.
+				\item Domaine de la recherche
+				\item Recherches bibliographiques
+				\item Robotique
+				\item Nouveaux outils techniques
+				\item Rédaction du rapport PFE
 			\end{itemize}
 		\end{frame}
 	\section{Conclusion et perspectives}
@@ -595,7 +609,7 @@
 			\frametitle{Conclusion et perspectives}
 			\framesubtitle{Conclusion}
 			\begin{itemize}
-				\item Développement et évaluation de 3 stratégies de navigation pour la tomographie,
+				\item Développement et évaluation de 3 stratégies de navigation pour la tomographie
 				\item État de l'art pauvre dans ce domaine
 				\item Mise en place d'un environnement de simulation
 				\item Mise en place d'un protocole d'évaluation avec métriques d'évaluation et scénarios de test
@@ -610,5 +624,11 @@
 				\item Simulation avec $k > 1$ équipes et $n > 2$ robots
 				\item Déploiement sur des systèmes réels
 			\end{itemize}
+		\end{frame}
+		\begin{frame}
+			\huge
+			\begin{center}
+				MERCI
+			\end{center}
 		\end{frame}
 \end{document}

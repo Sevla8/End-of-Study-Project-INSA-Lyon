@@ -181,6 +181,17 @@
   \cleardoublepage%
   }
 
+% Acknowledgements
+\newcommand{\acknowledgementsname}{Acknowledgements}
+%\newcommand{\acknowledgementsname}{}
+\newenvironment{acknowledgements}{%
+  \thispagestyle{empty}%
+  \section*{\acknowledgementsname}}
+  {\vfill%
+  \cleardoublepage%
+  }
+
+
 
 
 \newcommand\ResumesMotsCles{%
